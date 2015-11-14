@@ -1,0 +1,17 @@
+.archive-title { color: color(sub); font-weight: normal; font-size: 2.5rem; }
+
+.search input { box-sizing: border-box; padding: 1rem 1rem; width: 100%; border: 1px solid color(border); color: color(sub); font-size: 1.6rem; }
+
+.search input:focus { border-color: color(main); }
+
+.widget { margin-bottom: 30px; }
+
+.widget ul.entry { overflow: hidden; margin: 0; padding: 0; list-style: none; font-size: 14px; line-height: 2; }
+
+.widget ul.entry li { float: left; margin-right: 30px; }
+
+.widget.tag small { margin-left: 2px; color: color(sub); }
+
+.widget.tag small::before { padding-right: 2px; content: '('; }
+
+.widget.tag small::after { padding-left: 2px; content: ')'; }
