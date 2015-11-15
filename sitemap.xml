@@ -2,67 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://playr.jp/2015/11/15/nodeuse/</loc>
-    <lastmod>2015-11-15T14:31:29.680Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://playr.jp/2013/04/05/Fontello%E3%82%92%E5%B0%8E%E5%85%A5/</loc>
+    <loc>http://log.playr.jp/2013/04/05/Fontello%E3%82%92%E5%B0%8E%E5%85%A5/</loc>
     <lastmod>2015-11-15T05:53:09.054Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/01/15/iojs%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</loc>
+    <loc>http://log.playr.jp/2015/01/15/iojs%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</loc>
     <lastmod>2015-11-14T15:49:27.696Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/01/03/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92HEXO%E3%81%B8%E5%BC%95%E8%B6%8A%E3%81%97/</loc>
+    <loc>http://log.playr.jp/2015/01/03/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92HEXO%E3%81%B8%E5%BC%95%E8%B6%8A%E3%81%97/</loc>
     <lastmod>2015-11-14T15:49:17.720Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2013/03/07/CMS%E3%82%92%E5%B0%8E%E5%85%A5/</loc>
+    <loc>http://log.playr.jp/2013/03/07/CMS%E3%82%92%E5%B0%8E%E5%85%A5/</loc>
     <lastmod>2015-11-14T15:48:51.407Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2013/04/07/CloudFlare%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</loc>
+    <loc>http://log.playr.jp/2013/04/07/CloudFlare%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</loc>
     <lastmod>2015-11-13T18:48:07.526Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/04/12/npm%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%AB%E4%BD%BF%E3%81%86%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</loc>
+    <loc>http://log.playr.jp/2015/04/12/npm%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%AB%E4%BD%BF%E3%81%86%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</loc>
     <lastmod>2015-10-03T07:52:46.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/05/17/node-redis%E5%85%A5%E9%96%80/</loc>
+    <loc>http://log.playr.jp/2015/05/17/node-redis%E5%85%A5%E9%96%80/</loc>
     <lastmod>2015-10-03T07:52:34.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/05/17/http-proxy%E3%81%A7Node-js%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E7%AE%A1%E7%90%86/</loc>
+    <loc>http://log.playr.jp/2015/05/17/http-proxy%E3%81%A7Node-js%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2015-10-03T07:52:22.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/05/16/Redis%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89-Windows7/</loc>
+    <loc>http://log.playr.jp/2015/05/16/Redis%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89-Windows7/</loc>
     <lastmod>2015-10-03T07:52:16.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/06/11/npm-check-updates/</loc>
+    <loc>http://log.playr.jp/2015/06/11/npm-check-updates/</loc>
     <lastmod>2015-10-03T07:51:52.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/05/25/gulp-imagemin/</loc>
+    <loc>http://log.playr.jp/2015/05/25/gulp-imagemin/</loc>
     <lastmod>2015-10-03T07:35:32.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://playr.jp/2015/05/21/Style-Guide-Boilerplate/</loc>
+    <loc>http://log.playr.jp/2015/05/21/Style-Guide-Boilerplate/</loc>
     <lastmod>2015-10-03T07:27:02.000Z</lastmod>
   </url>
   

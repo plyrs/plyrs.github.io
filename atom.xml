@@ -3,9 +3,9 @@
   <title><![CDATA[Playlog]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://playr.jp/"/>
-  <updated>2015-11-15T14:31:29.680Z</updated>
-  <id>http://playr.jp/</id>
+  <link href="http://log.playr.jp/"/>
+  <updated>2015-10-03T07:51:52.000Z</updated>
+  <id>http://log.playr.jp/</id>
   
   <author>
     <name><![CDATA[Hirofumi]]></name>
@@ -15,24 +15,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[nodeuse]]></title>
-    <link href="http://playr.jp/2015/11/15/nodeuse/"/>
-    <id>http://playr.jp/2015/11/15/nodeuse/</id>
-    <published>2015-11-15T05:38:21.000Z</published>
-    <updated>2015-11-15T14:31:29.680Z</updated>
-    <content type="html"><![CDATA[<p><amp-img src="/2015/11/15/nodeuse/1.png" width="400" height="229"></amp-img></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><amp-img src="/2015/11/15/nodeuse/1.png" width="400" height="229"></amp-img></p>
-]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[npm-check-updates]]></title>
-    <link href="http://playr.jp/2015/06/11/npm-check-updates/"/>
-    <id>http://playr.jp/2015/06/11/npm-check-updates/</id>
+    <link href="http://log.playr.jp/2015/06/11/npm-check-updates/"/>
+    <id>http://log.playr.jp/2015/06/11/npm-check-updates/</id>
     <published>2015-06-11T11:36:08.000Z</published>
     <updated>2015-10-03T07:51:52.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" >npm-check-updates</a>が便利という発見。</p>
@@ -50,14 +35,14 @@
 <p>モジュールのリリース情報を確認して、必要ならば更新と]]>
     </summary>
     
-      <category term="npm" scheme="http://playr.jp/tags/npm/"/>
+      <category term="npm" scheme="http://log.playr.jp/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[gulp-imagemin]]></title>
-    <link href="http://playr.jp/2015/05/25/gulp-imagemin/"/>
-    <id>http://playr.jp/2015/05/25/gulp-imagemin/</id>
+    <link href="http://log.playr.jp/2015/05/25/gulp-imagemin/"/>
+    <id>http://log.playr.jp/2015/05/25/gulp-imagemin/</id>
     <published>2015-05-25T11:28:08.000Z</published>
     <updated>2015-10-03T07:35:32.000Z</updated>
     <content type="html"><![CDATA[<p>gulp-imageminで画像の最適化を突き詰める。</p>
@@ -90,8 +75,8 @@
   
   <entry>
     <title><![CDATA[Style Guide Boilerplate]]></title>
-    <link href="http://playr.jp/2015/05/21/Style-Guide-Boilerplate/"/>
-    <id>http://playr.jp/2015/05/21/Style-Guide-Boilerplate/</id>
+    <link href="http://log.playr.jp/2015/05/21/Style-Guide-Boilerplate/"/>
+    <id>http://log.playr.jp/2015/05/21/Style-Guide-Boilerplate/</id>
     <published>2015-05-21T11:24:23.000Z</published>
     <updated>2015-10-03T07:27:02.000Z</updated>
     <content type="html"><![CDATA[<p>Style Guide Boilerplateがいい感じ。</p>
@@ -110,8 +95,8 @@
   
   <entry>
     <title><![CDATA[node-redis入門]]></title>
-    <link href="http://playr.jp/2015/05/17/node-redis%E5%85%A5%E9%96%80/"/>
-    <id>http://playr.jp/2015/05/17/node-redis入門/</id>
+    <link href="http://log.playr.jp/2015/05/17/node-redis%E5%85%A5%E9%96%80/"/>
+    <id>http://log.playr.jp/2015/05/17/node-redis入門/</id>
     <published>2015-05-17T11:07:18.000Z</published>
     <updated>2015-10-03T07:52:34.000Z</updated>
     <content type="html"><![CDATA[<p>Redisの修行を進めている。<br>Nodeアプリ内で使う分には下記を参考に学習を進めていけばいい様子。</p>
@@ -134,18 +119,18 @@
 ]]>
     </summary>
     
-      <category term="Koa" scheme="http://playr.jp/tags/Koa/"/>
+      <category term="Koa" scheme="http://log.playr.jp/tags/Koa/"/>
     
-      <category term="Node.js" scheme="http://playr.jp/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
     
-      <category term="Redis" scheme="http://playr.jp/tags/Redis/"/>
+      <category term="Redis" scheme="http://log.playr.jp/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[http-proxyでNode.jsの複数アプリを管理]]></title>
-    <link href="http://playr.jp/2015/05/17/http-proxy%E3%81%A7Node-js%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E7%AE%A1%E7%90%86/"/>
-    <id>http://playr.jp/2015/05/17/http-proxyでNode-jsの複数アプリを管理/</id>
+    <link href="http://log.playr.jp/2015/05/17/http-proxy%E3%81%A7Node-js%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E7%AE%A1%E7%90%86/"/>
+    <id>http://log.playr.jp/2015/05/17/http-proxyでNode-jsの複数アプリを管理/</id>
     <published>2015-05-17T11:00:15.000Z</published>
     <updated>2015-10-03T07:52:22.000Z</updated>
     <content type="html"><![CDATA[<p>一つのドメインで複数のnodeアプリを起動させたい。</p>
@@ -168,14 +153,14 @@
 <p><a href="https://github.com/nodejitsu/node-http-proxy" target]]>
     </summary>
     
-      <category term="Node.js" scheme="http://playr.jp/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Redis環境を構築(Windows7)]]></title>
-    <link href="http://playr.jp/2015/05/16/Redis%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89-Windows7/"/>
-    <id>http://playr.jp/2015/05/16/Redis環境を構築-Windows7/</id>
+    <link href="http://log.playr.jp/2015/05/16/Redis%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89-Windows7/"/>
+    <id>http://log.playr.jp/2015/05/16/Redis環境を構築-Windows7/</id>
     <published>2015-05-16T11:58:17.000Z</published>
     <updated>2015-10-03T07:52:16.000Z</updated>
     <content type="html"><![CDATA[<p>PCへRedisをインストールした。</p>
@@ -198,14 +183,14 @@
 ]]>
     </summary>
     
-      <category term="Redis" scheme="http://playr.jp/tags/Redis/"/>
+      <category term="Redis" scheme="http://log.playr.jp/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[npmのたまに使うコマンド]]></title>
-    <link href="http://playr.jp/2015/04/12/npm%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%AB%E4%BD%BF%E3%81%86%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/"/>
-    <id>http://playr.jp/2015/04/12/npmのたまに使うコマンド/</id>
+    <link href="http://log.playr.jp/2015/04/12/npm%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%AB%E4%BD%BF%E3%81%86%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/"/>
+    <id>http://log.playr.jp/2015/04/12/npmのたまに使うコマンド/</id>
     <published>2015-04-12T11:09:16.000Z</published>
     <updated>2015-10-03T07:52:46.000Z</updated>
     <content type="html"><![CDATA[<p>よく使うコマンドは覚えてるんだけど、たまに使うコマンドは忘れちゃって毎回ググってる気がするのでメモ。</p>
@@ -225,16 +210,16 @@
 <figure class="highlight coffeescript"><table><tr><td class="gutter]]>
     </summary>
     
-      <category term="Node.js" scheme="http://playr.jp/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
     
-      <category term="npm" scheme="http://playr.jp/tags/npm/"/>
+      <category term="npm" scheme="http://log.playr.jp/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[iojsをインストールしてみた]]></title>
-    <link href="http://playr.jp/2015/01/15/iojs%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/"/>
-    <id>http://playr.jp/2015/01/15/iojsをインストールしてみた/</id>
+    <link href="http://log.playr.jp/2015/01/15/iojs%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/"/>
+    <id>http://log.playr.jp/2015/01/15/iojsをインストールしてみた/</id>
     <published>2015-01-15T14:09:16.000Z</published>
     <updated>2015-11-14T15:49:27.696Z</updated>
     <content type="html"><![CDATA[<p><amp-img src="/2015/01/15/iojsをインストールしてみた/1.png" width="400" height="229"></amp-img></p>
@@ -260,16 +245,16 @@
 <p>]]>
     </summary>
     
-      <category term="Node.js" scheme="http://playr.jp/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
     
-      <category term="io.js" scheme="http://playr.jp/tags/io-js/"/>
+      <category term="io.js" scheme="http://log.playr.jp/tags/io-js/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[ブログをHEXOへ引越し]]></title>
-    <link href="http://playr.jp/2015/01/03/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92HEXO%E3%81%B8%E5%BC%95%E8%B6%8A%E3%81%97/"/>
-    <id>http://playr.jp/2015/01/03/ブログをHEXOへ引越し/</id>
+    <link href="http://log.playr.jp/2015/01/03/%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92HEXO%E3%81%B8%E5%BC%95%E8%B6%8A%E3%81%97/"/>
+    <id>http://log.playr.jp/2015/01/03/ブログをHEXOへ引越し/</id>
     <published>2015-01-03T13:33:56.000Z</published>
     <updated>2015-11-14T15:49:17.720Z</updated>
     <content type="html"><![CDATA[<p>新年だしでブログを<a href="http://hexo.io/" target="_blank" >HEXO</a>へ引越ししました。  </p>
@@ -337,14 +322,14 @@
 <h2 id="HEXO">HEXO</h2><]]>
     </summary>
     
-      <category term="hexo" scheme="http://playr.jp/tags/hexo/"/>
+      <category term="hexo" scheme="http://log.playr.jp/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[CloudFlare導入してみる]]></title>
-    <link href="http://playr.jp/2013/04/07/CloudFlare%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/"/>
-    <id>http://playr.jp/2013/04/07/CloudFlare導入してみる/</id>
+    <link href="http://log.playr.jp/2013/04/07/CloudFlare%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/"/>
+    <id>http://log.playr.jp/2013/04/07/CloudFlare導入してみる/</id>
     <published>2013-04-07T08:50:55.000Z</published>
     <updated>2015-11-13T18:48:07.526Z</updated>
     <content type="html"><![CDATA[<p>サイトに<a href="https://www.cloudflare.com/" target="_blank" >CloudFlare</a>導入してみたが、コレどうなんさろう…。<br>メインビジュアルが結構デカイから恩恵があるのかとおもってたけど、よくわかんないッス。  </p>
@@ -358,8 +343,8 @@
   
   <entry>
     <title><![CDATA[Fontelloを導入]]></title>
-    <link href="http://playr.jp/2013/04/05/Fontello%E3%82%92%E5%B0%8E%E5%85%A5/"/>
-    <id>http://playr.jp/2013/04/05/Fontelloを導入/</id>
+    <link href="http://log.playr.jp/2013/04/05/Fontello%E3%82%92%E5%B0%8E%E5%85%A5/"/>
+    <id>http://log.playr.jp/2013/04/05/Fontelloを導入/</id>
     <published>2013-04-05T08:42:38.000Z</published>
     <updated>2015-11-15T05:53:09.054Z</updated>
     <content type="html"><![CDATA[<p><a href="http://nautilus-jp.com/" target="_blank" >NAUTILUSサイト</a>の外部リンクをアイコンで分かりやすくしたいなーと思い、今日改造に着手。<br>どうせならアイコンフォントで導入しよー、ということで調査した結果、下記の手法で改造を開始。<br>今回は<a href="http://fontello.com/" target="_blank" >fontello</a>を使用。<br>普通のフォントアイコンをつかうと無駄にサイズが大きくなるので、こーゆーピンポイントでチョイスできるサービスは大変便利。  </p>
@@ -378,8 +363,8 @@
   
   <entry>
     <title><![CDATA[SOY CMSを導入]]></title>
-    <link href="http://playr.jp/2013/03/07/CMS%E3%82%92%E5%B0%8E%E5%85%A5/"/>
-    <id>http://playr.jp/2013/03/07/CMSを導入/</id>
+    <link href="http://log.playr.jp/2013/03/07/CMS%E3%82%92%E5%B0%8E%E5%85%A5/"/>
+    <id>http://log.playr.jp/2013/03/07/CMSを導入/</id>
     <published>2013-03-07T08:35:38.000Z</published>
     <updated>2015-11-14T15:48:51.407Z</updated>
     <content type="html"><![CDATA[<p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" >AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いたかったが…。  </p>
@@ -390,7 +375,7 @@
     <![CDATA[<p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" >AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いた]]>
     </summary>
     
-      <category term="SOYCMS" scheme="http://playr.jp/tags/SOYCMS/"/>
+      <category term="SOYCMS" scheme="http://log.playr.jp/tags/SOYCMS/"/>
     
   </entry>
   
