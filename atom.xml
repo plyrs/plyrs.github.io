@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://log.playr.jp/"/>
-  <updated>2015-10-03T07:51:52.000Z</updated>
+  <updated>2015-11-16T04:03:01.574Z</updated>
   <id>http://log.playr.jp/</id>
   
   <author>
@@ -13,6 +13,146 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[フォントコンバーター]]></title>
+    <link href="http://log.playr.jp/2015/09/02/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%90%E3%83%BC%E3%82%BF%E3%83%BC/"/>
+    <id>http://log.playr.jp/2015/09/02/フォントコンバーター/</id>
+    <published>2015-09-02T09:45:30.000Z</published>
+    <updated>2015-11-16T04:03:01.574Z</updated>
+    <content type="html"><![CDATA[<p>サイトへWebフォントを導入する際の手順。</p>
+<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" >Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" >woff to woff2 converter</a>で行える。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'webfont'</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot'</span>)</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="function">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>IE8以下の対応はもういいかなとも思う。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>サイトへWebフォントを導入する際の手順。</p>
+<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" >Font Converter</a>で、Woff2へは<a href="]]>
+    </summary>
+    
+      <category term="css" scheme="http://log.playr.jp/tags/css/"/>
+    
+      <category term="webfont" scheme="http://log.playr.jp/tags/webfont/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Firefox 64bit]]></title>
+    <link href="http://log.playr.jp/2015/08/17/Firefox-64bit/"/>
+    <id>http://log.playr.jp/2015/08/17/Firefox-64bit/</id>
+    <published>2015-08-17T11:36:38.000Z</published>
+    <updated>2015-11-16T03:44:02.156Z</updated>
+    <content type="html"><![CDATA[<p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+<ul>
+<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" >Firefox Beta</a></li>
+<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" >Firefox Developer Edition</a></li>
+</ul>
+<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
+<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+<ul>
+<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blan]]>
+    </summary>
+    
+      <category term="Firefox" scheme="http://log.playr.jp/tags/Firefox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Source Han Code JP]]></title>
+    <link href="http://log.playr.jp/2015/08/12/Source-Han-Code-JP/"/>
+    <id>http://log.playr.jp/2015/08/12/Source-Han-Code-JP/</id>
+    <published>2015-08-12T08:26:21.000Z</published>
+    <updated>2015-11-16T03:36:14.741Z</updated>
+    <content type="html"><![CDATA[<p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
+<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" >adobe-fonts/source-han-code-jp</a>  </p>
+<p><a href="http://blog.quusookagaku.com/19595" target="_blank" >この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
+<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
+<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
+<p><a href="https://github.com/adobe-fonts/source-han-code-jp" tar]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Windows10へVagrantを導入]]></title>
+    <link href="http://log.playr.jp/2015/08/10/Windows10%E3%81%B8Vagrant%E3%82%92%E5%B0%8E%E5%85%A5/"/>
+    <id>http://log.playr.jp/2015/08/10/Windows10へVagrantを導入/</id>
+    <published>2015-08-10T11:03:31.000Z</published>
+    <updated>2015-11-16T03:25:01.502Z</updated>
+    <content type="html"><![CDATA[<p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
+<h2 id="事前作業">事前作業</h2><h3 id="Virtualization_Technologyを有効にする">Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
+<h3 id="Vagrant、VirtualBoxをインストール">Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
+<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" >http://www.vagrantup.com/</a>  </p>
+<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" >https://www.virtualbox.org/</a>  </p>
+<h3 id="BOXを取得">BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
+<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" >http://www.vagrantbox.es/</a>  </p>
+<h3 id="CentOS_6-6_64bit_を追加">CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.<span class="number">6</span> http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-<span class="number">6.6</span>-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
+<h3 id="追加したBoxを確認">追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
+<h2 id="Vagrant_初期化">Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンの操作">仮想マシンの操作</h2><h3 id="起動">起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+<h3 id="状態確認">状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
+<h3 id="終了">終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
+<h3 id="再起動">再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
+<h3 id="破棄">破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンへ接続">仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
+<h3 id="git_インストール">git インストール</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure>
+<h3 id="Node-js_インストール">Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install <span class="number">0.12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
+<h3 id="ファイアーウォールを停止">ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
+<h3 id="雑感">雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレー]]>
+    </summary>
+    
+      <category term="Vagrant" scheme="http://log.playr.jp/tags/Vagrant/"/>
+    
+      <category term="Windows" scheme="http://log.playr.jp/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[CSS wii-change]]></title>
+    <link href="http://log.playr.jp/2015/08/05/wii-change%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3/"/>
+    <id>http://log.playr.jp/2015/08/05/wii-changeプロパティ/</id>
+    <published>2015-08-05T11:37:01.000Z</published>
+    <updated>2015-11-16T03:00:29.734Z</updated>
+    <content type="html"><![CDATA[<p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
+<ul>
+<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" >CSS will-changeプロパティについて知っておくべきこと</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">will-change</span>: <span class="tag">transform</span>;</span><br></pre></td></tr></table></figure>
+<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
+<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
+<ul>
+<li><a href="http://caniuse.com/#feat=will-change" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
+<p>その他参考記事</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" >will-change - CSS | MDN</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" >will-change | CSS-Tricks</a></li>
+<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" >CSS Will Change Module Level 1 日本語訳</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
+<ul>
+<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank]]>
+    </summary>
+    
+      <category term="css" scheme="http://log.playr.jp/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[npm-check-updates]]></title>
