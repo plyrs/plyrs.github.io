@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ⚡ lang="ja">
+<html ⚡>
 <head>
     <meta charset="utf-8">
     
@@ -226,36 +226,130 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-08-05T11:37:01.000Z"><a href="/2015/08/05/wii-changeプロパティ/">2015-08-05</a></time>
+	            <time datetime="2015-09-07T11:03:17.000Z"><a href="/2015/09/07/Prefitch/">2015-09-07</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/08/05/wii-changeプロパティ/">CSS wii-change</a>
+    <a href="/2015/09/07/Prefitch/">Prefitch</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
+	    <p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
+<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" >HTML5 Prefetch — Medium</a></p>
+<p>対応ブラウザやテスト方法など、かなり詳しく解説している記事。</p>
+<p>種類は主に以下の四つがあるよう。</p>
 <ul>
-<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" >CSS will-changeプロパティについて知っておくべきこと</a></li>
+<li>dns-prefetch – ドメインの名前解決</li>
+<li>subresource – 現在のページで使用するファイルをキャッシュ</li>
+<li>prefetch – 後続のページで使用するファイルをキャッシュ</li>
+<li>prerender – バックグラウンドでレンダリングまで行う</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">will-change</span>: <span class="tag">transform</span>;</span><br></pre></td></tr></table></figure>
-<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
-<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
+<p>今回は<code>prefetch</code>を試してみた。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">”prefetch”</span> <span class="attribute">href</span>=<span class="value">”</span>/<span class="attribute">js</span>/<span class="attribute">example.js</span>”&gt;</span></span><br></pre></td></tr></table></figure>
+<p>効果のほどは今後検証していく。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-09-02T14:45:58.000Z"><a href="/2015/09/02/Web-Manifest/">2015-09-02</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/09/02/Web-Manifest/">Web Manifest</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <h2 id="manifest-json">manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
 <ul>
-<li><a href="http://caniuse.com/#feat=will-change" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://w3c.github.io/manifest/" target="_blank" >Manifest for a web application</a></li>
+<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Manifest" target="_blank" >App manifest - App Center | MDN</a></li>
 </ul>
-<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
-<p>その他参考記事</p>
+<p>MDNにも記事があるし、普段使いのFirefoxでもしっかり動くのだろうか。</p>
 <ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" >will-change - CSS | MDN</a></li>
-<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" >will-change | CSS-Tricks</a></li>
-<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" >CSS Will Change Module Level 1 日本語訳</a></li>
+<li><a href="http://googledevjp.blogspot.jp/2015/04/service-worker-google-developers-summit.html" target="_blank" >Service Worker で作る 最新モバイル ウェブ エクスペリエンス - Google Developers Summit まとめ </a></li>
 </ul>
+<p>上記はモバイルフレンドリーの目線でWebアプリ化に幅広く言及している記事。</p>
+<ul>
+<li><a href="http://moonglows76.tumblr.com/post/102930578463/web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A3%E3%81%BD%E3%81%8F%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8Bwebapp-manifest" target="_blank" >Webアプリをネイティブアプリっぽく起動するWebApp Manifest - Coding Design’s Tumblr</a></li>
+</ul>
+<p>この記事はさっと読めて、参考になる。</p>
+<p>manifest.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"Kinlan's Amazing Application ++"</span></span>,</span><br><span class="line">  "<span class="attribute">short_name</span>": <span class="value"><span class="string">"Kinlan's Amaze App"</span></span>,</span><br><span class="line">  "<span class="attribute">icons</span>": <span class="value">[</span><br><span class="line">    &#123;</span><br><span class="line">      "<span class="attribute">src</span>": <span class="value"><span class="string">"launcher-icon-3x.png"</span></span>,</span><br><span class="line">      "<span class="attribute">sizes</span>": <span class="value"><span class="string">"144x144"</span></span>,</span><br><span class="line">      "<span class="attribute">type</span>": <span class="value"><span class="string">"image/png"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line">  ]</span>,</span><br><span class="line">  "<span class="attribute">start_url</span>": <span class="value"><span class="string">"index.html"</span></span>,</span><br><span class="line">  "<span class="attribute">display</span>": <span class="value"><span class="string">"standalone"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>これが最低限必要な項目らしい。</p>
+<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"manifest"</span> <span class="attribute">href</span>=<span class="value">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>あとはヘッドで読み込めばオケ。</p>
+<h2 id="インストールバナー">インストールバナー</h2><ul>
+<li><a href="http://qiita.com/tmtysk/items/2c5da83feec45b4ee36f" target="_blank" >manifest.json でWebアプリを「ホーム画面に追加」自動バナー表示に対応させる</a></li>
+</ul>
+<p>これはService Workerを使用した「ホームへ追加」バナーの表示の記事。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'/sw.js'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これもインストールバナーについて詳しく解説している記事。</p>
+<p><a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android" target="_blank" >Increasing engagement with Web App install banners — Google Web Updates</a></p>
+<p>そしてそのサンプル。</p>
+<p><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/app-install-banner" target="_blank" >samples/app-install-banner at gh-pages · GoogleChrome/samples</a></p>
+<p>Choromeでは問題なく動作し、インストールバナーも表示された。<br>ただ一度インストールをしないを選択すると、次回再表示はなさそうなのであまり強力な効果は期待できないかも。</p>
+<h2 id="テーマカラー">テーマカラー</h2><p>theme-colorの設定がmanifest.json内に記述できるようになったよう。</p>
+<ul>
+<li><a href="https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color" target="_blank" >Using the web app manifest to specify a site wide theme colour</a></li>
+</ul>
+<p>従来のmetaタグだとこう。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"theme-color"</span> <span class="attribute">content</span>=<span class="value">"#2196F3"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>manifest.jsonだとこう。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"theme_color": "#2196F3"</span><br></pre></td></tr></table></figure>
+<p>しかしmanifest.jsonのみの記述だとホームへ追加しないと効力を発揮しないようなので、現時点では両方記述したほうがいいかもしれない。</p>
+<h2 id="Firefox">Firefox</h2><p>FirefoxでもServiceWorkerをテストする。</p>
+<p><code>about:config</code>で<code>dom.serviceWorkers</code>を検索し、フラグを<code>true</code>へ変更する。</p>
+<p>ServiceWorkerは問題なく作動したが、アプリ化の効果は現時点では無さそう。今後に期待したい。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-09-02T09:45:30.000Z"><a href="/2015/09/02/フォントコンバーター/">2015-09-02</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/09/02/フォントコンバーター/">フォントコンバーター</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>サイトへWebフォントを導入する際の手順。</p>
+<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" >Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" >woff to woff2 converter</a>で行える。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'webfont'</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot'</span>)</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="function">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>IE8以下の対応はもういいかなとも思う。</p>
 
 	    
 	</div>
@@ -266,6 +360,8 @@ article footer a { padding-right: 1rem; }
 	
 	<a href="/tags/css/">#css</a>
 	
+	<a href="/tags/webfont/">#webfont</a>
+	
 </div>
 
 	</footer>
@@ -276,28 +372,26 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-06-11T11:36:08.000Z"><a href="/2015/06/11/npm-check-updates/">2015-06-11</a></time>
+	            <time datetime="2015-08-17T11:36:38.000Z"><a href="/2015/08/17/Firefox-64bit/">2015-08-17</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/06/11/npm-check-updates/">npm-check-updates</a>
+    <a href="/2015/08/17/Firefox-64bit/">Firefox 64bit</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" >npm-check-updates</a>が便利という発見。</p>
-<p>モジュールのリリース情報を確認して、必要ならば更新というくだりは難儀。<br><code>npm outdated</code>してpackage.jsonを書き換えて<code>npm install</code>を行うのが通常の流れであるが、回数を重ねるとこれを行うのがおっくうになってくる。</p>
-<p>npm-check-updatesはこのへんの手間を省いてくれる。</p>
-<p>今回はコマンドが短くてよりよさげな開発版をインストール。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates<span class="property">@unstable</span></span><br></pre></td></tr></table></figure>
-<p>これで更新確認から実行まで3ステップで行える。</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line"><span class="variable">$ </span>ncu</span><br><span class="line"></span><br><span class="line"><span class="comment"># package.jsonを更新</span></span><br><span class="line"><span class="variable">$ </span>ncu -u</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を実行</span></span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
-<p>フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。</p>
-<p>マイナーバージョンアップであればあまり後先考えずガンガン上げていきたい性分なので、その作業の簡略化ができ素晴らしい。</p>
+	    <p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+<ul>
+<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" >Firefox Beta</a></li>
+<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" >Firefox Developer Edition</a></li>
+</ul>
+<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
+<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
 
 	    
 	</div>
@@ -306,89 +400,10 @@ article footer a { padding-right: 1rem; }
 	    
 <div class="tags">
 	
-	<a href="/tags/npm/">#npm</a>
+	<a href="/tags/Firefox/">#Firefox</a>
 	
 </div>
 
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-05-25T11:28:08.000Z"><a href="/2015/05/25/gulp-imagemin/">2015-05-25</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/05/25/gulp-imagemin/">gulp-imagemin</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>gulp-imageminで画像の最適化を突き詰める。</p>
-<p><a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" >sindresorhus/gulp-imagemin</a></p>
-<h2 id="標準API">標準API</h2><ul>
-<li>gifsicle</li>
-<li>jpegtran</li>
-<li>optipng</li>
-<li>svgo</li>
-</ul>
-<p>gif、jpeg、png、svgと主要なフォーマットは標準搭載されているので、導入後すぐに試すことができる。</p>
-<h2 id="拡張モジュール">拡張モジュール</h2><ul>
-<li><a href="https://github.com/imagemin/imagemin-webp" target="_blank" >webp</a></li>
-<li><a href="https://github.com/imagemin/imagemin-advpng" target="_blank" >advpng</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" >pngquant</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngout" target="_blank" >pngout</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngcrush" target="_blank" >pngcrush</a></li>
-<li><a href="https://github.com/imagemin/imagemin-mozjpeg" target="_blank" >mozjpeg</a></li>
-<li><a href="https://github.com/imagemin/imagemin-jpegoptim" target="_blank" >jpegoptim</a></li>
-</ul>
-<p>拡張モジュールを用いることも可能。<br>webpなども最適化することができる。<br>全てを試してはいないが、pngquantやmozjpegは標準搭載のそれよりも圧縮効率がいい。</p>
-<p>ただ、モジュールがでかくてインストールに時間がかかる。<br>各プロジェクトにこれを導入していくと、なぜか申し訳ない気持ちになってくる。</p>
-
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-05-21T11:24:23.000Z"><a href="/2015/05/21/Style-Guide-Boilerplate/">2015-05-21</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/05/21/Style-Guide-Boilerplate/">Style Guide Boilerplate</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>Style Guide Boilerplateがいい感じ。</p>
-<ul>
-<li><a href="http://bjankord.github.io/Style-Guide-Boilerplate/" target="_blank" >bjankord/Style-Guide-Boilerplate</a></li>
-</ul>
-<p>DoccoとかKSSとか、ジェネレーターを使った運用を目指していたが、生成するドキュメントがいまいちシンプルさに欠け、結局自前で書いていたが、こーゆーのが今回はマッチしそう。</p>
-
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
 	</footer>
 </article>
 

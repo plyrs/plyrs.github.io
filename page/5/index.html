@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ⚡ lang="ja">
+<html ⚡>
 <head>
     <meta charset="utf-8">
     
@@ -226,22 +226,32 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2013-03-07T08:35:38.000Z"><a href="/2013/03/07/CMSを導入/">2013-03-07</a></time>
+	            <time datetime="2015-05-16T11:58:17.000Z"><a href="/2015/05/16/Redis環境を構築-Windows7/">2015-05-16</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2013/03/07/CMSを導入/">SOY CMSを導入</a>
+    <a href="/2015/05/16/Redis環境を構築-Windows7/">Redis環境を構築(Windows7)</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" >AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いたかったが…。  </p>
-<p>ってことで行き着いた<a href="http://www.soycms.net/" target="_blank" >SOY</a>でなんとか完成。<br>ああ、SOYいいね、ソイ。いいっす、ボクには扱いやすす。PHPはギリギリいけるな。  </p>
-<p>ということで、とりあえずトップとInfoページは全面SOY化。<br>メディアとリクエストもそのうちSOY化したら長い目で見ていいかも。<br>メールフォームやフォトはまだまだ検討ですな。いまでも事足りてるし。 </p>
+	    <p>PCへRedisをインストールした。</p>
+<p><a href="http://redis.io/" target="_blank" >Redis.io</a>のダウンロードページ下、Other versionsからWindows版を配布しているリポジトリへ。</p>
+<blockquote>
+<p><a href="https://github.com/MSOpenTech/redis" target="_blank" >MSOpenTech/redis</a></p>
+</blockquote>
+<p>バージョンは2.8.19.1。<br>ダウンロードしてインストーラーを起動、あとは普通に完了したっぽい。</p>
+<hr>
+<p>上記方法ではどうやら失敗したもよう・・・。</p>
+<blockquote>
+<p><a href="http://kakakikikeke.blogspot.jp/2014/07/windows7redis.html" target="_blank" >Windows7にredisをインストールしてみた </a></p>
+</blockquote>
+<p>↑の記事を参考にしこんどこそ成功。</p>
+<p>原因は、まぁ気にせずいこう・・・。</p>
 
 	    
 	</div>
@@ -250,7 +260,194 @@ article footer a { padding-right: 1rem; }
 	    
 <div class="tags">
 	
-	<a href="/tags/SOYCMS/">#SOYCMS</a>
+	<a href="/tags/Redis/">#Redis</a>
+	
+</div>
+
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-04-12T11:09:16.000Z"><a href="/2015/04/12/npmのたまに使うコマンド/">2015-04-12</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/04/12/npmのたまに使うコマンド/">npmのたまに使うコマンド</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>よく使うコマンドは覚えてるんだけど、たまに使うコマンドは忘れちゃって毎回ググってる気がするのでメモ。</p>
+<p>バージョン確認</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> -v</span><br></pre></td></tr></table></figure>
+<p>npm自身のアップデート</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i -g <span class="built_in">npm</span></span><br></pre></td></tr></table></figure>
+<p>パッケージをアインインストール</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">uninstall</span> &lt;<span class="keyword">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>パッケージの更新情報を確認</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> outdated</span><br></pre></td></tr></table></figure>
+<p>dependenciesだけインストール</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="tag">i</span> --production</span><br></pre></td></tr></table></figure>
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/npm/">#npm</a>
+	
+</div>
+
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-01-15T14:09:16.000Z"><a href="/2015/01/15/iojsをインストールしてみた/">2015-01-15</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/01/15/iojsをインストールしてみた/">iojsをインストールしてみた</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p><amp-img src="/2015/01/15/iojsをインストールしてみた/1.png" width="400" height="229"></amp-img></p>
+<p>昨日ついにnode.jsのファークであるio.jsがリリースされましたね。</p>
+<p><a href="https://iojs.org/" target="_blank" >io.js - JavaScript I/O:</a></p>
+<p>Koaで色々やろうと考えている僕としてはある程度動向を知っておく必要があるため、早速ローカル環境へインストールし、既存のコードが動作するかまで確認を行いました。</p>
+<h2 id="io-jsのインストール">io.jsのインストール</h2><p>普通にインストーラーから…</p>
+<p><amp-img src="/2015/01/15/iojsをインストールしてみた/2.png" width="400" height="229"></amp-img></p>
+<p>おお～、普通にインストールできた。なにか新鮮である！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iojs -v</span><br></pre></td></tr></table></figure>
+<p>でインストールを確認。<code>v1.0.1</code>が返ってきました！</p>
+<h2 id="モジュールを確認">モジュールを確認</h2><p>現時点ではほぼ問題ないと思いますが、常用モジュールは動向を確認しておきたいですよね。</p>
+<h3 id="Koa">Koa</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iojs app.js</span><br></pre></td></tr></table></figure>
+<p><code>--harmony</code> オプションなしでKoaが動く！</p>
+<p>もちろんKoaチームもiojs対応の方向へ進んでいるっぽい。</p>
+<h3 id="nodemon">nodemon</h3><p><a href="http://nodemon.io/" target="_blank" >nodemon</a> は <code>nodemon.json</code> を配置し <code>execMap</code> を記述すれば問題なく動作するようです。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"execMap"</span>: &#123;</span><br><span class="line">    <span class="string">"js"</span>: <span class="string">"iojs"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>随時チェックしていきたいです！</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/io-js/">#io.js</a>
+	
+</div>
+
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-01-03T13:33:56.000Z"><a href="/2015/01/03/ブログをHEXOへ引越し/">2015-01-03</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/01/03/ブログをHEXOへ引越し/">ブログをHEXOへ引越し</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>新年だしでブログを<a href="http://hexo.io/" target="_blank" >HEXO</a>へ引越ししました。  </p>
+<p>てぃーだブログで転がしていたブログの蘇生計画のひとつです.</p>
+<h2 id="HEXO">HEXO</h2><p>読みはヘクソ。<br>いわゆる静的サイトジェネレーターの一つ。  </p>
+<p>JekyllやOctopressのnode版といった感じ。</p>
+<p>おもな特徴は…  </p>
+<ul>
+<li>ビルド、デプロイはコマンドからでオケ</li>
+<li>マークダウンをサポートしているのでプログラマライク</li>
+<li>豊富なプラグイン</li>
+<li>豊富なテーマ</li>
+</ul>
+<p>といったところ。<br>テーマの自作も標準でEJSを採用しているので、シンプルに書ける。<br>制作者が台湾の方でユーザーにも中国圏の方が多いのか、プラグインやテーマに中国語がちょくちょく。基本的にゃ問題なく使えます。</p>
+<h3 id="インストール">インストール</h3><p>インストールはnpmから</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo -g</span><br></pre></td></tr></table></figure>
+<p>ジェネレーターでベースを一発生成。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;フォルダ&gt;</span><br></pre></td></tr></table></figure>
+<p>生成されたプロジェクトに移動して <code>npm install</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;フォルダ&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>あとは<code>hexo server</code>でローカルサーバーが立ち上がり、<code>http://localhost:4000</code>にブログが立ち上がります。  </p>
+<h3 id="デプロイ">デプロイ</h3><p>今回はGithub Pages上に導入したので、<code>_config.yml</code>の<code>deplpy:</code>部分を修正。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: github</span><br><span class="line">  repo: https://github.com/<span class="tag">&lt;<span class="title">プロジェクト</span>&gt;</span>/<span class="tag">&lt;<span class="title">プロジェクト</span>&gt;</span>.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>generateコマンドでアップロードする性的サイトを生成して、  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>deployコマンドでデプロイ。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>generateコマンドは-gオプションとしてデプロイと同時に行うことも可能。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure>
+<p>こっちの方が使うとこが多いかと。</p>
+<h3 id="記事投稿">記事投稿</h3><p>newコマンドでひな形を生成。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &lt;記事タイトル&gt;</span><br></pre></td></tr></table></figure>
+<p><code>source/_posts/</code>内に生成されたひな形へマークダウンで内容を記述。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 記事タイトル</span><br><span class="line">date: 2015-01-01 00:00:00</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">以下内容を書き込む</span><br></pre></td></tr></table></figure>
+<p>そしてデプロイ  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure>
+<h3 id="プラグイン">プラグイン</h3><p><a href="https://github.com/hexojs/hexo/wiki/Plugins" target="_blank" >プラグイン一覧</a>  </p>
+<p>プラグインもnpm からインストール。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &lt;プラグイン名&gt; --save</span><br></pre></td></tr></table></figure>
+<p>以下導入したプラグイン</p>
+<ul>
+<li><a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" >hexo-generator-feed</a> 公式。Atomを生成  </li>
+<li><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" >hexo-generator-sitemap</a> 公式。サイトマップを生成  </li>
+<li><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap" target="_blank" >hexo-generator-baidu-sitemap</a> Baidu用サイトマップを生成。こーゆーのは面白そうなので導入</li>
+<li><a href="https://github.com/flerro/hexo-generator-minify" target="_blank" >hexo-generator-minify</a> <code>hexo gm</code>コマンドでCSSとJsをMinifyして生成。速度厨なので導入</li>
+</ul>
+<h3 id="テーマ">テーマ</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" >テーマ一覧</a>  </p>
+<p>テーマはgitからインストール。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> &lt;リポジトリ&gt; themes/&lt;テーマ名&gt;</span><br></pre></td></tr></table></figure>
+<p>公式テーマはデフォルトのLandscapeを含めて三つ容易されています。  </p>
+<ul>
+<li><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" >Landscape</a> - <a href="http://hexo.io/hexo-theme-landscape/" target="_blank" >デモ</a></li>
+<li><a href="https://github.com/hexojs/hexo-theme-phase" target="_blank" >Phase</a> - <a href="http://hexo.io/hexo-theme-phase/" target="_blank" >デモ</a></li>
+<li><a href="https://github.com/hexojs/hexo-theme-light" target="_blank" >Light</a> - <a href="http://hexo.io/hexo-theme-light/" target="_blank" >デモ</a></li>
+</ul>
+<p>今回は日本製のApolloを採用。</p>
+<ul>
+<li><a href="https://github.com/joyceim/hexo-theme-apollo" target="_blank" >Apollo</a> - <a href="http://xxxxxly.in/hexo-theme-apollo/" target="_blank" >デモ</a></li>
+</ul>
+<h2 id="まとめ">まとめ</h2><p>かなり容易にブログ環境を構築できました。<br>マークダウンでGistにためたネタを投稿しやすいのでウハウハ。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/hexo/">#hexo</a>
 	
 </div>
 
@@ -262,6 +459,8 @@ article footer a { padding-right: 1rem; }
 	
 	<a href="/page/4/" class="prev">Prev</a>
 	
+	
+	<a href="/page/6/" class="next">Next</a>
 	
 </nav>
 

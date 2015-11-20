@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ⚡ lang="ja">
+<html ⚡>
 <head>
     <meta charset="utf-8">
     
@@ -226,30 +226,126 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-05-17T11:07:18.000Z"><a href="/2015/05/17/node-redis入門/">2015-05-17</a></time>
+	            <time datetime="2015-08-12T08:26:21.000Z"><a href="/2015/08/12/Source-Han-Code-JP/">2015-08-12</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/05/17/node-redis入門/">node-redis入門</a>
+    <a href="/2015/08/12/Source-Han-Code-JP/">Source Han Code JP</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>Redisの修行を進めている。<br>Nodeアプリ内で使う分には下記を参考に学習を進めていけばいい様子。</p>
+	    <p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
+<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" >adobe-fonts/source-han-code-jp</a>  </p>
+<p><a href="http://blog.quusookagaku.com/19595" target="_blank" >この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
+<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
+<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-08-10T11:03:31.000Z"><a href="/2015/08/10/Windows10へVagrantを導入/">2015-08-10</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/08/10/Windows10へVagrantを導入/">Windows10へVagrantを導入</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
+<h2 id="事前作業">事前作業</h2><h3 id="Virtualization_Technologyを有効にする">Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
+<h3 id="Vagrant、VirtualBoxをインストール">Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
+<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" >http://www.vagrantup.com/</a>  </p>
+<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" >https://www.virtualbox.org/</a>  </p>
+<h3 id="BOXを取得">BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
+<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" >http://www.vagrantbox.es/</a>  </p>
+<h3 id="CentOS_6-6_64bit_を追加">CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.<span class="number">6</span> http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-<span class="number">6.6</span>-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
+<h3 id="追加したBoxを確認">追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
+<h2 id="Vagrant_初期化">Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンの操作">仮想マシンの操作</h2><h3 id="起動">起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+<h3 id="状態確認">状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
+<h3 id="終了">終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
+<h3 id="再起動">再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
+<h3 id="破棄">破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンへ接続">仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
+<h3 id="git_インストール">git インストール</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure>
+<h3 id="Node-js_インストール">Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install <span class="number">0.12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
+<h3 id="ファイアーウォールを停止">ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
+<h3 id="雑感">雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Vagrant/">#Vagrant</a>
+	
+	<a href="/tags/Windows/">#Windows</a>
+	
+</div>
+
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-08-05T11:37:01.000Z"><a href="/2015/08/05/wii-changeプロパティ/">2015-08-05</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/08/05/wii-changeプロパティ/">CSS wii-change</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
 <ul>
-<li><a href="http://redis.io/" target="_blank" >http://redis.io/</a></li>
-<li><a href="https://github.com/mranney/node_redis" target="_blank" >mranney/node_redis</a></li>
-<li><a href="http://nodejs.osser.jp/node/node-redis/" target="_blank" >node-redis - node.js redisクライアント</a></li>
-<li><a href="http://yutapon.hatenablog.com/entry/2013/07/07/011645" target="_blank" >node.jsでRedisを使ってみる【準備編】</a></li>
+<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" >CSS will-changeプロパティについて知っておくべきこと</a></li>
 </ul>
-<p>やはりセッション管理などはRedisで行いたい。<br>Koaでは<a href="https://github.com/koajs/koa-redis" target="_blank" >koa-redis</a>を使えば容易に実装できた。</p>
-<p>よりRedisをよりアプリケーションの広範囲で活用する際は下記で理解を深めるとよさそう。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">will-change</span>: <span class="tag">transform</span>;</span><br></pre></td></tr></table></figure>
+<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
+<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
 <ul>
-<li><a href="http://redis-documentasion-japanese.readthedocs.org/ja/latest/topics/data-types-intro.html" target="_blank" >入門 : Redis のデータ構造と概念 — Redis Documentation (Japanese Translation)</a></li>
+<li><a href="http://caniuse.com/#feat=will-change" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
+<p>その他参考記事</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" >will-change - CSS | MDN</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" >will-change | CSS-Tricks</a></li>
+<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" >CSS Will Change Module Level 1 日本語訳</a></li>
 </ul>
 
 	    
@@ -259,11 +355,7 @@ article footer a { padding-right: 1rem; }
 	    
 <div class="tags">
 	
-	<a href="/tags/Koa/">#Koa</a>
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/Redis/">#Redis</a>
+	<a href="/tags/css/">#css</a>
 	
 </div>
 
@@ -275,31 +367,28 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-05-17T11:00:15.000Z"><a href="/2015/05/17/http-proxyでNode-jsの複数アプリを管理/">2015-05-17</a></time>
+	            <time datetime="2015-06-11T11:36:08.000Z"><a href="/2015/06/11/npm-check-updates/">2015-06-11</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/05/17/http-proxyでNode-jsの複数アプリを管理/">http-proxyでNode.jsの複数アプリを管理</a>
+    <a href="/2015/06/11/npm-check-updates/">npm-check-updates</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>一つのドメインで複数のnodeアプリを起動させたい。</p>
-<p>http-proxy使えばできそうである。</p>
-<blockquote>
-<p><a href="https://github.com/nodejitsu/node-http-proxy" target="_blank" >nodejitsu/node-http-proxy</a></p>
-</blockquote>
-<h2 id="参考">参考</h2><blockquote>
-<p><a href="http://nerdpress.org/2012/04/20/hosting-multiple-express-node-js-apps-on-port-80/" target="_blank" >Hosting multiple Express (node.js) apps on port 80</a><br><a href="http://d.hatena.ne.jp/sasaplus1/20130124/1358992547" target="_blank" >http-proxyでプロキシAdd Star</a></p>
-</blockquote>
-<p>別モジュールを利用しているが、PM2のくだりが参考になりそう。</p>
-<blockquote>
-<p><a href="http://qiita.com/59naga/items/d3082516c2a365b47985" target="_blank" >bouncyを使ったNodejsのみのバーチャルホスト</a></p>
-</blockquote>
+	    <p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" >npm-check-updates</a>が便利という発見。</p>
+<p>モジュールのリリース情報を確認して、必要ならば更新というくだりは難儀。<br><code>npm outdated</code>してpackage.jsonを書き換えて<code>npm install</code>を行うのが通常の流れであるが、回数を重ねるとこれを行うのがおっくうになってくる。</p>
+<p>npm-check-updatesはこのへんの手間を省いてくれる。</p>
+<p>今回はコマンドが短くてよりよさげな開発版をインストール。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates<span class="property">@unstable</span></span><br></pre></td></tr></table></figure>
+<p>これで更新確認から実行まで3ステップで行える。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line"><span class="variable">$ </span>ncu</span><br><span class="line"></span><br><span class="line"><span class="comment"># package.jsonを更新</span></span><br><span class="line"><span class="variable">$ </span>ncu -u</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を実行</span></span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
+<p>フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。</p>
+<p>マイナーバージョンアップであればあまり後先考えずガンガン上げていきたい性分なので、その作業の簡略化ができ素晴らしい。</p>
 
 	    
 	</div>
@@ -307,97 +396,6 @@ article footer a { padding-right: 1rem; }
 	    
 	    
 <div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-05-16T11:58:17.000Z"><a href="/2015/05/16/Redis環境を構築-Windows7/">2015-05-16</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/05/16/Redis環境を構築-Windows7/">Redis環境を構築(Windows7)</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>PCへRedisをインストールした。</p>
-<p><a href="http://redis.io/" target="_blank" >Redis.io</a>のダウンロードページ下、Other versionsからWindows版を配布しているリポジトリへ。</p>
-<blockquote>
-<p><a href="https://github.com/MSOpenTech/redis" target="_blank" >MSOpenTech/redis</a></p>
-</blockquote>
-<p>バージョンは2.8.19.1。<br>ダウンロードしてインストーラーを起動、あとは普通に完了したっぽい。</p>
-<hr>
-<p>上記方法ではどうやら失敗したもよう・・・。</p>
-<blockquote>
-<p><a href="http://kakakikikeke.blogspot.jp/2014/07/windows7redis.html" target="_blank" >Windows7にredisをインストールしてみた </a></p>
-</blockquote>
-<p>↑の記事を参考にしこんどこそ成功。</p>
-<p>原因は、まぁ気にせずいこう・・・。</p>
-
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Redis/">#Redis</a>
-	
-</div>
-
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-04-12T11:09:16.000Z"><a href="/2015/04/12/npmのたまに使うコマンド/">2015-04-12</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/04/12/npmのたまに使うコマンド/">npmのたまに使うコマンド</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>よく使うコマンドは覚えてるんだけど、たまに使うコマンドは忘れちゃって毎回ググってる気がするのでメモ。</p>
-<p>バージョン確認</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> -v</span><br></pre></td></tr></table></figure>
-<p>npm自身のアップデート</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i -g <span class="built_in">npm</span></span><br></pre></td></tr></table></figure>
-<p>パッケージをアインインストール</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">uninstall</span> &lt;<span class="keyword">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>パッケージの更新情報を確認</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> outdated</span><br></pre></td></tr></table></figure>
-<p>dependenciesだけインストール</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="tag">i</span> --production</span><br></pre></td></tr></table></figure>
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
 	
 	<a href="/tags/npm/">#npm</a>
 	

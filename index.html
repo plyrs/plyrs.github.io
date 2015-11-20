@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ⚡ lang="ja">
+<html ⚡>
 <head>
     <meta charset="utf-8">
     
@@ -226,104 +226,56 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-09-02T09:45:30.000Z"><a href="/2015/09/02/フォントコンバーター/">2015-09-02</a></time>
+	            <time datetime="2015-09-13T15:38:44.000Z"><a href="/2015/09/14/Webp-導入思案/">2015-09-14</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/09/02/フォントコンバーター/">フォントコンバーター</a>
+    <a href="/2015/09/14/Webp-導入思案/">Webp 導入思案</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>サイトへWebフォントを導入する際の手順。</p>
-<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" >Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" >woff to woff2 converter</a>で行える。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'webfont'</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot'</span>)</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="function">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="function">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>IE8以下の対応はもういいかなとも思う。</p>
-
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/css/">#css</a>
-	
-	<a href="/tags/webfont/">#webfont</a>
-	
-</div>
-
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-08-17T11:36:38.000Z"><a href="/2015/08/17/Firefox-64bit/">2015-08-17</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/08/17/Firefox-64bit/">Firefox 64bit</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+	    <p>Webpをさくっと導入できないか思案。</p>
 <ul>
-<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" >Firefox Beta</a></li>
-<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" >Firefox Developer Edition</a></li>
+<li><a href="http://caniuse.com/#search=webp" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
 </ul>
-<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
-<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
-
-	    
-	</div>
-	<footer class="clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Firefox/">#Firefox</a>
-	
-</div>
-
-	</footer>
-</article>
-
-
-<article class="post">
-	<header>
-	    
-	        <div class="meta">
-	            <time datetime="2015-08-12T08:26:21.000Z"><a href="/2015/08/12/Source-Han-Code-JP/">2015-08-12</a></time>
-	        </div>
-	    
-	    
-
-<h1 class="title">
-    <a href="/2015/08/12/Source-Han-Code-JP/">Source Han Code JP</a>
-</h1>
-
-
-	</header>
-	<div class="entry">
-	    
-	    <p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
-<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" >adobe-fonts/source-han-code-jp</a>  </p>
-<p><a href="http://blog.quusookagaku.com/19595" target="_blank" >この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
-<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
-<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
+<p>取りあえず対応しているのはBlinkブラウザのみだが、モバイル対応へ重きを置くならば価値はありそう。</p>
+<ul>
+<li><a href="https://1000ch.net/posts/2015/introduction-to-webp.html" target="_blank" >【翻訳】Introduction to WebP - 1000ch.net</a></li>
+</ul>
+<p>Webpの概要と導入の際の未サポートブラウザへのフォールバック方法を解説。<br>記事内でも言及があるサーバーサイドでの実装が一番よさそうではある。</p>
+<ul>
+<li><a href="https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/" target="_blank" >Deploying WebP via Accept Content Negotiation - igvita.com</a></li>
+</ul>
+<p>しかしサクっとはできなさそうなので、フロントで実装したい。<br>とりあえず上記を参考に<code>&lt;picture&gt;</code>で試してみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/webp/" target="_blank" >Webp - Playground</a></li>
+</ul>
+<p>これは容易でとてもいい方法だと感じた。<br>しかし今回は<code>background-image</code>へのwebp導入を考えているので残念ながらこの方法は不可である。</p>
+<p>色々調べると‘@supports‘を利用した方法を発見。</p>
+<ul>
+<li><a href="https://andywalpole.me/#!/blog/142790/using-webp-image-format" target="_blank" >Using the WebP image format / blog unblock</a></li>
+</ul>
+<p><code>@supports</code>で機能が利用できるか確認し、分岐する手法が紹介されている。<br>筆者は最終的にModernizrを使用したようだが(そりゃそうだよな…)、今回このためにModernizr入れるのは本末転倒である。<br><code>@supports</code>面白そうだしカジュアルなのでコレを採用。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@supports" target="_blank" >@supports - CSS | MDN</a></li>
+<li><a href="http://caniuse.com/#feat=css-featurequeries" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url("../img/bg.png");</span><br><span class="line">@supports (background-image: -webkit-image-set(url("../img/bg.webp") 1x)) &#123;</span><br><span class="line">  background-image: -webkit-image-set(url("../img/bg.webp") 1x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-image-set" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>CSS4で提案されているimage-listはかなりよさそうである。</p>
+<ul>
+<li><a href="http://www.w3.org/TR/css4-images/" target="_blank" >CSS Image Values and Replaced Content Module Level 4</a></li>
+<li><a href="http://www.brucelawson.co.uk/2013/save-bandwidth-webp-with-fallback/" target="_blank" >Bruce Lawson’s personal site  : Save bandwidth with webP – soon with fallback!</a></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: images("../img/bg.webp", "../img/bg.png");</span><br></pre></td></tr></table></figure>
+<p>ただ現時点では対応しているブラウザはない様子。<br>現時点ではimage-setが一番よさそう。</p>
 
 	    
 	</div>
@@ -338,42 +290,31 @@ article footer a { padding-right: 1rem; }
 	<header>
 	    
 	        <div class="meta">
-	            <time datetime="2015-08-10T11:03:31.000Z"><a href="/2015/08/10/Windows10へVagrantを導入/">2015-08-10</a></time>
+	            <time datetime="2015-09-10T15:32:31.000Z"><a href="/2015/09/11/MongoDBのバックアップ思案/">2015-09-11</a></time>
 	        </div>
 	    
 	    
 
 <h1 class="title">
-    <a href="/2015/08/10/Windows10へVagrantを導入/">Windows10へVagrantを導入</a>
+    <a href="/2015/09/11/MongoDBのバックアップ思案/">MongoDBのバックアップ思案</a>
 </h1>
 
 
 	</header>
 	<div class="entry">
 	    
-	    <p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
-<h2 id="事前作業">事前作業</h2><h3 id="Virtualization_Technologyを有効にする">Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
-<h3 id="Vagrant、VirtualBoxをインストール">Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
-<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" >http://www.vagrantup.com/</a>  </p>
-<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" >https://www.virtualbox.org/</a>  </p>
-<h3 id="BOXを取得">BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
-<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" >http://www.vagrantbox.es/</a>  </p>
-<h3 id="CentOS_6-6_64bit_を追加">CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.<span class="number">6</span> http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-<span class="number">6.6</span>-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
-<h3 id="追加したBoxを確認">追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
-<h2 id="Vagrant_初期化">Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.<span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンの操作">仮想マシンの操作</h2><h3 id="起動">起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
-<h3 id="状態確認">状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
-<h3 id="終了">終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
-<h3 id="再起動">再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
-<h3 id="破棄">破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンへ接続">仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
-<h3 id="git_インストール">git インストール</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure>
-<h3 id="Node-js_インストール">Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install <span class="number">0.12</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
-<h3 id="ファイアーウォールを停止">ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
-<h3 id="雑感">雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
+	    <p>MongoDBをバックアップし、リストアまで行いたい。</p>
+<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" >第11回　MongoDBのバックアップ：MongoDBでゆるふわDB体験｜gihyo.jp … 技術評論社</a></p>
+<h2 id="バックアップ">バックアップ</h2><p>起動中のMongoのバックアップには<code>mongodump</code>が一般的のよう。<br>小規模ならこれで十分か。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongodump/" target="_blank" >mongodump — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongodump --out /opt/backup/mongodump_20150911</span><br></pre></td></tr></table></figure>
+<p><code>out</code>オプションで保存先を指定できる。指定しなかったらカレントディレクトへ。<br>そのなかにデータベースごとのダンプファイルを作成してくれる。</p>
+<h2 id="リストア">リストア</h2><p>リストアは<code>mongorestore</code>で。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongorestore/" target="_blank" >mongorestore — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path -d <span class="property">name</span></span><br></pre></td></tr></table></figure>
+<p>でデータベースを指定</p>
+<p>とりあえず上の方法で手動でのバックアップ&amp;リストアは問題なく、軽快にできた。<br>今後は自動化していきたい。</p>
 
 	    
 	</div>
@@ -382,12 +323,106 @@ article footer a { padding-right: 1rem; }
 	    
 <div class="tags">
 	
-	<a href="/tags/Vagrant/">#Vagrant</a>
-	
-	<a href="/tags/Windows/">#Windows</a>
+	<a href="/tags/MongoDB/">#MongoDB</a>
 	
 </div>
 
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-09-09T13:29:39.000Z"><a href="/2015/09/09/Node-js-4-0/">2015-09-09</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/09/09/Node-js-4-0/">Node.js 4.0</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
+<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" >Node v4.0.0 (Stable) | Node.js</a></p>
+<p>問題なく<code>nvm install 4.0</code>でインスコできるよう。</p>
+<p>Arrow Functionが解禁になったので、これも少しずつ書き換えていきたい。</p>
+<p>あとはletとconstの使い分け。基本constでいこうと思うけど、どうだろう。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+</article>
+
+
+<article class="post">
+	<header>
+	    
+	        <div class="meta">
+	            <time datetime="2015-09-07T12:05:05.000Z"><a href="/2015/09/07/Grid/">2015-09-07</a></time>
+	        </div>
+	    
+	    
+
+<h1 class="title">
+    <a href="/2015/09/07/Grid/">Grid</a>
+</h1>
+
+
+	</header>
+	<div class="entry">
+	    
+	    <p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
+<ul>
+<li><a href="http://photoshopvip.net/archives/81206" target="_blank" >最新Webトレンド「カード型デザイン」を取り入れるべき、効果的な4つの理由 - PhotoshopVIP</a></li>
+</ul>
+<p>ポイントは</p>
+<ul>
+<li>IAの作成</li>
+<li>UXの工場</li>
+<li>普遍性</li>
+</ul>
+<p>の3点。</p>
+<p>この手のデザインは割とまえからある気がするが、スマホデバイスとの親和性と相まって地位を確立した感じであろうか。</p>
+<h2 id="CSS_Grid_Layouts">CSS Grid Layouts</h2><p>今後がっつりとしたグリッドデザインをマークアップするのであれば、<code>display: grid</code>を使用したい。</p>
+<ul>
+<li><a href="https://medium.com/@patrickbrosset/css-grid-layout-6c9cba6e8a5a" target="_blank" >The future of layout with CSS: Grid Layouts — Medium</a></li>
+</ul>
+<p>CSSグリッドを使用した実装。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.container</span> <span class="rules">&#123; <span class="rule"><span class="attribute">display</span>:<span class="value"> grid</span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-grid" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>各ブラウザベンダーの対応はまだまだこれから。IEも先行実装したものの使用が変わっていき、互換性が怪しいらしい。<br>とりあえずDemoを作ってみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/css-grid-layout/" target="_blank" >CSS Grid Layout - Playground</a></li>
+</ul>
+<p>ie11とEdgeで動作を確認。<br>他のブラウザではDivの羅列となったので導入するのであればPolyfillは必須のよう。</p>
+<ul>
+<li><a href="https://github.com/FremyCompany/css-grid-polyfill" target="_blank" >FremyCompany/css-grid-polyfill</a></li>
+</ul>
+<p>Polyfillはコレ。Demoもあるし</p>
+<p>かなり容易に複雑なグリッドレイアウトを作れるし、レスポンシブ化も簡潔に書けそう。<br>早く使いたいので各ベンダの今後の動向を見たい。現時点では未対応環境が多すぎるし、上記Polyfill内でもプロダクションへの導入は慎重にと言及されている。<br>でもFirefoxが対応したらPolyfillかましてどこかで使うかも。</p>
+
+	    
+	</div>
+	<footer class="clearfix">
+	    
+	    
 	</footer>
 </article>
 

@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://log.playr.jp/"/>
-  <updated>2015-11-16T04:03:01.574Z</updated>
+  <updated>2015-11-20T15:45:53.111Z</updated>
   <id>http://log.playr.jp/</id>
   
   <author>
@@ -13,6 +13,235 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Webp 導入思案]]></title>
+    <link href="http://log.playr.jp/2015/09/14/Webp-%E5%B0%8E%E5%85%A5%E6%80%9D%E6%A1%88/"/>
+    <id>http://log.playr.jp/2015/09/14/Webp-導入思案/</id>
+    <published>2015-09-13T15:38:44.000Z</published>
+    <updated>2015-11-20T15:45:53.111Z</updated>
+    <content type="html"><![CDATA[<p>Webpをさくっと導入できないか思案。</p>
+<ul>
+<li><a href="http://caniuse.com/#search=webp" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>取りあえず対応しているのはBlinkブラウザのみだが、モバイル対応へ重きを置くならば価値はありそう。</p>
+<ul>
+<li><a href="https://1000ch.net/posts/2015/introduction-to-webp.html" target="_blank" >【翻訳】Introduction to WebP - 1000ch.net</a></li>
+</ul>
+<p>Webpの概要と導入の際の未サポートブラウザへのフォールバック方法を解説。<br>記事内でも言及があるサーバーサイドでの実装が一番よさそうではある。</p>
+<ul>
+<li><a href="https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/" target="_blank" >Deploying WebP via Accept Content Negotiation - igvita.com</a></li>
+</ul>
+<p>しかしサクっとはできなさそうなので、フロントで実装したい。<br>とりあえず上記を参考に<code>&lt;picture&gt;</code>で試してみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/webp/" target="_blank" >Webp - Playground</a></li>
+</ul>
+<p>これは容易でとてもいい方法だと感じた。<br>しかし今回は<code>background-image</code>へのwebp導入を考えているので残念ながらこの方法は不可である。</p>
+<p>色々調べると‘@supports‘を利用した方法を発見。</p>
+<ul>
+<li><a href="https://andywalpole.me/#!/blog/142790/using-webp-image-format" target="_blank" >Using the WebP image format / blog unblock</a></li>
+</ul>
+<p><code>@supports</code>で機能が利用できるか確認し、分岐する手法が紹介されている。<br>筆者は最終的にModernizrを使用したようだが(そりゃそうだよな…)、今回このためにModernizr入れるのは本末転倒である。<br><code>@supports</code>面白そうだしカジュアルなのでコレを採用。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@supports" target="_blank" >@supports - CSS | MDN</a></li>
+<li><a href="http://caniuse.com/#feat=css-featurequeries" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url("../img/bg.png");</span><br><span class="line">@supports (background-image: -webkit-image-set(url("../img/bg.webp") 1x)) &#123;</span><br><span class="line">  background-image: -webkit-image-set(url("../img/bg.webp") 1x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-image-set" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>CSS4で提案されているimage-listはかなりよさそうである。</p>
+<ul>
+<li><a href="http://www.w3.org/TR/css4-images/" target="_blank" >CSS Image Values and Replaced Content Module Level 4</a></li>
+<li><a href="http://www.brucelawson.co.uk/2013/save-bandwidth-webp-with-fallback/" target="_blank" >Bruce Lawson’s personal site  : Save bandwidth with webP – soon with fallback!</a></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: images("../img/bg.webp", "../img/bg.png");</span><br></pre></td></tr></table></figure>
+<p>ただ現時点では対応しているブラウザはない様子。<br>現時点ではimage-setが一番よさそう。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Webpをさくっと導入できないか思案。</p>
+<ul>
+<li><a href="http://caniuse.com/#search=webp" target="_blank" >Can I use… Support tables for HTML5, CSS3, et]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[MongoDBのバックアップ思案]]></title>
+    <link href="http://log.playr.jp/2015/09/11/MongoDB%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E6%80%9D%E6%A1%88/"/>
+    <id>http://log.playr.jp/2015/09/11/MongoDBのバックアップ思案/</id>
+    <published>2015-09-10T15:32:31.000Z</published>
+    <updated>2015-11-20T15:34:33.706Z</updated>
+    <content type="html"><![CDATA[<p>MongoDBをバックアップし、リストアまで行いたい。</p>
+<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" >第11回　MongoDBのバックアップ：MongoDBでゆるふわDB体験｜gihyo.jp … 技術評論社</a></p>
+<h2 id="バックアップ">バックアップ</h2><p>起動中のMongoのバックアップには<code>mongodump</code>が一般的のよう。<br>小規模ならこれで十分か。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongodump/" target="_blank" >mongodump — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongodump --out /opt/backup/mongodump_20150911</span><br></pre></td></tr></table></figure>
+<p><code>out</code>オプションで保存先を指定できる。指定しなかったらカレントディレクトへ。<br>そのなかにデータベースごとのダンプファイルを作成してくれる。</p>
+<h2 id="リストア">リストア</h2><p>リストアは<code>mongorestore</code>で。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongorestore/" target="_blank" >mongorestore — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path -d <span class="property">name</span></span><br></pre></td></tr></table></figure>
+<p>でデータベースを指定</p>
+<p>とりあえず上の方法で手動でのバックアップ&amp;リストアは問題なく、軽快にできた。<br>今後は自動化していきたい。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>MongoDBをバックアップし、リストアまで行いたい。</p>
+<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" >第11回　MongoDBのバックアップ：MongoDBでゆるふわ]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://log.playr.jp/tags/MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Node.js 4.0]]></title>
+    <link href="http://log.playr.jp/2015/09/09/Node-js-4-0/"/>
+    <id>http://log.playr.jp/2015/09/09/Node-js-4-0/</id>
+    <published>2015-09-09T13:29:39.000Z</published>
+    <updated>2015-11-20T15:31:17.066Z</updated>
+    <content type="html"><![CDATA[<p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
+<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" >Node v4.0.0 (Stable) | Node.js</a></p>
+<p>問題なく<code>nvm install 4.0</code>でインスコできるよう。</p>
+<p>Arrow Functionが解禁になったので、これも少しずつ書き換えていきたい。</p>
+<p>あとはletとconstの使い分け。基本constでいこうと思うけど、どうだろう。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
+<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" >Node v4.0.0 (Stable]]>
+    </summary>
+    
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Grid]]></title>
+    <link href="http://log.playr.jp/2015/09/07/Grid/"/>
+    <id>http://log.playr.jp/2015/09/07/Grid/</id>
+    <published>2015-09-07T12:05:05.000Z</published>
+    <updated>2015-11-20T15:26:09.222Z</updated>
+    <content type="html"><![CDATA[<p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
+<ul>
+<li><a href="http://photoshopvip.net/archives/81206" target="_blank" >最新Webトレンド「カード型デザイン」を取り入れるべき、効果的な4つの理由 - PhotoshopVIP</a></li>
+</ul>
+<p>ポイントは</p>
+<ul>
+<li>IAの作成</li>
+<li>UXの工場</li>
+<li>普遍性</li>
+</ul>
+<p>の3点。</p>
+<p>この手のデザインは割とまえからある気がするが、スマホデバイスとの親和性と相まって地位を確立した感じであろうか。</p>
+<h2 id="CSS_Grid_Layouts">CSS Grid Layouts</h2><p>今後がっつりとしたグリッドデザインをマークアップするのであれば、<code>display: grid</code>を使用したい。</p>
+<ul>
+<li><a href="https://medium.com/@patrickbrosset/css-grid-layout-6c9cba6e8a5a" target="_blank" >The future of layout with CSS: Grid Layouts — Medium</a></li>
+</ul>
+<p>CSSグリッドを使用した実装。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.container</span> <span class="rules">&#123; <span class="rule"><span class="attribute">display</span>:<span class="value"> grid</span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-grid" target="_blank" >Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>各ブラウザベンダーの対応はまだまだこれから。IEも先行実装したものの使用が変わっていき、互換性が怪しいらしい。<br>とりあえずDemoを作ってみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/css-grid-layout/" target="_blank" >CSS Grid Layout - Playground</a></li>
+</ul>
+<p>ie11とEdgeで動作を確認。<br>他のブラウザではDivの羅列となったので導入するのであればPolyfillは必須のよう。</p>
+<ul>
+<li><a href="https://github.com/FremyCompany/css-grid-polyfill" target="_blank" >FremyCompany/css-grid-polyfill</a></li>
+</ul>
+<p>Polyfillはコレ。Demoもあるし</p>
+<p>かなり容易に複雑なグリッドレイアウトを作れるし、レスポンシブ化も簡潔に書けそう。<br>早く使いたいので各ベンダの今後の動向を見たい。現時点では未対応環境が多すぎるし、上記Polyfill内でもプロダクションへの導入は慎重にと言及されている。<br>でもFirefoxが対応したらPolyfillかましてどこかで使うかも。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
+<ul>
+<li><a href="http://photoshopvip.net/archives/81206" target="_blank" >最新Webトレンド「カード型デザイン」を取り入れる]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Prefitch]]></title>
+    <link href="http://log.playr.jp/2015/09/07/Prefitch/"/>
+    <id>http://log.playr.jp/2015/09/07/Prefitch/</id>
+    <published>2015-09-07T11:03:17.000Z</published>
+    <updated>2015-11-20T15:04:10.513Z</updated>
+    <content type="html"><![CDATA[<p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
+<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" >HTML5 Prefetch — Medium</a></p>
+<p>対応ブラウザやテスト方法など、かなり詳しく解説している記事。</p>
+<p>種類は主に以下の四つがあるよう。</p>
+<ul>
+<li>dns-prefetch – ドメインの名前解決</li>
+<li>subresource – 現在のページで使用するファイルをキャッシュ</li>
+<li>prefetch – 後続のページで使用するファイルをキャッシュ</li>
+<li>prerender – バックグラウンドでレンダリングまで行う</li>
+</ul>
+<p>今回は<code>prefetch</code>を試してみた。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">”prefetch”</span> <span class="attribute">href</span>=<span class="value">”</span>/<span class="attribute">js</span>/<span class="attribute">example.js</span>”&gt;</span></span><br></pre></td></tr></table></figure>
+<p>効果のほどは今後検証していく。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
+<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" >HTML5 Pref]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Web Manifest]]></title>
+    <link href="http://log.playr.jp/2015/09/02/Web-Manifest/"/>
+    <id>http://log.playr.jp/2015/09/02/Web-Manifest/</id>
+    <published>2015-09-02T14:45:58.000Z</published>
+    <updated>2015-11-20T15:00:41.795Z</updated>
+    <content type="html"><![CDATA[<h2 id="manifest-json">manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
+<ul>
+<li><a href="https://w3c.github.io/manifest/" target="_blank" >Manifest for a web application</a></li>
+<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Manifest" target="_blank" >App manifest - App Center | MDN</a></li>
+</ul>
+<p>MDNにも記事があるし、普段使いのFirefoxでもしっかり動くのだろうか。</p>
+<ul>
+<li><a href="http://googledevjp.blogspot.jp/2015/04/service-worker-google-developers-summit.html" target="_blank" >Service Worker で作る 最新モバイル ウェブ エクスペリエンス - Google Developers Summit まとめ </a></li>
+</ul>
+<p>上記はモバイルフレンドリーの目線でWebアプリ化に幅広く言及している記事。</p>
+<ul>
+<li><a href="http://moonglows76.tumblr.com/post/102930578463/web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A3%E3%81%BD%E3%81%8F%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8Bwebapp-manifest" target="_blank" >Webアプリをネイティブアプリっぽく起動するWebApp Manifest - Coding Design’s Tumblr</a></li>
+</ul>
+<p>この記事はさっと読めて、参考になる。</p>
+<p>manifest.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"Kinlan's Amazing Application ++"</span></span>,</span><br><span class="line">  "<span class="attribute">short_name</span>": <span class="value"><span class="string">"Kinlan's Amaze App"</span></span>,</span><br><span class="line">  "<span class="attribute">icons</span>": <span class="value">[</span><br><span class="line">    &#123;</span><br><span class="line">      "<span class="attribute">src</span>": <span class="value"><span class="string">"launcher-icon-3x.png"</span></span>,</span><br><span class="line">      "<span class="attribute">sizes</span>": <span class="value"><span class="string">"144x144"</span></span>,</span><br><span class="line">      "<span class="attribute">type</span>": <span class="value"><span class="string">"image/png"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line">  ]</span>,</span><br><span class="line">  "<span class="attribute">start_url</span>": <span class="value"><span class="string">"index.html"</span></span>,</span><br><span class="line">  "<span class="attribute">display</span>": <span class="value"><span class="string">"standalone"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>これが最低限必要な項目らしい。</p>
+<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"manifest"</span> <span class="attribute">href</span>=<span class="value">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>あとはヘッドで読み込めばオケ。</p>
+<h2 id="インストールバナー">インストールバナー</h2><ul>
+<li><a href="http://qiita.com/tmtysk/items/2c5da83feec45b4ee36f" target="_blank" >manifest.json でWebアプリを「ホーム画面に追加」自動バナー表示に対応させる</a></li>
+</ul>
+<p>これはService Workerを使用した「ホームへ追加」バナーの表示の記事。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'/sw.js'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これもインストールバナーについて詳しく解説している記事。</p>
+<p><a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android" target="_blank" >Increasing engagement with Web App install banners — Google Web Updates</a></p>
+<p>そしてそのサンプル。</p>
+<p><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/app-install-banner" target="_blank" >samples/app-install-banner at gh-pages · GoogleChrome/samples</a></p>
+<p>Choromeでは問題なく動作し、インストールバナーも表示された。<br>ただ一度インストールをしないを選択すると、次回再表示はなさそうなのであまり強力な効果は期待できないかも。</p>
+<h2 id="テーマカラー">テーマカラー</h2><p>theme-colorの設定がmanifest.json内に記述できるようになったよう。</p>
+<ul>
+<li><a href="https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color" target="_blank" >Using the web app manifest to specify a site wide theme colour</a></li>
+</ul>
+<p>従来のmetaタグだとこう。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"theme-color"</span> <span class="attribute">content</span>=<span class="value">"#2196F3"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>manifest.jsonだとこう。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"theme_color": "#2196F3"</span><br></pre></td></tr></table></figure>
+<p>しかしmanifest.jsonのみの記述だとホームへ追加しないと効力を発揮しないようなので、現時点では両方記述したほうがいいかもしれない。</p>
+<h2 id="Firefox">Firefox</h2><p>FirefoxでもServiceWorkerをテストする。</p>
+<p><code>about:config</code>で<code>dom.serviceWorkers</code>を検索し、フラグを<code>true</code>へ変更する。</p>
+<p>ServiceWorkerは問題なく作動したが、アプリ化の効果は現時点では無さそう。今後に期待したい。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="manifest-json">manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
+<ul>
+<li><a href="https://w3c.github.io/manifest/" targ]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[フォントコンバーター]]></title>
@@ -463,59 +692,6 @@
     </summary>
     
       <category term="hexo" scheme="http://log.playr.jp/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[CloudFlare導入してみる]]></title>
-    <link href="http://log.playr.jp/2013/04/07/CloudFlare%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/"/>
-    <id>http://log.playr.jp/2013/04/07/CloudFlare導入してみる/</id>
-    <published>2013-04-07T08:50:55.000Z</published>
-    <updated>2015-11-13T18:48:07.526Z</updated>
-    <content type="html"><![CDATA[<p>サイトに<a href="https://www.cloudflare.com/" target="_blank" >CloudFlare</a>導入してみたが、コレどうなんさろう…。<br>メインビジュアルが結構デカイから恩恵があるのかとおもってたけど、よくわかんないッス。  </p>
-<p>とりあえず様子見だなー。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>サイトに<a href="https://www.cloudflare.com/" target="_blank" >CloudFlare</a>導入してみたが、コレどうなんさろう…。<br>メインビジュアルが結構デカイから恩恵があるのかとおもってたけど、よくわかんないッス]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Fontelloを導入]]></title>
-    <link href="http://log.playr.jp/2013/04/05/Fontello%E3%82%92%E5%B0%8E%E5%85%A5/"/>
-    <id>http://log.playr.jp/2013/04/05/Fontelloを導入/</id>
-    <published>2013-04-05T08:42:38.000Z</published>
-    <updated>2015-11-15T05:53:09.054Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://nautilus-jp.com/" target="_blank" >NAUTILUSサイト</a>の外部リンクをアイコンで分かりやすくしたいなーと思い、今日改造に着手。<br>どうせならアイコンフォントで導入しよー、ということで調査した結果、下記の手法で改造を開始。<br>今回は<a href="http://fontello.com/" target="_blank" >fontello</a>を使用。<br>普通のフォントアイコンをつかうと無駄にサイズが大きくなるので、こーゆーピンポイントでチョイスできるサービスは大変便利。  </p>
-<p>この四つをアイコンフォントとして、導入するる。  </p>
-<p><amp-img src="/2013/04/05/Fontelloを導入/1.png" width="400" height="229"></amp-img></p>
-<p>ついでに_blankを記入したときに、自動でアイコンを追加してくれるようJSで追加！<a href="http://hiroyukiterada.com/jquery/246/" target="_blank" >この記事</a>を参考に。   </p>
-<p><amp-img src="/2013/04/05/Fontelloを導入/2.jpg" width="400" height="300"></amp-img></p>
-<p>と思ったら、同様のことをCSSだけでできるのね。<br>この辺でセレクタとかの知識不足が露呈しますな。ホームのアイコンは手動で入力。  </p>
-<p>わりとシンプルなコードでできますな。ん～今日はこんなもんかと。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://nautilus-jp.com/" target="_blank" >NAUTILUSサイト</a>の外部リンクをアイコンで分かりやすくしたいなーと思い、今日改造に着手。<br>どうせならアイコンフォントで導入しよー、ということで調査した結果]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[SOY CMSを導入]]></title>
-    <link href="http://log.playr.jp/2013/03/07/CMS%E3%82%92%E5%B0%8E%E5%85%A5/"/>
-    <id>http://log.playr.jp/2013/03/07/CMSを導入/</id>
-    <published>2013-03-07T08:35:38.000Z</published>
-    <updated>2015-11-14T15:48:51.407Z</updated>
-    <content type="html"><![CDATA[<p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" >AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いたかったが…。  </p>
-<p>ってことで行き着いた<a href="http://www.soycms.net/" target="_blank" >SOY</a>でなんとか完成。<br>ああ、SOYいいね、ソイ。いいっす、ボクには扱いやすす。PHPはギリギリいけるな。  </p>
-<p>ということで、とりあえずトップとInfoページは全面SOY化。<br>メディアとリクエストもそのうちSOY化したら長い目で見ていいかも。<br>メールフォームやフォトはまだまだ検討ですな。いまでも事足りてるし。 </p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" >AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いた]]>
-    </summary>
-    
-      <category term="SOYCMS" scheme="http://log.playr.jp/tags/SOYCMS/"/>
     
   </entry>
   
