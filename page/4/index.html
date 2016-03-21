@@ -59,15 +59,59 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-19T10:56:41.000Z">
-                    <a href="/2015/10/19/Timezone/">2015-10-19</a>
+                <time class="article__header__meta__time" datetime="2015-10-23T07:00:28.000Z">
+                    <a href="/2015/10/23/SNS-Feeds.html">2015-10-23</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/19/Timezone/">Timezone</a>
+            <a href="/2015/10/23/SNS-Feeds.html">SNS Feeds</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p>
+<p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p>
+<p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p>
+<ul>
+<li><a href="https://github.com/pavelk2/social-feed" target="_blank" >pavelk2/social-feed</a></li>
+</ul>
+<p>今回結び付けたいSNSは以下の3つ。</p>
+<ul>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>instagram</li>
+</ul>
+<p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>
+
+	    
+	</div>
+    <footer class="article__footer clearfix">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-19T10:56:41.000Z">
+                    <a href="/2015/10/19/Timezone.html">2015-10-19</a>
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/19/Timezone.html">Timezone</a>
         </h1>
     
 
@@ -101,14 +145,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-14T11:54:51.000Z">
-                    <a href="/2015/10/14/脱-jQuery/">2015-10-14</a>
+                    <a href="/2015/10/14/脱-jQuery.html">2015-10-14</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/脱-jQuery/">脱 jQuery</a>
+            <a href="/2015/10/14/脱-jQuery.html">脱 jQuery</a>
         </h1>
     
 
@@ -142,14 +186,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-14T10:54:30.000Z">
-                    <a href="/2015/10/14/microdata/">2015-10-14</a>
+                    <a href="/2015/10/14/microdata.html">2015-10-14</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/microdata/">Microdata</a>
+            <a href="/2015/10/14/microdata.html">Microdata</a>
         </h1>
     
 
@@ -201,14 +245,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-10T12:42:26.000Z">
-                    <a href="/2015/10/10/Firefox-Add-on/">2015-10-10</a>
+                    <a href="/2015/10/10/Firefox-Add-on.html">2015-10-10</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/10/Firefox-Add-on/">Firefox Add-on</a>
+            <a href="/2015/10/10/Firefox-Add-on.html">Firefox Add-on</a>
         </h1>
     
 
@@ -236,52 +280,6 @@
 	
 </div>
 
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-07T11:40:14.000Z">
-                    <a href="/2015/10/07/sitemap-xml/">2015-10-07</a>
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/07/sitemap-xml/">sitemap.xml</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。<br>清く正しくsitemap.xmlを理解するなら以下を参照。</p>
-<ul>
-<li><a href="http://www.sitemaps.org/ja/" target="_blank" >sitemaps.org - ホーム</a></li>
-<li><a href="https://support.google.com/webmasters/answer/156184?hl=ja&amp;ref_topic=4581190" target="_blank" >サイトマップについて - Search Console ヘルプ</a></li>
-</ul>
-<p>普段は以下のオンラインジェネレーターを利用し配備していた。</p>
-<ul>
-<li><a href="https://www.xml-sitemaps.com/" target="_blank" >Create your Google Sitemap Online - XML Sitemaps Generator</a></li>
-</ul>
-<p>これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。<br>そこで<a href="https://github.com/ekalinin/sitemap.js" target="_blank" >sitemap.js</a>を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。</p>
-<ul>
-<li><a href="https://github.com/ekalinin/sitemap.js" target="_blank" >ekalinin/sitemap.js</a></li>
-</ul>
-<p>ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。<br>Promiseでラップし、Yiedableにすればほぼ完了である。  </p>
-<p>あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。</p>
-
-	    
-	</div>
-    <footer class="article__footer clearfix">
-	    
-	    
 	</footer>
     
 

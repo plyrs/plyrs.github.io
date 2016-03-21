@@ -59,15 +59,65 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
-                    <a href="/2015/10/31/Critical-Path-CSS/">2015-10-31</a>
+                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
+                    <a href="/2015/10/31/gulp-progeny.html">2015-10-31</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/31/Critical-Path-CSS/">Critical-Path-CSS</a>
+            <a href="/2015/10/31/gulp-progeny.html">gulp-progeny</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
+<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
+<ul>
+<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" >gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
+</ul>
+<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
+<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
+<ul>
+<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" >HerringtonDarkholme/gulp-progeny</a></li>
+</ul>
+<p>まさに依存関係を解決してくれるよう。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
+
+	    
+	</div>
+    <footer class="article__footer clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
+                    <a href="/2015/10/31/Critical-Path-CSS.html">2015-10-31</a>
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/31/Critical-Path-CSS.html">Critical-Path-CSS</a>
         </h1>
     
 
@@ -120,14 +170,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-30T07:08:49.000Z">
-                    <a href="/2015/10/30/VanillaなDropdown/">2015-10-30</a>
+                    <a href="/2015/10/30/VanillaなDropdown.html">2015-10-30</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/30/VanillaなDropdown/">VanillaなDropdown</a>
+            <a href="/2015/10/30/VanillaなDropdown.html">VanillaなDropdown</a>
         </h1>
     
 
@@ -164,14 +214,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-29T10:06:19.000Z">
-                    <a href="/2015/10/29/Github-Flow/">2015-10-29</a>
+                    <a href="/2015/10/29/Github-Flow.html">2015-10-29</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/29/Github-Flow/">Github-Flow</a>
+            <a href="/2015/10/29/Github-Flow.html">Github-Flow</a>
         </h1>
     
 
@@ -211,14 +261,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-29T07:04:04.000Z">
-                    <a href="/2015/10/29/Comit-in-English/">2015-10-29</a>
+                    <a href="/2015/10/29/Comit-in-English.html">2015-10-29</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/29/Comit-in-English/">Comit in English</a>
+            <a href="/2015/10/29/Comit-in-English.html">Comit in English</a>
         </h1>
     
 
@@ -250,50 +300,6 @@
 	
 </div>
 
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-23T07:00:28.000Z">
-                    <a href="/2015/10/23/SNS-Feeds/">2015-10-23</a>
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/23/SNS-Feeds/">SNS Feeds</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p>
-<p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p>
-<p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p>
-<ul>
-<li><a href="https://github.com/pavelk2/social-feed" target="_blank" >pavelk2/social-feed</a></li>
-</ul>
-<p>今回結び付けたいSNSは以下の3つ。</p>
-<ul>
-<li>Facebook</li>
-<li>Twitter</li>
-<li>instagram</li>
-</ul>
-<p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>
-
-	    
-	</div>
-    <footer class="article__footer clearfix">
-	    
-	    
 	</footer>
     
 

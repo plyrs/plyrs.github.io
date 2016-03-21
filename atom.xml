@@ -17,8 +17,8 @@
   
   <entry>
     <title>Bitbucket × Jenkins</title>
-    <link href="http://log.playr.jp/2015/12/06/Windows10%C3%97Bitbucket%C3%97Jenkins/"/>
-    <id>http://log.playr.jp/2015/12/06/Windows10×Bitbucket×Jenkins/</id>
+    <link href="http://log.playr.jp/2015/12/06/Windows10%C3%97Bitbucket%C3%97Jenkins.html"/>
+    <id>http://log.playr.jp/2015/12/06/Windows10×Bitbucket×Jenkins.html</id>
     <published>2015-12-06T07:56:25.000Z</published>
     <updated>2016-03-02T07:57:50.691Z</updated>
     
@@ -57,8 +57,8 @@
   
   <entry>
     <title>Default CSS</title>
-    <link href="http://log.playr.jp/2015/12/04/Default-CSS/"/>
-    <id>http://log.playr.jp/2015/12/04/Default-CSS/</id>
+    <link href="http://log.playr.jp/2015/12/04/Default-CSS.html"/>
+    <id>http://log.playr.jp/2015/12/04/Default-CSS.html</id>
     <published>2015-12-04T07:36:04.000Z</published>
     <updated>2016-03-02T07:54:35.408Z</updated>
     
@@ -94,8 +94,8 @@
   
   <entry>
     <title>多言語化</title>
-    <link href="http://log.playr.jp/2015/12/02/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96/"/>
-    <id>http://log.playr.jp/2015/12/02/多言語化/</id>
+    <link href="http://log.playr.jp/2015/12/02/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96.html"/>
+    <id>http://log.playr.jp/2015/12/02/多言語化.html</id>
     <published>2015-12-02T07:33:25.000Z</published>
     <updated>2016-03-02T08:10:04.004Z</updated>
     
@@ -155,8 +155,8 @@
   
   <entry>
     <title>SourceTree-1.6.24</title>
-    <link href="http://log.playr.jp/2015/12/01/SourceTree-1-6-24/"/>
-    <id>http://log.playr.jp/2015/12/01/SourceTree-1-6-24/</id>
+    <link href="http://log.playr.jp/2015/12/01/SourceTree-1-6-24.html"/>
+    <id>http://log.playr.jp/2015/12/01/SourceTree-1-6-24.html</id>
     <published>2015-12-01T07:31:39.000Z</published>
     <updated>2016-03-02T07:32:16.979Z</updated>
     
@@ -184,8 +184,8 @@
   
   <entry>
     <title>Marker-Clusterer</title>
-    <link href="http://log.playr.jp/2015/11/29/Marker-Clusterer/"/>
-    <id>http://log.playr.jp/2015/11/29/Marker-Clusterer/</id>
+    <link href="http://log.playr.jp/2015/11/29/Marker-Clusterer.html"/>
+    <id>http://log.playr.jp/2015/11/29/Marker-Clusterer.html</id>
     <published>2015-11-29T12:30:15.000Z</published>
     <updated>2016-03-02T07:30:48.761Z</updated>
     
@@ -224,8 +224,8 @@
   
   <entry>
     <title>Icon</title>
-    <link href="http://log.playr.jp/2015/11/27/Icon/"/>
-    <id>http://log.playr.jp/2015/11/27/Icon/</id>
+    <link href="http://log.playr.jp/2015/11/27/Icon.html"/>
+    <id>http://log.playr.jp/2015/11/27/Icon.html</id>
     <published>2015-11-27T11:25:48.000Z</published>
     <updated>2016-03-02T07:29:27.154Z</updated>
     
@@ -255,8 +255,8 @@
   
   <entry>
     <title>Splash-Screens</title>
-    <link href="http://log.playr.jp/2015/11/26/Splash-Screens/"/>
-    <id>http://log.playr.jp/2015/11/26/Splash-Screens/</id>
+    <link href="http://log.playr.jp/2015/11/26/Splash-Screens.html"/>
+    <id>http://log.playr.jp/2015/11/26/Splash-Screens.html</id>
     <published>2015-11-26T07:19:33.000Z</published>
     <updated>2016-03-02T07:24:55.333Z</updated>
     
@@ -290,9 +290,34 @@
   </entry>
   
   <entry>
+    <title>Google OAuth</title>
+    <link href="http://log.playr.jp/2015/11/06/Google-OAuth.html"/>
+    <id>http://log.playr.jp/2015/11/06/Google-OAuth.html</id>
+    <published>2015-11-06T13:39:20.000Z</published>
+    <updated>2016-03-21T13:41:25.485Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; &gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/simov/grant&quot; target=&quot;_blank&quot; &gt;simov/grant&lt;/a&gt;を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/komiyak/20141103/1415016929&quot; target=&quot;_blank&quot; &gt;Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。&lt;br&gt;また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; &gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/simov/grant&quot; targ
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://log.playr.jp/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>dialog-element</title>
-    <link href="http://log.playr.jp/2015/11/06/dialog-element/"/>
-    <id>http://log.playr.jp/2015/11/06/dialog-element/</id>
+    <link href="http://log.playr.jp/2015/11/06/dialog-element.html"/>
+    <id>http://log.playr.jp/2015/11/06/dialog-element.html</id>
     <published>2015-11-06T08:32:20.000Z</published>
     <updated>2016-03-02T08:39:21.543Z</updated>
     
@@ -329,8 +354,8 @@
   
   <entry>
     <title>Push通知</title>
-    <link href="http://log.playr.jp/2015/11/02/Push%E9%80%9A%E7%9F%A5/"/>
-    <id>http://log.playr.jp/2015/11/02/Push通知/</id>
+    <link href="http://log.playr.jp/2015/11/02/Push%E9%80%9A%E7%9F%A5.html"/>
+    <id>http://log.playr.jp/2015/11/02/Push通知.html</id>
     <published>2015-11-02T12:27:39.000Z</published>
     <updated>2016-03-02T08:30:58.490Z</updated>
     
@@ -361,8 +386,8 @@
   
   <entry>
     <title>gulp-progeny</title>
-    <link href="http://log.playr.jp/2015/10/31/gulp-progeny/"/>
-    <id>http://log.playr.jp/2015/10/31/gulp-progeny/</id>
+    <link href="http://log.playr.jp/2015/10/31/gulp-progeny.html"/>
+    <id>http://log.playr.jp/2015/10/31/gulp-progeny.html</id>
     <published>2015-10-31T12:17:26.000Z</published>
     <updated>2016-03-02T08:26:24.191Z</updated>
     
@@ -395,8 +420,8 @@
   
   <entry>
     <title>Critical-Path-CSS</title>
-    <link href="http://log.playr.jp/2015/10/31/Critical-Path-CSS/"/>
-    <id>http://log.playr.jp/2015/10/31/Critical-Path-CSS/</id>
+    <link href="http://log.playr.jp/2015/10/31/Critical-Path-CSS.html"/>
+    <id>http://log.playr.jp/2015/10/31/Critical-Path-CSS.html</id>
     <published>2015-10-31T07:12:22.000Z</published>
     <updated>2016-03-02T08:09:50.741Z</updated>
     
@@ -440,8 +465,8 @@
   
   <entry>
     <title>VanillaなDropdown</title>
-    <link href="http://log.playr.jp/2015/10/30/Vanilla%E3%81%AADropdown/"/>
-    <id>http://log.playr.jp/2015/10/30/VanillaなDropdown/</id>
+    <link href="http://log.playr.jp/2015/10/30/Vanilla%E3%81%AADropdown.html"/>
+    <id>http://log.playr.jp/2015/10/30/VanillaなDropdown.html</id>
     <published>2015-10-30T07:08:49.000Z</published>
     <updated>2016-03-02T07:10:35.714Z</updated>
     
@@ -470,8 +495,8 @@
   
   <entry>
     <title>Github-Flow</title>
-    <link href="http://log.playr.jp/2015/10/29/Github-Flow/"/>
-    <id>http://log.playr.jp/2015/10/29/Github-Flow/</id>
+    <link href="http://log.playr.jp/2015/10/29/Github-Flow.html"/>
+    <id>http://log.playr.jp/2015/10/29/Github-Flow.html</id>
     <published>2015-10-29T10:06:19.000Z</published>
     <updated>2016-03-02T07:08:07.188Z</updated>
     
@@ -500,8 +525,8 @@
   
   <entry>
     <title>Comit in English</title>
-    <link href="http://log.playr.jp/2015/10/29/Comit-in-English/"/>
-    <id>http://log.playr.jp/2015/10/29/Comit-in-English/</id>
+    <link href="http://log.playr.jp/2015/10/29/Comit-in-English.html"/>
+    <id>http://log.playr.jp/2015/10/29/Comit-in-English.html</id>
     <published>2015-10-29T07:04:04.000Z</published>
     <updated>2016-03-02T07:06:36.019Z</updated>
     
@@ -536,8 +561,8 @@
   
   <entry>
     <title>SNS Feeds</title>
-    <link href="http://log.playr.jp/2015/10/23/SNS-Feeds/"/>
-    <id>http://log.playr.jp/2015/10/23/SNS-Feeds/</id>
+    <link href="http://log.playr.jp/2015/10/23/SNS-Feeds.html"/>
+    <id>http://log.playr.jp/2015/10/23/SNS-Feeds.html</id>
     <published>2015-10-23T07:00:28.000Z</published>
     <updated>2016-03-02T07:02:12.525Z</updated>
     
@@ -568,8 +593,8 @@
   
   <entry>
     <title>Timezone</title>
-    <link href="http://log.playr.jp/2015/10/19/Timezone/"/>
-    <id>http://log.playr.jp/2015/10/19/Timezone/</id>
+    <link href="http://log.playr.jp/2015/10/19/Timezone.html"/>
+    <id>http://log.playr.jp/2015/10/19/Timezone.html</id>
     <published>2015-10-19T10:56:41.000Z</published>
     <updated>2016-03-02T06:58:53.374Z</updated>
     
@@ -593,8 +618,8 @@
   
   <entry>
     <title>脱 jQuery</title>
-    <link href="http://log.playr.jp/2015/10/14/%E8%84%B1-jQuery/"/>
-    <id>http://log.playr.jp/2015/10/14/脱-jQuery/</id>
+    <link href="http://log.playr.jp/2015/10/14/%E8%84%B1-jQuery.html"/>
+    <id>http://log.playr.jp/2015/10/14/脱-jQuery.html</id>
     <published>2015-10-14T11:54:51.000Z</published>
     <updated>2016-03-02T06:56:01.238Z</updated>
     
@@ -620,8 +645,8 @@
   
   <entry>
     <title>Microdata</title>
-    <link href="http://log.playr.jp/2015/10/14/microdata/"/>
-    <id>http://log.playr.jp/2015/10/14/microdata/</id>
+    <link href="http://log.playr.jp/2015/10/14/microdata.html"/>
+    <id>http://log.playr.jp/2015/10/14/microdata.html</id>
     <published>2015-10-14T10:54:30.000Z</published>
     <updated>2016-03-02T06:55:29.491Z</updated>
     
@@ -665,8 +690,8 @@
   
   <entry>
     <title>Firefox Add-on</title>
-    <link href="http://log.playr.jp/2015/10/10/Firefox-Add-on/"/>
-    <id>http://log.playr.jp/2015/10/10/Firefox-Add-on/</id>
+    <link href="http://log.playr.jp/2015/10/10/Firefox-Add-on.html"/>
+    <id>http://log.playr.jp/2015/10/10/Firefox-Add-on.html</id>
     <published>2015-10-10T12:42:26.000Z</published>
     <updated>2016-02-28T16:47:08.400Z</updated>
     
@@ -691,41 +716,6 @@
     
     
       <category term="Firefox" scheme="http://log.playr.jp/tags/Firefox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sitemap.xml</title>
-    <link href="http://log.playr.jp/2015/10/07/sitemap-xml/"/>
-    <id>http://log.playr.jp/2015/10/07/sitemap-xml/</id>
-    <published>2015-10-07T11:40:14.000Z</published>
-    <updated>2016-02-28T16:41:14.022Z</updated>
-    
-    <content type="html">&lt;p&gt;グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。&lt;br&gt;清く正しくsitemap.xmlを理解するなら以下を参照。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sitemaps.org/ja/&quot; target=&quot;_blank&quot; &gt;sitemaps.org - ホーム&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://support.google.com/webmasters/answer/156184?hl=ja&amp;amp;ref_topic=4581190&quot; target=&quot;_blank&quot; &gt;サイトマップについて - Search Console ヘルプ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;普段は以下のオンラインジェネレーターを利用し配備していた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.xml-sitemaps.com/&quot; target=&quot;_blank&quot; &gt;Create your Google Sitemap Online - XML Sitemaps Generator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。&lt;br&gt;そこで&lt;a href=&quot;https://github.com/ekalinin/sitemap.js&quot; target=&quot;_blank&quot; &gt;sitemap.js&lt;/a&gt;を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ekalinin/sitemap.js&quot; target=&quot;_blank&quot; &gt;ekalinin/sitemap.js&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。&lt;br&gt;Promiseでラップし、Yiedableにすればほぼ完了である。  &lt;/p&gt;
-&lt;p&gt;あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。&lt;br&gt;清く正しくsitemap.xmlを理解するなら以下を参照。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sitemaps.org/
-    
-    </summary>
-    
     
   </entry>
   

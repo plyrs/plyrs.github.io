@@ -60,14 +60,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-11-27T11:25:48.000Z">
-                    <a href="/2015/11/27/Icon/">2015-11-27</a>
+                    <a href="/2015/11/27/Icon.html">2015-11-27</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/27/Icon/">Icon</a>
+            <a href="/2015/11/27/Icon.html">Icon</a>
         </h1>
     
 
@@ -106,14 +106,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-11-26T07:19:33.000Z">
-                    <a href="/2015/11/26/Splash-Screens/">2015-11-26</a>
+                    <a href="/2015/11/26/Splash-Screens.html">2015-11-26</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/26/Splash-Screens/">Splash-Screens</a>
+            <a href="/2015/11/26/Splash-Screens.html">Splash-Screens</a>
         </h1>
     
 
@@ -158,15 +158,57 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-06T08:32:20.000Z">
-                    <a href="/2015/11/06/dialog-element/">2015-11-06</a>
+                <time class="article__header__meta__time" datetime="2015-11-06T13:39:20.000Z">
+                    <a href="/2015/11/06/Google-OAuth.html">2015-11-06</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/06/dialog-element/">dialog-element</a>
+            <a href="/2015/11/06/Google-OAuth.html">Google OAuth</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p><a href="https://jp.dewy.me/" target="_blank" >Dewy</a>へGoogleアカウントによるログイン機能を実装した。<br>これまで通り<a href="https://github.com/simov/grant" target="_blank" >simov/grant</a>を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。</p>
+<ul>
+<li><a href="http://d.hatena.ne.jp/komiyak/20141103/1415016929" target="_blank" >Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道</a></li>
+</ul>
+<p>アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。<br>また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。</p>
+
+	    
+	</div>
+    <footer class="article__footer clearfix">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-11-06T08:32:20.000Z">
+                    <a href="/2015/11/06/dialog-element.html">2015-11-06</a>
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/11/06/dialog-element.html">dialog-element</a>
         </h1>
     
 
@@ -212,14 +254,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-11-02T12:27:39.000Z">
-                    <a href="/2015/11/02/Push通知/">2015-11-02</a>
+                    <a href="/2015/11/02/Push通知.html">2015-11-02</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/02/Push通知/">Push通知</a>
+            <a href="/2015/11/02/Push通知.html">Push通知</a>
         </h1>
     
 
@@ -245,56 +287,6 @@
 <div class="tags">
 	
 	<a href="/tags/JavaScript/">#JavaScript</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
-                    <a href="/2015/10/31/gulp-progeny/">2015-10-31</a>
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/31/gulp-progeny/">gulp-progeny</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
-<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
-<ul>
-<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" >gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
-</ul>
-<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
-<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
-<ul>
-<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" >HerringtonDarkholme/gulp-progeny</a></li>
-</ul>
-<p>まさに依存関係を解決してくれるよう。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
-
-	    
-	</div>
-    <footer class="article__footer clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 

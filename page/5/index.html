@@ -59,15 +59,61 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-06T11:34:51.000Z">
-                    <a href="/2015/10/06/Update-font-face/">2015-10-06</a>
+                <time class="article__header__meta__time" datetime="2015-10-07T11:40:14.000Z">
+                    <a href="/2015/10/07/sitemap-xml.html">2015-10-07</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/06/Update-font-face/">Update @font-face</a>
+            <a href="/2015/10/07/sitemap-xml.html">sitemap.xml</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。<br>清く正しくsitemap.xmlを理解するなら以下を参照。</p>
+<ul>
+<li><a href="http://www.sitemaps.org/ja/" target="_blank" >sitemaps.org - ホーム</a></li>
+<li><a href="https://support.google.com/webmasters/answer/156184?hl=ja&amp;ref_topic=4581190" target="_blank" >サイトマップについて - Search Console ヘルプ</a></li>
+</ul>
+<p>普段は以下のオンラインジェネレーターを利用し配備していた。</p>
+<ul>
+<li><a href="https://www.xml-sitemaps.com/" target="_blank" >Create your Google Sitemap Online - XML Sitemaps Generator</a></li>
+</ul>
+<p>これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。<br>そこで<a href="https://github.com/ekalinin/sitemap.js" target="_blank" >sitemap.js</a>を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。</p>
+<ul>
+<li><a href="https://github.com/ekalinin/sitemap.js" target="_blank" >ekalinin/sitemap.js</a></li>
+</ul>
+<p>ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。<br>Promiseでラップし、Yiedableにすればほぼ完了である。  </p>
+<p>あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。</p>
+
+	    
+	</div>
+    <footer class="article__footer clearfix">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-06T11:34:51.000Z">
+                    <a href="/2015/10/06/Update-font-face.html">2015-10-06</a>
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/06/Update-font-face.html">Update @font-face</a>
         </h1>
     
 
@@ -157,14 +203,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-05T16:38:22.000Z">
-                    <a href="/2015/10/06/CSS-font-familyをアップデート/">2015-10-06</a>
+                    <a href="/2015/10/06/CSS-font-familyをアップデート.html">2015-10-06</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/06/CSS-font-familyをアップデート/">CSS font-familyをアップデート</a>
+            <a href="/2015/10/06/CSS-font-familyをアップデート.html">CSS font-familyをアップデート</a>
         </h1>
     
 
@@ -204,14 +250,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-10-03T12:25:37.000Z">
-                    <a href="/2015/10/03/wysiwyg/">2015-10-03</a>
+                    <a href="/2015/10/03/wysiwyg.html">2015-10-03</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/03/wysiwyg/">wysiwyg</a>
+            <a href="/2015/10/03/wysiwyg.html">wysiwyg</a>
         </h1>
     
 
@@ -247,14 +293,14 @@
 	    
             <div class="article__header__meta">
                 <time class="article__header__meta__time" datetime="2015-09-30T11:23:07.000Z">
-                    <a href="/2015/09/30/SoyCMSをConohaへ/">2015-09-30</a>
+                    <a href="/2015/09/30/SoyCMSをConohaへ.html">2015-09-30</a>
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/30/SoyCMSをConohaへ/">SoyCMSをConohaへ</a>
+            <a href="/2015/09/30/SoyCMSをConohaへ.html">SoyCMSをConohaへ</a>
         </h1>
     
 
@@ -283,52 +329,6 @@
 	<a href="/tags/Conoha/">#Conoha</a>
 	
 	<a href="/tags/SoyCMS/">#SoyCMS</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-28T11:20:49.000Z">
-                    <a href="/2015/09/28/MongoDB-unset/">2015-09-28</a>
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/28/MongoDB-unset/">MongoDB $unset</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>MongoDBで特定のドキュメントの特定のフィールドを削除するには<code>$unset</code>を使えばスマートらしい。</p>
-<ul>
-<li><a href="http://docs.mongodb.org/manual/reference/operator/update/unset/" target="_blank" >$unset — MongoDB Manual 3.0</a></li>
-</ul>
-<p>これはMongoDB2からの機能で、それ以前は<code>undefined</code>や<code>null</code>を入れて対応していたらしい。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;_id: user._id&#125;, &#123;field: <span class="literal">undefined</span>&#125;);</span><br></pre></td></tr></table></figure>
-<p>昔はこうだったのが…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;_id: user._id&#125;, &#123;$unset: &#123;field: <span class="number">1</span> &#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>こうらしい。</p>
-
-	    
-	</div>
-    <footer class="article__footer clearfix">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/MongoDB/">#MongoDB</a>
 	
 </div>
 
