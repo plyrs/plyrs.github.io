@@ -2,10 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Playlog</title>
   
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://log.playr.jp/"/>
-  <updated>2016-03-02T07:57:50.691Z</updated>
+  <updated>2016-03-02T07:57:50.692Z</updated>
   <id>http://log.playr.jp/</id>
   
   <author>
@@ -20,33 +21,17 @@
     <link href="http://log.playr.jp/2015/12/06/Windows10%C3%97Bitbucket%C3%97Jenkins.html"/>
     <id>http://log.playr.jp/2015/12/06/Windows10×Bitbucket×Jenkins.html</id>
     <published>2015-12-06T07:56:25.000Z</published>
-    <updated>2016-03-02T07:57:50.691Z</updated>
+    <updated>2016-03-02T07:57:50.692Z</updated>
     
-    <content type="html">&lt;p&gt;個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。&lt;/p&gt;
-&lt;p&gt;Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。&lt;br&gt;規模が大きくなるとどっかに移行したほうが楽かも。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://jenkins-ci.org/&quot; target=&quot;_blank&quot; &gt;Welcome to Jenkins CI! | Jenkins CI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;公式。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://ics.media/entry/2410&quot; target=&quot;_blank&quot; &gt;JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://thinkami.hatenablog.com/entry/20121125/1353795880&quot; target=&quot;_blank&quot; &gt;Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;インストールからHelloWorldまでは上記が参考になった。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866&quot; target=&quot;_blank&quot; &gt;ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B&quot; target=&quot;_blank&quot; &gt;HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ユーザー認証。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p><p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p><ul><li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li></ul><p>公式。</p><ul><li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li><li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li></ul><p>インストールからHelloWorldまでは上記が参考になった。</p><ul><li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li></ul><p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p><ul><li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li></ul><p>ユーザー認証。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。&lt;/p&gt;
+      
+      
+        &lt;p&gt;個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。&lt;/p&gt;
 &lt;p&gt;Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほ
+      
     
     </summary>
     
@@ -62,28 +47,16 @@
     <published>2015-12-04T07:36:04.000Z</published>
     <updated>2016-03-02T07:54:35.408Z</updated>
     
-    <content type="html">&lt;p&gt;なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。&lt;/p&gt;
-&lt;h2 id=&quot;IE&quot;&gt;&lt;a href=&quot;#IE&quot; class=&quot;headerlink&quot; title=&quot;IE&quot;&gt;&lt;/a&gt;IE&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.iecss.com/&quot; target=&quot;_blank&quot; &gt;Internet Explorer UA Style Sheets&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Firefox&quot;&gt;&lt;a href=&quot;#Firefox&quot; class=&quot;headerlink&quot; title=&quot;Firefox&quot;&gt;&lt;/a&gt;Firefox&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css&quot; target=&quot;_blank&quot; &gt;mozilla-central mozilla/layout/style/html.css&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css&quot; target=&quot;_blank&quot; &gt;mozilla-central: layout/style/html.css@85cf2e720a84&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Chrome&quot;&gt;&lt;a href=&quot;#Chrome&quot; class=&quot;headerlink&quot; title=&quot;Chrome&quot;&gt;&lt;/a&gt;Chrome&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css&quot; target=&quot;_blank&quot; &gt;Source/core/css/html.css - chromium/blink - Git at Google&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Safari&quot;&gt;&lt;a href=&quot;#Safari&quot; class=&quot;headerlink&quot; title=&quot;Safari&quot;&gt;&lt;/a&gt;Safari&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css&quot; target=&quot;_blank&quot; &gt;trunk/Source/WebCore/css の html.css – WebKit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Edgeは見つけきれなかったなぁ。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p><h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul><li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li></ul><h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul><li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li><li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li></ul><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul><li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li></ul><h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul><li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li></ul><p>Edgeは見つけきれなかったなぁ。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。&lt;/p&gt;
+      
+      
+        &lt;p&gt;なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。&lt;/p&gt;
 &lt;h2 id=&quot;IE&quot;&gt;&lt;a href=&quot;#IE&quot; class=&quot;headerlink&quot; title=&quot;IE&quot;&gt;&lt;/a&gt;IE&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.iecs
+      
     
     </summary>
     
@@ -97,52 +70,19 @@
     <link href="http://log.playr.jp/2015/12/02/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96.html"/>
     <id>http://log.playr.jp/2015/12/02/多言語化.html</id>
     <published>2015-12-02T07:33:25.000Z</published>
-    <updated>2016-03-02T08:10:04.004Z</updated>
+    <updated>2016-03-02T08:10:04.005Z</updated>
     
-    <content type="html">&lt;p&gt;Webアプリを日本語の他に英語にも対応させることにした。&lt;/p&gt;
-&lt;p&gt;WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n&quot; target=&quot;_blank&quot; &gt;WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;フロントエンドではi18n APIに期待したが、Safariが…。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts&quot; target=&quot;_blank&quot; &gt;globalization:specification_drafts [ES Wiki]&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl&quot; target=&quot;_blank&quot; &gt;Intl - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://caniuse.com/#feat=internationalization&quot; target=&quot;_blank&quot; &gt;Can I use… Support tables for HTML5, CSS3, etc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://momentjs.com/&quot; target=&quot;_blank&quot; &gt;Moment.js | Home&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://formatjs.io/&quot; target=&quot;_blank&quot; &gt;FormatJS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization&quot; target=&quot;_blank&quot; &gt;How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://support.google.com/webmasters/answer/182192?hl=ja&quot; target=&quot;_blank&quot; &gt;多地域、多言語のサイト - Search Console ヘルプ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mashpie/i18n-node&quot; target=&quot;_blank&quot; &gt;mashpie/i18n-node&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/koa-modules/i18n&quot; target=&quot;_blank&quot; &gt;koa-modules/i18n&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;そして実装へ&quot;&gt;&lt;a href=&quot;#そして実装へ&quot; class=&quot;headerlink&quot; title=&quot;そして実装へ&quot;&gt;&lt;/a&gt;そして実装へ&lt;/h2&gt;&lt;p&gt;サブドメインを使用したi18n化を実装した。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://support.google.com/webmasters/answer/189077?hl=ja&quot; target=&quot;_blank&quot; &gt;言語や地域の URL に hreflang を使用する - Search Console ヘルプ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;alternate&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;hreflang&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;https://dewy.me/&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;alternate&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;hreflang&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;ja&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;https://jp.dewy.me/&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。&lt;br&gt;今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://shakezoomer.com/?p=83&quot; target=&quot;_blank&quot; &gt;【node.js &amp;amp; express】国際化対応(i18n) « zoomAroid&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>Webアプリを日本語の他に英語にも対応させることにした。</p><p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p><ul><li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li></ul><p>フロントエンドではi18n APIに期待したが、Safariが…。</p><ul><li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li><li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li><li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li></ul><p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p><ul><li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li><li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li></ul><p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p><ul><li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li><li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li></ul><p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p><ul><li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li><li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li></ul><h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p><ul><li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li></ul><p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p><ul><li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Webアプリを日本語の他に英語にも対応させることにした。&lt;/p&gt;
+      
+      
+        &lt;p&gt;Webアプリを日本語の他に英語にも対応させることにした。&lt;/p&gt;
 &lt;p&gt;WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://teppeis.hatenablog
+      
     
     </summary>
     
@@ -160,20 +100,17 @@
     <published>2015-12-01T07:31:39.000Z</published>
     <updated>2016-03-02T07:32:16.979Z</updated>
     
-    <content type="html">&lt;p&gt;SourceTree 1.6.24でBitbucketアカウントへのログインができない。&lt;/p&gt;
-&lt;p&gt;調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree&quot; target=&quot;_blank&quot; &gt;Password not working on SourceTree - Atlassian Answers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;現時点での解決策は&lt;a href=&quot;http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe&quot; target=&quot;_blank&quot; &gt;1.6.23&lt;/a&gt;へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p><p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p><ul><li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li></ul><p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;SourceTree 1.6.24でBitbucketアカウントへのログインができない。&lt;/p&gt;
+      
+      
+        &lt;p&gt;SourceTree 1.6.24でBitbucketアカウントへのログインができない。&lt;/p&gt;
 &lt;p&gt;調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;h
+      
     
     </summary>
     
@@ -189,31 +126,16 @@
     <published>2015-11-29T12:30:15.000Z</published>
     <updated>2016-03-02T07:30:48.761Z</updated>
     
-    <content type="html">&lt;p&gt;Google mapsへMarker Clustererを導入した。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/googlemaps/js-marker-clusterer&quot; target=&quot;_blank&quot; &gt;googlemaps/js-marker-clusterer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://googlemaps.github.io/js-marker-clusterer/docs/reference.html&quot; target=&quot;_blank&quot; &gt;MarkerClusterer for Google Maps v3 version 1.0 Reference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://googlemaps.github.io/js-marker-clusterer/docs/examples.html&quot; target=&quot;_blank&quot; &gt;MarkerCluster for v3 Documentation: Examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;基本的にはGoogleMapオブジェクトとマーカーの配列を&lt;code&gt;new MarkerClusterer()&lt;/code&gt;へ突っ込めば作動する。&lt;/p&gt;
-&lt;p&gt;オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。&lt;br&gt;おそらく&lt;a href=&quot;http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html&quot; target=&quot;_blank&quot; &gt;Ver.1&lt;/a&gt;と同様のようなので、ここを参照した。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。&lt;/li&gt;
-&lt;li&gt;maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。&lt;/li&gt;
-&lt;li&gt;styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。&lt;br&gt;スマートフォンでもパフォーマンス上の問題は無さそう。&lt;/p&gt;
-&lt;p&gt;しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>Google mapsへMarker Clustererを導入した。</p><ul><li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li></ul><p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p><ul><li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li><li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li></ul><p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p><p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p><ul><li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li><li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li><li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li></ul><p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p><p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Google mapsへMarker Clustererを導入した。&lt;/p&gt;
+      
+      
+        &lt;p&gt;Google mapsへMarker Clustererを導入した。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/googlemaps/js-marker-clusterer&quot; target=&quot;_blank&quot; &gt;googlemaps/j
+&lt;li&gt;&lt;a href=&quot;https://github.com/googlemaps/js-marker-clusterer&quot; target=&quot;_blank&quot; rel=&quot;noopener
+      
     
     </summary>
     
@@ -227,24 +149,18 @@
     <link href="http://log.playr.jp/2015/11/27/Icon.html"/>
     <id>http://log.playr.jp/2015/11/27/Icon.html</id>
     <published>2015-11-27T11:25:48.000Z</published>
-    <updated>2016-03-02T07:29:27.154Z</updated>
+    <updated>2016-03-02T07:29:27.155Z</updated>
     
-    <content type="html">&lt;p&gt;ちょっとIconのデザインを考えてた。&lt;br&gt;やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.google.com/design/spec/style/icons.html&quot; target=&quot;_blank&quot; &gt;Icons - Style - Google design guidelines&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html&quot; target=&quot;_blank&quot; &gt;iOS Human Interface Guidelines: Icons and Graphics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.google.com/design/icons/&quot; target=&quot;_blank&quot; &gt;https://www.google.com/design/icons/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>ちょっとIconのデザインを考えてた。<br>やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。</p><ul><li><a href="https://www.google.com/design/spec/style/icons.html" target="_blank" rel="noopener">Icons - Style - Google design guidelines</a></li><li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html" target="_blank" rel="noopener">iOS Human Interface Guidelines: Icons and Graphics</a></li></ul><p>ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。</p><ul><li><a href="https://www.google.com/design/icons/" target="_blank" rel="noopener">https://www.google.com/design/icons/</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;ちょっとIconのデザインを考えてた。&lt;br&gt;やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。&lt;/p&gt;
+      
+      
+        &lt;p&gt;ちょっとIconのデザインを考えてた。&lt;br&gt;やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.google.com/design/spec/style/icons.html&quot; target
+      
     
     </summary>
     
@@ -260,27 +176,14 @@
     <published>2015-11-26T07:19:33.000Z</published>
     <updated>2016-03-02T07:24:55.333Z</updated>
     
-    <content type="html">&lt;p&gt;仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。&lt;br&gt;もちろん、現段階で対応しているブラウザは無い。&lt;br&gt;しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Kinlan&#39;s Amazing Application ++&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;short_name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Kinlan&#39;s Amaze App&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;icons&quot;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&quot;src&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;launcher-icon-3x.png&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&quot;sizes&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;144x144&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;string&quot;&gt;&quot;splash_screens&quot;&lt;/span&gt;: [&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;src&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;splash/lowres&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;sizes&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;320x240&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;src&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;splash/hd_small&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;sizes&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;1334x750&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;src&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;splash/hd_hi&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;sizes&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;1920x1080&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;density&quot;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;start_url&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;index.html&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;display&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;standalone&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/&quot; target=&quot;_blank&quot; &gt;Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。&lt;/p&gt;
-&lt;p&gt;Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ja/Apps/Manifest&quot; target=&quot;_blank&quot; &gt;アプリマニフェスト - アプリセンター | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;manifest.webappの詳細&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards&quot; target=&quot;_blank&quot; &gt;Open Web Apps と Web 標準 | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ja/Apps/App_templates&quot; target=&quot;_blank&quot; &gt;アプリテンプレートの使用 - アプリセンター | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。<br>もちろん、現段階で対応しているブラウザは無い。<br>しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="string">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="string">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"splash_screens"</span>: [&#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/lowres"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"320x240"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_small"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1334x750"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_hi"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1920x1080"</span>,</span><br><span class="line">    <span class="string">"density"</span>: <span class="number">3</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。</p><ul><li><a href="https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/" target="_blank" rel="noopener">Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)</a></li></ul><p>Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。</p><p>Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。</p><ul><li><a href="https://developer.mozilla.org/ja/Apps/Manifest" target="_blank" rel="noopener">アプリマニフェスト - アプリセンター | MDN</a></li></ul><p>manifest.webappの詳細</p><ul><li><a href="https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards" target="_blank" rel="noopener">Open Web Apps と Web 標準 | MDN</a></li><li><a href="https://developer.mozilla.org/ja/Apps/App_templates" target="_blank" rel="noopener">アプリテンプレートの使用 - アプリセンター | MDN</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。&lt;br&gt;もちろん、現段階で対応しているブラウザは無い。&lt;br&gt;しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになってい
+      
+      
+        &lt;p&gt;仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。&lt;br&gt;もちろん、現段階で対応しているブラウザは無い。&lt;br&gt;しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになってい
+      
     
     </summary>
     
@@ -296,16 +199,14 @@
     <published>2015-11-06T13:39:20.000Z</published>
     <updated>2016-03-21T13:41:25.485Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; &gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/simov/grant&quot; target=&quot;_blank&quot; &gt;simov/grant&lt;/a&gt;を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/komiyak/20141103/1415016929&quot; target=&quot;_blank&quot; &gt;Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。&lt;br&gt;また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p><a href="https://jp.dewy.me/" target="_blank" rel="noopener">Dewy</a>へGoogleアカウントによるログイン機能を実装した。<br>これまで通り<a href="https://github.com/simov/grant" target="_blank" rel="noopener">simov/grant</a>を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。</p><ul><li><a href="http://d.hatena.ne.jp/komiyak/20141103/1415016929" target="_blank" rel="noopener">Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道</a></li></ul><p>アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。<br>また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; &gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/simov/grant&quot; targ
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/sim
+      
     
     </summary>
     
@@ -321,29 +222,16 @@
     <published>2015-11-06T08:32:20.000Z</published>
     <updated>2016-03-02T08:39:21.543Z</updated>
     
-    <content type="html">&lt;p&gt;ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://caniuse.com/#feat=dialog&quot; target=&quot;_blank&quot; &gt;Can I use… Support tables for HTML5, CSS3, etc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;相変わらずblink系のみの対応である。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml&quot; target=&quot;_blank&quot; &gt;Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;amp;utm_medium=web&amp;amp;utm_source=Front_End_Dev_Weekly_77&quot; target=&quot;_blank&quot; &gt;the new code – Native Modal Windows in HTML5: Using the dialog Element&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://demo.agektmr.com/dialog/&quot; target=&quot;_blank&quot; &gt;dialog element demo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/dialog-polyfill&quot; target=&quot;_blank&quot; &gt;GoogleChrome/dialog-polyfill: Polyfill for the dialog element&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ポリフィルもChromeチーム自ら提供している。&lt;/p&gt;
-&lt;p&gt;が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。&lt;br&gt;現時点での実践投入はまだ早いかと。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。</p><ul><li><a href="http://caniuse.com/#feat=dialog" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li></ul><p>相変わらずblink系のみの対応である。</p><ul><li><a href="https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml" target="_blank" rel="noopener">Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH</a></li><li><a href="http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;utm_medium=web&amp;utm_source=Front_End_Dev_Weekly_77" target="_blank" rel="noopener">the new code – Native Modal Windows in HTML5: Using the dialog Element</a></li><li><a href="http://demo.agektmr.com/dialog/" target="_blank" rel="noopener">dialog element demo</a></li></ul><p>具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。</p><ul><li><a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank" rel="noopener">GoogleChrome/dialog-polyfill: Polyfill for the dialog element</a></li></ul><p>ポリフィルもChromeチーム自ら提供している。</p><p>が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。<br>現時点での実践投入はまだ早いかと。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。&lt;/p&gt;
+      
+      
+        &lt;p&gt;ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://caniuse.com/#feat=dialog&quot; target=&quot;_blank&quot; &gt;Can I use… Support ta
+&lt;li&gt;&lt;a href=&quot;http://caniuse.com/#feat=dialog&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Can I u
+      
     
     </summary>
     
@@ -357,25 +245,18 @@
     <link href="http://log.playr.jp/2015/11/02/Push%E9%80%9A%E7%9F%A5.html"/>
     <id>http://log.playr.jp/2015/11/02/Push通知.html</id>
     <published>2015-11-02T12:27:39.000Z</published>
-    <updated>2016-03-02T08:30:58.490Z</updated>
+    <updated>2016-03-02T08:30:58.491Z</updated>
     
-    <content type="html">&lt;p&gt;最近ブラウザにもPush通知の足音が聞こえ始めている。&lt;br&gt;なので基礎学習は始めておきたい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://1000ch.net/posts/2015/service-worker-push-notification.html&quot; target=&quot;_blank&quot; &gt;Service WorkerでブラウザにPush通知をする - 1000ch.net&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d&quot; target=&quot;_blank&quot; &gt;ChromeでW3C Push APIを使ってみた - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;エッジな方々は既に検証を開始している様子。&lt;br&gt;ここはやはりFirefoxでも試したい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb&quot; target=&quot;_blank&quot; &gt;HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Firefoxの実装もかなり進んでいるようで、期待大。&lt;br&gt;問題はモバイルFirefoxの普及だろう。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>最近ブラウザにもPush通知の足音が聞こえ始めている。<br>なので基礎学習は始めておきたい。</p><ul><li><a href="https://1000ch.net/posts/2015/service-worker-push-notification.html" target="_blank" rel="noopener">Service WorkerでブラウザにPush通知をする - 1000ch.net</a></li><li><a href="http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d" target="_blank" rel="noopener">ChromeでW3C Push APIを使ってみた - Qiita</a></li></ul><p>エッジな方々は既に検証を開始している様子。<br>ここはやはりFirefoxでも試したい。</p><ul><li><a href="http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb" target="_blank" rel="noopener">HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita</a></li></ul><p>Firefoxの実装もかなり進んでいるようで、期待大。<br>問題はモバイルFirefoxの普及だろう。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;最近ブラウザにもPush通知の足音が聞こえ始めている。&lt;br&gt;なので基礎学習は始めておきたい。&lt;/p&gt;
+      
+      
+        &lt;p&gt;最近ブラウザにもPush通知の足音が聞こえ始めている。&lt;br&gt;なので基礎学習は始めておきたい。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://1000ch.net/posts/2015/service-worker-push-notification.html
+      
     
     </summary>
     
@@ -389,27 +270,17 @@
     <link href="http://log.playr.jp/2015/10/31/gulp-progeny.html"/>
     <id>http://log.playr.jp/2015/10/31/gulp-progeny.html</id>
     <published>2015-10-31T12:17:26.000Z</published>
-    <updated>2016-03-02T08:26:24.191Z</updated>
+    <updated>2016-03-02T08:26:24.192Z</updated>
     
-    <content type="html">&lt;p&gt;SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。&lt;/p&gt;
-&lt;p&gt;これを上手く解決する方法はないかと調べたら以下の記事を見つけた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/joe-re/items/542b3f6fdc577cf50509&quot; target=&quot;_blank&quot; &gt;gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;なるほど！依存元を辿り解決を図ればいいとのこと。&lt;/p&gt;
-&lt;p&gt;これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/HerringtonDarkholme/gulp-progeny&quot; target=&quot;_blank&quot; &gt;HerringtonDarkholme/gulp-progeny&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;まさに依存関係を解決してくれるよう。&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; cache = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;gulp-cached&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; progeny = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;gulp-progeny&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; sass = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;gulp-sass&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gulp.task(&lt;span class=&quot;string&quot;&gt;&#39;sass&#39;&lt;/span&gt;, () =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; gulp.src(&lt;span class=&quot;string&quot;&gt;&#39;*.scss&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .pipe(cache(&lt;span class=&quot;string&quot;&gt;&#39;style&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .pipe(progeny())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .pipe(sass())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p><p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p><ul><li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li></ul><p>なるほど！依存元を辿り解決を図ればいいとのこと。</p><p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p><ul><li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li></ul><p>まさに依存関係を解決してくれるよう。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。&lt;/p&gt;
+      
+      
+        &lt;p&gt;SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。&lt;/p&gt;
 &lt;p&gt;これを上手く解決する方法はないかと調べたら以下の記事を見
+      
     
     </summary>
     
@@ -423,36 +294,18 @@
     <link href="http://log.playr.jp/2015/10/31/Critical-Path-CSS.html"/>
     <id>http://log.playr.jp/2015/10/31/Critical-Path-CSS.html</id>
     <published>2015-10-31T07:12:22.000Z</published>
-    <updated>2016-03-02T08:09:50.741Z</updated>
+    <updated>2016-03-02T08:09:50.742Z</updated>
     
-    <content type="html">&lt;p&gt;ちらほらと名前を聞くようになってきたので、基礎学習を始めた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html&quot; target=&quot;_blank&quot; &gt;そろそろクリティカルCSSについて説明しておこうか | Yuhiisk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://t32k.me/mol/log/style-class-conference/&quot; target=&quot;_blank&quot; &gt;Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.smashingmagazine.com/2015/08/understanding-critical-css/&quot; target=&quot;_blank&quot; &gt;Understanding Critical CSS – Smashing Magazine&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;記事は詳しく解説したものが見つかり、大変参考になった。&lt;/p&gt;
-&lt;p&gt;ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/addyosmani/critical&quot; target=&quot;_blank&quot; &gt;addyosmani/critical&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/addyosmani/critical-path-css-demo&quot; target=&quot;_blank&quot; &gt;addyosmani/critical-path-css-demo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;penthouseはオンラインデモもあり、ちょっと試すにはいいかも。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pocketjoso/penthouse&quot; target=&quot;_blank&quot; &gt;pocketjoso/penthouse: Critical Path CSS Generator&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://jonassebastianohlsson.com/criticalpathcssgenerator/&quot; target=&quot;_blank&quot; &gt;Critical Path CSS Generator - by Jonas Ohlsson&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://wazanova.jp/items/1588&quot; target=&quot;_blank&quot; &gt;CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p><ul><li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li><li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li><li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li></ul><p>記事は詳しく解説したものが見つかり、大変参考になった。</p><p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p><ul><li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li><li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li></ul><p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p><ul><li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li><li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li></ul><p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p><ul><li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;ちらほらと名前を聞くようになってきたので、基礎学習を始めた。&lt;/p&gt;
+      
+      
+        &lt;p&gt;ちらほらと名前を聞くようになってきたので、基礎学習を始めた。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html&quot; target=&quot;_blank&quot; 
+      
     
     </summary>
     
@@ -468,23 +321,19 @@
     <link href="http://log.playr.jp/2015/10/30/Vanilla%E3%81%AADropdown.html"/>
     <id>http://log.playr.jp/2015/10/30/VanillaなDropdown.html</id>
     <published>2015-10-30T07:08:49.000Z</published>
-    <updated>2016-03-02T07:10:35.714Z</updated>
+    <updated>2016-03-02T07:10:35.715Z</updated>
     
-    <content type="html">&lt;p&gt;バニラなドロップダウンメニューを作成中。&lt;br&gt;まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。&lt;br&gt;がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。&lt;/p&gt;
-&lt;p&gt;今回参考になったのは以下の二つ。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://siongui.github.io/2015/02/13/javascript-dropdown-menu/&quot; target=&quot;_blank&quot; &gt;Javascript Drop Down Menu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://s.codepen.io/brenden/debug/mJyEBg&quot; target=&quot;_blank&quot; &gt;CodePen - A Pen by Brenden Palmer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう&lt;code&gt;document&lt;/code&gt;にもイベントを追加。&lt;br&gt;あとは最適なアニメーションを考慮すればよさそう。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>バニラなドロップダウンメニューを作成中。<br>まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。<br>がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。</p><p>今回参考になったのは以下の二つ。</p><ul><li><a href="http://siongui.github.io/2015/02/13/javascript-dropdown-menu/" target="_blank" rel="noopener">Javascript Drop Down Menu</a></li><li><a href="http://s.codepen.io/brenden/debug/mJyEBg" target="_blank" rel="noopener">CodePen - A Pen by Brenden Palmer</a></li></ul><p>表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう<code>document</code>にもイベントを追加。<br>あとは最適なアニメーションを考慮すればよさそう。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;バニラなドロップダウンメニューを作成中。&lt;br&gt;まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。&lt;br&gt;がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。&lt;/p&gt;
+      
+      
+        &lt;p&gt;バニラなドロップダウンメニューを作成中。&lt;br&gt;まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。&lt;br&gt;がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。&lt;/p&gt;
 &lt;p&gt;今回参考になったのは以下の二つ。&lt;/p&gt;
 &lt;ul&gt;
 
+      
     
     </summary>
     
@@ -500,21 +349,14 @@
     <published>2015-10-29T10:06:19.000Z</published>
     <updated>2016-03-02T07:08:07.188Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;現状&quot;&gt;&lt;a href=&quot;#現状&quot; class=&quot;headerlink&quot; title=&quot;現状&quot;&gt;&lt;/a&gt;現状&lt;/h2&gt;&lt;p&gt;Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。&lt;br&gt;が、コードの規模を考えるとやはりGithub Flowで十分だとは感じており、乗り換えのタイミングを模索し、今日に至る。&lt;/p&gt;
-&lt;h2 id=&quot;思案&quot;&gt;&lt;a href=&quot;#思案&quot; class=&quot;headerlink&quot; title=&quot;思案&quot;&gt;&lt;/a&gt;思案&lt;/h2&gt;&lt;p&gt;もう少し様子を見てエディタをBracketsからVisualeStudio Codeへ乗り換えることを考えており、そのタイミングにはスムーズに開発flowも移行したいと思う。&lt;/p&gt;
-&lt;h2 id=&quot;資料&quot;&gt;&lt;a href=&quot;#資料&quot; class=&quot;headerlink&quot; title=&quot;資料&quot;&gt;&lt;/a&gt;資料&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://gist.github.com/Gab-km/3705015&quot; target=&quot;_blank&quot; &gt;GitHub Flow (Japanese translation)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上記翻訳を精読したらほぼ大丈夫そう。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://b.pyar.bz/blog/2014/01/22/github-flow/&quot; target=&quot;_blank&quot; &gt;Github-flowを分かりやすく図解してみた - pyar.bz&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;これも分かりやすい。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<h2 id="現状"><a href="#現状" class="headerlink" title="現状"></a>現状</h2><p>Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。<br>が、コードの規模を考えるとやはりGithub Flowで十分だとは感じており、乗り換えのタイミングを模索し、今日に至る。</p><h2 id="思案"><a href="#思案" class="headerlink" title="思案"></a>思案</h2><p>もう少し様子を見てエディタをBracketsからVisualeStudio Codeへ乗り換えることを考えており、そのタイミングにはスムーズに開発flowも移行したいと思う。</p><h2 id="資料"><a href="#資料" class="headerlink" title="資料"></a>資料</h2><ul><li><a href="https://gist.github.com/Gab-km/3705015" target="_blank" rel="noopener">GitHub Flow (Japanese translation)</a></li></ul><p>上記翻訳を精読したらほぼ大丈夫そう。</p><ul><li><a href="http://b.pyar.bz/blog/2014/01/22/github-flow/" target="_blank" rel="noopener">Github-flowを分かりやすく図解してみた - pyar.bz</a></li></ul><p>これも分かりやすい。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;現状&quot;&gt;&lt;a href=&quot;#現状&quot; class=&quot;headerlink&quot; title=&quot;現状&quot;&gt;&lt;/a&gt;現状&lt;/h2&gt;&lt;p&gt;Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。&lt;br&gt;が、コードの規模を考え
+      
+      
+        &lt;h2 id=&quot;現状&quot;&gt;&lt;a href=&quot;#現状&quot; class=&quot;headerlink&quot; title=&quot;現状&quot;&gt;&lt;/a&gt;現状&lt;/h2&gt;&lt;p&gt;Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。&lt;br&gt;が、コードの規模を考え
+      
     
     </summary>
     
@@ -528,29 +370,19 @@
     <link href="http://log.playr.jp/2015/10/29/Comit-in-English.html"/>
     <id>http://log.playr.jp/2015/10/29/Comit-in-English.html</id>
     <published>2015-10-29T07:04:04.000Z</published>
-    <updated>2016-03-02T07:06:36.019Z</updated>
+    <updated>2016-03-02T07:06:36.020Z</updated>
     
-    <content type="html">&lt;p&gt;英語でコミットメッセージを書く時のカンペを作成したい。&lt;/p&gt;
-&lt;p&gt;参考記事はググれば色々出てくる。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754&quot; target=&quot;_blank&quot; &gt;ネイティブと働いて分かった英語コミットメッセージの頻出動詞10つ - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/ken_c_lo/items/4cb49f0fb74e8778804d&quot; target=&quot;_blank&quot; &gt;Git - 英語コミットコメントに使えるオシャレフレーズ集 - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://gist.github.com/hayajo/3938098&quot; target=&quot;_blank&quot; &gt;ChangeLog を支える英語&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/azu/awesome-commit-english&quot; target=&quot;_blank&quot; &gt;azu/awesome-commit-english&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sssg.org/blogs/hiro345/archives/11721.html&quot; target=&quot;_blank&quot; &gt;git commit時のコメントを英語で書くための最初の一歩 | hiro345&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;こんなサービスも発見。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://commit-m.minamijoyo.com/&quot; target=&quot;_blank&quot; &gt;commit-m: GitHubコミットメッセージの文例が検索できるサービス&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>英語でコミットメッセージを書く時のカンペを作成したい。</p><p>参考記事はググれば色々出てくる。</p><ul><li><a href="http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754" target="_blank" rel="noopener">ネイティブと働いて分かった英語コミットメッセージの頻出動詞10つ - Qiita</a></li><li><a href="http://qiita.com/ken_c_lo/items/4cb49f0fb74e8778804d" target="_blank" rel="noopener">Git - 英語コミットコメントに使えるオシャレフレーズ集 - Qiita</a></li><li><a href="https://gist.github.com/hayajo/3938098" target="_blank" rel="noopener">ChangeLog を支える英語</a></li><li><a href="https://github.com/azu/awesome-commit-english" target="_blank" rel="noopener">azu/awesome-commit-english</a></li><li><a href="http://www.sssg.org/blogs/hiro345/archives/11721.html" target="_blank" rel="noopener">git commit時のコメントを英語で書くための最初の一歩 | hiro345</a></li></ul><p>こんなサービスも発見。</p><ul><li><a href="http://commit-m.minamijoyo.com/" target="_blank" rel="noopener">commit-m: GitHubコミットメッセージの文例が検索できるサービス</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;英語でコミットメッセージを書く時のカンペを作成したい。&lt;/p&gt;
+      
+      
+        &lt;p&gt;英語でコミットメッセージを書く時のカンペを作成したい。&lt;/p&gt;
 &lt;p&gt;参考記事はググれば色々出てくる。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754&quot; target=
+      
     
     </summary>
     
@@ -566,25 +398,15 @@
     <published>2015-10-23T07:00:28.000Z</published>
     <updated>2016-03-02T07:02:12.525Z</updated>
     
-    <content type="html">&lt;p&gt;複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。&lt;br&gt;まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。&lt;/p&gt;
-&lt;p&gt;クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。&lt;br&gt;サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。&lt;/p&gt;
-&lt;p&gt;今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pavelk2/social-feed&quot; target=&quot;_blank&quot; &gt;pavelk2/social-feed&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;今回結び付けたいSNSは以下の3つ。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Facebook&lt;/li&gt;
-&lt;li&gt;Twitter&lt;/li&gt;
-&lt;li&gt;instagram&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p><p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p><p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p><ul><li><a href="https://github.com/pavelk2/social-feed" target="_blank" rel="noopener">pavelk2/social-feed</a></li></ul><p>今回結び付けたいSNSは以下の3つ。</p><ul><li>Facebook</li><li>Twitter</li><li>instagram</li></ul><p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。&lt;br&gt;まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。&lt;/p&gt;
+      
+      
+        &lt;p&gt;複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。&lt;br&gt;まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。&lt;/p&gt;
 &lt;p&gt;クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハ
+      
     
     </summary>
     
@@ -596,18 +418,17 @@
     <link href="http://log.playr.jp/2015/10/19/Timezone.html"/>
     <id>http://log.playr.jp/2015/10/19/Timezone.html</id>
     <published>2015-10-19T10:56:41.000Z</published>
-    <updated>2016-03-02T06:58:53.374Z</updated>
+    <updated>2016-03-02T06:58:53.375Z</updated>
     
-    <content type="html">&lt;p&gt;なぜか&lt;code&gt;getHours&lt;/code&gt;が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 日付を確認&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ timedatectl &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# タイムゾーンを設定&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ timedatectl &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;-timezone Asia/Tokyo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;環境構築の際に適切に設定が必要なので、Ansibleへ盛り込みたい。&lt;/p&gt;
-&lt;p&gt;ついでにローケルも設定した。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ localectl &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;-locale LANG=ja_JP.eucjp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ localectl status&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; /etc/locale.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    <content type="html"><![CDATA[<p>なぜか<code>getHours</code>が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日付を確認</span></span><br><span class="line">$ timedatectl </span><br><span class="line"></span><br><span class="line"><span class="comment"># タイムゾーンを設定</span></span><br><span class="line">$ timedatectl <span class="built_in">set</span>-timezone Asia/Tokyo</span><br></pre></td></tr></table></figure><p>環境構築の際に適切に設定が必要なので、Ansibleへ盛り込みたい。</p><p>ついでにローケルも設定した。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ localectl <span class="built_in">set</span>-locale LANG=ja_JP.eucjp</span><br><span class="line">$ localectl status</span><br><span class="line">$ <span class="built_in">source</span> /etc/locale.conf</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;なぜか&lt;code&gt;getHours&lt;/code&gt;が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。&lt;/p&gt;
+      
+      
+        &lt;p&gt;なぜか&lt;code&gt;getHours&lt;/code&gt;が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;
+      
     
     </summary>
     
@@ -623,18 +444,17 @@
     <published>2015-10-14T11:54:51.000Z</published>
     <updated>2016-03-02T06:56:01.238Z</updated>
     
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://postd.cc/jquery-considered-harmful/&quot; target=&quot;_blank&quot; &gt;jQueryは有害なのか | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上記記事を読んだ。&lt;br&gt;最近は僕もjQueryをほとんど使っていなくて、共感できる部分は多かった。&lt;br&gt;しかしそれは個人開発の場の話で、チームでの開発で複数人でJavaScriptを触る場合は、ｊQueryを採用することである程度、秩序ができる利点はあると思う。&lt;br&gt;完全なる脱jQueryのためには、完璧なる規約とリンターの整備が必要かも。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<ul><li><a href="http://postd.cc/jquery-considered-harmful/" target="_blank" rel="noopener">jQueryは有害なのか | プログラミング | POSTD</a></li></ul><p>上記記事を読んだ。<br>最近は僕もjQueryをほとんど使っていなくて、共感できる部分は多かった。<br>しかしそれは個人開発の場の話で、チームでの開発で複数人でJavaScriptを触る場合は、ｊQueryを採用することである程度、秩序ができる利点はあると思う。<br>完全なる脱jQueryのためには、完璧なる規約とリンターの整備が必要かも。</p>]]></content>
     
     <summary type="html">
     
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://postd.cc/jquery-considered-harmful/&quot; target=&quot;_blank&quot; &gt;jQueryは有害なのか | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://postd.cc/jquery-considered-harmful/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;jQueryは有害なのか | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記記事を読んだ。&lt;br
+&lt;
+      
     
     </summary>
     
@@ -650,36 +470,17 @@
     <published>2015-10-14T10:54:30.000Z</published>
     <updated>2016-03-02T06:55:29.491Z</updated>
     
-    <content type="html">&lt;p&gt;Webアクセシビリティは他の要素と比べて後回しにされがちである。&lt;br&gt;しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。&lt;/p&gt;
-&lt;p&gt;Webサイトをマークアップを通じて構造化する手法として、以下のものがある。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Microformats&lt;/li&gt;
-&lt;li&gt;Microdata&lt;/li&gt;
-&lt;li&gt;RDFa&lt;/li&gt;
-&lt;li&gt;Microdata&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。&lt;br&gt;一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://schema.org/&quot; target=&quot;_blank&quot; &gt;Home - schema.org&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。&lt;br&gt;概要や導入方法、ドキュメントがまとめられている。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.google.com/webmasters/markup-helper/&quot; target=&quot;_blank&quot; &gt;構造化データ マークアップ支援ツール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developers.google.com/structured-data/testing-tool/&quot; target=&quot;_blank&quot; &gt;Structured Data Testing Tool  |  Google Developers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Googleは既に検索結果へスキーマを反映している。&lt;br&gt;いくつか導入支援ツールも公開されているので、活用したい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://kojika17.com/2014/05/about-structured-data-markup.html&quot; target=&quot;_blank&quot; &gt;Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上記記事は概要や実践例をわかりやすくまとめており、参考になった。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>Webアクセシビリティは他の要素と比べて後回しにされがちである。<br>しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。</p><p>Webサイトをマークアップを通じて構造化する手法として、以下のものがある。</p><ul><li>Microformats</li><li>Microdata</li><li>RDFa</li><li>Microdata</li></ul><p>サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。<br>一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。</p><ul><li><a href="https://schema.org/" target="_blank" rel="noopener">Home - schema.org</a></li></ul><p>Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。<br>概要や導入方法、ドキュメントがまとめられている。</p><ul><li><a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="noopener">構造化データ マークアップ支援ツール</a></li><li><a href="https://developers.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">Structured Data Testing Tool  |  Google Developers</a></li></ul><p>Googleは既に検索結果へスキーマを反映している。<br>いくつか導入支援ツールも公開されているので、活用したい。</p><ul><li><a href="http://kojika17.com/2014/05/about-structured-data-markup.html" target="_blank" rel="noopener">Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17</a></li></ul><p>上記記事は概要や実践例をわかりやすくまとめており、参考になった。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Webアクセシビリティは他の要素と比べて後回しにされがちである。&lt;br&gt;しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。&lt;/p&gt;
+      
+      
+        &lt;p&gt;Webアクセシビリティは他の要素と比べて後回しにされがちである。&lt;br&gt;しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。&lt;/p&gt;
 &lt;p&gt;Webサイトをマークアップを通じて構造化する手法として、以下のものがある。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Microfor
+      
     
     </summary>
     
@@ -695,22 +496,16 @@
     <published>2015-10-10T12:42:26.000Z</published>
     <updated>2016-02-28T16:47:08.400Z</updated>
     
-    <content type="html">&lt;p&gt;ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://oxynotes.com/?p=9070&quot; target=&quot;_blank&quot; &gt;初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mozilla-jetpack/jpm&quot; target=&quot;_blank&quot; &gt;mozilla-jetpack/jpm&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;現時点でのモダンな書き方なら上記を参考に行えばよさそう。&lt;br&gt;しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mdn/webextensions-examples&quot; target=&quot;_blank&quot; &gt;mdn/webextensions-examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。</p><ul><li><a href="http://oxynotes.com/?p=9070" target="_blank" rel="noopener">初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES</a></li><li><a href="https://github.com/mozilla-jetpack/jpm" target="_blank" rel="noopener">mozilla-jetpack/jpm</a></li></ul><p>現時点でのモダンな書き方なら上記を参考に行えばよさそう。<br>しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。</p><ul><li><a href="https://github.com/mdn/webextensions-examples" target="_blank" rel="noopener">mdn/webextensions-examples</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。&lt;/p&gt;
+      
+      
+        &lt;p&gt;ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://oxynotes.com/?p=9070&quot; target=&quot;_blank&quot; &gt;初めてでも理解できるようになる「Firefox機能拡張の開
+&lt;li&gt;&lt;a href=&quot;http://oxynotes.com/?p=9070&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;初めてでも理解できるようになる
+      
     
     </summary>
     
