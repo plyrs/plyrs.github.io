@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Playlog</title>
   
-  
+  <subtitle>主にフロントエンドについて徒然と</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://log.playr.jp/"/>
-  <updated>2016-03-02T07:57:50.692Z</updated>
+  <updated>2018-04-24T06:57:24.034Z</updated>
   <id>https://log.playr.jp/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://log.playr.jp/2015/12/06/Windows10%C3%97Bitbucket%C3%97Jenkins.html"/>
     <id>https://log.playr.jp/2015/12/06/Windows10×Bitbucket×Jenkins.html</id>
     <published>2015-12-06T07:56:25.000Z</published>
-    <updated>2016-03-02T07:57:50.692Z</updated>
+    <updated>2018-04-24T06:57:24.034Z</updated>
     
     <content type="html"><![CDATA[<p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p><p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p><ul><li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li></ul><p>公式。</p><ul><li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li><li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li></ul><p>インストールからHelloWorldまでは上記が参考になった。</p><ul><li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li></ul><p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p><ul><li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li></ul><p>ユーザー認証。</p>]]></content>
     
