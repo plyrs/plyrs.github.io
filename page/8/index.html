@@ -77,47 +77,39 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-17T15:20:56.000Z">
-                    2015-09-18
+                <time class="article__header__meta__time" datetime="2015-11-29T12:30:15.000Z">
+                    2015-11-29
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/18/位置情報の文字列化.html">位置情報の文字列化</a>
+            <a href="/2015/11/29/Marker-Clusterer.html">Marker-Clusterer</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>取得した位置情報を文字列化し、URLやデータベースで利用したい。  </p>
-<p>主な選択肢は下記３つ</p>
+	    <p>Google mapsへMarker Clustererを導入した。</p>
 <ul>
-<li><a href="http://geohash.org/" target="_blank" rel="noopener">GeoHash</a></li>
-<li><a href="http://geogames.net/labs/geohex" target="_blank" rel="noopener">GeoHex</a></li>
-<li><a href="https://plus.codes/" target="_blank" rel="noopener">plus+codes</a></li>
+<li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li>
 </ul>
-<p>現時点で十分に枯れていそうなのはGeoHashかなと。<br>GeoHexはかっこいいが、今回の利用用とではビジュアルは無関係なので。<br>plus+codesはGoogle公式というわけでもないようなので、今後の展開は未知数。</p>
-<p><a href="http://aligach.net/diary/20100821.html" target="_blank" rel="noopener">あーありがち - GeohashのグリッドをGoogle Maps上に再現するツール書いた</a></p>
-<p>古い記事だがやろうとしていることはほぼコレ。</p>
-<h2 id="URI設計の問題"><a href="#URI設計の問題" class="headerlink" title="URI設計の問題"></a>URI設計の問題</h2><p>クエリで渡すか、ハッシュで渡すか、階層へ盛り込むのもアリっちゃアリ。</p>
+<p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p>
 <ul>
-<li><code>http://example.com?geo=xn3pvxy</code></li>
-<li><code>http://example.com#xn3pvxy</code></li>
-<li><code>http://example.com/xn3pvxy</code></li>
+<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li>
+<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li>
 </ul>
-<h2 id="ライブラリの選定"><a href="#ライブラリの選定" class="headerlink" title="ライブラリの選定"></a>ライブラリの選定</h2><p>経緯度とジオハッシュの相互変換にはライブラリを使用する。<br>下記の二つが候補として見つかった。</p>
+<p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p>
+<p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p>
 <ul>
-<li><a href="https://github.com/davetroy/geohash-js" target="_blank" rel="noopener">davetroy/geohash-js</a></li>
-<li><a href="https://github.com/chrisveness/latlon-geohash" target="_blank" rel="noopener">chrisveness/latlon-geohash</a></li>
+<li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li>
+<li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li>
+<li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li>
 </ul>
-<p>開発が最近行われており、オプションにより制度の調整も行える<code>latlon-geohash</code>を採用した。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> latLon = Geohash.decode(geoHash);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`現在地の経度は<span class="subst">$&#123;latLon.lat&#125;</span>、緯度は<span class="subst">$&#123;latLon.lon&#125;</span>です。`</span>);</span><br></pre></td></tr></table></figure>
-<p>このように簡単にジオハッシュを経緯度へ変換できる。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> geoHash = Geohash.encode(latLon.lat, latLon.lon, <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
-<p>経緯度をジオハッシュ化する際に、3番目の引数で桁数（精度）を指定できる。<br>未指定でも経緯度から自動判別を行う。</p>
+<p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p>
+<p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>
 
 	    
 	</div>
@@ -126,7 +118,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Geohash/">#Geohash</a>
+	<a href="/tags/JavaScript/">#JavaScript</a>
 	
 </div>
 
@@ -140,58 +132,130 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-13T15:38:44.000Z">
-                    2015-09-14
+                <time class="article__header__meta__time" datetime="2015-11-27T11:25:48.000Z">
+                    2015-11-27
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/14/Webp-導入思案.html">Webp 導入思案</a>
+            <a href="/2015/11/27/Icon.html">Icon</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Webpをさくっと導入できないか思案。</p>
+	    <p>ちょっとIconのデザインを考えてた。<br>やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。</p>
 <ul>
-<li><a href="http://caniuse.com/#search=webp" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://www.google.com/design/spec/style/icons.html" target="_blank" rel="noopener">Icons - Style - Google design guidelines</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html" target="_blank" rel="noopener">iOS Human Interface Guidelines: Icons and Graphics</a></li>
 </ul>
-<p>取りあえず対応しているのはBlinkブラウザのみだが、モバイル対応へ重きを置くならば価値はありそう。</p>
+<p>ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。</p>
 <ul>
-<li><a href="https://1000ch.net/posts/2015/introduction-to-webp.html" target="_blank" rel="noopener">【翻訳】Introduction to WebP - 1000ch.net</a></li>
+<li><a href="https://www.google.com/design/icons/" target="_blank" rel="noopener">https://www.google.com/design/icons/</a></li>
 </ul>
-<p>Webpの概要と導入の際の未サポートブラウザへのフォールバック方法を解説。<br>記事内でも言及があるサーバーサイドでの実装が一番よさそうではある。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Design/">#Design</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-11-26T07:19:33.000Z">
+                    2015-11-26
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/11/26/Splash-Screens.html">Splash-Screens</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。<br>もちろん、現段階で対応しているブラウザは無い。<br>しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="string">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="string">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"splash_screens"</span>: [&#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/lowres"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"320x240"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_small"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1334x750"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_hi"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1920x1080"</span>,</span><br><span class="line">    <span class="string">"density"</span>: <span class="number">3</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。</p>
 <ul>
-<li><a href="https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/" target="_blank" rel="noopener">Deploying WebP via Accept Content Negotiation - igvita.com</a></li>
+<li><a href="https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/" target="_blank" rel="noopener">Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)</a></li>
 </ul>
-<p>しかしサクっとはできなさそうなので、フロントで実装したい。<br>とりあえず上記を参考に<code>&lt;picture&gt;</code>で試してみた。</p>
+<p>Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。</p>
+<p>Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。</p>
 <ul>
-<li><a href="http://ground.playr.jp/webp/" target="_blank" rel="noopener">Webp - Playground</a></li>
+<li><a href="https://developer.mozilla.org/ja/Apps/Manifest" target="_blank" rel="noopener">アプリマニフェスト - アプリセンター | MDN</a></li>
 </ul>
-<p>これは容易でとてもいい方法だと感じた。<br>しかし今回は<code>background-image</code>へのwebp導入を考えているので残念ながらこの方法は不可である。</p>
-<p>色々調べると‘@supports‘を利用した方法を発見。</p>
+<p>manifest.webappの詳細</p>
 <ul>
-<li><a href="https://andywalpole.me/#!/blog/142790/using-webp-image-format" target="_blank" rel="noopener">Using the WebP image format / blog unblock</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards" target="_blank" rel="noopener">Open Web Apps と Web 標準 | MDN</a></li>
+<li><a href="https://developer.mozilla.org/ja/Apps/App_templates" target="_blank" rel="noopener">アプリテンプレートの使用 - アプリセンター | MDN</a></li>
 </ul>
-<p><code>@supports</code>で機能が利用できるか確認し、分岐する手法が紹介されている。<br>筆者は最終的にModernizrを使用したようだが(そりゃそうだよな…)、今回このためにModernizr入れるのは本末転倒である。<br><code>@supports</code>面白そうだしカジュアルなのでコレを採用。</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@supports" target="_blank" rel="noopener">@supports - CSS | MDN</a></li>
-<li><a href="http://caniuse.com/#feat=css-featurequeries" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url("../img/bg.png");</span><br><span class="line">@<span class="keyword">supports</span> (background-image: -webkit-image-set(url(<span class="string">"../img/bg.webp"</span>) <span class="number">1</span>x)) &#123;</span><br><span class="line">  background-image: -webkit-image-set(url("../img/bg.webp") 1x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="http://caniuse.com/#feat=css-image-set" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>CSS4で提案されているimage-listはかなりよさそうである。</p>
-<ul>
-<li><a href="http://www.w3.org/TR/css4-images/" target="_blank" rel="noopener">CSS Image Values and Replaced Content Module Level 4</a></li>
-<li><a href="http://www.brucelawson.co.uk/2013/save-bandwidth-webp-with-fallback/" target="_blank" rel="noopener">Bruce Lawson’s personal site  : Save bandwidth with webP – soon with fallback!</a></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: images("../img/bg.webp", "../img/bg.png");</span><br></pre></td></tr></table></figure>
-<p>ただ現時点では対応しているブラウザはない様子。<br>現時点ではimage-setが一番よさそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/WebApp/">#WebApp</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-11-25T09:37:21.000Z">
+                    2015-11-25
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/11/25/CriticalPathCSS-2.html">Critical Path CSS#2</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p><a href="https://dewy.me/" target="_blank" rel="noopener">Dewy</a> へクリティカルCSSの最適化を実装した。</p>
+<p>色々と下調べを行っていたが、運用コストを図るには運用してみるのが一番だと感じとりあえず小さく始めてみることにした。</p>
+<p>サイトはレンダリングにテンプレートエンジンを使用しているため、当初は<a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">penthouse</a>を使用しようと考えた。<br>これはWebページをPhantomJSを用いて解析するもので、手元でレンダリングを実行する必要がなく導入が容易でサイコーだと感じた。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">penthouse(&#123;</span><br><span class="line">    url : <span class="string">'https://dewy.me/'</span>,</span><br><span class="line">    css : path.join(__dirname + <span class="string">'/public/css/main.css'</span>),</span><br><span class="line">    width : <span class="number">320</span>,</span><br><span class="line">    height : <span class="number">480</span>,</span><br><span class="line">    timeout: <span class="number">30000</span></span><br><span class="line">&#125;, (err, criticalCss) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err);</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(criticalCss);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これでクリティカルCSSが記述されたhtmlが生成され、これをhead内でインポートしフルCSSは非同期で読み込む。PhantomJSが重いのか少し実行に時間はかかるが、問題なく作動した。<br>しかし、内部モジュールのCSSパースの精度がよくないのか正確なクリティカルCSSを吐き出せておらず、ベタに<a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">critical</a>を使うこととなった。</p>
+<p>とりえず一度静的なhtmlへレンダリングを行い、それを解析。それ以外は上記と同じ流れとなる。</p>
+<p>criticalの部分は…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">critical.generate(&#123;</span><br><span class="line">    base: <span class="string">'public/'</span>,</span><br><span class="line">    src: <span class="string">'index.html'</span>,</span><br><span class="line">    css: [<span class="string">'public/css/normalize.css'</span>, <span class="string">'public/css/evil-icons.min.css'</span>, <span class="string">'public/css/main.css'</span>],</span><br><span class="line">    width: <span class="number">320</span>,</span><br><span class="line">    height: <span class="number">480</span>    </span><br><span class="line">&#125;).then(<span class="function"><span class="params">output</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(output);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style type="text/css"&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>); </span><br><span class="line">&#125;).error(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>こんな感じ。Promiseで書けるので多少複雑になっていっても視認性はよさそうだ。</p>
+<p>PageSpeed Insightsの点は結構上がって気持ちがいいので、しばらくこれで運用して改善点と課題を洗い出したいと思う。</p>
 
 	    
 	</div>
@@ -208,128 +272,30 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-13T15:20:11.000Z">
-                    2015-09-14
+                <time class="article__header__meta__time" datetime="2015-11-21T09:35:14.000Z">
+                    2015-11-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/14/Conohaクラウドへ引っ越し.html">Conohaクラウドへ引っ越し</a>
+            <a href="/2015/11/21/VisualStudioCodeへ引っ越し.html">Visual Studio Codeへ引っ越し</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>旧Conohaで運用していたサイトをクラウド番へ引っ越しした。  </p>
-<p>正直今までのConohaは結構な頻度で止まっており、あまり信頼できるものではなく他社へ乗り換えを検討していた。しかし最近は極力楽をしたい欲求が強くなっており、その面でConohaクラウドに魅力を感じ、色々葛藤はあったものの改善の期待をこめて引っ越しを決心した。  </p>
-<p>さて、このConohaクラウド、サーバー追加の際にテンプレを選ぶことができ、LAMPやRails、Wordpressはもちろんのこと、MongoDBやJenkins、DockerやMEANなんてのもあって興味深い。<br>機会があればそのへんも触ってみようと思う。  </p>
+	    <p>今現在、開発にはBracketsを使っている。</p>
+<p>前々からVisuale Studio Codeも触っていて、バージョンアップを繰り返すごとに目に見えて良くなっており魅力を感じていたものの、Editorconfigの未対応などがちょっと痛くて導入はできずにいた。</p>
+<p>しかし今回のオープンソース化にあたって、早速Editorconfig拡張も有志により追加されたので引っ越しの準備を始めている。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Conoha/">#Conoha</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-11T15:20:11.000Z">
-                    2015-09-12
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/12/Nodeサイトの多言語化.html">Nodeサイトの多言語化</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Node.jsで構築したサイトを多言語化したいので、ちょっとだけググってみた。</p>
-<ul>
-<li><a href="http://qiita.com/sassy_watson/items/25b6364d428c7e7ee708" target="_blank" rel="noopener">JavaScript - HTMLでの国際化(i18nextとl10n.js) - Qiita</a></li>
-</ul>
-<p>多言語対応のjsライブラリを紹介している記事。<br><a href="http://i18next.com/" target="_blank" rel="noopener">i18next</a>と<a href="https://github.com/eligrey/l10n.js/" target="_blank" rel="noopener">l10n.js</a>という二つを紹介しながら、主にフロントの実装について書いてある。</p>
-<p>今のアプリに実装するならばサーバーサイドで行うと思われるが、大体の手法は同一であろう。<br>本格的に作る際にもっと詳しく調べていく予定。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/i18n/">#i18n</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-10T15:32:31.000Z">
-                    2015-09-11
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/11/MongoDBのバックアップ思案.html">MongoDBのバックアップ思案</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>MongoDBをバックアップし、リストアまで行いたい。</p>
-<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" rel="noopener">第11回　MongoDBのバックアップ：MongoDBでゆるふわDB体験｜gihyo.jp … 技術評論社</a></p>
-<h2 id="バックアップ"><a href="#バックアップ" class="headerlink" title="バックアップ"></a>バックアップ</h2><p>起動中のMongoのバックアップには<code>mongodump</code>が一般的のよう。<br>小規模ならこれで十分か。</p>
-<p><a href="http://docs.mongodb.org/manual/reference/program/mongodump/" target="_blank" rel="noopener">mongodump — MongoDB Manual 3.0</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongodump --out /opt/backup/mongodump_20150911</span><br></pre></td></tr></table></figure>
-<p><code>out</code>オプションで保存先を指定できる。指定しなかったらカレントディレクトへ。<br>そのなかにデータベースごとのダンプファイルを作成してくれる。</p>
-<h2 id="リストア"><a href="#リストア" class="headerlink" title="リストア"></a>リストア</h2><p>リストアは<code>mongorestore</code>で。</p>
-<p><a href="http://docs.mongodb.org/manual/reference/program/mongorestore/" target="_blank" rel="noopener">mongorestore — MongoDB Manual 3.0</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mongorestore /tmp/path -d name</span></span><br></pre></td></tr></table></figure>
-<p>でデータベースを指定</p>
-<p>とりあえず上の方法で手動でのバックアップ&amp;リストアは問題なく、軽快にできた。<br>今後は自動化していきたい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/MongoDB/">#MongoDB</a>
-	
-</div>
-
 	</footer>
     
 

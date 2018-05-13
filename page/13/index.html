@@ -77,24 +77,31 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2013-03-07T08:35:38.000Z">
-                    2013-03-07
+                <time class="article__header__meta__time" datetime="2015-10-05T16:38:22.000Z">
+                    2015-10-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2013/03/07/CMSを導入.html">SOY CMSを導入</a>
+            <a href="/2015/10/06/CSS-font-familyをアップデート.html">CSS font-familyをアップデート</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" rel="noopener">AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いたかったが…。  </p>
-<p>ってことで行き着いた<a href="http://www.soycms.net/" target="_blank" rel="noopener">SOY</a>でなんとか完成。<br>ああ、SOYいいね、ソイ。いいっす、ボクには扱いやすす。PHPはギリギリいけるな。  </p>
-<p>ということで、とりあえずトップとInfoページは全面SOY化。<br>メディアとリクエストもそのうちSOY化したら長い目で見ていいかも。<br>メールフォームやフォトはまだまだ検討ですな。いまでも事足りてるし。 </p>
+	    <p>CSS font-familyの記述をアップデートした。  </p>
+<p>これまでは以下のように指定していた。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Verdana, Arial, <span class="string">"ヒラギノ角ゴ ProN"</span>, <span class="string">"Hiragino Kaku Gothic ProN"</span>, <span class="string">"メイリオ"</span>, Meiryo, <span class="string">"ＭＳ Ｐゴシック"</span>, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>昔どこかで見た記事やソースを参考にたどり着いたと記憶しているが、Windows10へ移行したこともありフォント回りも同様に更新していこうと思う。</p>
+<ul>
+<li><a href="http://sole-color-blog.com/blog/design/246/" target="_blank" rel="noopener">Font−familyのベストな書き方 2015年版 | それからデザイン スタッフブログ</a></li>
+</ul>
+<p>上記記事は非常によく考察されており信頼たる内容だと感じたので、これをベースに以下のように設定した。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Avenir, <span class="string">"Open Sans"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, Arial, Verdana, Roboto, <span class="string">"游ゴシック"</span>, <span class="string">"Yu Gothic"</span>, <span class="string">"游ゴシック体"</span>, <span class="string">"YuGothic"</span>, <span class="string">"ヒラギノ角ゴ Pro W3"</span>, <span class="string">"Hiragino Kaku Gothic Pro"</span>, <span class="string">"Meiryo UI"</span>, <span class="string">"メイリオ"</span>, Meiryo, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MSPゴシックだけはさすがに不要だと思い外させていただいた。<br>とりあえずこれで様子を見ていこうと思う。</p>
 
 	    
 	</div>
@@ -103,7 +110,191 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/SOYCMS/">#SOYCMS</a>
+	<a href="/tags/CSS/">#CSS</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-03T12:25:37.000Z">
+                    2015-10-03
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/03/wysiwyg.html">wysiwyg</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Webアプリ内にてwysiwygを導入したい。</p>
+<ul>
+<li><a href="https://github.com/cheeaun/mooeditable/wiki/Javascript-WYSIWYG-editors" target="_blank" rel="noopener">Javascript WYSIWYG editors · cheeaun/mooeditable Wiki</a></li>
+</ul>
+<p>上記リストがよくまとまっており、大いに参考なった。<br>今回jQuery先生は極力使いたくないので、最初である程度候補は絞られる。  </p>
+<p>とりあえずその中から<a href="http://wysiwygjs.github.io/" target="_blank" rel="noopener">wysiwyg.js</a>を試してみる方針。<br>オンラインデモを触っている分にはいい感じで、ドキュメントもそこそこ整理されていて扱いやすそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-30T11:23:07.000Z">
+                    2015-09-30
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/30/SoyCMSをConohaへ.html">SoyCMSをConohaへ</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>壊滅状態のNAUTILUSのサイトをそろそろ復活させるべく、重い腰を上げた。  </p>
+<p>当時ロリポップで運用していたのだが、インフラにこだわりはじめサーバー引っ越しを繰り返す中でいつしかトップページ以外開かないといった状態へと変貌を遂げた。<br>というのもXserverへの引っ越しはスムーズに行ったものの、その後のVPSへの移行はハマリどことが多く、面倒になってしまったのだ。  </p>
+<p>今回復活にあたって参考になったペーシ一覧。</p>
+<ul>
+<li><a href="http://www.soycms.net/" target="_blank" rel="noopener">SOY CMS 公式サイト</a></li>
+<li><a href="http://support.kagoya.jp/manual/soy/site.html" target="_blank" rel="noopener">SOY CMS インストール - KAGOYA Internet Routing</a></li>
+<li><a href="http://www.soycms.org/viewtopic.php?f=6&amp;t=639" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - ミニム　レンタルサーバー動作検証しました</a></li>
+<li><a href="http://www.soycms.org/viewtopic.php?f=7&amp;t=412" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - 他サイトラベルブロックについて</a></li>
+</ul>
+<p>パーミッションの設定と、一部のPHPモジュールのインストールで現状問題なく動作している様子。  </p>
+<p>そもそもこのサイトのためだけにApacheとPHPインストールするのもな～と思い、いっそ内部をNodeで書き換えようかとも思ったが、改めて見てみると記事の量も結構多いからそれはそれで遠回りになりそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Conoha/">#Conoha</a>
+	
+	<a href="/tags/SoyCMS/">#SoyCMS</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-28T11:20:49.000Z">
+                    2015-09-28
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/28/MongoDB-unset.html">MongoDB $unset</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>MongoDBで特定のドキュメントの特定のフィールドを削除するには<code>$unset</code>を使えばスマートらしい。</p>
+<ul>
+<li><a href="http://docs.mongodb.org/manual/reference/operator/update/unset/" target="_blank" rel="noopener">$unset — MongoDB Manual 3.0</a></li>
+</ul>
+<p>これはMongoDB2からの機能で、それ以前は<code>undefined</code>や<code>null</code>を入れて対応していたらしい。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">field</span>: <span class="literal">undefined</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>昔はこうだったのが…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">$unset</span>: &#123;<span class="attr">field</span>: <span class="number">1</span> &#125;&#125;);</span><br></pre></td></tr></table></figure>
+<p>こうらしい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/MongoDB/">#MongoDB</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-26T16:16:32.000Z">
+                    2015-09-27
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/27/Nunjucks.html">Nunjucks</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>愛用していたテンプレートエンジンである<a href="http://paularmstrong.github.io/swig/" target="_blank" rel="noopener">Swig</a>が残念ながら開発終了となっていたので、Nunjucksへ引っ越しをした。</p>
+<ul>
+<li><a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noopener">Nunjucks</a></li>
+</ul>
+<p>これはSwigの作者が代替として<a href="https://github.com/paularmstrong/swig/issues/628" target="_blank" rel="noopener">推薦</a>しているMozillaのプロジェクトで、構文が類似しており乗り換えも用意であった。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends "base.html" %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block header %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#123;% for name, item in items %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; name &#125;&#125;: &#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>Swigと比較してドキュメントも見やすく、機能も充実、パフォーマンスも良好である。Swigはif条件式を埋め込む際に何故かelseをサポートしておらず、やや冗長な記述を強いられていたが、Nunjucksは当然対応しており見渡しが良くなった。</p>
+<p><a href="http://jinja.pocoo.org/" target="_blank" rel="noopener">Jijja2</a>というPythonのテンプレートエンジンの影響を受けているらしく、ドキュメントもちょくちょくJinja2のドキュメントに飛ばされたり、issueを眺めていてもJinja2の機能を基準に実装を決めている節があり、謎のJinja愛がほほえましかった。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -117,6 +308,8 @@
 	
     <a href="/page/12/" class="pagination__prev">前へ</a>
 	
+	
+    <a href="/page/14/" class="pagination__next">次へ</a>
 	
 </nav>
 

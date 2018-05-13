@@ -77,120 +77,28 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-25T11:28:08.000Z">
-                    2015-05-25
+                <time class="article__header__meta__time" datetime="2015-10-30T07:08:49.000Z">
+                    2015-10-30
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/25/gulp-imagemin.html">gulp-imagemin</a>
+            <a href="/2015/10/30/VanillaなDropdown.html">VanillaなDropdown</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>gulp-imageminで画像の最適化を突き詰める。</p>
-<p><a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="noopener">sindresorhus/gulp-imagemin</a></p>
-<h2 id="標準API"><a href="#標準API" class="headerlink" title="標準API"></a>標準API</h2><ul>
-<li>gifsicle</li>
-<li>jpegtran</li>
-<li>optipng</li>
-<li>svgo</li>
-</ul>
-<p>gif、jpeg、png、svgと主要なフォーマットは標準搭載されているので、導入後すぐに試すことができる。</p>
-<h2 id="拡張モジュール"><a href="#拡張モジュール" class="headerlink" title="拡張モジュール"></a>拡張モジュール</h2><ul>
-<li><a href="https://github.com/imagemin/imagemin-webp" target="_blank" rel="noopener">webp</a></li>
-<li><a href="https://github.com/imagemin/imagemin-advpng" target="_blank" rel="noopener">advpng</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">pngquant</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngout" target="_blank" rel="noopener">pngout</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngcrush" target="_blank" rel="noopener">pngcrush</a></li>
-<li><a href="https://github.com/imagemin/imagemin-mozjpeg" target="_blank" rel="noopener">mozjpeg</a></li>
-<li><a href="https://github.com/imagemin/imagemin-jpegoptim" target="_blank" rel="noopener">jpegoptim</a></li>
-</ul>
-<p>拡張モジュールを用いることも可能。<br>webpなども最適化することができる。<br>全てを試してはいないが、pngquantやmozjpegは標準搭載のそれよりも圧縮効率がいい。</p>
-<p>ただ、モジュールがでかくてインストールに時間がかかる。<br>各プロジェクトにこれを導入していくと、なぜか申し訳ない気持ちになってくる。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-21T11:24:23.000Z">
-                    2015-05-21
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/05/21/Style-Guide-Boilerplate.html">Style Guide Boilerplate</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Style Guide Boilerplateがいい感じ。</p>
+	    <p>バニラなドロップダウンメニューを作成中。<br>まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。<br>がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。</p>
+<p>今回参考になったのは以下の二つ。</p>
 <ul>
-<li><a href="http://bjankord.github.io/Style-Guide-Boilerplate/" target="_blank" rel="noopener">bjankord/Style-Guide-Boilerplate</a></li>
+<li><a href="http://siongui.github.io/2015/02/13/javascript-dropdown-menu/" target="_blank" rel="noopener">Javascript Drop Down Menu</a></li>
+<li><a href="http://s.codepen.io/brenden/debug/mJyEBg" target="_blank" rel="noopener">CodePen - A Pen by Brenden Palmer</a></li>
 </ul>
-<p>DoccoとかKSSとか、ジェネレーターを使った運用を目指していたが、生成するドキュメントがいまいちシンプルさに欠け、結局自前で書いていたが、こーゆーのが今回はマッチしそう。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-17T11:07:18.000Z">
-                    2015-05-17
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/05/17/node-redis入門.html">node-redis入門</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Redisの修行を進めている。<br>Nodeアプリ内で使う分には下記を参考に学習を進めていけばいい様子。</p>
-<ul>
-<li><a href="http://redis.io/" target="_blank" rel="noopener">http://redis.io/</a></li>
-<li><a href="https://github.com/mranney/node_redis" target="_blank" rel="noopener">mranney/node_redis</a></li>
-<li><a href="http://nodejs.osser.jp/node/node-redis/" target="_blank" rel="noopener">node-redis - node.js redisクライアント</a></li>
-<li><a href="http://yutapon.hatenablog.com/entry/2013/07/07/011645" target="_blank" rel="noopener">node.jsでRedisを使ってみる【準備編】</a></li>
-</ul>
-<p>やはりセッション管理などはRedisで行いたい。<br>Koaでは<a href="https://github.com/koajs/koa-redis" target="_blank" rel="noopener">koa-redis</a>を使えば容易に実装できた。</p>
-<p>よりRedisをよりアプリケーションの広範囲で活用する際は下記で理解を深めるとよさそう。</p>
-<ul>
-<li><a href="http://redis-documentasion-japanese.readthedocs.org/ja/latest/topics/data-types-intro.html" target="_blank" rel="noopener">入門 : Redis のデータ構造と概念 — Redis Documentation (Japanese Translation)</a></li>
-</ul>
+<p>表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう<code>document</code>にもイベントを追加。<br>あとは最適なアニメーションを考慮すればよさそう。</p>
 
 	    
 	</div>
@@ -199,11 +107,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/Redis/">#Redis</a>
-	
-	<a href="/tags/Koa/">#Koa</a>
+	<a href="/tags/JavaScript/">#JavaScript</a>
 	
 </div>
 
@@ -217,33 +121,31 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-17T11:00:15.000Z">
-                    2015-05-17
+                <time class="article__header__meta__time" datetime="2015-10-29T10:06:19.000Z">
+                    2015-10-29
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/17/http-proxyでNode-jsの複数アプリを管理.html">http-proxyでNode.jsの複数アプリを管理</a>
+            <a href="/2015/10/29/Github-Flow.html">Github-Flow</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>一つのドメインで複数のnodeアプリを起動させたい。</p>
-<p>http-proxy使えばできそうである。</p>
-<blockquote>
-<p><a href="https://github.com/nodejitsu/node-http-proxy" target="_blank" rel="noopener">nodejitsu/node-http-proxy</a></p>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a href="http://nerdpress.org/2012/04/20/hosting-multiple-express-node-js-apps-on-port-80/" target="_blank" rel="noopener">Hosting multiple Express (node.js) apps on port 80</a><br><a href="http://d.hatena.ne.jp/sasaplus1/20130124/1358992547" target="_blank" rel="noopener">http-proxyでプロキシAdd Star</a></p>
-</blockquote>
-<p>別モジュールを利用しているが、PM2のくだりが参考になりそう。</p>
-<blockquote>
-<p><a href="http://qiita.com/59naga/items/d3082516c2a365b47985" target="_blank" rel="noopener">bouncyを使ったNodejsのみのバーチャルホスト</a></p>
-</blockquote>
+	    <h2 id="現状"><a href="#現状" class="headerlink" title="現状"></a>現状</h2><p>Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。<br>が、コードの規模を考えるとやはりGithub Flowで十分だとは感じており、乗り換えのタイミングを模索し、今日に至る。</p>
+<h2 id="思案"><a href="#思案" class="headerlink" title="思案"></a>思案</h2><p>もう少し様子を見てエディタをBracketsからVisualeStudio Codeへ乗り換えることを考えており、そのタイミングにはスムーズに開発flowも移行したいと思う。</p>
+<h2 id="資料"><a href="#資料" class="headerlink" title="資料"></a>資料</h2><ul>
+<li><a href="https://gist.github.com/Gab-km/3705015" target="_blank" rel="noopener">GitHub Flow (Japanese translation)</a></li>
+</ul>
+<p>上記翻訳を精読したらほぼ大丈夫そう。</p>
+<ul>
+<li><a href="http://b.pyar.bz/blog/2014/01/22/github-flow/" target="_blank" rel="noopener">Github-flowを分かりやすく図解してみた - pyar.bz</a></li>
+</ul>
+<p>これも分かりやすい。</p>
 
 	    
 	</div>
@@ -252,7 +154,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/Git/">#Git</a>
 	
 </div>
 
@@ -266,34 +168,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-16T11:58:17.000Z">
-                    2015-05-16
+                <time class="article__header__meta__time" datetime="2015-10-29T07:04:04.000Z">
+                    2015-10-29
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/16/Redis環境を構築-Windows7.html">Redis環境を構築(Windows7)</a>
+            <a href="/2015/10/29/Comit-in-English.html">Comit in English</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>PCへRedisをインストールした。</p>
-<p><a href="http://redis.io/" target="_blank" rel="noopener">Redis.io</a>のダウンロードページ下、Other versionsからWindows版を配布しているリポジトリへ。</p>
-<blockquote>
-<p><a href="https://github.com/MSOpenTech/redis" target="_blank" rel="noopener">MSOpenTech/redis</a></p>
-</blockquote>
-<p>バージョンは2.8.19.1。<br>ダウンロードしてインストーラーを起動、あとは普通に完了したっぽい。</p>
-<hr>
-<p>上記方法ではどうやら失敗したもよう・・・。</p>
-<blockquote>
-<p><a href="http://kakakikikeke.blogspot.jp/2014/07/windows7redis.html" target="_blank" rel="noopener">Windows7にredisをインストールしてみた </a></p>
-</blockquote>
-<p>↑の記事を参考にしこんどこそ成功。</p>
-<p>原因は、まぁ気にせずいこう・・・。</p>
+	    <p>英語でコミットメッセージを書く時のカンペを作成したい。</p>
+<p>参考記事はググれば色々出てくる。</p>
+<ul>
+<li><a href="http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754" target="_blank" rel="noopener">ネイティブと働いて分かった英語コミットメッセージの頻出動詞10つ - Qiita</a></li>
+<li><a href="http://qiita.com/ken_c_lo/items/4cb49f0fb74e8778804d" target="_blank" rel="noopener">Git - 英語コミットコメントに使えるオシャレフレーズ集 - Qiita</a></li>
+<li><a href="https://gist.github.com/hayajo/3938098" target="_blank" rel="noopener">ChangeLog を支える英語</a></li>
+<li><a href="https://github.com/azu/awesome-commit-english" target="_blank" rel="noopener">azu/awesome-commit-english</a></li>
+<li><a href="http://www.sssg.org/blogs/hiro345/archives/11721.html" target="_blank" rel="noopener">git commit時のコメントを英語で書くための最初の一歩 | hiro345</a></li>
+</ul>
+<p>こんなサービスも発見。</p>
+<ul>
+<li><a href="http://commit-m.minamijoyo.com/" target="_blank" rel="noopener">commit-m: GitHubコミットメッセージの文例が検索できるサービス</a></li>
+</ul>
 
 	    
 	</div>
@@ -302,7 +204,92 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Redis/">#Redis</a>
+	<a href="/tags/Git/">#Git</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-23T07:00:28.000Z">
+                    2015-10-23
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/23/SNS-Feeds.html">SNS Feeds</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p>
+<p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p>
+<p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p>
+<ul>
+<li><a href="https://github.com/pavelk2/social-feed" target="_blank" rel="noopener">pavelk2/social-feed</a></li>
+</ul>
+<p>今回結び付けたいSNSは以下の3つ。</p>
+<ul>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>instagram</li>
+</ul>
+<p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-19T10:56:41.000Z">
+                    2015-10-19
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/19/Timezone.html">Timezone</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>なぜか<code>getHours</code>が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日付を確認</span></span><br><span class="line">$ timedatectl </span><br><span class="line"></span><br><span class="line"><span class="comment"># タイムゾーンを設定</span></span><br><span class="line">$ timedatectl <span class="built_in">set</span>-timezone Asia/Tokyo</span><br></pre></td></tr></table></figure>
+<p>環境構築の際に適切に設定が必要なので、Ansibleへ盛り込みたい。</p>
+<p>ついでにローケルも設定した。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ localectl <span class="built_in">set</span>-locale LANG=ja_JP.eucjp</span><br><span class="line">$ localectl status</span><br><span class="line">$ <span class="built_in">source</span> /etc/locale.conf</span><br></pre></td></tr></table></figure>
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/CentOS/">#CentOS</a>
 	
 </div>
 

@@ -77,52 +77,40 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-06T07:56:25.000Z">
-                    2015-12-06
+                <time class="article__header__meta__time" datetime="2017-03-30T10:55:48.000Z">
+                    2017-03-30
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/06/Windows10×Bitbucket×Jenkins.html">Bitbucket × Jenkins</a>
+            <a href="/2017/03/30/InstagramAPI.html">Instagram　API</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p>
-<p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p>
+	    <p>Instagram APIを使用したフィード表示を実装してみた。</p>
+<p>参考文献は以下、情報は多々見つかった。</p>
 <ul>
-<li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li>
+<li><a href="http://qiita.com/NoriakiOshita/items/71800502fca62d9ec685" target="_blank" rel="noopener">Instagram APIの利用方法 - Qiita</a></li>
+<li><a href="http://thisisstandarz.com/instagram%E3%81%AEuser-id%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">instagramのuser idを取得する方法</a></li>
+<li><a href="https://medium.com/@bkwebster/how-to-get-instagram-api-access-token-and-fix-your-broken-feed-c8ad470e3f02" target="_blank" rel="noopener">How to get Instagram API access token and fix your broken feed</a></li>
+<li><a href="http://qiita.com/takashings/items/f03eb9e2ba343878d287" target="_blank" rel="noopener">【保存版】Instagramの審査の流れ、手順、必要なものまとめ - Qiita</a></li>
+<li><a href="https://capotast.co.jp/article/detail/21/" target="_blank" rel="noopener">Instagram APIを使ってWEBサイトに写真を表示させてみよう｜株式会社カポタスト</a></li>
+<li><a href="http://qiita.com/uda0922/items/0c111d3e312b1dc5d6e8" target="_blank" rel="noopener">Instagram APIをPHPでさくっと使う - Qiita</a></li>
 </ul>
-<p>公式。</p>
-<ul>
-<li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li>
-<li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li>
-</ul>
-<p>インストールからHelloWorldまでは上記が参考になった。</p>
-<ul>
-<li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li>
-</ul>
-<p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p>
-<ul>
-<li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li>
-</ul>
-<p>ユーザー認証。</p>
+<p>今回はPHPを開始実装を行った。<br>コードは代替、このような感じである。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$myAccessToken = <span class="string">'00000000000000000000'</span>;</span><br><span class="line">$user_id = <span class="string">'0000000000'</span>;</span><br><span class="line"></span><br><span class="line">$json = file_get_contents(<span class="string">'https://api.instagram.com/v1/users/'</span>.$user_id.<span class="string">'/media/recent/?access_token='</span>.$myAccessToken);</span><br><span class="line"></span><br><span class="line">$obj = json_decode($json);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($obj-&gt;data <span class="keyword">as</span> $data)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;img src="'</span>.$data-&gt;images-&gt;low_resolution-&gt;url.<span class="string">'" alt=""&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>自アカウントの情報を載せる分にはそれほどハードルは高くなさそうであるが、<br>それ以上を行うとなると手続きはかなり面倒そうである。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Jenkins/">#Jenkins</a>
-	
-</div>
-
 	</footer>
     
 
@@ -133,48 +121,29 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-04T07:36:04.000Z">
-                    2015-12-04
+                <time class="article__header__meta__time" datetime="2017-03-04T10:51:54.000Z">
+                    2017-03-04
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/04/Default-CSS.html">Default CSS</a>
+            <a href="/2017/03/04/Wordpressとlazysizes.html">Wordpressとlazysizes</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p>
-<h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul>
-<li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li>
-</ul>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul>
-<li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li>
-<li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li>
-</ul>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul>
-<li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li>
-</ul>
-<h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul>
-<li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li>
-</ul>
-<p>Edgeは見つけきれなかったなぁ。</p>
+	    <p>Wordpressの記事内の画像読み込みを遅延化したい。<br>少し調べてみたところ、以下の記事が参考になった。<br>方法はいくつかあるようなので…少し吟味が必要である。</p>
+<p><a href="http://codingmemos.hatenablog.com/entry/2016/09/28/100651" target="_blank" rel="noopener">wordpressにおけるレスポンシブイメージに対するlazyload対策 - Coding Memos</a><br><a href="https://github.com/aFarkas/wp-lazysizes" target="_blank" rel="noopener">aFarkas/wp-lazysizes: Brings lazySizes.js to WordPress</a></p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/CSS/">#CSS</a>
-	
-</div>
-
 	</footer>
     
 
@@ -185,71 +154,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-02T07:33:25.000Z">
-                    2015-12-02
+                <time class="article__header__meta__time" datetime="2016-12-19T10:48:27.000Z">
+                    2016-12-19
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/02/多言語化.html">多言語化</a>
+            <a href="/2016/12/19/ConohaVPS(CentOS7)へWordpressを導入.html">Conoha VPS(CentOS7)へ Wordpressを導入</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Webアプリを日本語の他に英語にも対応させることにした。</p>
-<p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p>
+	    <p>Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。</p>
 <ul>
-<li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li>
+<li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li>
+<li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li>
+<li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li>
 </ul>
-<p>フロントエンドではi18n APIに期待したが、Safariが…。</p>
-<ul>
-<li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li>
-<li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p>
-<ul>
-<li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li>
-<li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li>
-</ul>
-<p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p>
-<ul>
-<li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li>
-<li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li>
-</ul>
-<p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p>
-<ul>
-<li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li>
-<li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li>
-</ul>
-<h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p>
-<ul>
-<li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li>
-</ul>
-<p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p>
-<ul>
-<li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li>
-</ul>
+<p>用意されているテンプレートを活用できれば手軽で早そうである。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/Koa/">#Koa</a>
-	
-</div>
-
 	</footer>
     
 
@@ -260,39 +192,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-01T07:31:39.000Z">
-                    2015-12-01
+                <time class="article__header__meta__time" datetime="2016-03-25T10:44:47.000Z">
+                    2016-03-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/01/SourceTree-1-6-24.html">SourceTree-1.6.24</a>
+            <a href="/2016/03/25/Subversion.html">Subversion</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p>
-<p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p>
+	    <p>最近、Subversionを採用しているプロジェクトに携わっている。<br>今までGit しか使ったことがないにわかなので、とりあえずGit との文化や考え方の違いを色々感じている。</p>
 <ul>
-<li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li>
+<li><a href="http://tracpath.com/bootcamp/learning_subversion.html" target="_blank" rel="noopener">Subversion の基礎勉強 ~ Subversion によるバージョン管理 ~ — バージョン管理システム入門(初心者向け)</a></li>
+<li><a href="https://osdn.jp/svn/" target="_blank" rel="noopener">Subversion（svn）によるソフトウェア開発を始めよう - OSDN</a></li>
+<li><a href="http://qiita.com/mountcedar/items/e756bb9136e3b1722bb2" target="_blank" rel="noopener">今更聞けないSubversionの使い方 - Qiita</a></li>
 </ul>
-<p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>
+<p>今のところは、ちょっと難儀じゃのう…という印象である。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/SourceTree/">#SourceTree</a>
-	
-</div>
-
 	</footer>
     
 
@@ -303,51 +230,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-29T12:30:15.000Z">
-                    2015-11-29
+                <time class="article__header__meta__time" datetime="2016-03-17T10:41:57.000Z">
+                    2016-03-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/29/Marker-Clusterer.html">Marker-Clusterer</a>
+            <a href="/2016/03/17/oghliner.html">oghliner</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Google mapsへMarker Clustererを導入した。</p>
+	    <p>GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。</p>
 <ul>
-<li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li>
+<li><a href="https://mozilla.github.io/oghliner/" target="_blank" rel="noopener">Oghliner</a></li>
 </ul>
-<p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p>
-<ul>
-<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li>
-<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li>
-</ul>
-<p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p>
-<p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p>
-<ul>
-<li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li>
-<li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li>
-<li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li>
-</ul>
-<p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p>
-<p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>
+<p>まずはモジュールをインストール。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install oghliner -g</span><br></pre></td></tr></table></figure>
+<p>もしくはプロジェクトごとにインストールも可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ oghliner bootstrap</span><br></pre></td></tr></table></figure>
+<p>実行するとconfigurationを聞かれる。<br>後からでも変更できるのでとりあえず初期値で実行。</p>
+<p>これにより、さくっとオフライン対応のGithubPageを作成できる。<br>類似ツールと比較して、利点などを確認していきたい。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/JavaScript/">#JavaScript</a>
-	
-</div>
-
 	</footer>
     
 

@@ -77,28 +77,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-17T11:36:38.000Z">
-                    2015-08-17
+                <time class="article__header__meta__time" datetime="2015-11-06T13:39:20.000Z">
+                    2015-11-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/17/Firefox-64bit.html">Firefox 64bit</a>
+            <a href="/2015/11/06/Google-OAuth.html">Google OAuth</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+	    <p><a href="https://jp.dewy.me/" target="_blank" rel="noopener">Dewy</a>へGoogleアカウントによるログイン機能を実装した。<br>これまで通り<a href="https://github.com/simov/grant" target="_blank" rel="noopener">simov/grant</a>を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。</p>
 <ul>
-<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" rel="noopener">Firefox Beta</a></li>
-<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" rel="noopener">Firefox Developer Edition</a></li>
+<li><a href="http://d.hatena.ne.jp/komiyak/20141103/1415016929" target="_blank" rel="noopener">Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道</a></li>
 </ul>
-<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
-<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
+<p>アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。<br>また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。</p>
 
 	    
 	</div>
@@ -107,7 +105,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Firefox/">#Firefox</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -121,81 +119,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-12T08:26:21.000Z">
-                    2015-08-12
+                <time class="article__header__meta__time" datetime="2015-11-06T08:32:20.000Z">
+                    2015-11-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/12/Source-Han-Code-JP.html">Source Han Code JP</a>
+            <a href="/2015/11/06/dialog-element.html">dialog-element</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
-<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a>  </p>
-<p><a href="http://blog.quusookagaku.com/19595" target="_blank" rel="noopener">この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
-<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
-<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-10T11:03:31.000Z">
-                    2015-08-10
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/08/10/Windows10へVagrantを導入.html">Windows10へVagrantを導入</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
-<h2 id="事前作業"><a href="#事前作業" class="headerlink" title="事前作業"></a>事前作業</h2><h3 id="Virtualization-Technologyを有効にする"><a href="#Virtualization-Technologyを有効にする" class="headerlink" title="Virtualization Technologyを有効にする"></a>Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
-<h3 id="Vagrant、VirtualBoxをインストール"><a href="#Vagrant、VirtualBoxをインストール" class="headerlink" title="Vagrant、VirtualBoxをインストール"></a>Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
-<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" rel="noopener">http://www.vagrantup.com/</a>  </p>
-<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a>  </p>
-<h3 id="BOXを取得"><a href="#BOXを取得" class="headerlink" title="BOXを取得"></a>BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
-<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" rel="noopener">http://www.vagrantbox.es/</a>  </p>
-<h3 id="CentOS-6-6-64bit-を追加"><a href="#CentOS-6-6-64bit-を追加" class="headerlink" title="CentOS 6.6 64bit を追加"></a>CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.6 http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-6.6-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
-<h3 id="追加したBoxを確認"><a href="#追加したBoxを確認" class="headerlink" title="追加したBoxを確認"></a>追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
-<h2 id="Vagrant-初期化"><a href="#Vagrant-初期化" class="headerlink" title="Vagrant 初期化"></a>Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.6</span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンの操作"><a href="#仮想マシンの操作" class="headerlink" title="仮想マシンの操作"></a>仮想マシンの操作</h2><h3 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
-<h3 id="状態確認"><a href="#状態確認" class="headerlink" title="状態確認"></a>状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
-<h3 id="終了"><a href="#終了" class="headerlink" title="終了"></a>終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
-<h3 id="再起動"><a href="#再起動" class="headerlink" title="再起動"></a>再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
-<h3 id="破棄"><a href="#破棄" class="headerlink" title="破棄"></a>破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンへ接続"><a href="#仮想マシンへ接続" class="headerlink" title="仮想マシンへ接続"></a>仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
-<h3 id="git-インストール"><a href="#git-インストール" class="headerlink" title="git インストール"></a>git インストール</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum -y install git</span></span><br></pre></td></tr></table></figure>
-<h3 id="Node-js-インストール"><a href="#Node-js-インストール" class="headerlink" title="Node.js インストール"></a>Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install 0.12</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
-<h3 id="ファイアーウォールを停止"><a href="#ファイアーウォールを停止" class="headerlink" title="ファイアーウォールを停止"></a>ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
-<h3 id="雑感"><a href="#雑感" class="headerlink" title="雑感"></a>雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
+	    <p>ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。</p>
+<ul>
+<li><a href="http://caniuse.com/#feat=dialog" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>相変わらずblink系のみの対応である。</p>
+<ul>
+<li><a href="https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml" target="_blank" rel="noopener">Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH</a></li>
+<li><a href="http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;utm_medium=web&amp;utm_source=Front_End_Dev_Weekly_77" target="_blank" rel="noopener">the new code – Native Modal Windows in HTML5: Using the dialog Element</a></li>
+<li><a href="http://demo.agektmr.com/dialog/" target="_blank" rel="noopener">dialog element demo</a></li>
+</ul>
+<p>具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank" rel="noopener">GoogleChrome/dialog-polyfill: Polyfill for the dialog element</a></li>
+</ul>
+<p>ポリフィルもChromeチーム自ら提供している。</p>
+<p>が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。<br>現時点での実践投入はまだ早いかと。</p>
 
 	    
 	</div>
@@ -204,9 +158,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Windows/">#Windows</a>
-	
-	<a href="/tags/Vagrant/">#Vagrant</a>
+	<a href="/tags/HTML/">#HTML</a>
 	
 </div>
 
@@ -220,37 +172,138 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-05T11:37:01.000Z">
-                    2015-08-05
+                <time class="article__header__meta__time" datetime="2015-11-02T12:27:39.000Z">
+                    2015-11-02
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/05/CSS-wii-change.html">CSS wii-change</a>
+            <a href="/2015/11/02/Push通知.html">Push通知</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
+	    <p>最近ブラウザにもPush通知の足音が聞こえ始めている。<br>なので基礎学習は始めておきたい。</p>
 <ul>
-<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" rel="noopener">CSS will-changeプロパティについて知っておくべきこと</a></li>
+<li><a href="https://1000ch.net/posts/2015/service-worker-push-notification.html" target="_blank" rel="noopener">Service WorkerでブラウザにPush通知をする - 1000ch.net</a></li>
+<li><a href="http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d" target="_blank" rel="noopener">ChromeでW3C Push APIを使ってみた - Qiita</a></li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">will-change</span>: <span class="selector-tag">transform</span>;</span><br></pre></td></tr></table></figure>
-<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
-<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
+<p>エッジな方々は既に検証を開始している様子。<br>ここはやはりFirefoxでも試したい。</p>
 <ul>
-<li><a href="http://caniuse.com/#feat=will-change" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb" target="_blank" rel="noopener">HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita</a></li>
 </ul>
-<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
-<p>その他参考記事</p>
+<p>Firefoxの実装もかなり進んでいるようで、期待大。<br>問題はモバイルFirefoxの普及だろう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
+                    2015-10-31
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/31/gulp-progeny.html">gulp-progeny</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
+<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
 <ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" rel="noopener">will-change - CSS | MDN</a></li>
-<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" rel="noopener">will-change | CSS-Tricks</a></li>
-<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" rel="noopener">CSS Will Change Module Level 1 日本語訳</a></li>
+<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
+</ul>
+<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
+<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
+<ul>
+<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li>
+</ul>
+<p>まさに依存関係を解決してくれるよう。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
+                    2015-10-31
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/31/Critical-Path-CSS.html">Critical-Path-CSS</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p>
+<ul>
+<li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li>
+<li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li>
+<li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li>
+</ul>
+<p>記事は詳しく解説したものが見つかり、大変参考になった。</p>
+<p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p>
+<ul>
+<li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li>
+<li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li>
+</ul>
+<p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p>
+<ul>
+<li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li>
+<li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li>
+</ul>
+<p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p>
+<ul>
+<li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li>
 </ul>
 
 	    
@@ -259,54 +312,10 @@
 	    
 	    
 <div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 	<a href="/tags/CSS/">#CSS</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-06-11T11:36:08.000Z">
-                    2015-06-11
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/06/11/npm-check-updates.html">npm-check-updates</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" rel="noopener">npm-check-updates</a>が便利という発見。</p>
-<p>モジュールのリリース情報を確認して、必要ならば更新というくだりは難儀。<br><code>npm outdated</code>してpackage.jsonを書き換えて<code>npm install</code>を行うのが通常の流れであるが、回数を重ねるとこれを行うのがおっくうになってくる。</p>
-<p>npm-check-updatesはこのへんの手間を省いてくれる。</p>
-<p>今回はコマンドが短くてよりよさげな開発版をインストール。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates@unstable</span><br></pre></td></tr></table></figure>
-<p>これで更新確認から実行まで3ステップで行える。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新を確認</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> package.jsonを更新</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu -u</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新を実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
-<p>フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。</p>
-<p>マイナーバージョンアップであればあまり後先考えずガンガン上げていきたい性分なので、その作業の簡略化ができ素晴らしい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/npm/">#npm</a>
 	
 </div>
 

@@ -77,30 +77,35 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-28T11:20:49.000Z">
-                    2015-09-28
+                <time class="article__header__meta__time" datetime="2015-12-28T09:51:07.000Z">
+                    2015-12-28
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/28/MongoDB-unset.html">MongoDB $unset</a>
+            <a href="/2015/12/28/fluxible.html">fluxible</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>MongoDBで特定のドキュメントの特定のフィールドを削除するには<code>$unset</code>を使えばスマートらしい。</p>
+	    <p>fluxフレームワークは本当に色々ある…。<br>色々あるが、その中でも開発の活気や完成度、情報量などで比較し米Yahooが開発しているfluxibleを導入した。</p>
+<p>調査の際の参考文献は以下など。</p>
 <ul>
-<li><a href="http://docs.mongodb.org/manual/reference/operator/update/unset/" target="_blank" rel="noopener">$unset — MongoDB Manual 3.0</a></li>
+<li><a href="http://fluxible.io/" target="_blank" rel="noopener">Fluxible | A Pluggable Container for Isomorphic Flux Applications</a></li>
+<li><a href="https://github.com/yahoo/fluxible" target="_blank" rel="noopener">yahoo/fluxible</a></li>
+<li><a href="https://github.com/srd7/fluxible-minimal-sample/tree/master/src" target="_blank" rel="noopener">fluxible-minimal-sample/src at master · srd7/fluxible-minimal-sample</a></li>
+<li><a href="http://qiita.com/srd7/items/85e89f16b1b390170579" target="_blank" rel="noopener">reactjs - Fluxible + React の概要をまとめた - Qiita</a></li>
+<li><a href="https://github.com/srd7/fluxible-minimal-sample" target="_blank" rel="noopener">srd7/fluxible-minimal-sample</a></li>
+<li><a href="http://qiita.com/kamijin_fanta/items/c82b234ed79666b64f57" target="_blank" rel="noopener">yahoo/fluxible関連 - Qiita</a></li>
+<li><a href="https://gist.github.com/fand/b465ca6785c502478384" target="_blank" rel="noopener">Flux戦争の歴史</a></li>
+<li><a href="https://havelog.ayumusato.com/develop/javascript/e675-spa_and_server_rendering_with_fluxible.html" target="_blank" rel="noopener">yahoo/fluxible による SPA + Server Rendering の概観 ::ハブろぐ</a></li>
+<li><a href="https://havelog.ayumusato.com/develop/javascript/e682-universal_architecture_tips.html" target="_blank" rel="noopener">Isomorphic Architecture を実装してるときの細かいアレコレ ::ハブろぐ</a></li>
 </ul>
-<p>これはMongoDB2からの機能で、それ以前は<code>undefined</code>や<code>null</code>を入れて対応していたらしい。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">field</span>: <span class="literal">undefined</span>&#125;);</span><br></pre></td></tr></table></figure>
-<p>昔はこうだったのが…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">$unset</span>: &#123;<span class="attr">field</span>: <span class="number">1</span> &#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>こうらしい。</p>
+<p>国内でも比較的大規模な案件でも使用されており、情報もそこそこ見つかる。<br>この先なにがあるかはわからないが…、現時点では手堅い選択だと思う。</p>
 
 	    
 	</div>
@@ -109,7 +114,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/MongoDB/">#MongoDB</a>
+	<a href="/tags/JavaScript/">#JavaScript</a>
 	
 </div>
 
@@ -123,29 +128,84 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-26T16:16:32.000Z">
-                    2015-09-27
+                <time class="article__header__meta__time" datetime="2015-12-12T09:48:07.000Z">
+                    2015-12-12
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/27/Nunjucks.html">Nunjucks</a>
+            <a href="/2015/12/12/NewRelic.html">New Relic</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>愛用していたテンプレートエンジンである<a href="http://paularmstrong.github.io/swig/" target="_blank" rel="noopener">Swig</a>が残念ながら開発終了となっていたので、Nunjucksへ引っ越しをした。</p>
+	    <p>サーバーの監視やパフォーマンスチェックのため、New Relicの導入を開始した。</p>
+<p>参考は以下の記事など。</p>
 <ul>
-<li><a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noopener">Nunjucks</a></li>
+<li><a href="http://dev.classmethod.jp/tool/newrelic/" target="_blank" rel="noopener">New Relicでアプリケーションのパフォーマンス測定 ｜ Developers.IO</a></li>
+<li><a href="http://qiita.com/kumatronik/items/e2e09bd3708b00442d9b" target="_blank" rel="noopener">newrelic - New Relic の各製品紹介: New Relic ってアプリケーションパフォーマンス監視ツールじゃないの？ - Qiita</a></li>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1410/06/news145_3.html" target="_blank" rel="noopener">連載：アプリケーションの運用監視：第1回　アプリの運用監視サービスとは？ New Relic vs. Application Insights (3/6) - ＠IT</a></li>
 </ul>
-<p>これはSwigの作者が代替として<a href="https://github.com/paularmstrong/swig/issues/628" target="_blank" rel="noopener">推薦</a>しているMozillaのプロジェクトで、構文が類似しており乗り換えも用意であった。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends "base.html" %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block header %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#123;% for name, item in items %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; name &#125;&#125;: &#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
-<p>Swigと比較してドキュメントも見やすく、機能も充実、パフォーマンスも良好である。Swigはif条件式を埋め込む際に何故かelseをサポートしておらず、やや冗長な記述を強いられていたが、Nunjucksは当然対応しており見渡しが良くなった。</p>
-<p><a href="http://jinja.pocoo.org/" target="_blank" rel="noopener">Jijja2</a>というPythonのテンプレートエンジンの影響を受けているらしく、ドキュメントもちょくちょくJinja2のドキュメントに飛ばされたり、issueを眺めていてもJinja2の機能を基準に実装を決めている節があり、謎のJinja愛がほほえましかった。</p>
+<p>個人で使用する分には無料でも十分だと感じた。<br>また、Android向けアプリも提供されており、使い勝手も問題ない感じだ。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-11T09:47:02.000Z">
+                    2015-12-11
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/11/n.html">n</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>プロダクション環境Node.jsのバージョン管理をnvmからnへ切り替えた。</p>
+<ul>
+<li><a href="https://github.com/tj/n" target="_blank" rel="noopener">tj/n</a></li>
+</ul>
+<p>個人開発による実験の場でもあり、また頻繁なバージョンアップへもカジュアルに対応したいのであまりよくないだろうなぁと思いつつもnvm経由で管理を行っていた。</p>
+<p>しかしCapistranoによる自動デプロイを実装するにあたってnvmを用いたNodeの操作は非常に面倒であったため、いい機会なのでnへ引っ越すことにした。</p>
+<h2 id="nvmの削除"><a href="#nvmの削除" class="headerlink" title="nvmの削除"></a>nvmの削除</h2><p>nvm の削除は普通に<code>bash_profile</code>から環境変数を削除し、ユーザーディレクトリから本体を丸ごと削除するだけである。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 環境変数の削除</span></span><br><span class="line">$ vi ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm本体の削除</span></span><br><span class="line">$ rm -rf ~/.nvm</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/creationix/nvm/issues/298" target="_blank" rel="noopener">How to uninstall nvm? · Issue #298 · creationix/nvm</a><h2 id="nのインストール"><a href="#nのインストール" class="headerlink" title="nのインストール"></a>nのインストール</h2></li>
+</ul>
+<p>まずNode本体をyum経由でインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install nodejs npm --enablerepo=epel</span><br></pre></td></tr></table></figure>
+<p>これでNodeとnpmは入った。<br>node は0.10.36、npm は1.3.6と、どちらもかなり古いバージョンなので、とりあえずnpmは先に最新にアップデートを行った。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install npm -g</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br><span class="line">3.3.12</span><br></pre></td></tr></table></figure>
+<p>別にそのままのバージョンでも問題はないかもしれないが、3系は大幅に改良がおこなわれているので上げれるときに上げておいた。<br>次にnと、最新のNodeをインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install n -g </span><br><span class="line">$ n latest</span><br><span class="line"></span><br><span class="line">$ node -v</span><br><span class="line">v5.2.0</span><br></pre></td></tr></table></figure>
+<p>これでv5.2のNodeがインストールされた。<br>今後は開発ではnvm、本番ではnと使い分けていこうと思う。</p>
+<p>参考文献</p>
+<ul>
+<li><a href="http://moro-archive.hatenablog.com/entry/2015/07/27/225747" target="_blank" rel="noopener">結局のところ node.js をサーバーにインストールするにはどうやればいいのか？ - もろず blog</a></li>
+<li><a href="http://parashuto.com/rriver/tools/updating-node-js-and-npm" target="_blank" rel="noopener">Node.jsとnpmをアップデートする方法 – Rriver</a></li>
+<li><a href="http://dekokun.github.io/posts/2014-01-01.html" target="_blank" rel="noopener">Nodeの複数バージョン管理のお供にnをどうぞ</a></li>
+</ul>
 
 	    
 	</div>
@@ -168,41 +228,32 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-24T15:59:32.000Z">
-                    2015-09-25
+                <time class="article__header__meta__time" datetime="2015-12-10T09:45:57.000Z">
+                    2015-12-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/25/Koaでファイルアップローダー.html">Koaでファイルアップローダー</a>
+            <a href="/2015/12/10/SourceHanCodeJP2-0.html">Source Han Code JP 2.0</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Koaアプリケーションにファイルアップローダーを実装した。</p>
+	    <p>Source Han Code JPの2.0がリリースされていたので入れ替えた。</p>
 <ul>
-<li><a href="https://github.com/cojs/busboy" target="_blank" rel="noopener">cojs/busboy</a></li>
+<li><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a></li>
 </ul>
-<p>モジュールは例によって<a href="https://github.com/mscdex/busboy" target="_blank" rel="noopener">busboy</a>をcoでラップしたco-busboyを使用。  </p>
-<p>アップローダーはなかなか奥が深くて面白そうなので、機会があったら他のモジュールも試してみたい。去年のNode学園祭でGuillermoが紹介していたPartyは何処へいったんだろう…。</p>
+<p>僕の環境では相変わらずフォントの指定に癖があり、ウェイトの指定がMediumだと <code>Source Han Code jp Medium</code> 、Normalだと <code>源ノ角ゴシック Code JP N</code> と入力しないと反映されない。この部分が修正されている期待をしたが、イシューも上がってないので気づいてないかも。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/Koa/">#Koa</a>
-	
-</div>
-
 	</footer>
     
 
@@ -213,92 +264,46 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-23T15:53:06.000Z">
-                    2015-09-24
+                <time class="article__header__meta__time" datetime="2015-12-08T09:44:06.000Z">
+                    2015-12-08
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/24/Firefoxリモートデバッグを導入.html">Firefox リモートデバッグを導入</a>
+            <a href="/2015/12/08/RubyOnCentOS7.html">Ruby on CentOS 7</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>スマホサイトのデバッグ環境を本格的に整備しようと思い、とりあえず愛用のFirefoxによるリモートデバッグを導入。</p>
+	    <p>開発環境のCentOS7へRubyをインストールした。バージョンも管理したいのでrbenvを経由し、方法はいくつかあるようだが一番シンプルそうなルートを選択した。</p>
 <ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE" target="_blank" rel="noopener">WebIDE による Android 版 Firefox のデバッグ - 開発ツール | MDN</a></li>
+<li><a href="https://github.com/rbenv/rbenv" target="_blank" rel="noopener">rbenv/rbenv</a></li>
 </ul>
-<p>今回はUSBで接続したAndroid版Firefoxでデバッグを試した。<br>ここまでは容易に完了できたが、Wifi経由でやろうとすると色々面倒くさそうかな。</p>
+<p>事前に必要なモジュールをインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y install git libffi libffi-dev gcc openssl-devel readline-devel zlib-devel</span><br></pre></td></tr></table></figure>
+<p>rbenv、rbenv-buildのリポジトリをクローン。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/rbenv.git ~/.rbenv</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br></pre></td></tr></table></figure>
+<p>rbenvのパスを通す。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">exec</span> <span class="variable">$SHELL</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>インストールできるRubyのバージョン一覧を取得。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -list</span><br></pre></td></tr></table></figure>
+<p>今回は最新安定板の<code>2.2.3</code>をインストール。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -v 2.2.3</span><br></pre></td></tr></table></figure>
+<p>rvenvを再読み込みしグローバルで使用するバージョンへ指定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv <span class="built_in">rehash</span></span><br><span class="line">$ rbenv global 2.2.3</span><br></pre></td></tr></table></figure>
+<p><code>ruby -v</code>でバージョンが表示されれば完了。</p>
+<p>また、併せてbundlerも入れておく。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem install bundler</span><br><span class="line">$ bundle -v</span><br></pre></td></tr></table></figure>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Firefox/">#Firefox</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-22T15:50:12.000Z">
-                    2015-09-23
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/23/npmローカルモジュール問題.html">npm ローカルモジュール問題</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <h2 id="これまでの手法"><a href="#これまでの手法" class="headerlink" title="これまでの手法"></a>これまでの手法</h2><p>その時何を思ってこの方法を採用したのかは忘れてしまったが、今まではグローバル変数を用いて解決していた。</p>
-<ul>
-<li><a href="https://gist.github.com/branneman/8048520" target="_blank" rel="noopener">Better local require() paths for Node.js</a></li>
-</ul>
-<p>上記のGistでのパターン2である。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Article = <span class="built_in">require</span>(__base + <span class="string">'app/models/article'</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="再考"><a href="#再考" class="headerlink" title="再考"></a>再考</h2><p>そーいえばnpmにこの問題を解決する機能が導入されてたっけ、と思い試してみる。</p>
-<ul>
-<li><a href="http://efcl.info/2014/10/04/npm2-local-module/" target="_blank" rel="noopener">npm 2.0.0でローカルモジュールを使ってrequire(‘../../../‘)を回避する | Web Scratch</a></li>
-</ul>
-<p>しかしこの方法、ちょろっとした機能を追加するには大げさすぎて難儀に感じる。<br>僕の使い方ではデメリットのほうが勝る気が…。  </p>
-<p>他の手法を調べてみてもなかなかしっくりこない。<br>改めて難しい問題だと感じる。</p>
-<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p>これまでの方法をテンプレートリテラルで書き直して使い続ける結論に至った。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article = <span class="built_in">require</span>(<span class="string">`<span class="subst">$&#123;__base&#125;</span>app/models/article`</span>);</span><br></pre></td></tr></table></figure>
-<p>いつの日か光あれ！</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/npm/">#npm</a>
-	
-</div>
-
 	</footer>
     
 

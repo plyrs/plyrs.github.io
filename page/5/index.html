@@ -77,127 +77,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-07T11:40:14.000Z">
-                    2015-10-07
+                <time class="article__header__meta__time" datetime="2016-01-17T10:08:56.000Z">
+                    2016-01-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/07/sitemap-xml.html">sitemap.xml</a>
+            <a href="/2016/01/17/Webpack.html">Webpack</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。<br>清く正しくsitemap.xmlを理解するなら以下を参照。</p>
+	    <p>SPAを構築する際にはやはりWebpackの豊富な機能が生きる。</p>
+<p>今作成しているWebアプリはUniversalでFluxでi18nなWebアプリとなっており、無計画にファイルを結合し続けると初期リロードの問題が出てくる。</p>
+<p>3度の法則にしたがって開発過程でも適切なモジュール分割を容易に行うことができるのはWebpackの大きな強みだと感じた。</p>
 <ul>
-<li><a href="http://www.sitemaps.org/ja/" target="_blank" rel="noopener">sitemaps.org - ホーム</a></li>
-<li><a href="https://support.google.com/webmasters/answer/156184?hl=ja&amp;ref_topic=4581190" target="_blank" rel="noopener">サイトマップについて - Search Console ヘルプ</a></li>
+<li><a href="https://webpack.github.io/docs/code-splitting.html" target="_blank" rel="noopener">code splitting</a></li>
+<li><a href="https://christianalfoni.github.io/react-webpack-cookbook/Lazy-loaded-entry-points.html" target="_blank" rel="noopener">Lazy loaded entry points | React Webpack cookbook</a></li>
+<li><a href="http://qiita.com/RyotaSugawara/items/0effa7ce42adfcb66a35" target="_blank" rel="noopener">webpackのrequire.ensureでDynamic Loadingをして大規模アプリケーションを作る - Qiita</a></li>
 </ul>
-<p>普段は以下のオンラインジェネレーターを利用し配備していた。</p>
+<p>CSSや画像はちょっと考えがあり、ローダーを使用していない。</p>
 <ul>
-<li><a href="https://www.xml-sitemaps.com/" target="_blank" rel="noopener">Create your Google Sitemap Online - XML Sitemaps Generator</a></li>
+<li><a href="http://ameblo.jp/ca-1pixel/entry-11884453208.html" target="_blank" rel="noopener">RequireJS等はもう古い。WebPackとは？｜1 pixel｜サイバーエージェント公式クリエイターズブログ</a></li>
+<li><a href="http://liginc.co.jp/web/js/other-js/148813" target="_blank" rel="noopener">WebPackを使ってJavaScriptを効率的に書くチュートリアル【入門編】 | 株式会社LIG</a></li>
 </ul>
-<p>これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。<br>そこで<a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">sitemap.js</a>を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。</p>
-<ul>
-<li><a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">ekalinin/sitemap.js</a></li>
-</ul>
-<p>ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。<br>Promiseでラップし、Yiedableにすればほぼ完了である。  </p>
-<p>あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-06T11:34:51.000Z">
-                    2015-10-06
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/06/Update-font-face.html">Update @font-face</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>cssの@font-faceのフォーマットをアップデートした。  </p>
-<p>これまでは<a href="http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/" target="_blank" rel="noopener">Fontspring @Font-Face Syntax</a>に従い以下のように記述していた。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.svg#svgFontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>対応ブラウザは以下とされている。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">IE</th>
-<th style="text-align:center">Firefox</th>
-<th style="text-align:center">Chrome</th>
-<th style="text-align:center">Safari</th>
-<th style="text-align:center">Opera</th>
-<th style="text-align:center">iOS</th>
-<th style="text-align:center">Android</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">6+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3+</td>
-<td style="text-align:center">11+</td>
-<td style="text-align:center">3.2+</td>
-<td style="text-align:center">2.2+</td>
-</tr>
-</tbody>
-</table>
-<p>この書式はは2011年に提唱されたもので、2015年ゲイン材のブラウザ情勢からみるとやや冗長に感じる。  </p>
-<p>よって下記を参考に今回アップデートを図った。  </p>
-<ul>
-<li><a href="https://css-tricks.com/snippets/css/using-font-face/" target="_blank" rel="noopener">Using @font-face | CSS-Tricks</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>eotとsvgを削除した。この変更後の対応ブラウザは以下である。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">IE</th>
-<th style="text-align:center">Firefox</th>
-<th style="text-align:center">Chrome</th>
-<th style="text-align:center">Safari</th>
-<th style="text-align:center">Opera</th>
-<th style="text-align:center">iOS</th>
-<th style="text-align:center">Android</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">9+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3+</td>
-<td style="text-align:center">10.1+</td>
-<td style="text-align:center">4.3+</td>
-<td style="text-align:center">2.2+</td>
-</tr>
-</tbody>
-</table>
-<p>IE9からはWoffに対応しているので、もう少し時間がたてばTTFも消せるのでは。<br>Woff2の普及は<a href="http://caniuse.com/#feat=woff2" target="_blank" rel="noopener">まだまだこれから</a>といったところだ。</p>
 
 	    
 	</div>
@@ -206,7 +113,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/CSS/">#CSS</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -220,31 +127,24 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-05T16:38:22.000Z">
-                    2015-10-06
+                <time class="article__header__meta__time" datetime="2016-01-10T10:04:59.000Z">
+                    2016-01-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/06/CSS-font-familyをアップデート.html">CSS font-familyをアップデート</a>
+            <a href="/2016/01/10/GrantからPassportへ.html">GrantからPassportへ</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>CSS font-familyの記述をアップデートした。  </p>
-<p>これまでは以下のように指定していた。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Verdana, Arial, <span class="string">"ヒラギノ角ゴ ProN"</span>, <span class="string">"Hiragino Kaku Gothic ProN"</span>, <span class="string">"メイリオ"</span>, Meiryo, <span class="string">"ＭＳ Ｐゴシック"</span>, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>昔どこかで見た記事やソースを参考にたどり着いたと記憶しているが、Windows10へ移行したこともありフォント回りも同様に更新していこうと思う。</p>
-<ul>
-<li><a href="http://sole-color-blog.com/blog/design/246/" target="_blank" rel="noopener">Font−familyのベストな書き方 2015年版 | それからデザイン スタッフブログ</a></li>
-</ul>
-<p>上記記事は非常によく考察されており信頼たる内容だと感じたので、これをベースに以下のように設定した。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Avenir, <span class="string">"Open Sans"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, Arial, Verdana, Roboto, <span class="string">"游ゴシック"</span>, <span class="string">"Yu Gothic"</span>, <span class="string">"游ゴシック体"</span>, <span class="string">"YuGothic"</span>, <span class="string">"ヒラギノ角ゴ Pro W3"</span>, <span class="string">"Hiragino Kaku Gothic Pro"</span>, <span class="string">"Meiryo UI"</span>, <span class="string">"メイリオ"</span>, Meiryo, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>MSPゴシックだけはさすがに不要だと思い外させていただいた。<br>とりあえずこれで様子を見ていこうと思う。</p>
+	    <p>Oauth認証に<a href="https://github.com/simov/grant" target="_blank" rel="noopener">Grant</a>を使用していた。<br>採用していた理由はどちらでも必要要件を満たせるし、ならばちょっと違ったものをという理由であった。</p>
+<p>しかしKoa2.0へのアップデートを機にベタに<a href="http://www.passportjs.org/" target="_blank" rel="noopener">Passport</a>をラップした<a href="https://github.com/rkusa/koa-passport" target="_blank" rel="noopener">koa-passport</a>へ入れ替えることにした。<br>現状のGrantではKoa2.0へ対応させることができず、プルリクを出してもいいのだがkoa-passportの2.0への対応が非常に迅速であり、やはり広くコミュニティに受け入れられているモジュールを使用するほうが長い目で見ても良さそうだと感じたので。</p>
+<p>また、Grantは単体で様々なサービスに対応しているが、Passportは個別で追加が必要となる。やはりこのほうが現代的なアプローチでメンテもしやすいであろう。</p>
 
 	    
 	</div>
@@ -253,7 +153,9 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/CSS/">#CSS</a>
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/Koa/">#Koa</a>
 	
 </div>
 
@@ -267,27 +169,72 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-03T12:25:37.000Z">
-                    2015-10-03
+                <time class="article__header__meta__time" datetime="2016-01-07T10:03:20.000Z">
+                    2016-01-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/03/wysiwyg.html">wysiwyg</a>
+            <a href="/2016/01/07/Error-Thelibsassbindingwasnotfound.html">Error: The `libsass` binding was not found</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Webアプリ内にてwysiwygを導入したい。</p>
+	    <p>GulpでSassのコンパイル実行時にエラーが出た。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: The libsass binding was not found <span class="keyword">in</span> /node_modules\node-sass\vendor\win32-x64-47\binding.node</span><br></pre></td></tr></table></figure>
+<p>node-sass内を除いてみるとvendorフォルダが存在しない。<br>解決策は下記issueで見つけた。</p>
 <ul>
-<li><a href="https://github.com/cheeaun/mooeditable/wiki/Javascript-WYSIWYG-editors" target="_blank" rel="noopener">Javascript WYSIWYG editors · cheeaun/mooeditable Wiki</a></li>
+<li><a href="https://github.com/sass/node-sass/issues/1162" target="_blank" rel="noopener">node 4.0.0 - Error: The libsass binding was not found in /node_modules/gulp-sass/node_modules/node-sass/vendor/darwin-x64-14/binding.node · Issue #1162 · sass/node-sass</a></li>
 </ul>
-<p>上記リストがよくまとまっており、大いに参考なった。<br>今回jQuery先生は極力使いたくないので、最初である程度候補は絞られる。  </p>
-<p>とりあえずその中から<a href="http://wysiwygjs.github.io/" target="_blank" rel="noopener">wysiwyg.js</a>を試してみる方針。<br>オンラインデモを触っている分にはいい感じで、ドキュメントもそこそこ整理されていて扱いやすそう。</p>
+<p>‘npm rebuild node-sass` を実行するとモジュールが再構築され、vendorが配置された。</p>
+<p>node-sassはちょくちょく問題を起こす。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-01-05T09:58:54.000Z">
+                    2016-01-05
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/01/05/JavaScriptESDecorators.html">JavaScript ES Decorators</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>ちょっと最近よく見る、Decoratorsの仕様を確認中。</p>
+<ul>
+<li><a href="http://azu.github.io/slide/typescript-sushi/decorators.html" target="_blank" rel="noopener">Decorators進捗</a></li>
+<li><a href="http://qiita.com/Quramy/items/e3a43bb1734b8a7331e8" target="_blank" rel="noopener">TypeScriptのDecoratorメモ - Qiita</a></li>
+</ul>
+<p>上手に使えば、関数合成の可読性が高くなりそうだが、はてさて…。</p>
 
 	    
 	</div>
@@ -310,32 +257,43 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-30T11:23:07.000Z">
-                    2015-09-30
+                <time class="article__header__meta__time" datetime="2015-12-29T09:55:42.000Z">
+                    2015-12-29
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/30/SoyCMSをConohaへ.html">SoyCMSをConohaへ</a>
+            <a href="/2015/12/29/Vagrant1-8.html">Vagrant1.8</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>壊滅状態のNAUTILUSのサイトをそろそろ復活させるべく、重い腰を上げた。  </p>
-<p>当時ロリポップで運用していたのだが、インフラにこだわりはじめサーバー引っ越しを繰り返す中でいつしかトップページ以外開かないといった状態へと変貌を遂げた。<br>というのもXserverへの引っ越しはスムーズに行ったものの、その後のVPSへの移行はハマリどことが多く、面倒になってしまったのだ。  </p>
-<p>今回復活にあたって参考になったペーシ一覧。</p>
+	    <p>スナップショットに惹かれてVagrantを1.8へアップデートした。</p>
 <ul>
-<li><a href="http://www.soycms.net/" target="_blank" rel="noopener">SOY CMS 公式サイト</a></li>
-<li><a href="http://support.kagoya.jp/manual/soy/site.html" target="_blank" rel="noopener">SOY CMS インストール - KAGOYA Internet Routing</a></li>
-<li><a href="http://www.soycms.org/viewtopic.php?f=6&amp;t=639" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - ミニム　レンタルサーバー動作検証しました</a></li>
-<li><a href="http://www.soycms.org/viewtopic.php?f=7&amp;t=412" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - 他サイトラベルブロックについて</a></li>
+<li><a href="https://hashicorp.com/blog/vagrant-1-8.html" target="_blank" rel="noopener">Vagrant 1.8 - HashiCorp</a></li>
+<li><a href="http://dev.classmethod.jp/tool/vagrant-linked-clone/" target="_blank" rel="noopener">Vagrant 1.8の新機能 Linked CloneとSnapshotを試してみた ｜ Developers.IO</a></li>
 </ul>
-<p>パーミッションの設定と、一部のPHPモジュールのインストールで現状問題なく動作している様子。  </p>
-<p>そもそもこのサイトのためだけにApacheとPHPインストールするのもな～と思い、いっそ内部をNodeで書き換えようかとも思ったが、改めて見てみると記事の量も結構多いからそれはそれで遠回りになりそう。</p>
+<p>環境はWindows 10。普通に最新のインストーラーを落とし実行し、滞りなく完了。</p>
+<p>と思ったら、<code>vagrant up</code>してもフォルダ同期が正常に機能しない…。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vagrant assumes that this means the <span class="built_in">command</span> failed!</span><br><span class="line"></span><br><span class="line">chown `id -u vagrant`:`id -g vagrant` /vagrant</span><br><span class="line"></span><br><span class="line">Stdout from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Stderr from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line">chown: changing ownership of ‘/vagrant’: Not a directory</span><br></pre></td></tr></table></figure>
+<p>同じことが昔あったような…。<br>とりあえずISSUトラックを見てみるとすでに同様の問題は報告されており、VisualeBoxのバージョンを最新にしなさいとのこと。</p>
+<ul>
+<li><a href="https://github.com/mitchellh/vagrant/issues/6732" target="_blank" rel="noopener">Can not use share folders in Vagrant 1.8.0 and 1.8.1 · Issue #6732 · mitchellh/vagrant</a></li>
+</ul>
+<p>確認すると<code>5.0.8</code>と少し古かったので、現時点で最新の<code>5.0.12</code>へ更新。<br>すると今度こそ問題なく起動した。</p>
+<p>現時点ではシンプルに開発環境として利用しているので、Linked Cloneの出番はないかもしれないが、スナップショットがデフォルトで組み込まれたのは有り難い。チャレンジングな実装を試しやすくなったと感じる。</p>
+<ul>
+<li><a href="https://docs.vagrantup.com/v2/cli/snapshot.html" target="_blank" rel="noopener">vagrant snapshot - Command-Line Interface - Vagrant Documentation</a></li>
+</ul>
+<p>1個しか使用しない場合は…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot push</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot pop</span><br></pre></td></tr></table></figure>
+<p>複数記録したい場合は…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot save &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot restore &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショットの一覧</span></span><br><span class="line">$ vagrant snapshot list</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット削除</span></span><br><span class="line">$ vagrant snapshot delete &lt;スナップショット名&gt;</span><br></pre></td></tr></table></figure>
+<p>ottoもそのうち試してみたいが、Node環境だと海外記事でもあまり数を見かけないのでまだ様子見中。<br>もうしばらくはVagrantさんのお世話になりそうである。</p>
 
 	    
 	</div>
@@ -344,9 +302,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Conoha/">#Conoha</a>
-	
-	<a href="/tags/SoyCMS/">#SoyCMS</a>
+	<a href="/tags/Vagrant/">#Vagrant</a>
 	
 </div>
 

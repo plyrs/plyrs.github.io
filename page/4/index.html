@@ -77,34 +77,30 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-23T07:00:28.000Z">
-                    2015-10-23
+                <time class="article__header__meta__time" datetime="2016-02-06T10:18:24.000Z">
+                    2016-02-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/23/SNS-Feeds.html">SNS Feeds</a>
+            <a href="/2016/02/06/Monorepo.html">Monorepo</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p>
-<p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p>
-<p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p>
+	    <p>最近よく聞く、Monorepoについて調査してみた。<br>参考になったのは以下の記事。</p>
 <ul>
-<li><a href="https://github.com/pavelk2/social-feed" target="_blank" rel="noopener">pavelk2/social-feed</a></li>
+<li><a href="http://qiita.com/kimamula/items/0b4dff363933bfe74506" target="_blank" rel="noopener">Lerna を使って、 Babel や React が採用している monorepo を試してみる - Qiita</a></li>
+<li><a href="http://japan.blogs.atlassian.com/2015/10/monorepos-in-git/" target="_blank" rel="noopener">Git で monorepo を扱う際の課題とヒント - Atlassian Japan</a></li>
+<li><a href="http://shokai.org/blog/archives/10574" target="_blank" rel="noopener">橋本商会 » lernaでmonorepoした</a></li>
+<li><a href="http://yukidarake.hateblo.jp/entry/2016/01/06/200800" target="_blank" rel="noopener">単一リポジトリで複数package|projectを管理することをmonorepoというそう - なっく日報</a></li>
+<li><a href="https://github.com/kittens/lerna" target="_blank" rel="noopener">kittens/lerna: A tool for managing JavaScript projects with multiple packages.</a></li>
 </ul>
-<p>今回結び付けたいSNSは以下の3つ。</p>
-<ul>
-<li>Facebook</li>
-<li>Twitter</li>
-<li>instagram</li>
-</ul>
-<p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>
+<p>大きなプロジェクトでモジュールはそれぞれ分けて開発したいが、イシューなどは一元管理したい…という際に有用であると感じた。<br>よって現時点では、僕とは無縁なようだ。</p>
 
 	    
 	</div>
@@ -121,26 +117,39 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-19T10:56:41.000Z">
-                    2015-10-19
+                <time class="article__header__meta__time" datetime="2016-02-03T10:16:22.000Z">
+                    2016-02-03
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/19/Timezone.html">Timezone</a>
+            <a href="/2016/02/03/React-routerとScrollPosition.html">React-router と Scroll Position</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>なぜか<code>getHours</code>が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日付を確認</span></span><br><span class="line">$ timedatectl </span><br><span class="line"></span><br><span class="line"><span class="comment"># タイムゾーンを設定</span></span><br><span class="line">$ timedatectl <span class="built_in">set</span>-timezone Asia/Tokyo</span><br></pre></td></tr></table></figure>
-<p>環境構築の際に適切に設定が必要なので、Ansibleへ盛り込みたい。</p>
-<p>ついでにローケルも設定した。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ localectl <span class="built_in">set</span>-locale LANG=ja_JP.eucjp</span><br><span class="line">$ localectl status</span><br><span class="line">$ <span class="built_in">source</span> /etc/locale.conf</span><br></pre></td></tr></table></figure>
+	    <p>react-router と ReactCSSTransitionGroup を組み合わせてページ遷移時のアニメーションを実装したメモ。<br>サンプルを参考に進めれば容易であった。</p>
+<ul>
+<li><a href="https://github.com/rackt/react-router/tree/master/examples/animations" target="_blank" rel="noopener">react-router/examples/animations at master · rackt/react-router</a></li>
+</ul>
+<p>しかし細かい挙動に凝り始めると、提供されているハイレベルなAPIでは難しくなってくる。<br>今回はページ遷移時にスクロールポジションが維持されてしまう問題の修正に少しハマった。</p>
+<p>結果的に react-router 側を微調整して完了となった。</p>
+<ul>
+<li><a href="https://github.com/rackt/react-router/issues/2019" target="_blank" rel="noopener">Scroll to top on route change? · Issue #2019 · rackt/react-router</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router onUpdate=&#123;() =&gt; <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)&#125; history=&#123;createBrowserHistory()&#125;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
+<p>これでページ遷移時に強制的にスクロールポジションをトップへ固定することができる。<br>ただこの方法だとブラウザバックの際にも <code>window.scrollTo(0, 0)</code> が発動してしまいユーザビリティが損なわれる。<br>結果的に下記の方法を採用した。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createBrowserHistory();</span><br><span class="line"></span><br><span class="line">history.listen(<span class="function"><span class="params">location</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (location.action === <span class="string">'POP'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = (</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/rackt/react-router/issues/2144#issuecomment-150939358" target="_blank" rel="noopener">Scroll position in RC1 · Issue #2144 · rackt/react-router</a></li>
+</ul>
+<p>これでブラウザバック時は前回のスクロールポジションを維持することができる。<br>ちなみに下記のようなものもあるらしい。</p>
+<p><a href="https://github.com/rackt/scroll-behavior" target="_blank" rel="noopener">rackt/scroll-behavior - JavaScript</a></p>
+
 	    
 	</div>
     <footer class="article__footer">
@@ -148,7 +157,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/CentOS/">#CentOS</a>
+	<a href="/tags/React/">#React</a>
 	
 </div>
 
@@ -162,25 +171,39 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-14T11:54:51.000Z">
-                    2015-10-14
+                <time class="article__header__meta__time" datetime="2016-01-30T10:12:55.000Z">
+                    2016-01-30
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/脱-jQuery.html">脱 jQuery</a>
+            <a href="/2016/01/30/ReactとGoogleAnalytics.html">ReactとGoogleAnalytics</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <ul>
-<li><a href="http://postd.cc/jquery-considered-harmful/" target="_blank" rel="noopener">jQueryは有害なのか | プログラミング | POSTD</a></li>
+	    <p>Reactベースで構築されたSPAの場合、Google Analyticsを用いたアクセス解析には一工夫が必要となる。</p>
+<ul>
+<li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications" target="_blank" rel="noopener">単一ページ アプリケーションのトラッキング  |  ウェブ向けアナリティクス（analytics.js）  |  Google Developers</a></li>
 </ul>
-<p>上記記事を読んだ。<br>最近は僕もjQueryをほとんど使っていなくて、共感できる部分は多かった。<br>しかしそれは個人開発の場の話で、チームでの開発で複数人でJavaScriptを触る場合は、ｊQueryを採用することである程度、秩序ができる利点はあると思う。<br>完全なる脱jQueryのためには、完璧なる規約とリンターの整備が必要かも。</p>
+<p>単純にアナリティクスのコードを読み込むだけではなく、ルーティングへのフックを設置しなければならない。<br>今回はreact-routerを採用しているので、それを基準にライブラリを探すと、以下が見つかった。</p>
+<ul>
+<li><a href="https://github.com/mozilla/react-ga" target="_blank" rel="noopener">mozilla/react-ga - JavaScript</a></li>
+<li><a href="https://github.com/seeden/react-g-analytics" target="_blank" rel="noopener">seeden/react-g-analytics: React google analytics with support for react-router</a></li>
+<li><a href="https://github.com/tcoopman/ga-react-router" target="_blank" rel="noopener">tcoopman/ga-react-router: Google analytics component for react-router</a></li>
+</ul>
+<p>react-gaはapiが豊富で、Mozilla内でドッグフーディングされているようで信頼もできる。コード量は一番多いかな。<br>3.73 KB</p>
+<p>react-g-analyticsは機能をpageviewの送信にしぼっている分、シンプルな作り。</p>
+<p>ga-react-routerはとにかくシンプル。Webpack前提の作りだが、かなり軽量だ。</p>
+<p>一番サクっと導入できそうなのはreact-g-analyticsだが、その前にreact-routerのアップグレードからしたほうがよさそうだ。</p>
+<p>最終的には react-ga を採用し、以下を参考に実装を行った。</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/34836500/how-to-set-up-google-analytics-for-react-router" target="_blank" rel="noopener">reactjs - How to set up Google Analytics for React-Router? - Stack Overflow</a></li>
+</ul>
 
 	    
 	</div>
@@ -189,7 +212,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/JavaScript/">#JavaScript</a>
+	<a href="/tags/React/">#React</a>
 	
 </div>
 
@@ -203,43 +226,28 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-14T10:54:30.000Z">
-                    2015-10-14
+                <time class="article__header__meta__time" datetime="2016-01-26T10:11:15.000Z">
+                    2016-01-26
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/microdata.html">Microdata</a>
+            <a href="/2016/01/26/ReactとクリティカルパスCSS.html">ReactとクリティカルパスCSS</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Webアクセシビリティは他の要素と比べて後回しにされがちである。<br>しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。</p>
-<p>Webサイトをマークアップを通じて構造化する手法として、以下のものがある。</p>
+	    <p>Reactを用いたUniversal(Isomorphic)なサイトのクリティカルパスCSSを自動化したい。</p>
+<p>以前Nunjucksを使用したパターンはうまく機能したので、同様の手法でReactの実装を考えた。<br>すなわち、Cssの更新にフックしGulp経由で静的なHTMLを生成し、それに対してCriticalを実行させクリティカルパスの部分を別のHTMLとして抽出し、インポートするという手法であった。</p>
+<p>しかし、Critical 0.7.0がリリースされPenthouseのようにURL指定にて実行が可能になった。<br>というよりPenthouseを内蔵した様子。</p>
 <ul>
-<li>Microformats</li>
-<li>Microdata</li>
-<li>RDFa</li>
-<li>Microdata</li>
+<li><a href="https://github.com/addyosmani/critical/releases/tag/v0.7.0" target="_blank" rel="noopener">Release Critical 0.7.0 · addyosmani/critical</a></li>
 </ul>
-<p>サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。<br>一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。</p>
-<ul>
-<li><a href="https://schema.org/" target="_blank" rel="noopener">Home - schema.org</a></li>
-</ul>
-<p>Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。<br>概要や導入方法、ドキュメントがまとめられている。</p>
-<ul>
-<li><a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="noopener">構造化データ マークアップ支援ツール</a></li>
-<li><a href="https://developers.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">Structured Data Testing Tool  |  Google Developers</a></li>
-</ul>
-<p>Googleは既に検索結果へスキーマを反映している。<br>いくつか導入支援ツールも公開されているので、活用したい。</p>
-<ul>
-<li><a href="http://kojika17.com/2014/05/about-structured-data-markup.html" target="_blank" rel="noopener">Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17</a></li>
-</ul>
-<p>上記記事は概要や実践例をわかりやすくまとめており、参考になった。</p>
+<p>ともかくこれによりCriticalと変わらぬ実行結果をURL指定で取得できそうなので、ぜひこの機能を利用したい。</p>
 
 	    
 	</div>
@@ -248,7 +256,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Microdata/">#Microdata</a>
+	<a href="/tags/React/">#React</a>
 	
 </div>
 
@@ -262,42 +270,45 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-10T12:42:26.000Z">
-                    2015-10-10
+                <time class="article__header__meta__time" datetime="2016-01-20T10:10:07.000Z">
+                    2016-01-20
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/10/Firefox-Add-on.html">Firefox Add-on</a>
+            <a href="/2016/01/20/オフラインファースト.html">オフラインファースト</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。</p>
+	    <p>オフラインファーストで実装を試みるべく、ServiceWorkerを導入した。</p>
 <ul>
-<li><a href="http://oxynotes.com/?p=9070" target="_blank" rel="noopener">初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES</a></li>
-<li><a href="https://github.com/mozilla-jetpack/jpm" target="_blank" rel="noopener">mozilla-jetpack/jpm</a></li>
+<li><a href="http://offlinefirst.org/" target="_blank" rel="noopener">Offline First!</a></li>
 </ul>
-<p>現時点でのモダンな書き方なら上記を参考に行えばよさそう。<br>しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。</p>
+<p>このワードが唱えられたころ、実現するための技術としてはAppCacheやWebStrageが紹介されていたが、現在は当然ServiceWorkerへとスライドしている。<br>コードの記述量は多くなってるが、低レベルのAPI群を提供することで遥かに柔軟になっており、実質ES6で書けるのでストレスもほとんどない。</p>
 <ul>
-<li><a href="https://github.com/mdn/webextensions-examples" target="_blank" rel="noopener">mdn/webextensions-examples</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API/Using_Service_Workers" target="_blank" rel="noopener">Service Workerの利用について - Web API インターフェイス | MDN</a></li>
 </ul>
+<p>導入にあたって現時点での仕様とサンプルを調べたが、GoogleやMozillaなどブラウザベンダが提供してるものが質と信頼性が高いと思われるので、ここのみに視野を絞り参考にした。</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker" target="_blank" rel="noopener">samples/service-worker at gh-pages · GoogleChrome/samples</a></li>
+<li><a href="https://serviceworke.rs/" target="_blank" rel="noopener">ServiceWorker Cookbook</a></li>
+</ul>
+<p>また下記記事も実践的な考え方の参考になった。</p>
+<ul>
+<li><a href="http://www.html5rocks.com/ja/tutorials/service-worker/introduction/" target="_blank" rel="noopener">Service Worker の紹介: Service Worker の使い方 - HTML5 Rocks</a></li>
+</ul>
+<p>レスポンシブイメージは低解像度のpngとwebpをキャッシュさせれば十分であろう。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Firefox/">#Firefox</a>
-	
-</div>
-
 	</footer>
     
 

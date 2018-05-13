@@ -77,94 +77,36 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-09T13:29:39.000Z">
-                    2015-09-09
+                <time class="article__header__meta__time" datetime="2015-11-18T09:33:49.000Z">
+                    2015-11-18
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/09/Node-js-4-0.html">Node.js 4.0</a>
+            <a href="/2015/11/18/Metalsmith.html">Metalsmith</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
-<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" rel="noopener">Node v4.0.0 (Stable) | Node.js</a></p>
-<p>問題なく<code>nvm install 4.0</code>でインスコできるよう。</p>
-<p>Arrow Functionが解禁になったので、これも少しずつ書き換えていきたい。</p>
-<p>あとはletとconstの使い分け。基本constでいこうと思うけど、どうだろう。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-07T12:05:05.000Z">
-                    2015-09-07
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/07/Grid.html">Grid</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
+	    <p>ブログではない、静的なサイトをビルドするにあたって、Metalsmithがよさげなので使ってみた。</p>
 <ul>
-<li><a href="http://photoshopvip.net/archives/81206" target="_blank" rel="noopener">最新Webトレンド「カード型デザイン」を取り入れるべき、効果的な4つの理由 - PhotoshopVIP</a></li>
+<li><a href="http://www.metalsmith.io/" target="_blank" rel="noopener">Metalsmith</a></li>
 </ul>
-<p>ポイントは</p>
+<p>公式は上記。<br>最近は勢いが乏しいらしく、現時点では非推奨のモジュールが公式のサンプルにで使われている。<br>が、メンテは継続されているようだしエコシステムもほぼ仕上がっているようなので、通常導入する分には問題はなさそう。</p>
 <ul>
-<li>IAの作成</li>
-<li>UXの工場</li>
-<li>普遍性</li>
+<li><a href="http://qiita.com/maruloop/items/4c9ab4135ff1f3689d2a" target="_blank" rel="noopener">static_site_generator - Metalsmith(静的サイトジェネレーター)の導入 - Qiita</a></li>
 </ul>
-<p>の3点。</p>
-<p>この手のデザインは割とまえからある気がするが、スマホデバイスとの親和性と相まって地位を確立した感じであろうか。</p>
-<h2 id="CSS-Grid-Layouts"><a href="#CSS-Grid-Layouts" class="headerlink" title="CSS Grid Layouts"></a>CSS Grid Layouts</h2><p>今後がっつりとしたグリッドデザインをマークアップするのであれば、<code>display: grid</code>を使用したい。</p>
+<p>上記記事を参考にとりあえずビルドまでもっていく。<code>metalsmith-templates</code>は非推奨となり、<a href="https://github.com/superwolff/metalsmith-layouts" target="_blank" rel="noopener">metalsmith-layouts</a>と<a href="https://github.com/superwolff/metalsmith-in-place" target="_blank" rel="noopener">metalsmith-in-place</a>へ分離したらしいが、今回は気にせず使用していく。テンプレートエンジンはNunjucksへ変えた。</p>
+<p>また、<code>metalsmith.json</code>に設定を書いていくやりかたは個人的にあまり気持ちのいい方法ではないので、jsでビルドする方法を選択した。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Metalsmith = <span class="built_in">require</span>(<span class="string">'metalsmith'</span>);</span><br><span class="line"><span class="keyword">const</span> collections = <span class="built_in">require</span>(<span class="string">'metalsmith-collections'</span>);</span><br><span class="line"><span class="keyword">const</span> markdown = <span class="built_in">require</span>(<span class="string">'metalsmith-markdown'</span>);</span><br><span class="line"><span class="keyword">const</span> permalinks = <span class="built_in">require</span>(<span class="string">'metalsmith-permalinks'</span>);</span><br><span class="line"><span class="keyword">const</span> templates = <span class="built_in">require</span>(<span class="string">'metalsmith-templates'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> metalsmith = <span class="keyword">new</span> Metalsmith(__dirname)</span><br><span class="line">    .use(collections(&#123;<span class="attr">posts</span>: &#123;<span class="attr">pattern</span>: <span class="string">"posts/*.md"</span>&#125;&#125;))</span><br><span class="line">    .use(markdown())</span><br><span class="line">    .use(permalinks(&#123;<span class="attr">pattern</span>: <span class="string">':title'</span>&#125;))</span><br><span class="line">    .use(templates(<span class="string">'nunjucks'</span>))</span><br><span class="line">    .build(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これだけで今回ほしい部分は大体動く。<br>柔軟性が高いようなので、ブログでなければMetalsmithのほうが楽に作れると感じた。</p>
 <ul>
-<li><a href="https://medium.com/@patrickbrosset/css-grid-layout-6c9cba6e8a5a" target="_blank" rel="noopener">The future of layout with CSS: Grid Layouts — Medium</a></li>
+<li><a href="http://www.petermorlion.com/creating-static-sites-with-metalsmith/" target="_blank" rel="noopener">Creating static sites with Metalsmith</a></li>
 </ul>
-<p>CSSグリッドを使用した実装。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; <span class="attribute">display</span>: grid; &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="http://caniuse.com/#feat=css-grid" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>各ブラウザベンダーの対応はまだまだこれから。IEも先行実装したものの使用が変わっていき、互換性が怪しいらしい。<br>とりあえずDemoを作ってみた。</p>
-<ul>
-<li><a href="http://ground.playr.jp/css-grid-layout/" target="_blank" rel="noopener">CSS Grid Layout - Playground</a></li>
-</ul>
-<p>ie11とEdgeで動作を確認。<br>他のブラウザではDivの羅列となったので導入するのであればPolyfillは必須のよう。</p>
-<ul>
-<li><a href="https://github.com/FremyCompany/css-grid-polyfill" target="_blank" rel="noopener">FremyCompany/css-grid-polyfill</a></li>
-</ul>
-<p>Polyfillはコレ。Demoもあるし</p>
-<p>かなり容易に複雑なグリッドレイアウトを作れるし、レスポンシブ化も簡潔に書けそう。<br>早く使いたいので各ベンダの今後の動向を見たい。現時点では未対応環境が多すぎるし、上記Polyfill内でもプロダクションへの導入は慎重にと言及されている。<br>でもFirefoxが対応したらPolyfillかましてどこかで使うかも。</p>
 
 	    
 	</div>
@@ -181,34 +123,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-07T11:03:17.000Z">
-                    2015-09-07
+                <time class="article__header__meta__time" datetime="2015-11-15T09:32:06.000Z">
+                    2015-11-15
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/07/Prefitch.html">Prefitch</a>
+            <a href="/2015/11/15/Hexo3.html">Hexo3</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
-<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" rel="noopener">HTML5 Prefetch — Medium</a></p>
-<p>対応ブラウザやテスト方法など、かなり詳しく解説している記事。</p>
-<p>種類は主に以下の四つがあるよう。</p>
+	    <p>このブログのリニューアルに伴い、Hexoのバージョンも3系へ上げた。</p>
+<p>アップデートのやりかたは下記をこれを参考に。</p>
 <ul>
-<li>dns-prefetch – ドメインの名前解決</li>
-<li>subresource – 現在のページで使用するファイルをキャッシュ</li>
-<li>prefetch – 後続のページで使用するファイルをキャッシュ</li>
-<li>prerender – バックグラウンドでレンダリングまで行う</li>
+<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/#How_to_Update?" target="_blank" rel="noopener">Hexo 3.0 How_to_Update?</a></li>
 </ul>
-<p>今回は<code>prefetch</code>を試してみた。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">”prefetch”</span> <span class="attr">href</span>=<span class="string">”/js/example.js”</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>効果のほどは今後検証していく。</p>
+<p>公式のアナウンスはこれ。</p>
+<ul>
+<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/" target="_blank" rel="noopener">Hexo 3.0 Released | Hexo</a></li>
+<li><a href="https://github.com/hexojs/hexo/wiki/Breaking-Changes-in-Hexo-3.0#render-pipeline-changed" target="_blank" rel="noopener">Breaking Changes in Hexo 3.0 · hexojs/hexo Wiki</a></li>
+</ul>
+<p>詳しくは上記に載っているが、常用していたコアモジュールが外れたりコマンド周りが便利になったりと使用面でも幾分かの変化があった。</p>
+<p>このブログはGithub Page上へ配置されておりデプロイでgitを利用するため、<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>を用いるが、今回これもコアモジュールから外れたため別途インストールする必要があった。<br>静的サイトジェネレーターを同様の手法で運用している人は多いと思うので、この点は変更は注意が必要かと思われる。</p>
+<p>あとはコマンドの省略形が簡単に利用できるようになった。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ジェネレーター</span></span><br><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 変更を監視</span></span><br><span class="line">$ hexo g --watch</span><br><span class="line"></span><br><span class="line"><span class="comment"># ローカルサーバー起動</span></span><br><span class="line">$ hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># デプロイ</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>記事を書く以外に労力を使いたくないので、これは地味ながら便利である。</p>
+<p>ブログ周りはライブドアから始まって、アメーバ、てぃーだ、Wordpressと色々渡ってきたが、Hexoでとりあえず落ち着いている。なのでこのまま順調な発展を願うものである。</p>
 
 	    
 	</div>
@@ -225,61 +170,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-02T14:45:58.000Z">
-                    2015-09-02
+                <time class="article__header__meta__time" datetime="2015-11-14T09:30:29.000Z">
+                    2015-11-14
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/02/Web-Manifest.html">Web Manifest</a>
+            <a href="/2015/11/14/NotoSansCJK.html">Noto Sans CJK</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
+	    <p>今作成しているHEXOテーマにNoto Sans CJKの導入を試みている。</p>
 <ul>
-<li><a href="https://w3c.github.io/manifest/" target="_blank" rel="noopener">Manifest for a web application</a></li>
-<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Manifest" target="_blank" rel="noopener">App manifest - App Center | MDN</a></li>
+<li><a href="https://www.google.com/get/noto/help/cjk/" target="_blank" rel="noopener">Noto Sans CJK – Google Noto Fonts</a></li>
 </ul>
-<p>MDNにも記事があるし、普段使いのFirefoxでもしっかり動くのだろうか。</p>
+<p>日本語など漢字を含む書体は容量の問題があるので、常用漢字にしぼったサブセット化を行ったほうがよさそう。</p>
 <ul>
-<li><a href="http://googledevjp.blogspot.jp/2015/04/service-worker-google-developers-summit.html" target="_blank" rel="noopener">Service Worker で作る 最新モバイル ウェブ エクスペリエンス - Google Developers Summit まとめ </a></li>
+<li><a href="http://qiita.com/taka4sato/items/dba258d17d68500081f5" target="_blank" rel="noopener">Noto SansをWeb font化しようとした時にハマった話 - Qiita</a></li>
+<li><a href="http://qiita.com/nowri/items/1c69b9b25f2958bd9f97" target="_blank" rel="noopener">font - Noto Sans CJK JP フォントをダウンロードしてサイトに適用する手順 - Qiita</a></li>
 </ul>
-<p>上記はモバイルフレンドリーの目線でWebアプリ化に幅広く言及している記事。</p>
+<p>上記記事にて丁寧に方法を解説しており、有り難いことにサブセット化したフォントデータを公開していたりもする。<br>しかしサブセットの対象外としているJIS第2水準漢字をざっと眺めてみると、「おや、これも第2なの！？」と思う漢字も含まれている。(丼・罠・囮など、結構あった)</p>
 <ul>
-<li><a href="http://moonglows76.tumblr.com/post/102930578463/web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A3%E3%81%BD%E3%81%8F%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8Bwebapp-manifest" target="_blank" rel="noopener">Webアプリをネイティブアプリっぽく起動するWebApp Manifest - Coding Design’s Tumblr</a></li>
+<li><a href="http://kanjitisiki.com/jis2/" target="_blank" rel="noopener">JIS第2水準の漢字一覧表</a></li>
 </ul>
-<p>この記事はさっと読めて、参考になる。</p>
-<p>manifest.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>これが最低限必要な項目らしい。</p>
-<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>あとはヘッドで読み込めばオケ。</p>
-<h2 id="インストールバナー"><a href="#インストールバナー" class="headerlink" title="インストールバナー"></a>インストールバナー</h2><ul>
-<li><a href="http://qiita.com/tmtysk/items/2c5da83feec45b4ee36f" target="_blank" rel="noopener">manifest.json でWebアプリを「ホーム画面に追加」自動バナー表示に対応させる</a></li>
-</ul>
-<p>これはService Workerを使用した「ホームへ追加」バナーの表示の記事。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'/sw.js'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これもインストールバナーについて詳しく解説している記事。</p>
-<p><a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android" target="_blank" rel="noopener">Increasing engagement with Web App install banners — Google Web Updates</a></p>
-<p>そしてそのサンプル。</p>
-<p><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/app-install-banner" target="_blank" rel="noopener">samples/app-install-banner at gh-pages · GoogleChrome/samples</a></p>
-<p>Choromeでは問題なく動作し、インストールバナーも表示された。<br>ただ一度インストールをしないを選択すると、次回再表示はなさそうなのであまり強力な効果は期待できないかも。</p>
-<h2 id="テーマカラー"><a href="#テーマカラー" class="headerlink" title="テーマカラー"></a>テーマカラー</h2><p>theme-colorの設定がmanifest.json内に記述できるようになったよう。</p>
-<ul>
-<li><a href="https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color" target="_blank" rel="noopener">Using the web app manifest to specify a site wide theme colour</a></li>
-</ul>
-<p>従来のmetaタグだとこう。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#2196F3"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>manifest.jsonだとこう。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"theme_color": "#2196F3"</span><br></pre></td></tr></table></figure>
-<p>しかしmanifest.jsonのみの記述だとホームへ追加しないと効力を発揮しないようなので、現時点では両方記述したほうがいいかもしれない。</p>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><p>FirefoxでもServiceWorkerをテストする。</p>
-<p><code>about:config</code>で<code>dom.serviceWorkers</code>を検索し、フラグを<code>true</code>へ変更する。</p>
-<p>ServiceWorkerは問題なく作動したが、アプリ化の効果は現時点では無さそう。今後に期待したい。</p>
+<p>しかし第2水準漢字は3000字弱定義されており、これをすべて含めるとそこそこの容量になってしまう。</p>
+<p>どうしたものかと考えていたら、<a href="http://www.sip.co.jp/" target="_blank" rel="noopener">システムズ・インテリジェンス・プロダクツ</a>という業務用スキャンシステムなどを取り扱う企業の取り扱い商品の<a href="http://www.sip.co.jp/PSSkatsuji.pdf" target="_blank" rel="noopener">仕様書</a>を見つけたので、こちらを参考にさせていただくことにした。</p>
+<p>こちらは第一水準へ第二水準から選定した551字をを加えた3516字を対応漢字として定義している。<br>僕一人があれやこれやと加えるより遥かに客観性があるであろう。</p>
 
 	    
 	</div>
@@ -296,39 +217,84 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-02T09:45:30.000Z">
-                    2015-09-02
+                <time class="article__header__meta__time" datetime="2015-11-11T09:28:26.000Z">
+                    2015-11-11
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/02/フォントコンバーター.html">フォントコンバーター</a>
+            <a href="/2015/11/11/AMPHTML.html">AMP HTML</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>サイトへWebフォントを導入する際の手順。</p>
-<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" rel="noopener">Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" rel="noopener">woff to woff2 converter</a>で行える。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'webfont'</span>;</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot'</span>);</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>IE8以下の対応はもういいかなとも思う。</p>
+	    <p>AMP HTML、自分にはあまり関係ないやと思っていたのですが、ちょっと気が変わって触ってみた。</p>
+<ul>
+<li><a href="https://www.ampproject.org/" target="_blank" rel="noopener">Accelerated Mobile Pages Project</a></li>
+<li><a href="https://github.com/ampproject/amphtml" target="_blank" rel="noopener">ampproject/amphtml</a></li>
+</ul>
+<p>公式はこの辺。</p>
+<ul>
+<li><a href="http://masup.net/2015/10/fits-amp-html.shtml" target="_blank" rel="noopener">AMP(Accelerated Mobile Pages) HTMLしてみたという話 | masuP.net</a></li>
+<li><a href="http://blog.ku-suke.jp/entry/2015/10/08/%E7%88%86%E9%80%9F%E3%83%A2%E3%83%90%E3%82%A4%E3%83%ABWeb%E3%80%81AMP%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF%E6%8A%84%E8%A8%B3" target="_blank" rel="noopener">爆速モバイルWeb、AMPの仕組み抄訳 - ku-sukeのブログ</a></li>
+</ul>
+<p>日本語での参考記事はこの辺。</p>
+<p>ただかなりのスピードで開発が進められているので、ネット上の記事は参考にしつつも一次情報をしっかり確認したほうがよさげである。</p>
+<p>恐らく最新の一次情報の発信地は<a href="https://github.com/ampproject/amphtml" target="_blank" rel="noopener">Githubリポジトリ</a>であろうが、よく整理されており変更を追いやすく、それほど苦しくなかった。</p>
+<p>エクステンション周りもどんどん増えており、個人的にかなり可能性を感じている。<br>AutomatticはすでにWordpressがプラグインを<a href="https://github.com/Automattic/amp-wp/" target="_blank" rel="noopener">開発</a>し、<a href="https://wordpress.org/plugins/amp/" target="_blank" rel="noopener">公開</a>しているし、モバイル対応の選択肢としてAMP HTMLの配信は一般化して行くのではないだろうか。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/css/">#css</a>
-	
-	<a href="/tags/webfont/">#webfont</a>
-	
-</div>
+	</footer>
+    
 
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-11-09T09:24:19.000Z">
+                    2015-11-09
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/11/09/NAS.html">NAS</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>メディアサーバーとして利用していたLS-WVLがネットワーク上から消えた。</p>
+<ul>
+<li><a href="http://gadget.biyori.net/archives/1932" target="_blank" rel="noopener">BUFFALO製のNASが動かなくなったのでPC経由でファームウェアを再インストールした</a></li>
+</ul>
+<p>とりあえず上記記事を参考にフォームウェアの更新を行うと表示は戻ったが、どうやらHDDの一つが故障したもよう。RAID1で運用していたのでデータはもう一つのHDDで生きているが、そちらも止まったら終わりなので早急に交換を行うべく行動を開始した。</p>
+<p>交換用のHDDはメカー純正品がベターだとは思うが、Amazonで評判のいい<a href="http://www.amazon.co.jp/%E5%86%85%E8%94%B5%E3%83%8F%E3%83%BC%E3%83%89%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF-3-5%E3%82%A4%E3%83%B3%E3%83%81-WD10EFRX-IntelliPower-SATA3-0/dp/B008P56QAU" target="_blank" rel="noopener">WD10EFRX</a>を試してみようと思う。価格は半分以下だ。</p>
+<ul>
+<li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | ネットワーク型HDD（NAS）のデータ復旧 | データ復旧のパソコンサポートやまもと</a></li>
+</ul>
+<p>ここを参考に行えば上手くいくだろう。</p>
+<p>今後は合わせてUSB接続を利用し定期的な自動バックアップを行おうと思う。音楽データや写真が結構膨大な数になるので、可能なリスク回避は行うべきかなと。</p>
+<p>NASを導入した5年がたつが近年は色々と群雄割拠宇なようなので、そのうち他のメーカーのものも試してみたいと思う。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
 	</footer>
     
 

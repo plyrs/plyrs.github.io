@@ -77,29 +77,208 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-22T15:47:37.000Z">
-                    2015-09-23
+                <time class="article__header__meta__time" datetime="2015-12-07T09:39:09.000Z">
+                    2015-12-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/23/nl2br.html">nl2br</a>
+            <a href="/2015/12/07/Capistrano.html">Capistrano</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>PHPのnl2brのような関数がほしい。</p>
-<p>こーゆー機能はテンプレートエンジンに搭載されていてそうだけど、愛用しているSwigにはないみたい。</p>
+	    <p>自動デプロイを実現するべく、Capistranoを試している。<br>参考記事は以下など。</p>
 <ul>
-<li><a href="https://github.com/paularmstrong/swig-extras" target="_blank" rel="noopener">paularmstrong/swig-extras</a></li>
+<li><a href="http://capistranorb.com/" target="_blank" rel="noopener">A remote server automation and deployment tool written in Ruby.</a></li>
+<li><a href="http://labs.gree.jp/blog/2013/12/10084/" target="_blank" rel="noopener">入門 Capistrano 3 ~ 全ての手作業を生まれる前に消し去りたい | GREE Engineers’ Blog</a></li>
 </ul>
-<p>拡張はみつかった。</p>
-<p><a href="http://phpjs.org/functions/nl2br/" target="_blank" rel="noopener">JavaScript nl2br function - php.js</a></p>
-<p>改行コードの返還だけが目的ならここを参考にちっちゃいライブラリを作ったほうがよさそう。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cap</span> install</span><br></pre></td></tr></table></figure>
+<p>npm用の拡張も容易されているので、こちらも合わせて確認していく。</p>
+<ul>
+<li><a href="https://github.com/capistrano/npm/" target="_blank" rel="noopener">capistrano/npm</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano-npm</span><br></pre></td></tr></table></figure>
+<p>これがうまくいけば、デプロイ時の負荷が大幅に削減される。<br>がんがん開発していくためにも、カジュアルにデプロイできる環境を作っていきたい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-06T07:56:25.000Z">
+                    2015-12-06
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/06/Windows10×Bitbucket×Jenkins.html">Bitbucket × Jenkins</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p>
+<p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p>
+<ul>
+<li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li>
+</ul>
+<p>公式。</p>
+<ul>
+<li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li>
+<li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li>
+</ul>
+<p>インストールからHelloWorldまでは上記が参考になった。</p>
+<ul>
+<li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li>
+</ul>
+<p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p>
+<ul>
+<li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li>
+</ul>
+<p>ユーザー認証。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Jenkins/">#Jenkins</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-04T07:36:04.000Z">
+                    2015-12-04
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/04/Default-CSS.html">Default CSS</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p>
+<h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul>
+<li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li>
+</ul>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul>
+<li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li>
+<li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li>
+</ul>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul>
+<li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li>
+</ul>
+<h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul>
+<li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li>
+</ul>
+<p>Edgeは見つけきれなかったなぁ。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/CSS/">#CSS</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-02T07:33:25.000Z">
+                    2015-12-02
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/02/多言語化.html">多言語化</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Webアプリを日本語の他に英語にも対応させることにした。</p>
+<p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p>
+<ul>
+<li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li>
+</ul>
+<p>フロントエンドではi18n APIに期待したが、Safariが…。</p>
+<ul>
+<li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li>
+<li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p>
+<ul>
+<li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li>
+<li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li>
+</ul>
+<p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p>
+<ul>
+<li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li>
+<li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li>
+</ul>
+<p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p>
+<ul>
+<li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li>
+<li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li>
+</ul>
+<h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p>
+<ul>
+<li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li>
+</ul>
+<p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p>
+<ul>
+<li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li>
+</ul>
 
 	    
 	</div>
@@ -110,48 +289,7 @@
 	
 	<a href="/tags/Node-js/">#Node.js</a>
 	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-20T15:44:44.000Z">
-                    2015-09-21
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/21/NPM3導入してみた.html">NPM3 導入してみた</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>メジャーリリースされたとのことで、NPMをv3へアップデート。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g npm</span><br></pre></td></tr></table></figure>
-<p>とりあえずモジュールのインストールを再実行してみた。  </p>
-<p>フラット化の結果25のモジュールインストールに対して300個がnode_modules内に召還された。<br>時間もなんか長かったな…。この辺は徐々に高速化されていくのだろうか。<br>間違ってもpackege.json管轄外でインスコしないように気を付けなければ、不幸な孤児が生まれそうである。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/npm/">#npm</a>
+	<a href="/tags/Koa/">#Koa</a>
 	
 </div>
 
@@ -165,33 +303,27 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T15:20:15.000Z">
-                    2015-09-19
+                <time class="article__header__meta__time" datetime="2015-12-01T07:31:39.000Z">
+                    2015-12-01
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/19/知っておくといいNode-jsの７つの事.html">知っておくといいNode.jsの７つの事</a>
+            <a href="/2015/12/01/SourceTree-1-6-24.html">SourceTree-1.6.24</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>読んだ。</p>
-<p><a href="https://medium.com/@c2c/my-7-node-js-mantras-edd6c148e8dc" target="_blank" rel="noopener">My 7 Node.js mantras — Medium</a></p>
-<ol>
-<li>Promise使え！</li>
-<li>ES6、いいよ！</li>
-<li>セマンティックバージョンには気を付けろ！</li>
-<li>使っているモジュールを読み解け！</li>
-<li>ユニットテスト書こう！</li>
-<li>俺たちはV8と共に生きている！</li>
-<li>ESLint使おうぜ！</li>
-</ol>
-<p>ってことでしょうか。</p>
+	    <p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p>
+<p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p>
+<ul>
+<li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li>
+</ul>
+<p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>
 
 	    
 	</div>
@@ -200,118 +332,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T12:39:58.000Z">
-                    2015-09-18
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/18/Yamlを学ぶ.html">Yamlを学ぶ</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>AnsibleのPlaybookはYamlで書かなければならない。<br>見よう見まねで動くコードは結構書けるが、インフラにかかわる技術なのできちんと学んだほうがよいだろう。</p>
-<ul>
-<li><a href="http://yaml.org/" target="_blank" rel="noopener">The Official YAML Web Site</a></li>
-<li><a href="https://ja.wikipedia.org/wiki/YAML" target="_blank" rel="noopener">YAML - Wikipedia</a></li>
-</ul>
-<p>こういうときにWikipediaで概要をさくっと理解するのは効率がいいと思った。</p>
-<ul>
-<li><a href="http://blog.n-z.jp/blog/2014-06-21-ansible-yaml.html" target="_blank" rel="noopener">ansible使いのためのYAML入門 - @znz blog</a></li>
-</ul>
-<p>とりあえずAnsible用途限定で学ぶならここで</p>
-<ul>
-<li><a href="http://magazine.rubyist.net/?0009-YAML" target="_blank" rel="noopener">Rubyist Magazine - プログラマーのための YAML 入門 (初級編)</a></li>
-</ul>
-<p>本格的にアプリケーションへ導入したいのであればここかと。  </p>
-<p>少し触ってみた感触ではXMLよりは簡潔に書けて、JSONよりは設定ファイルに向いていそう。コメントも書ける。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Ansible/">#Ansible</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T11:35:34.000Z">
-                    2015-09-18
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/18/Ansible.html">Ansible</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Vagrant上への開発環境の構築をAnsibleを利用したい。</p>
-<ul>
-<li><a href="http://www.ansible.com/" target="_blank" rel="noopener">Ansible is Simple IT Automation</a></li>
-<li><a href="http://docs.ansible.com/" target="_blank" rel="noopener">Ansible Documentation</a></li>
-</ul>
-<p>公式とドキュメント。</p>
-<ul>
-<li><a href="http://qiita.com/ArimaRyunosuke/items/1f9d840311584d8160bc" target="_blank" rel="noopener">Ansible 入門 - Qiita</a></li>
-<li><a href="http://knowledge.sakura.ad.jp/tech/3124/" target="_blank" rel="noopener">エージェントレスでシンプルな構成管理ツール「Ansible」入門 - さくらのナレッジ</a></li>
-</ul>
-<p>このへんに目を通せばだいたい使えそう。<br>ドットインストールの<a href="http://dotinstall.com/lessons/basic_ansible" target="_blank" rel="noopener">Ansible入門</a>は有料化しちゃったのね…。</p>
-<p>冪等性は英語でidempotenceということを学んだ。</p>
-<ul>
-<li><a href="http://www.moyashi-koubou.com/blog/vagrant_ansible_windows/" target="_blank" rel="noopener">WindowsでVagrantとAnsibleを使ってみた話 | もやし工房</a></li>
-<li><a href="http://qiita.com/kanagi/items/8b55c7c3b43777590993" target="_blank" rel="noopener">ansibleでnvmを管理する - Qiita</a></li>
-<li><a href="https://github.com/leonidas/ansible-nvm" target="_blank" rel="noopener">leonidas/ansible-nvm</a></li>
-<li><a href="https://gist.github.com/yu0819ki/731c92b62e603504fdb7" target="_blank" rel="noopener">Vagrant+Ansible+git-hooks+foreverでNodejsの開発環境作った話</a></li>
-<li><a href="http://d.hatena.ne.jp/akishin999/20130815/1376520672" target="_blank" rel="noopener">Ansible の Playbook を使ってみる - akishin999の日記</a></li>
-</ul>
-<p>この辺を参考にするとWindowsやNode.jsをからめたAnsile導入はだいたいできそうかと。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Vagrant/">#Vagrant</a>
-	
-	<a href="/tags/Ansible/">#Ansible</a>
+	<a href="/tags/SourceTree/">#SourceTree</a>
 	
 </div>
 

@@ -77,34 +77,122 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
-                    2015-10-31
+                <time class="article__header__meta__time" datetime="2016-02-17T10:32:19.000Z">
+                    2016-02-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/31/gulp-progeny.html">gulp-progeny</a>
+            <a href="/2016/02/17/LetsEncryptとhttp2とNodeと.html">LetsEncryptとhttp2とNodeと</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
-<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
+	    <p>CloudFlare を利用してTLS化していたサイトを、Let’s Encrypt へ移行した。</p>
+<p>参考にした記事ではWebroot プラグインを使用し、サーバーを停止せずに行う手法が多数でしたが、僕の環境（Node.js）だと少しハマったのでStandalone で取得を行った。</p>
+<p>まずはCloudFlare を停止し、Aレコードを直接サーバーへ設定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitで取得</span></span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/letsencrypt/letsencrypt /opt/letsencrypt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を停止</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 80番ポートが塞がれていないかチャック</span></span><br><span class="line">$ netstat -na | grep <span class="string">':80.*LISTEN'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Let<span class="string">' sencrypt フォルダへ移動</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /opt/letsencrypt</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Stndalone プラグインを実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./letsencrypt-auto certonly --standalone</span></span><br></pre></td></tr></table></figure>
+<p>情報を入力し規約に同意して完了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ls /etc/letsencrypt/live/your_domain_nam</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+<p>導入のさいに参考となった文献は以下など。</p>
 <ul>
-<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
+<li><a href="http://qiita.com/sak_2/items/ff835b669c0a7e110b09" target="_blank" rel="noopener">光の速さのWEBサーバー(nginx)をlet’s encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita</a></li>
+<li><a href="http://inside.pixiv.net/entry/2015/12/10/153114" target="_blank" rel="noopener">Let’s EncryptとnginxでHTTP/2サーバを立てる - pixiv inside</a></li>
+<li><a href="http://aeas44.tumblr.com/post/138777257395/centos-7-%E3%81%AE-nginx-%E3%81%B8%E3%81%AE-lets-encrypt-%E3%81%AE%E5%B0%8E%E5%85%A5" target="_blank" rel="noopener">aeas44 — CentOS 7 の Nginx への Let’s Encrypt の導入</a></li>
+<li><a href="https://blog.ymyzk.com/2016/02/nginx-config-for-lets-encrypt/" target="_blank" rel="noopener">Let’s Encrypt で証明書を発行して運用するための nginx の設定 - 意識低い開発者のBlog</a></li>
+<li><a href="http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/" target="_blank" rel="noopener">Hardening node.js for production part 2: using nginx to avoid node.js load | Arg! Team Blog</a></li>
+<li><a href="https://gist.github.com/vodolaz095/8373960" target="_blank" rel="noopener">NGINX Config for nodejs application with nginx serving assets and socket.io support</a></li>
 </ul>
-<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
-<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
+<p>また、証明書の更新は以下の手順で行う。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nginxを停止(80番ポートを開ける)</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">$ ./letsencrypt-auto renew</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginxを起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-14T10:30:40.000Z">
+                    2016-02-14
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/14/NAS.html">NAS</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>メディアサーバーとして使用しているNASのハードディスクを交換した。</p>
 <ul>
-<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li>
+<li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | データ復旧のパソコンサポートやまもと</a></li>
 </ul>
-<p>まさに依存関係を解決してくれるよう。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
+<p>交換用HDは上記にてオススメされているものを購入した。</p>
+<p>なんか交換&amp;再構築中も本体のライトがピカピカ光る。とりあえず心配になったら下記にてエラーコードを解読するもののなす術はなく、時間がたったら解決した。</p>
+<ul>
+<li><a href="http://faq.buffalo.jp/app/answers/detail/a_id/15199" target="_blank" rel="noopener">エラーコード、インフォメーションコードの意味がわかりません(LS-WXBL/R1) - アンサー詳細 | BUFFALO バッファロー</a></li>
+</ul>
+<ol>
+<li>ハードディスクを交換</li>
+<li>NAS再起動</li>
+<li>PCのネットワーク上にきちんと認識されるまで待つ（ネットサーフィンでもしといた方がいい）</li>
+<li>認識されたらWeb設定画面からエラーが出ているハードディスクを選択し、アレイを再構築</li>
+<li>再構築が開始されるので、5時間ぐらい待つ（寝た方がいい）</li>
+</ol>
+<p>今回はこのような流れであった。<br>時間は待ち時間がかかるので、次回は家で何か作業を行う日に午前ぐらいから並行して行いたい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-14T10:26:20.000Z">
+                    2016-02-14
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/14/imagemin.html">imagemin</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>画像圧縮のgulpタスクをプロジェクトごとに組み込むのは難儀なので、コマンドラインからさくっと行えるようにしたい。</p>
+<p>それを最終目標として、とりあえずgulpを使わない画像圧縮専用のプロジェクトを作り、それを共同で利用ししばらく運用してみたい。<br>現時点でイメージしているのは、<a href="https://github.com/imagemin/imagemin" target="_blank" rel="noopener">imagemin</a>を直接叩く方法である。<br>これを後々はCLIから操作できるようにすれば…と考えている。</p>
 
 	    
 	</div>
@@ -127,42 +215,72 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
-                    2015-10-31
+                <time class="article__header__meta__time" datetime="2016-02-13T10:23:37.000Z">
+                    2016-02-13
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/31/Critical-Path-CSS.html">Critical-Path-CSS</a>
+            <a href="/2016/02/13/APIBlueprint.html">API Blueprint</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p>
+	    <p>APIドキュメントを作成したい。</p>
+<p>こーゆーのは作りっぱなしじゃなくて、内容を常時最新に保つことで意味を持つのでやはりツールを使いたい。<br>そこで軽く調査してみたところ、API Blueprintというツールがよく目に入った。</p>
 <ul>
-<li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li>
-<li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li>
-<li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li>
+<li><a href="https://apiblueprint.org/" target="_blank" rel="noopener">API Blueprint | API Blueprint</a></li>
+<li><a href="http://qiita.com/taizo/items/0181f5ea641e2f91d0a5" target="_blank" rel="noopener">APIドキュメントを生成するためのMarkdown拡張API BluePrintとその周辺のライブラリ - Qiita</a></li>
+<li><a href="http://imamotty.hatenablog.jp/entry/2015/01/18/033222" target="_blank" rel="noopener">API Blueprintとgulp-aglioでいい感じのAPIドキュメントページを作成 - Front-end beginner’s luck</a></li>
+<li><a href="http://blog.hde.co.jp/entry/2015/01/16/152729" target="_blank" rel="noopener">APIの仕様をMarkdownで定義する - HDE BLOG</a></li>
 </ul>
-<p>記事は詳しく解説したものが見つかり、大変参考になった。</p>
-<p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p>
+<p>この記事も面白い。</p>
 <ul>
-<li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li>
-<li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li>
+<li><a href="http://www.infoq.com/jp/news/2015/06/api-blueprint-progress" target="_blank" rel="noopener">API Blueprint創始者が語るAPIの進歩</a></li>
 </ul>
-<p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-06T10:22:23.000Z">
+                    2016-02-06
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/06/assets-webpack-plugin.html">assets-webpack-plugin</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Webpackでビルドした成果物のキャッシュバストを自動化したいので、assets-webpack-plugin を導入した。</p>
 <ul>
-<li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li>
-<li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li>
+<li><a href="https://github.com/sporto/assets-webpack-plugin" target="_blank" rel="noopener">sporto/assets-webpack-plugin: Webpack plugin that emits a json file with assets paths</a></li>
 </ul>
-<p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p>
-<ul>
-<li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li>
-</ul>
+<p>サンプル通り行うと<code>[name]-bundle-[hash].js</code> というネーミングでファイルが生成される。<br>これでももちろん問題はないのだが、なんとなく今までの慣例でファイル名の後ろにパラメータを付与した方法をとりたい。</p>
+<p>そこでoutput の設定を以下のようにした。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js?[hash]'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].chunk.js?[hash]'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>これで成果物のファイル名は通常のままで、同時に排出される assets.json へクエリを付与したフルパスが記述される。</p>
 
 	    
 	</div>
@@ -172,149 +290,6 @@
 <div class="tags">
 	
 	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/CSS/">#CSS</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-30T07:08:49.000Z">
-                    2015-10-30
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/30/VanillaなDropdown.html">VanillaなDropdown</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>バニラなドロップダウンメニューを作成中。<br>まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。<br>がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。</p>
-<p>今回参考になったのは以下の二つ。</p>
-<ul>
-<li><a href="http://siongui.github.io/2015/02/13/javascript-dropdown-menu/" target="_blank" rel="noopener">Javascript Drop Down Menu</a></li>
-<li><a href="http://s.codepen.io/brenden/debug/mJyEBg" target="_blank" rel="noopener">CodePen - A Pen by Brenden Palmer</a></li>
-</ul>
-<p>表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう<code>document</code>にもイベントを追加。<br>あとは最適なアニメーションを考慮すればよさそう。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/JavaScript/">#JavaScript</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-29T10:06:19.000Z">
-                    2015-10-29
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/29/Github-Flow.html">Github-Flow</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <h2 id="現状"><a href="#現状" class="headerlink" title="現状"></a>現状</h2><p>Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。<br>が、コードの規模を考えるとやはりGithub Flowで十分だとは感じており、乗り換えのタイミングを模索し、今日に至る。</p>
-<h2 id="思案"><a href="#思案" class="headerlink" title="思案"></a>思案</h2><p>もう少し様子を見てエディタをBracketsからVisualeStudio Codeへ乗り換えることを考えており、そのタイミングにはスムーズに開発flowも移行したいと思う。</p>
-<h2 id="資料"><a href="#資料" class="headerlink" title="資料"></a>資料</h2><ul>
-<li><a href="https://gist.github.com/Gab-km/3705015" target="_blank" rel="noopener">GitHub Flow (Japanese translation)</a></li>
-</ul>
-<p>上記翻訳を精読したらほぼ大丈夫そう。</p>
-<ul>
-<li><a href="http://b.pyar.bz/blog/2014/01/22/github-flow/" target="_blank" rel="noopener">Github-flowを分かりやすく図解してみた - pyar.bz</a></li>
-</ul>
-<p>これも分かりやすい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Git/">#Git</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-29T07:04:04.000Z">
-                    2015-10-29
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/29/Comit-in-English.html">Comit in English</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>英語でコミットメッセージを書く時のカンペを作成したい。</p>
-<p>参考記事はググれば色々出てくる。</p>
-<ul>
-<li><a href="http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754" target="_blank" rel="noopener">ネイティブと働いて分かった英語コミットメッセージの頻出動詞10つ - Qiita</a></li>
-<li><a href="http://qiita.com/ken_c_lo/items/4cb49f0fb74e8778804d" target="_blank" rel="noopener">Git - 英語コミットコメントに使えるオシャレフレーズ集 - Qiita</a></li>
-<li><a href="https://gist.github.com/hayajo/3938098" target="_blank" rel="noopener">ChangeLog を支える英語</a></li>
-<li><a href="https://github.com/azu/awesome-commit-english" target="_blank" rel="noopener">azu/awesome-commit-english</a></li>
-<li><a href="http://www.sssg.org/blogs/hiro345/archives/11721.html" target="_blank" rel="noopener">git commit時のコメントを英語で書くための最初の一歩 | hiro345</a></li>
-</ul>
-<p>こんなサービスも発見。</p>
-<ul>
-<li><a href="http://commit-m.minamijoyo.com/" target="_blank" rel="noopener">commit-m: GitHubコミットメッセージの文例が検索できるサービス</a></li>
-</ul>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Git/">#Git</a>
 	
 </div>
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://log.playr.jp/"/>
-  <updated>2018-04-24T06:57:24.034Z</updated>
+  <updated>2018-05-13T10:59:28.861Z</updated>
   <id>https://log.playr.jp/</id>
   
   <author>
@@ -17,45 +17,136 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Bitbucket × Jenkins</title>
-    <link href="https://log.playr.jp/2015/12/06/Windows10%C3%97Bitbucket%C3%97Jenkins.html"/>
-    <id>https://log.playr.jp/2015/12/06/Windows10×Bitbucket×Jenkins.html</id>
-    <published>2015-12-06T07:56:25.000Z</published>
-    <updated>2018-04-24T06:57:24.034Z</updated>
+    <title>Instagram　API</title>
+    <link href="https://log.playr.jp/2017/03/30/InstagramAPI.html"/>
+    <id>https://log.playr.jp/2017/03/30/InstagramAPI.html</id>
+    <published>2017-03-30T10:55:48.000Z</published>
+    <updated>2018-05-13T10:59:28.861Z</updated>
     
-    <content type="html"><![CDATA[<p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p><p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p><ul><li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li></ul><p>公式。</p><ul><li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li><li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li></ul><p>インストールからHelloWorldまでは上記が参考になった。</p><ul><li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li></ul><p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p><ul><li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li></ul><p>ユーザー認証。</p>]]></content>
+    <content type="html"><![CDATA[<p>Instagram APIを使用したフィード表示を実装してみた。</p><p>参考文献は以下、情報は多々見つかった。</p><ul><li><a href="http://qiita.com/NoriakiOshita/items/71800502fca62d9ec685" target="_blank" rel="noopener">Instagram APIの利用方法 - Qiita</a></li><li><a href="http://thisisstandarz.com/instagram%E3%81%AEuser-id%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">instagramのuser idを取得する方法</a></li><li><a href="https://medium.com/@bkwebster/how-to-get-instagram-api-access-token-and-fix-your-broken-feed-c8ad470e3f02" target="_blank" rel="noopener">How to get Instagram API access token and fix your broken feed</a></li><li><a href="http://qiita.com/takashings/items/f03eb9e2ba343878d287" target="_blank" rel="noopener">【保存版】Instagramの審査の流れ、手順、必要なものまとめ - Qiita</a></li><li><a href="https://capotast.co.jp/article/detail/21/" target="_blank" rel="noopener">Instagram APIを使ってWEBサイトに写真を表示させてみよう｜株式会社カポタスト</a></li><li><a href="http://qiita.com/uda0922/items/0c111d3e312b1dc5d6e8" target="_blank" rel="noopener">Instagram APIをPHPでさくっと使う - Qiita</a></li></ul><p>今回はPHPを開始実装を行った。<br>コードは代替、このような感じである。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$myAccessToken = <span class="string">'00000000000000000000'</span>;</span><br><span class="line">$user_id = <span class="string">'0000000000'</span>;</span><br><span class="line"></span><br><span class="line">$json = file_get_contents(<span class="string">'https://api.instagram.com/v1/users/'</span>.$user_id.<span class="string">'/media/recent/?access_token='</span>.$myAccessToken);</span><br><span class="line"></span><br><span class="line">$obj = json_decode($json);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($obj-&gt;data <span class="keyword">as</span> $data)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;img src="'</span>.$data-&gt;images-&gt;low_resolution-&gt;url.<span class="string">'" alt=""&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>自アカウントの情報を載せる分にはそれほどハードルは高くなさそうであるが、<br>それ以上を行うとなると手続きはかなり面倒そうである。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。&lt;/p&gt;
-&lt;p&gt;Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほ
+        &lt;p&gt;Instagram APIを使用したフィード表示を実装してみた。&lt;/p&gt;
+&lt;p&gt;参考文献は以下、情報は多々見つかった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://qiita.com/NoriakiOshita/items/71800502fca62d9ec6
       
     
     </summary>
     
     
-      <category term="Jenkins" scheme="https://log.playr.jp/tags/Jenkins/"/>
-    
   </entry>
   
   <entry>
-    <title>Default CSS</title>
-    <link href="https://log.playr.jp/2015/12/04/Default-CSS.html"/>
-    <id>https://log.playr.jp/2015/12/04/Default-CSS.html</id>
-    <published>2015-12-04T07:36:04.000Z</published>
-    <updated>2016-03-02T07:54:35.408Z</updated>
+    <title>Wordpressとlazysizes</title>
+    <link href="https://log.playr.jp/2017/03/04/Wordpress%E3%81%A8lazysizes.html"/>
+    <id>https://log.playr.jp/2017/03/04/Wordpressとlazysizes.html</id>
+    <published>2017-03-04T10:51:54.000Z</published>
+    <updated>2018-05-13T10:54:47.575Z</updated>
     
-    <content type="html"><![CDATA[<p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p><h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul><li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li></ul><h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul><li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li><li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li></ul><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul><li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li></ul><h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul><li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li></ul><p>Edgeは見つけきれなかったなぁ。</p>]]></content>
+    <content type="html"><![CDATA[<p>Wordpressの記事内の画像読み込みを遅延化したい。<br>少し調べてみたところ、以下の記事が参考になった。<br>方法はいくつかあるようなので…少し吟味が必要である。</p><p><a href="http://codingmemos.hatenablog.com/entry/2016/09/28/100651" target="_blank" rel="noopener">wordpressにおけるレスポンシブイメージに対するlazyload対策 - Coding Memos</a><br><a href="https://github.com/aFarkas/wp-lazysizes" target="_blank" rel="noopener">aFarkas/wp-lazysizes: Brings lazySizes.js to WordPress</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。&lt;/p&gt;
-&lt;h2 id=&quot;IE&quot;&gt;&lt;a href=&quot;#IE&quot; class=&quot;headerlink&quot; title=&quot;IE&quot;&gt;&lt;/a&gt;IE&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.iecs
+        &lt;p&gt;Wordpressの記事内の画像読み込みを遅延化したい。&lt;br&gt;少し調べてみたところ、以下の記事が参考になった。&lt;br&gt;方法はいくつかあるようなので…少し吟味が必要である。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://codingmemos.hatenablog.com/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Conoha VPS(CentOS7)へ Wordpressを導入</title>
+    <link href="https://log.playr.jp/2016/12/19/ConohaVPS(CentOS7)%E3%81%B8Wordpress%E3%82%92%E5%B0%8E%E5%85%A5.html"/>
+    <id>https://log.playr.jp/2016/12/19/ConohaVPS(CentOS7)へWordpressを導入.html</id>
+    <published>2016-12-19T10:48:27.000Z</published>
+    <updated>2018-05-13T10:51:05.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。</p><ul><li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li><li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li><li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li></ul><p>用意されているテンプレートを活用できれば手軽で早そうである。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://hack-le.com/conohawp/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ConoHa
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Subversion</title>
+    <link href="https://log.playr.jp/2016/03/25/Subversion.html"/>
+    <id>https://log.playr.jp/2016/03/25/Subversion.html</id>
+    <published>2016-03-25T10:44:47.000Z</published>
+    <updated>2018-05-13T10:46:17.342Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近、Subversionを採用しているプロジェクトに携わっている。<br>今までGit しか使ったことがないにわかなので、とりあえずGit との文化や考え方の違いを色々感じている。</p><ul><li><a href="http://tracpath.com/bootcamp/learning_subversion.html" target="_blank" rel="noopener">Subversion の基礎勉強 ~ Subversion によるバージョン管理 ~ — バージョン管理システム入門(初心者向け)</a></li><li><a href="https://osdn.jp/svn/" target="_blank" rel="noopener">Subversion（svn）によるソフトウェア開発を始めよう - OSDN</a></li><li><a href="http://qiita.com/mountcedar/items/e756bb9136e3b1722bb2" target="_blank" rel="noopener">今更聞けないSubversionの使い方 - Qiita</a></li></ul><p>今のところは、ちょっと難儀じゃのう…という印象である。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近、Subversionを採用しているプロジェクトに携わっている。&lt;br&gt;今までGit しか使ったことがないにわかなので、とりあえずGit との文化や考え方の違いを色々感じている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://tracpath.com/boo
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>oghliner</title>
+    <link href="https://log.playr.jp/2016/03/17/oghliner.html"/>
+    <id>https://log.playr.jp/2016/03/17/oghliner.html</id>
+    <published>2016-03-17T10:41:57.000Z</published>
+    <updated>2018-05-13T10:44:24.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。</p><ul><li><a href="https://mozilla.github.io/oghliner/" target="_blank" rel="noopener">Oghliner</a></li></ul><p>まずはモジュールをインストール。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install oghliner -g</span><br></pre></td></tr></table></figure><p>もしくはプロジェクトごとにインストールも可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ oghliner bootstrap</span><br></pre></td></tr></table></figure><p>実行するとconfigurationを聞かれる。<br>後からでも変更できるのでとりあえず初期値で実行。</p><p>これにより、さくっとオフライン対応のGithubPageを作成できる。<br>類似ツールと比較して、利点などを確認していきたい。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://mozilla.github.io/oghliner/&quot; target=&quot;_blank&quot; rel=&quot;noopener
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>css font-display @font-face</title>
+    <link href="https://log.playr.jp/2016/02/28/cssfont-display-font-face.html"/>
+    <id>https://log.playr.jp/2016/02/28/cssfont-display-font-face.html</id>
+    <published>2016-02-28T10:40:43.000Z</published>
+    <updated>2018-05-13T10:41:28.077Z</updated>
+    
+    <content type="html"><![CDATA[<p>Firfox の開発版で css font-display がフラグ付きで有効になったようなので試してみた。</p><ul><li><a href="https://tabatkins.github.io/specs/css-font-display/" target="_blank" rel="noopener">CSS Font Rendering Controls Module Level 1</a></li></ul><p>まずはフラグを有効にする。</p><p>FIrefox のアドレス欄へ<code>about:config</code>と入力し、設定画面を開く。<br>そこで<code>layout.css.font-display.enabled</code>を検索し、値を<code>true</code>へ。これで機能が有効となる。</p><p>Chrome の開発版ではすでに導入されているらしく、下記記事が非常に参考になった。</p><ul><li><a href="https://blog.srytk.com/aquei/50.html" target="_blank" rel="noopener">@font-face(CSS)のfont-displayプロパティがChrome Canaryに来た – 阿Q論</a></li></ul><p>やはりFOUTをネイティブの機能で解決することが期待されるよう。<br>今までは主に Web Font Loader を導入したり、 あと Adobe Blank なんてのもあった気が…。<br>とにかく涙ぐむしい努力をしてきたので人類にとって、これは待望の機能かなと。</p><ul><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157064" target="_blank" rel="noopener">1157064 – experimental implementation of font-display CSS @font-face descriptor</a></li></ul><p>現時点での実装はスペックの推奨通りでクロームと同様のよう。<br>設定値は<code>fallback</code>がベストで、妥協して<code>block</code>といった感じだろうか。パフォーマンスとユーザビリティの両方にバランスよく配慮できそうである。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Waiting for the Sunrise'</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: fallback;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">local</span>(<span class="string">'Waiting for the Sunrise'</span>), <span class="built_in">local</span>(<span class="string">'WaitingfortheSunrise'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>その他の値も少しの違いながら明確に用途がわかれそうなので、なかなかよくできている感じ。<br><code>will-change</code>のように必要そうな部分へは先行導入しておき、ブラウザの対応を待ってもいいかと。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Firfox の開発版で css font-display がフラグ付きで有効になったようなので試してみた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tabatkins.github.io/specs/css-font-display/&quot; target=
       
     
     </summary>
@@ -66,220 +157,155 @@
   </entry>
   
   <entry>
-    <title>多言語化</title>
-    <link href="https://log.playr.jp/2015/12/02/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96.html"/>
-    <id>https://log.playr.jp/2015/12/02/多言語化.html</id>
-    <published>2015-12-02T07:33:25.000Z</published>
-    <updated>2016-03-02T08:10:04.005Z</updated>
+    <title>MongoDB 地理空間インデックス</title>
+    <link href="https://log.playr.jp/2016/02/21/MongoDB%E5%9C%B0%E7%90%86%E7%A9%BA%E9%96%93%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9.html"/>
+    <id>https://log.playr.jp/2016/02/21/MongoDB地理空間インデックス.html</id>
+    <published>2016-02-21T10:39:23.000Z</published>
+    <updated>2018-05-13T10:40:04.123Z</updated>
     
-    <content type="html"><![CDATA[<p>Webアプリを日本語の他に英語にも対応させることにした。</p><p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p><ul><li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li></ul><p>フロントエンドではi18n APIに期待したが、Safariが…。</p><ul><li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li><li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li><li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li></ul><p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p><ul><li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li><li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li></ul><p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p><ul><li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li><li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li></ul><p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p><ul><li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li><li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li></ul><h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p><ul><li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li></ul><p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p><ul><li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>MongoDB にて地理空間のインデックスを作成したい。</p><ul><li><a href="https://docs.mongodb.org/manual/applications/geospatial-indexes/" target="_blank" rel="noopener">Geospatial Indexes and Queries — MongoDB Manual 3.2</a></li></ul><p>インデックスの作成は通常の方法で行えるよう。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初期状態のインデックスを確認</span></span><br><span class="line">$ db.places.stats()</span><br><span class="line"></span><br><span class="line"><span class="comment"># インデックスを作成</span></span><br><span class="line">$ db.places.createIndex(&#123;Bar: <span class="string">"2dsphere"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作成したインデックスを確認</span></span><br><span class="line">$ db.places.getIndexes()</span><br></pre></td></tr></table></figure><p>これでplacesのインデックスがBarのフィールド内に昇順で作成される。<br>平面空間なら<code>2d</code>、球面空間なら<code>2dsphere</code>を使用するらしい。<br>今回は地球という球面空間の経緯度を記録する用途で使用するので、<code>2dsphere</code>となる。<br>ちなみに以前よく使用されていた <code>ensureIndex()</code> は3.0からは非推奨となったよう。今後は基本的に<code>createIndex()</code> を使うらしい。</p><p>ただGeoJsonのデータと通常のインデックスの違いとしてフォーマットが正しくなければ作成できないようなので、下記Linterなどを使用して事前にコレクションがGeoJsonの仕様に準拠しているか確認したほうがよさそう。</p><ul><li><a href="http://geojsonlint.com/" target="_blank" rel="noopener">GeoJSONLint - Validate your GeoJSON</a></li><li><a href="http://qiita.com/fetaro/items/7f110f18c6dd9ccd0c90" target="_blank" rel="noopener">MongoDBの地理空間インデックス・クエリ整理 - Qiita</a></li><li><a href="http://kozy4324.github.io/blog/2012/06/19/mongodb-index/" target="_blank" rel="noopener">MongoDB Index基本 - /var/log/kozy4324</a></li><li><a href="https://docs.mongodb.org/manual/core/geospatial-indexes/" target="_blank" rel="noopener">2d Index Internals — MongoDB Manual 3.2</a></li><li><a href="http://stackoverflow.com/questions/25968592/difference-between-createindex-and-ensureindex-in-java-using-mongodb" target="_blank" rel="noopener">Difference between createIndex() and ensureIndex() in java using mongodb - Stack Overflow</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Webアプリを日本語の他に英語にも対応させることにした。&lt;/p&gt;
-&lt;p&gt;WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。&lt;/p&gt;
+        &lt;p&gt;MongoDB にて地理空間のインデックスを作成したい。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://teppeis.hatenablog
+&lt;li&gt;&lt;a href=&quot;https://docs.mongodb.org/manual/applications/geospatial-indexes/&quot; target=&quot;_blank&quot; rel=
       
     
     </summary>
     
     
-      <category term="Node.js" scheme="https://log.playr.jp/tags/Node-js/"/>
-    
-      <category term="Koa" scheme="https://log.playr.jp/tags/Koa/"/>
-    
   </entry>
   
   <entry>
-    <title>SourceTree-1.6.24</title>
-    <link href="https://log.playr.jp/2015/12/01/SourceTree-1-6-24.html"/>
-    <id>https://log.playr.jp/2015/12/01/SourceTree-1-6-24.html</id>
-    <published>2015-12-01T07:31:39.000Z</published>
-    <updated>2016-03-02T07:32:16.979Z</updated>
+    <title>MogoDB 3.0 =&gt; 3.2</title>
+    <link href="https://log.playr.jp/2016/02/21/MogoDB3-0-3-2.html"/>
+    <id>https://log.playr.jp/2016/02/21/MogoDB3-0-3-2.html</id>
+    <published>2016-02-21T10:38:08.000Z</published>
+    <updated>2018-05-13T10:39:04.086Z</updated>
     
-    <content type="html"><![CDATA[<p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p><p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p><ul><li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li></ul><p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>]]></content>
+    <content type="html"><![CDATA[<p>開発環境のMongoDB（3.0）を3.2へアップデートした。<br>MogoDBを使ている以上はストレージエンジンをWiredTiger へ移行したいが、どうやら3.2 では<a href="https://docs.mongodb.org/manual/release-notes/3.2-compatibility/#default-storage-engine-change" target="_blank" rel="noopener">デフォルトで有効</a>となる模様。</p><ul><li><a href="https://docs.mongodb.org/manual/release-notes/3.2-upgrade/" target="_blank" rel="noopener">Upgrade MongoDB to 3.2 — MongoDB Manual 3.2</a></li></ul><p>これは好都合なので、3.2での動作検証をしっかりと行っていく方向で準備を進めることにした。</p><h2 id="yum-リポジトリを作成"><a href="#yum-リポジトリを作成" class="headerlink" title="yum リポジトリを作成"></a>yum リポジトリを作成</h2><p>MongoDB は既に3.0で運用していたので、今回は直接3.2 へ上げられる。<br>もし2.6以前を使用しているなら一度3.0へと上げなければならない模様。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.0 を 3.2 へ書き換え</span></span><br><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure><h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># もし起動しているならMongoを停止</span></span><br><span class="line">$ sudo systemctl stop mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line">$ yum check-update</span><br><span class="line"></span><br><span class="line">mongodb-org.x86_64                   3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-mongos.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-server.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-shell.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-tools.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 実行</span></span><br><span class="line">$ sudo yum update</span><br></pre></td></tr></table></figure><p>これで最新のMongoDB3.2 系が入った。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mongo を起動</span></span><br><span class="line">$ sudo systemctl start mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># バージョンを確認</span></span><br><span class="line">$ mongo --version</span><br><span class="line"></span><br><span class="line">MongoDB shell version: 3.2.3</span><br></pre></td></tr></table></figure><p>早速Webアプリを起動しなおした感じでは、今のところ問題は発生してない。<br>色々な記事やデータを見る限り性能が上がるのは間違いなさそうなので、テスト結果をしっかりと確認・整備して作業を進めたい。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;SourceTree 1.6.24でBitbucketアカウントへのログインができない。&lt;/p&gt;
-&lt;p&gt;調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。&lt;/p&gt;
+        &lt;p&gt;開発環境のMongoDB（3.0）を3.2へアップデートした。&lt;br&gt;MogoDBを使ている以上はストレージエンジンをWiredTiger へ移行したいが、どうやら3.2 では&lt;a href=&quot;https://docs.mongodb.org/manual/release-
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WebP</title>
+    <link href="https://log.playr.jp/2016/02/20/WebP.html"/>
+    <id>https://log.playr.jp/2016/02/20/WebP.html</id>
+    <published>2016-02-20T10:36:50.000Z</published>
+    <updated>2018-05-13T10:37:28.039Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebP を導入するべく簡易Modenizr もどきを使用してフォールバックを行った。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebpSupport</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">    "use strict"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> html = <span class="built_in">document</span>.documentElement,</span><br><span class="line">          WebP = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">    WebP.onload = WebP.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> isSupported = (WebP.width &gt; <span class="number">0</span> &amp;&amp; WebP.height &gt; <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isSupported) &#123;</span><br><span class="line">            <span class="keyword">if</span> (html.className.indexOf(<span class="string">'no-webp'</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                html.className = html.className.replace(<span class="regexp">/\bno-webp\b/</span>, <span class="string">'webp'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                html.className += <span class="string">' webp'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fn(isSupported);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    WebP.src = <span class="string">'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>これをロード時に読み込ますことでhtml に付与されたクラスを切り替える。</p><ul><li><a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener">Frequently Asked Questions  |  WebP  |  Google Developers</a></li><li><a href="https://gist.github.com/ymatuhin/a9601bd608b8de4e4dcc" target="_blank" rel="noopener">Check WebP Support in browser</a></li></ul><p>他にNginx によるフォールバックの実装例も見つけた。</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> = /logo &#123;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_accept</span> <span class="regexp">~* "webp")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary Accept;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_user_agent</span> <span class="regexp">~* "(Chrome|Opera|Android|Android.*Chrome)")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary User-Agent;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.png <span class="literal">last</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><a href="https://gist.github.com/mosson/e0c25513cf65963807ee" target="_blank" rel="noopener">webp compatible on nginx</a></li></ul><p>これは単純にUAを判別し、拡張しを書き換える手法のよう。</p><p>CSSのimage-setもHTMLの様にフォーマットによる切り替えができれば、こんな回りくどいことしなくていいのだが…。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;WebP を導入するべく簡易Modenizr もどきを使用してフォールバックを行った。&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cssnano</title>
+    <link href="https://log.playr.jp/2016/02/17/cssnano.html"/>
+    <id>https://log.playr.jp/2016/02/17/cssnano.html</id>
+    <published>2016-02-17T10:35:52.000Z</published>
+    <updated>2018-05-13T10:36:29.435Z</updated>
+    
+    <content type="html"><![CDATA[<p>cssの圧縮でgulp-minify-cssを利用していたのだが、どうやら開発止めてgulp-cssnanoへと移行を促いしている様子。</p><p>なので早速入れ替えてみた。</p><ul><li><a href="http://cssnano.co/" target="_blank" rel="noopener">cssnano: A modular minifier based on the PostCSS ecosystem</a></li></ul><p>機能盛りだくさんと言いたいところだけど、minify-cssも結構色々やってくれてたので、実際使ってみないと何ともいえなさそう。とりあえずAutoprefixer は内包されているようだ。</p><ul><li><a href="http://cssnano.co/optimisations/" target="_blank" rel="noopener">cssnano: Optimisations</a></li></ul><p>使ってみた感じでは確かに少しサイズも縮小された。結構calcを多用しているので、単純な計算を事前にするのはいい感じ。</p><p>ただ一方でunsafe な機能はしっかり把握して使用しないと危険な匂いが…。<br>特にz-indexの再配置は環境によってはよからぬ影響が出そう。</p><p>効能と副作用をしっかり把握して使用していきたい。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;cssの圧縮でgulp-minify-cssを利用していたのだが、どうやら開発止めてgulp-cssnanoへと移行を促いしている様子。&lt;/p&gt;
+&lt;p&gt;なので早速入れ替えてみた。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;h
+&lt;li&gt;&lt;a href=&quot;http://cssnano.co/&quot; targe
       
     
     </summary>
     
     
-      <category term="SourceTree" scheme="https://log.playr.jp/tags/SourceTree/"/>
-    
   </entry>
   
   <entry>
-    <title>Marker-Clusterer</title>
-    <link href="https://log.playr.jp/2015/11/29/Marker-Clusterer.html"/>
-    <id>https://log.playr.jp/2015/11/29/Marker-Clusterer.html</id>
-    <published>2015-11-29T12:30:15.000Z</published>
-    <updated>2016-03-02T07:30:48.761Z</updated>
+    <title>LetsEncryptとhttp2とNodeと</title>
+    <link href="https://log.playr.jp/2016/02/17/LetsEncrypt%E3%81%A8http2%E3%81%A8Node%E3%81%A8.html"/>
+    <id>https://log.playr.jp/2016/02/17/LetsEncryptとhttp2とNodeと.html</id>
+    <published>2016-02-17T10:32:19.000Z</published>
+    <updated>2018-05-13T10:35:05.167Z</updated>
     
-    <content type="html"><![CDATA[<p>Google mapsへMarker Clustererを導入した。</p><ul><li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li></ul><p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p><ul><li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li><li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li></ul><p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p><p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p><ul><li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li><li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li><li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li></ul><p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p><p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>]]></content>
+    <content type="html"><![CDATA[<p>CloudFlare を利用してTLS化していたサイトを、Let’s Encrypt へ移行した。</p><p>参考にした記事ではWebroot プラグインを使用し、サーバーを停止せずに行う手法が多数でしたが、僕の環境（Node.js）だと少しハマったのでStandalone で取得を行った。</p><p>まずはCloudFlare を停止し、Aレコードを直接サーバーへ設定。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitで取得</span></span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/letsencrypt/letsencrypt /opt/letsencrypt</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を停止</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 80番ポートが塞がれていないかチャック</span></span><br><span class="line">$ netstat -na | grep <span class="string">':80.*LISTEN'</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Let<span class="string">' sencrypt フォルダへ移動</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /opt/letsencrypt</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Stndalone プラグインを実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./letsencrypt-auto certonly --standalone</span></span><br></pre></td></tr></table></figure><p>情報を入力し規約に同意して完了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ls /etc/letsencrypt/live/your_domain_nam</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure><p>導入のさいに参考となった文献は以下など。</p><ul><li><a href="http://qiita.com/sak_2/items/ff835b669c0a7e110b09" target="_blank" rel="noopener">光の速さのWEBサーバー(nginx)をlet’s encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita</a></li><li><a href="http://inside.pixiv.net/entry/2015/12/10/153114" target="_blank" rel="noopener">Let’s EncryptとnginxでHTTP/2サーバを立てる - pixiv inside</a></li><li><a href="http://aeas44.tumblr.com/post/138777257395/centos-7-%E3%81%AE-nginx-%E3%81%B8%E3%81%AE-lets-encrypt-%E3%81%AE%E5%B0%8E%E5%85%A5" target="_blank" rel="noopener">aeas44 — CentOS 7 の Nginx への Let’s Encrypt の導入</a></li><li><a href="https://blog.ymyzk.com/2016/02/nginx-config-for-lets-encrypt/" target="_blank" rel="noopener">Let’s Encrypt で証明書を発行して運用するための nginx の設定 - 意識低い開発者のBlog</a></li><li><a href="http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/" target="_blank" rel="noopener">Hardening node.js for production part 2: using nginx to avoid node.js load | Arg! Team Blog</a></li><li><a href="https://gist.github.com/vodolaz095/8373960" target="_blank" rel="noopener">NGINX Config for nodejs application with nginx serving assets and socket.io support</a></li></ul><p>また、証明書の更新は以下の手順で行う。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nginxを停止(80番ポートを開ける)</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">$ ./letsencrypt-auto renew</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginxを起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Google mapsへMarker Clustererを導入した。&lt;/p&gt;
+        &lt;p&gt;CloudFlare を利用してTLS化していたサイトを、Let’s Encrypt へ移行した。&lt;/p&gt;
+&lt;p&gt;参考にした記事ではWebroot プラグインを使用し、サーバーを停止せずに行う手法が多数でしたが、僕の環境（Node.js）だと少しハマったのでStandalo
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NAS</title>
+    <link href="https://log.playr.jp/2016/02/14/NAS.html"/>
+    <id>https://log.playr.jp/2016/02/14/NAS.html</id>
+    <published>2016-02-14T10:30:40.000Z</published>
+    <updated>2018-05-13T10:31:09.007Z</updated>
+    
+    <content type="html"><![CDATA[<p>メディアサーバーとして使用しているNASのハードディスクを交換した。</p><ul><li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | データ復旧のパソコンサポートやまもと</a></li></ul><p>交換用HDは上記にてオススメされているものを購入した。</p><p>なんか交換&amp;再構築中も本体のライトがピカピカ光る。とりあえず心配になったら下記にてエラーコードを解読するもののなす術はなく、時間がたったら解決した。</p><ul><li><a href="http://faq.buffalo.jp/app/answers/detail/a_id/15199" target="_blank" rel="noopener">エラーコード、インフォメーションコードの意味がわかりません(LS-WXBL/R1) - アンサー詳細 | BUFFALO バッファロー</a></li></ul><ol><li>ハードディスクを交換</li><li>NAS再起動</li><li>PCのネットワーク上にきちんと認識されるまで待つ（ネットサーフィンでもしといた方がいい）</li><li>認識されたらWeb設定画面からエラーが出ているハードディスクを選択し、アレイを再構築</li><li>再構築が開始されるので、5時間ぐらい待つ（寝た方がいい）</li></ol><p>今回はこのような流れであった。<br>時間は待ち時間がかかるので、次回は家で何か作業を行う日に午前ぐらいから並行して行いたい。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;メディアサーバーとして使用しているNASのハードディスクを交換した。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/googlemaps/js-marker-clusterer&quot; target=&quot;_blank&quot; rel=&quot;noopener
+&lt;li&gt;&lt;a href=&quot;http://datarescue.yamafd.com/exchange_linkstation_hdd2/&quot; target=&quot;_blank&quot; rel=&quot;no
       
     
     </summary>
     
     
-      <category term="JavaScript" scheme="https://log.playr.jp/tags/JavaScript/"/>
-    
   </entry>
   
   <entry>
-    <title>Icon</title>
-    <link href="https://log.playr.jp/2015/11/27/Icon.html"/>
-    <id>https://log.playr.jp/2015/11/27/Icon.html</id>
-    <published>2015-11-27T11:25:48.000Z</published>
-    <updated>2016-03-02T07:29:27.155Z</updated>
+    <title>imagemin</title>
+    <link href="https://log.playr.jp/2016/02/14/imagemin.html"/>
+    <id>https://log.playr.jp/2016/02/14/imagemin.html</id>
+    <published>2016-02-14T10:26:20.000Z</published>
+    <updated>2018-05-13T10:29:09.103Z</updated>
     
-    <content type="html"><![CDATA[<p>ちょっとIconのデザインを考えてた。<br>やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。</p><ul><li><a href="https://www.google.com/design/spec/style/icons.html" target="_blank" rel="noopener">Icons - Style - Google design guidelines</a></li><li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html" target="_blank" rel="noopener">iOS Human Interface Guidelines: Icons and Graphics</a></li></ul><p>ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。</p><ul><li><a href="https://www.google.com/design/icons/" target="_blank" rel="noopener">https://www.google.com/design/icons/</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>画像圧縮のgulpタスクをプロジェクトごとに組み込むのは難儀なので、コマンドラインからさくっと行えるようにしたい。</p><p>それを最終目標として、とりあえずgulpを使わない画像圧縮専用のプロジェクトを作り、それを共同で利用ししばらく運用してみたい。<br>現時点でイメージしているのは、<a href="https://github.com/imagemin/imagemin" target="_blank" rel="noopener">imagemin</a>を直接叩く方法である。<br>これを後々はCLIから操作できるようにすれば…と考えている。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;ちょっとIconのデザインを考えてた。&lt;br&gt;やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.google.com/design/spec/style/icons.html&quot; target
-      
-    
-    </summary>
-    
-    
-      <category term="Design" scheme="https://log.playr.jp/tags/Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Splash-Screens</title>
-    <link href="https://log.playr.jp/2015/11/26/Splash-Screens.html"/>
-    <id>https://log.playr.jp/2015/11/26/Splash-Screens.html</id>
-    <published>2015-11-26T07:19:33.000Z</published>
-    <updated>2016-03-02T07:24:55.333Z</updated>
-    
-    <content type="html"><![CDATA[<p>仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。<br>もちろん、現段階で対応しているブラウザは無い。<br>しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="string">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="string">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"splash_screens"</span>: [&#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/lowres"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"320x240"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_small"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1334x750"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_hi"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1920x1080"</span>,</span><br><span class="line">    <span class="string">"density"</span>: <span class="number">3</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。</p><ul><li><a href="https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/" target="_blank" rel="noopener">Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)</a></li></ul><p>Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。</p><p>Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。</p><ul><li><a href="https://developer.mozilla.org/ja/Apps/Manifest" target="_blank" rel="noopener">アプリマニフェスト - アプリセンター | MDN</a></li></ul><p>manifest.webappの詳細</p><ul><li><a href="https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards" target="_blank" rel="noopener">Open Web Apps と Web 標準 | MDN</a></li><li><a href="https://developer.mozilla.org/ja/Apps/App_templates" target="_blank" rel="noopener">アプリテンプレートの使用 - アプリセンター | MDN</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。&lt;br&gt;もちろん、現段階で対応しているブラウザは無い。&lt;br&gt;しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになってい
-      
-    
-    </summary>
-    
-    
-      <category term="WebApp" scheme="https://log.playr.jp/tags/WebApp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google OAuth</title>
-    <link href="https://log.playr.jp/2015/11/06/Google-OAuth.html"/>
-    <id>https://log.playr.jp/2015/11/06/Google-OAuth.html</id>
-    <published>2015-11-06T13:39:20.000Z</published>
-    <updated>2016-03-21T13:41:25.485Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://jp.dewy.me/" target="_blank" rel="noopener">Dewy</a>へGoogleアカウントによるログイン機能を実装した。<br>これまで通り<a href="https://github.com/simov/grant" target="_blank" rel="noopener">simov/grant</a>を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。</p><ul><li><a href="http://d.hatena.ne.jp/komiyak/20141103/1415016929" target="_blank" rel="noopener">Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道</a></li></ul><p>アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。<br>また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://jp.dewy.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dewy&lt;/a&gt;へGoogleアカウントによるログイン機能を実装した。&lt;br&gt;これまで通り&lt;a href=&quot;https://github.com/sim
-      
-    
-    </summary>
-    
-    
-      <category term="Node.js" scheme="https://log.playr.jp/tags/Node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dialog-element</title>
-    <link href="https://log.playr.jp/2015/11/06/dialog-element.html"/>
-    <id>https://log.playr.jp/2015/11/06/dialog-element.html</id>
-    <published>2015-11-06T08:32:20.000Z</published>
-    <updated>2016-03-02T08:39:21.543Z</updated>
-    
-    <content type="html"><![CDATA[<p>ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。</p><ul><li><a href="http://caniuse.com/#feat=dialog" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li></ul><p>相変わらずblink系のみの対応である。</p><ul><li><a href="https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml" target="_blank" rel="noopener">Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH</a></li><li><a href="http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;utm_medium=web&amp;utm_source=Front_End_Dev_Weekly_77" target="_blank" rel="noopener">the new code – Native Modal Windows in HTML5: Using the dialog Element</a></li><li><a href="http://demo.agektmr.com/dialog/" target="_blank" rel="noopener">dialog element demo</a></li></ul><p>具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。</p><ul><li><a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank" rel="noopener">GoogleChrome/dialog-polyfill: Polyfill for the dialog element</a></li></ul><p>ポリフィルもChromeチーム自ら提供している。</p><p>が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。<br>現時点での実践投入はまだ早いかと。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://caniuse.com/#feat=dialog&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Can I u
-      
-    
-    </summary>
-    
-    
-      <category term="HTML" scheme="https://log.playr.jp/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Push通知</title>
-    <link href="https://log.playr.jp/2015/11/02/Push%E9%80%9A%E7%9F%A5.html"/>
-    <id>https://log.playr.jp/2015/11/02/Push通知.html</id>
-    <published>2015-11-02T12:27:39.000Z</published>
-    <updated>2016-03-02T08:30:58.491Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近ブラウザにもPush通知の足音が聞こえ始めている。<br>なので基礎学習は始めておきたい。</p><ul><li><a href="https://1000ch.net/posts/2015/service-worker-push-notification.html" target="_blank" rel="noopener">Service WorkerでブラウザにPush通知をする - 1000ch.net</a></li><li><a href="http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d" target="_blank" rel="noopener">ChromeでW3C Push APIを使ってみた - Qiita</a></li></ul><p>エッジな方々は既に検証を開始している様子。<br>ここはやはりFirefoxでも試したい。</p><ul><li><a href="http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb" target="_blank" rel="noopener">HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita</a></li></ul><p>Firefoxの実装もかなり進んでいるようで、期待大。<br>問題はモバイルFirefoxの普及だろう。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近ブラウザにもPush通知の足音が聞こえ始めている。&lt;br&gt;なので基礎学習は始めておきたい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://1000ch.net/posts/2015/service-worker-push-notification.html
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://log.playr.jp/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gulp-progeny</title>
-    <link href="https://log.playr.jp/2015/10/31/gulp-progeny.html"/>
-    <id>https://log.playr.jp/2015/10/31/gulp-progeny.html</id>
-    <published>2015-10-31T12:17:26.000Z</published>
-    <updated>2016-03-02T08:26:24.192Z</updated>
-    
-    <content type="html"><![CDATA[<p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p><p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p><ul><li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li></ul><p>なるほど！依存元を辿り解決を図ればいいとのこと。</p><p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p><ul><li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li></ul><p>まさに依存関係を解決してくれるよう。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。&lt;/p&gt;
-&lt;p&gt;これを上手く解決する方法はないかと調べたら以下の記事を見
+        &lt;p&gt;画像圧縮のgulpタスクをプロジェクトごとに組み込むのは難儀なので、コマンドラインからさくっと行えるようにしたい。&lt;/p&gt;
+&lt;p&gt;それを最終目標として、とりあえずgulpを使わない画像圧縮専用のプロジェクトを作り、それを共同で利用ししばらく運用してみたい。&lt;br&gt;現時点でイ
       
     
     </summary>
@@ -290,21 +316,45 @@
   </entry>
   
   <entry>
-    <title>Critical-Path-CSS</title>
-    <link href="https://log.playr.jp/2015/10/31/Critical-Path-CSS.html"/>
-    <id>https://log.playr.jp/2015/10/31/Critical-Path-CSS.html</id>
-    <published>2015-10-31T07:12:22.000Z</published>
-    <updated>2016-03-02T08:09:50.742Z</updated>
+    <title>API Blueprint</title>
+    <link href="https://log.playr.jp/2016/02/13/APIBlueprint.html"/>
+    <id>https://log.playr.jp/2016/02/13/APIBlueprint.html</id>
+    <published>2016-02-13T10:23:37.000Z</published>
+    <updated>2018-05-13T10:25:30.032Z</updated>
     
-    <content type="html"><![CDATA[<p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p><ul><li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li><li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li><li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li></ul><p>記事は詳しく解説したものが見つかり、大変参考になった。</p><p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p><ul><li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li><li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li></ul><p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p><ul><li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li><li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li></ul><p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p><ul><li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>APIドキュメントを作成したい。</p><p>こーゆーのは作りっぱなしじゃなくて、内容を常時最新に保つことで意味を持つのでやはりツールを使いたい。<br>そこで軽く調査してみたところ、API Blueprintというツールがよく目に入った。</p><ul><li><a href="https://apiblueprint.org/" target="_blank" rel="noopener">API Blueprint | API Blueprint</a></li><li><a href="http://qiita.com/taizo/items/0181f5ea641e2f91d0a5" target="_blank" rel="noopener">APIドキュメントを生成するためのMarkdown拡張API BluePrintとその周辺のライブラリ - Qiita</a></li><li><a href="http://imamotty.hatenablog.jp/entry/2015/01/18/033222" target="_blank" rel="noopener">API Blueprintとgulp-aglioでいい感じのAPIドキュメントページを作成 - Front-end beginner’s luck</a></li><li><a href="http://blog.hde.co.jp/entry/2015/01/16/152729" target="_blank" rel="noopener">APIの仕様をMarkdownで定義する - HDE BLOG</a></li></ul><p>この記事も面白い。</p><ul><li><a href="http://www.infoq.com/jp/news/2015/06/api-blueprint-progress" target="_blank" rel="noopener">API Blueprint創始者が語るAPIの進歩</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;ちらほらと名前を聞くようになってきたので、基礎学習を始めた。&lt;/p&gt;
+        &lt;p&gt;APIドキュメントを作成したい。&lt;/p&gt;
+&lt;p&gt;こーゆーのは作りっぱなしじゃなくて、内容を常時最新に保つことで意味を持つのでやはりツールを使いたい。&lt;br&gt;そこで軽く調査してみたところ、API Blueprintというツールがよく目に入った。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html&quot; target=&quot;_blank&quot; 
+&lt;li&gt;&lt;a
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>assets-webpack-plugin</title>
+    <link href="https://log.playr.jp/2016/02/06/assets-webpack-plugin.html"/>
+    <id>https://log.playr.jp/2016/02/06/assets-webpack-plugin.html</id>
+    <published>2016-02-06T10:22:23.000Z</published>
+    <updated>2018-05-13T10:23:06.794Z</updated>
+    
+    <content type="html"><![CDATA[<p>Webpackでビルドした成果物のキャッシュバストを自動化したいので、assets-webpack-plugin を導入した。</p><ul><li><a href="https://github.com/sporto/assets-webpack-plugin" target="_blank" rel="noopener">sporto/assets-webpack-plugin: Webpack plugin that emits a json file with assets paths</a></li></ul><p>サンプル通り行うと<code>[name]-bundle-[hash].js</code> というネーミングでファイルが生成される。<br>これでももちろん問題はないのだが、なんとなく今までの慣例でファイル名の後ろにパラメータを付与した方法をとりたい。</p><p>そこでoutput の設定を以下のようにした。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js?[hash]'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].chunk.js?[hash]'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>これで成果物のファイル名は通常のままで、同時に排出される assets.json へクエリを付与したフルパスが記述される。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Webpackでビルドした成果物のキャッシュバストを自動化したいので、assets-webpack-plugin を導入した。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sporto/assets-webpack-plugin&quot; ta
       
     
     </summary>
@@ -312,205 +362,125 @@
     
       <category term="Node.js" scheme="https://log.playr.jp/tags/Node-js/"/>
     
-      <category term="CSS" scheme="https://log.playr.jp/tags/CSS/"/>
-    
   </entry>
   
   <entry>
-    <title>VanillaなDropdown</title>
-    <link href="https://log.playr.jp/2015/10/30/Vanilla%E3%81%AADropdown.html"/>
-    <id>https://log.playr.jp/2015/10/30/VanillaなDropdown.html</id>
-    <published>2015-10-30T07:08:49.000Z</published>
-    <updated>2016-03-02T07:10:35.715Z</updated>
+    <title>Monorepo</title>
+    <link href="https://log.playr.jp/2016/02/06/Monorepo.html"/>
+    <id>https://log.playr.jp/2016/02/06/Monorepo.html</id>
+    <published>2016-02-06T10:18:24.000Z</published>
+    <updated>2018-05-13T10:21:57.971Z</updated>
     
-    <content type="html"><![CDATA[<p>バニラなドロップダウンメニューを作成中。<br>まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。<br>がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。</p><p>今回参考になったのは以下の二つ。</p><ul><li><a href="http://siongui.github.io/2015/02/13/javascript-dropdown-menu/" target="_blank" rel="noopener">Javascript Drop Down Menu</a></li><li><a href="http://s.codepen.io/brenden/debug/mJyEBg" target="_blank" rel="noopener">CodePen - A Pen by Brenden Palmer</a></li></ul><p>表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう<code>document</code>にもイベントを追加。<br>あとは最適なアニメーションを考慮すればよさそう。</p>]]></content>
+    <content type="html"><![CDATA[<p>最近よく聞く、Monorepoについて調査してみた。<br>参考になったのは以下の記事。</p><ul><li><a href="http://qiita.com/kimamula/items/0b4dff363933bfe74506" target="_blank" rel="noopener">Lerna を使って、 Babel や React が採用している monorepo を試してみる - Qiita</a></li><li><a href="http://japan.blogs.atlassian.com/2015/10/monorepos-in-git/" target="_blank" rel="noopener">Git で monorepo を扱う際の課題とヒント - Atlassian Japan</a></li><li><a href="http://shokai.org/blog/archives/10574" target="_blank" rel="noopener">橋本商会 » lernaでmonorepoした</a></li><li><a href="http://yukidarake.hateblo.jp/entry/2016/01/06/200800" target="_blank" rel="noopener">単一リポジトリで複数package|projectを管理することをmonorepoというそう - なっく日報</a></li><li><a href="https://github.com/kittens/lerna" target="_blank" rel="noopener">kittens/lerna: A tool for managing JavaScript projects with multiple packages.</a></li></ul><p>大きなプロジェクトでモジュールはそれぞれ分けて開発したいが、イシューなどは一元管理したい…という際に有用であると感じた。<br>よって現時点では、僕とは無縁なようだ。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;バニラなドロップダウンメニューを作成中。&lt;br&gt;まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。&lt;br&gt;がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。&lt;/p&gt;
-&lt;p&gt;今回参考になったのは以下の二つ。&lt;/p&gt;
+        &lt;p&gt;最近よく聞く、Monorepoについて調査してみた。&lt;br&gt;参考になったのは以下の記事。&lt;/p&gt;
 &lt;ul&gt;
-
+&lt;li&gt;&lt;a href=&quot;http://qiita.com/kimamula/items/0b4dff363933bfe74506&quot; target=&quot;_blank&quot; 
       
     
     </summary>
     
     
-      <category term="JavaScript" scheme="https://log.playr.jp/tags/JavaScript/"/>
-    
   </entry>
   
   <entry>
-    <title>Github-Flow</title>
-    <link href="https://log.playr.jp/2015/10/29/Github-Flow.html"/>
-    <id>https://log.playr.jp/2015/10/29/Github-Flow.html</id>
-    <published>2015-10-29T10:06:19.000Z</published>
-    <updated>2016-03-02T07:08:07.188Z</updated>
+    <title>React-router と Scroll Position</title>
+    <link href="https://log.playr.jp/2016/02/03/React-router%E3%81%A8ScrollPosition.html"/>
+    <id>https://log.playr.jp/2016/02/03/React-routerとScrollPosition.html</id>
+    <published>2016-02-03T10:16:22.000Z</published>
+    <updated>2018-05-13T10:17:25.776Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="現状"><a href="#現状" class="headerlink" title="現状"></a>現状</h2><p>Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。<br>が、コードの規模を考えるとやはりGithub Flowで十分だとは感じており、乗り換えのタイミングを模索し、今日に至る。</p><h2 id="思案"><a href="#思案" class="headerlink" title="思案"></a>思案</h2><p>もう少し様子を見てエディタをBracketsからVisualeStudio Codeへ乗り換えることを考えており、そのタイミングにはスムーズに開発flowも移行したいと思う。</p><h2 id="資料"><a href="#資料" class="headerlink" title="資料"></a>資料</h2><ul><li><a href="https://gist.github.com/Gab-km/3705015" target="_blank" rel="noopener">GitHub Flow (Japanese translation)</a></li></ul><p>上記翻訳を精読したらほぼ大丈夫そう。</p><ul><li><a href="http://b.pyar.bz/blog/2014/01/22/github-flow/" target="_blank" rel="noopener">Github-flowを分かりやすく図解してみた - pyar.bz</a></li></ul><p>これも分かりやすい。</p>]]></content>
+    <content type="html"><![CDATA[<p>react-router と ReactCSSTransitionGroup を組み合わせてページ遷移時のアニメーションを実装したメモ。<br>サンプルを参考に進めれば容易であった。</p><ul><li><a href="https://github.com/rackt/react-router/tree/master/examples/animations" target="_blank" rel="noopener">react-router/examples/animations at master · rackt/react-router</a></li></ul><p>しかし細かい挙動に凝り始めると、提供されているハイレベルなAPIでは難しくなってくる。<br>今回はページ遷移時にスクロールポジションが維持されてしまう問題の修正に少しハマった。</p><p>結果的に react-router 側を微調整して完了となった。</p><ul><li><a href="https://github.com/rackt/react-router/issues/2019" target="_blank" rel="noopener">Scroll to top on route change? · Issue #2019 · rackt/react-router</a></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router onUpdate=&#123;() =&gt; <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)&#125; history=&#123;createBrowserHistory()&#125;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure><p>これでページ遷移時に強制的にスクロールポジションをトップへ固定することができる。<br>ただこの方法だとブラウザバックの際にも <code>window.scrollTo(0, 0)</code> が発動してしまいユーザビリティが損なわれる。<br>結果的に下記の方法を採用した。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createBrowserHistory();</span><br><span class="line"></span><br><span class="line">history.listen(<span class="function"><span class="params">location</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (location.action === <span class="string">'POP'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = (</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure><ul><li><a href="https://github.com/rackt/react-router/issues/2144#issuecomment-150939358" target="_blank" rel="noopener">Scroll position in RC1 · Issue #2144 · rackt/react-router</a></li></ul><p>これでブラウザバック時は前回のスクロールポジションを維持することができる。<br>ちなみに下記のようなものもあるらしい。</p><p><a href="https://github.com/rackt/scroll-behavior" target="_blank" rel="noopener">rackt/scroll-behavior - JavaScript</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;現状&quot;&gt;&lt;a href=&quot;#現状&quot; class=&quot;headerlink&quot; title=&quot;現状&quot;&gt;&lt;/a&gt;現状&lt;/h2&gt;&lt;p&gt;Gitを用いたバージョン管理にはSourceTreeを利用しており、惰性でGit Flowで運用を行っていた。&lt;br&gt;が、コードの規模を考え
-      
-    
-    </summary>
-    
-    
-      <category term="Git" scheme="https://log.playr.jp/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Comit in English</title>
-    <link href="https://log.playr.jp/2015/10/29/Comit-in-English.html"/>
-    <id>https://log.playr.jp/2015/10/29/Comit-in-English.html</id>
-    <published>2015-10-29T07:04:04.000Z</published>
-    <updated>2016-03-02T07:06:36.020Z</updated>
-    
-    <content type="html"><![CDATA[<p>英語でコミットメッセージを書く時のカンペを作成したい。</p><p>参考記事はググれば色々出てくる。</p><ul><li><a href="http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754" target="_blank" rel="noopener">ネイティブと働いて分かった英語コミットメッセージの頻出動詞10つ - Qiita</a></li><li><a href="http://qiita.com/ken_c_lo/items/4cb49f0fb74e8778804d" target="_blank" rel="noopener">Git - 英語コミットコメントに使えるオシャレフレーズ集 - Qiita</a></li><li><a href="https://gist.github.com/hayajo/3938098" target="_blank" rel="noopener">ChangeLog を支える英語</a></li><li><a href="https://github.com/azu/awesome-commit-english" target="_blank" rel="noopener">azu/awesome-commit-english</a></li><li><a href="http://www.sssg.org/blogs/hiro345/archives/11721.html" target="_blank" rel="noopener">git commit時のコメントを英語で書くための最初の一歩 | hiro345</a></li></ul><p>こんなサービスも発見。</p><ul><li><a href="http://commit-m.minamijoyo.com/" target="_blank" rel="noopener">commit-m: GitHubコミットメッセージの文例が検索できるサービス</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;英語でコミットメッセージを書く時のカンペを作成したい。&lt;/p&gt;
-&lt;p&gt;参考記事はググれば色々出てくる。&lt;/p&gt;
+        &lt;p&gt;react-router と ReactCSSTransitionGroup を組み合わせてページ遷移時のアニメーションを実装したメモ。&lt;br&gt;サンプルを参考に進めれば容易であった。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://qiita.com/gogotanaka/items/b65e1b081fa976e5d754&quot; target=
+&lt;li&gt;&lt;a href=&quot;https://github.com/rack
       
     
     </summary>
     
     
-      <category term="Git" scheme="https://log.playr.jp/tags/Git/"/>
+      <category term="React" scheme="https://log.playr.jp/tags/React/"/>
     
   </entry>
   
   <entry>
-    <title>SNS Feeds</title>
-    <link href="https://log.playr.jp/2015/10/23/SNS-Feeds.html"/>
-    <id>https://log.playr.jp/2015/10/23/SNS-Feeds.html</id>
-    <published>2015-10-23T07:00:28.000Z</published>
-    <updated>2016-03-02T07:02:12.525Z</updated>
+    <title>ReactとGoogleAnalytics</title>
+    <link href="https://log.playr.jp/2016/01/30/React%E3%81%A8GoogleAnalytics.html"/>
+    <id>https://log.playr.jp/2016/01/30/ReactとGoogleAnalytics.html</id>
+    <published>2016-01-30T10:12:55.000Z</published>
+    <updated>2018-05-13T10:15:42.470Z</updated>
     
-    <content type="html"><![CDATA[<p>複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。<br>まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。</p><p>クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハードルと労力は低そうである。<br>サーバーサイドで行うとブラウザに頼らない形で実装できる部分が増えるので、万人に同様の体験を提供できそうである。レンダリングもサーバーで行えばSNSアカウントへ投稿することでサイトの更新とみなされ、インデックスもされやすいかも。</p><p>今回は調査の過程で下記のプラグインを発見したので、とりあえずクライアントで実装してみることにした。</p><ul><li><a href="https://github.com/pavelk2/social-feed" target="_blank" rel="noopener">pavelk2/social-feed</a></li></ul><p>今回結び付けたいSNSは以下の3つ。</p><ul><li>Facebook</li><li>Twitter</li><li>instagram</li></ul><p>条件にあてはまるうえ、現在進行形でメンテされているようで安心して導入できそうである。</p>]]></content>
+    <content type="html"><![CDATA[<p>Reactベースで構築されたSPAの場合、Google Analyticsを用いたアクセス解析には一工夫が必要となる。</p><ul><li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications" target="_blank" rel="noopener">単一ページ アプリケーションのトラッキング  |  ウェブ向けアナリティクス（analytics.js）  |  Google Developers</a></li></ul><p>単純にアナリティクスのコードを読み込むだけではなく、ルーティングへのフックを設置しなければならない。<br>今回はreact-routerを採用しているので、それを基準にライブラリを探すと、以下が見つかった。</p><ul><li><a href="https://github.com/mozilla/react-ga" target="_blank" rel="noopener">mozilla/react-ga - JavaScript</a></li><li><a href="https://github.com/seeden/react-g-analytics" target="_blank" rel="noopener">seeden/react-g-analytics: React google analytics with support for react-router</a></li><li><a href="https://github.com/tcoopman/ga-react-router" target="_blank" rel="noopener">tcoopman/ga-react-router: Google analytics component for react-router</a></li></ul><p>react-gaはapiが豊富で、Mozilla内でドッグフーディングされているようで信頼もできる。コード量は一番多いかな。<br>3.73 KB</p><p>react-g-analyticsは機能をpageviewの送信にしぼっている分、シンプルな作り。</p><p>ga-react-routerはとにかくシンプル。Webpack前提の作りだが、かなり軽量だ。</p><p>一番サクっと導入できそうなのはreact-g-analyticsだが、その前にreact-routerのアップグレードからしたほうがよさそうだ。</p><p>最終的には react-ga を採用し、以下を参考に実装を行った。</p><ul><li><a href="http://stackoverflow.com/questions/34836500/how-to-set-up-google-analytics-for-react-router" target="_blank" rel="noopener">reactjs - How to set up Google Analytics for React-Router? - Stack Overflow</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;複数のSNSアカウントの投稿を一つにまとめて表示する機能を実装したい。&lt;br&gt;まずAPIをたたいてフィードを引っ張て来る仕事をクライアントにさせるかサーバーサイドで頑張るか考えた。&lt;/p&gt;
-&lt;p&gt;クライアントで行うと既存のjQueryライブラリの恩恵などを受けられ、導入のハ
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Timezone</title>
-    <link href="https://log.playr.jp/2015/10/19/Timezone.html"/>
-    <id>https://log.playr.jp/2015/10/19/Timezone.html</id>
-    <published>2015-10-19T10:56:41.000Z</published>
-    <updated>2016-03-02T06:58:53.375Z</updated>
-    
-    <content type="html"><![CDATA[<p>なぜか<code>getHours</code>が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日付を確認</span></span><br><span class="line">$ timedatectl </span><br><span class="line"></span><br><span class="line"><span class="comment"># タイムゾーンを設定</span></span><br><span class="line">$ timedatectl <span class="built_in">set</span>-timezone Asia/Tokyo</span><br></pre></td></tr></table></figure><p>環境構築の際に適切に設定が必要なので、Ansibleへ盛り込みたい。</p><p>ついでにローケルも設定した。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ localectl <span class="built_in">set</span>-locale LANG=ja_JP.eucjp</span><br><span class="line">$ localectl status</span><br><span class="line">$ <span class="built_in">source</span> /etc/locale.conf</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;なぜか&lt;code&gt;getHours&lt;/code&gt;が正確に取得できないと思っていたら、開発環境であるVagrant内CentOSのタイムゾーンがずれていた。以下ContOS7での設定方法。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="https://log.playr.jp/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>脱 jQuery</title>
-    <link href="https://log.playr.jp/2015/10/14/%E8%84%B1-jQuery.html"/>
-    <id>https://log.playr.jp/2015/10/14/脱-jQuery.html</id>
-    <published>2015-10-14T11:54:51.000Z</published>
-    <updated>2016-03-02T06:56:01.238Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><a href="http://postd.cc/jquery-considered-harmful/" target="_blank" rel="noopener">jQueryは有害なのか | プログラミング | POSTD</a></li></ul><p>上記記事を読んだ。<br>最近は僕もjQueryをほとんど使っていなくて、共感できる部分は多かった。<br>しかしそれは個人開発の場の話で、チームでの開発で複数人でJavaScriptを触る場合は、ｊQueryを採用することである程度、秩序ができる利点はあると思う。<br>完全なる脱jQueryのためには、完璧なる規約とリンターの整備が必要かも。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://postd.cc/jquery-considered-harmful/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;jQueryは有害なのか | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://log.playr.jp/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Microdata</title>
-    <link href="https://log.playr.jp/2015/10/14/microdata.html"/>
-    <id>https://log.playr.jp/2015/10/14/microdata.html</id>
-    <published>2015-10-14T10:54:30.000Z</published>
-    <updated>2016-03-02T06:55:29.491Z</updated>
-    
-    <content type="html"><![CDATA[<p>Webアクセシビリティは他の要素と比べて後回しにされがちである。<br>しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。</p><p>Webサイトをマークアップを通じて構造化する手法として、以下のものがある。</p><ul><li>Microformats</li><li>Microdata</li><li>RDFa</li><li>Microdata</li></ul><p>サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。<br>一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。</p><ul><li><a href="https://schema.org/" target="_blank" rel="noopener">Home - schema.org</a></li></ul><p>Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。<br>概要や導入方法、ドキュメントがまとめられている。</p><ul><li><a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="noopener">構造化データ マークアップ支援ツール</a></li><li><a href="https://developers.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">Structured Data Testing Tool  |  Google Developers</a></li></ul><p>Googleは既に検索結果へスキーマを反映している。<br>いくつか導入支援ツールも公開されているので、活用したい。</p><ul><li><a href="http://kojika17.com/2014/05/about-structured-data-markup.html" target="_blank" rel="noopener">Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17</a></li></ul><p>上記記事は概要や実践例をわかりやすくまとめており、参考になった。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Webアクセシビリティは他の要素と比べて後回しにされがちである。&lt;br&gt;しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。&lt;/p&gt;
-&lt;p&gt;Webサイトをマークアップを通じて構造化する手法として、以下のものがある。&lt;/p&gt;
+        &lt;p&gt;Reactベースで構築されたSPAの場合、Google Analyticsを用いたアクセス解析には一工夫が必要となる。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Microfor
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/analytics/devguides/colle
       
     
     </summary>
     
     
-      <category term="Microdata" scheme="https://log.playr.jp/tags/Microdata/"/>
+      <category term="React" scheme="https://log.playr.jp/tags/React/"/>
     
   </entry>
   
   <entry>
-    <title>Firefox Add-on</title>
-    <link href="https://log.playr.jp/2015/10/10/Firefox-Add-on.html"/>
-    <id>https://log.playr.jp/2015/10/10/Firefox-Add-on.html</id>
-    <published>2015-10-10T12:42:26.000Z</published>
-    <updated>2016-02-28T16:47:08.400Z</updated>
+    <title>ReactとクリティカルパスCSS</title>
+    <link href="https://log.playr.jp/2016/01/26/React%E3%81%A8%E3%82%AF%E3%83%AA%E3%83%86%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%91%E3%82%B9CSS.html"/>
+    <id>https://log.playr.jp/2016/01/26/ReactとクリティカルパスCSS.html</id>
+    <published>2016-01-26T10:11:15.000Z</published>
+    <updated>2018-05-13T10:11:59.968Z</updated>
     
-    <content type="html"><![CDATA[<p>ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。</p><ul><li><a href="http://oxynotes.com/?p=9070" target="_blank" rel="noopener">初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES</a></li><li><a href="https://github.com/mozilla-jetpack/jpm" target="_blank" rel="noopener">mozilla-jetpack/jpm</a></li></ul><p>現時点でのモダンな書き方なら上記を参考に行えばよさそう。<br>しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。</p><ul><li><a href="https://github.com/mdn/webextensions-examples" target="_blank" rel="noopener">mdn/webextensions-examples</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>Reactを用いたUniversal(Isomorphic)なサイトのクリティカルパスCSSを自動化したい。</p><p>以前Nunjucksを使用したパターンはうまく機能したので、同様の手法でReactの実装を考えた。<br>すなわち、Cssの更新にフックしGulp経由で静的なHTMLを生成し、それに対してCriticalを実行させクリティカルパスの部分を別のHTMLとして抽出し、インポートするという手法であった。</p><p>しかし、Critical 0.7.0がリリースされPenthouseのようにURL指定にて実行が可能になった。<br>というよりPenthouseを内蔵した様子。</p><ul><li><a href="https://github.com/addyosmani/critical/releases/tag/v0.7.0" target="_blank" rel="noopener">Release Critical 0.7.0 · addyosmani/critical</a></li></ul><p>ともかくこれによりCriticalと変わらぬ実行結果をURL指定で取得できそうなので、ぜひこの機能を利用したい。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://oxynotes.com/?p=9070&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;初めてでも理解できるようになる
+        &lt;p&gt;Reactを用いたUniversal(Isomorphic)なサイトのクリティカルパスCSSを自動化したい。&lt;/p&gt;
+&lt;p&gt;以前Nunjucksを使用したパターンはうまく機能したので、同様の手法でReactの実装を考えた。&lt;br&gt;すなわち、Cssの更新にフックしGulp経由
       
     
     </summary>
     
     
-      <category term="Firefox" scheme="https://log.playr.jp/tags/Firefox/"/>
+      <category term="React" scheme="https://log.playr.jp/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>オフラインファースト</title>
+    <link href="https://log.playr.jp/2016/01/20/%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88.html"/>
+    <id>https://log.playr.jp/2016/01/20/オフラインファースト.html</id>
+    <published>2016-01-20T10:10:07.000Z</published>
+    <updated>2018-05-13T10:10:58.636Z</updated>
+    
+    <content type="html"><![CDATA[<p>オフラインファーストで実装を試みるべく、ServiceWorkerを導入した。</p><ul><li><a href="http://offlinefirst.org/" target="_blank" rel="noopener">Offline First!</a></li></ul><p>このワードが唱えられたころ、実現するための技術としてはAppCacheやWebStrageが紹介されていたが、現在は当然ServiceWorkerへとスライドしている。<br>コードの記述量は多くなってるが、低レベルのAPI群を提供することで遥かに柔軟になっており、実質ES6で書けるのでストレスもほとんどない。</p><ul><li><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API/Using_Service_Workers" target="_blank" rel="noopener">Service Workerの利用について - Web API インターフェイス | MDN</a></li></ul><p>導入にあたって現時点での仕様とサンプルを調べたが、GoogleやMozillaなどブラウザベンダが提供してるものが質と信頼性が高いと思われるので、ここのみに視野を絞り参考にした。</p><ul><li><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker" target="_blank" rel="noopener">samples/service-worker at gh-pages · GoogleChrome/samples</a></li><li><a href="https://serviceworke.rs/" target="_blank" rel="noopener">ServiceWorker Cookbook</a></li></ul><p>また下記記事も実践的な考え方の参考になった。</p><ul><li><a href="http://www.html5rocks.com/ja/tutorials/service-worker/introduction/" target="_blank" rel="noopener">Service Worker の紹介: Service Worker の使い方 - HTML5 Rocks</a></li></ul><p>レスポンシブイメージは低解像度のpngとwebpをキャッシュさせれば十分であろう。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;オフラインファーストで実装を試みるべく、ServiceWorkerを導入した。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://offlinefirst.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Offline First!&lt;/a&gt;
+      
+    
+    </summary>
+    
     
   </entry>
   
