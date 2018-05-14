@@ -77,44 +77,27 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-10T11:03:31.000Z">
-                    2015-08-10
+                <time class="article__header__meta__time" datetime="2015-09-11T15:20:11.000Z">
+                    2015-09-12
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/10/Windows10へVagrantを導入.html">Windows10へVagrantを導入</a>
+            <a href="/2015/09/12/Nodeサイトの多言語化.html">Nodeサイトの多言語化</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
-<h2 id="事前作業"><a href="#事前作業" class="headerlink" title="事前作業"></a>事前作業</h2><h3 id="Virtualization-Technologyを有効にする"><a href="#Virtualization-Technologyを有効にする" class="headerlink" title="Virtualization Technologyを有効にする"></a>Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
-<h3 id="Vagrant、VirtualBoxをインストール"><a href="#Vagrant、VirtualBoxをインストール" class="headerlink" title="Vagrant、VirtualBoxをインストール"></a>Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
-<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" rel="noopener">http://www.vagrantup.com/</a>  </p>
-<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a>  </p>
-<h3 id="BOXを取得"><a href="#BOXを取得" class="headerlink" title="BOXを取得"></a>BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
-<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" rel="noopener">http://www.vagrantbox.es/</a>  </p>
-<h3 id="CentOS-6-6-64bit-を追加"><a href="#CentOS-6-6-64bit-を追加" class="headerlink" title="CentOS 6.6 64bit を追加"></a>CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.6 http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-6.6-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
-<h3 id="追加したBoxを確認"><a href="#追加したBoxを確認" class="headerlink" title="追加したBoxを確認"></a>追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
-<h2 id="Vagrant-初期化"><a href="#Vagrant-初期化" class="headerlink" title="Vagrant 初期化"></a>Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.6</span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンの操作"><a href="#仮想マシンの操作" class="headerlink" title="仮想マシンの操作"></a>仮想マシンの操作</h2><h3 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
-<h3 id="状態確認"><a href="#状態確認" class="headerlink" title="状態確認"></a>状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
-<h3 id="終了"><a href="#終了" class="headerlink" title="終了"></a>終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
-<h3 id="再起動"><a href="#再起動" class="headerlink" title="再起動"></a>再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
-<h3 id="破棄"><a href="#破棄" class="headerlink" title="破棄"></a>破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
-<h2 id="仮想マシンへ接続"><a href="#仮想マシンへ接続" class="headerlink" title="仮想マシンへ接続"></a>仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
-<h3 id="git-インストール"><a href="#git-インストール" class="headerlink" title="git インストール"></a>git インストール</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum -y install git</span></span><br></pre></td></tr></table></figure>
-<h3 id="Node-js-インストール"><a href="#Node-js-インストール" class="headerlink" title="Node.js インストール"></a>Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install 0.12</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
-<h3 id="ファイアーウォールを停止"><a href="#ファイアーウォールを停止" class="headerlink" title="ファイアーウォールを停止"></a>ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
-<h3 id="雑感"><a href="#雑感" class="headerlink" title="雑感"></a>雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
+	    <p>Node.jsで構築したサイトを多言語化したいので、ちょっとだけググってみた。</p>
+<ul>
+<li><a href="http://qiita.com/sassy_watson/items/25b6364d428c7e7ee708" target="_blank" rel="noopener">JavaScript - HTMLでの国際化(i18nextとl10n.js) - Qiita</a></li>
+</ul>
+<p>多言語対応のjsライブラリを紹介している記事。<br><a href="http://i18next.com/" target="_blank" rel="noopener">i18next</a>と<a href="https://github.com/eligrey/l10n.js/" target="_blank" rel="noopener">l10n.js</a>という二つを紹介しながら、主にフロントの実装について書いてある。</p>
+<p>今のアプリに実装するならばサーバーサイドで行うと思われるが、大体の手法は同一であろう。<br>本格的に作る際にもっと詳しく調べていく予定。</p>
 
 	    
 	</div>
@@ -123,9 +106,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Windows/">#Windows</a>
-	
-	<a href="/tags/Vagrant/">#Vagrant</a>
+	<a href="/tags/i18n/">#i18n</a>
 	
 </div>
 
@@ -139,38 +120,33 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-05T11:37:01.000Z">
-                    2015-08-05
+                <time class="article__header__meta__time" datetime="2015-09-10T15:32:31.000Z">
+                    2015-09-11
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/05/CSS-wii-change.html">CSS wii-change</a>
+            <a href="/2015/09/11/MongoDBのバックアップ思案.html">MongoDBのバックアップ思案</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
-<ul>
-<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" rel="noopener">CSS will-changeプロパティについて知っておくべきこと</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">will-change</span>: <span class="selector-tag">transform</span>;</span><br></pre></td></tr></table></figure>
-<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
-<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
-<ul>
-<li><a href="http://caniuse.com/#feat=will-change" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
-<p>その他参考記事</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" rel="noopener">will-change - CSS | MDN</a></li>
-<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" rel="noopener">will-change | CSS-Tricks</a></li>
-<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" rel="noopener">CSS Will Change Module Level 1 日本語訳</a></li>
-</ul>
+	    <p>MongoDBをバックアップし、リストアまで行いたい。</p>
+<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" rel="noopener">第11回　MongoDBのバックアップ：MongoDBでゆるふわDB体験｜gihyo.jp … 技術評論社</a></p>
+<h2 id="バックアップ"><a href="#バックアップ" class="headerlink" title="バックアップ"></a>バックアップ</h2><p>起動中のMongoのバックアップには<code>mongodump</code>が一般的のよう。<br>小規模ならこれで十分か。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongodump/" target="_blank" rel="noopener">mongodump — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongodump --out /opt/backup/mongodump_20150911</span><br></pre></td></tr></table></figure>
+<p><code>out</code>オプションで保存先を指定できる。指定しなかったらカレントディレクトへ。<br>そのなかにデータベースごとのダンプファイルを作成してくれる。</p>
+<h2 id="リストア"><a href="#リストア" class="headerlink" title="リストア"></a>リストア</h2><p>リストアは<code>mongorestore</code>で。</p>
+<p><a href="http://docs.mongodb.org/manual/reference/program/mongorestore/" target="_blank" rel="noopener">mongorestore — MongoDB Manual 3.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mongorestore /tmp/path -d name</span></span><br></pre></td></tr></table></figure>
+<p>でデータベースを指定</p>
+<p>とりあえず上の方法で手動でのバックアップ&amp;リストアは問題なく、軽快にできた。<br>今後は自動化していきたい。</p>
 
 	    
 	</div>
@@ -179,7 +155,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/CSS/">#CSS</a>
+	<a href="/tags/MongoDB/">#MongoDB</a>
 	
 </div>
 
@@ -193,30 +169,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-06-11T11:36:08.000Z">
-                    2015-06-11
+                <time class="article__header__meta__time" datetime="2015-09-09T13:29:39.000Z">
+                    2015-09-09
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/06/11/npm-check-updates.html">npm-check-updates</a>
+            <a href="/2015/09/09/Node-js-4-0.html">Node.js 4.0</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" rel="noopener">npm-check-updates</a>が便利という発見。</p>
-<p>モジュールのリリース情報を確認して、必要ならば更新というくだりは難儀。<br><code>npm outdated</code>してpackage.jsonを書き換えて<code>npm install</code>を行うのが通常の流れであるが、回数を重ねるとこれを行うのがおっくうになってくる。</p>
-<p>npm-check-updatesはこのへんの手間を省いてくれる。</p>
-<p>今回はコマンドが短くてよりよさげな開発版をインストール。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates@unstable</span><br></pre></td></tr></table></figure>
-<p>これで更新確認から実行まで3ステップで行える。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新を確認</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> package.jsonを更新</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu -u</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新を実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
-<p>フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。</p>
-<p>マイナーバージョンアップであればあまり後先考えずガンガン上げていきたい性分なので、その作業の簡略化ができ素晴らしい。</p>
+	    <p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
+<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" rel="noopener">Node v4.0.0 (Stable) | Node.js</a></p>
+<p>問題なく<code>nvm install 4.0</code>でインスコできるよう。</p>
+<p>Arrow Functionが解禁になったので、これも少しずつ書き換えていきたい。</p>
+<p>あとはletとconstの使い分け。基本constでいこうと思うけど、どうだろう。</p>
 
 	    
 	</div>
@@ -225,7 +197,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/npm/">#npm</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -239,41 +211,52 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-25T11:28:08.000Z">
-                    2015-05-25
+                <time class="article__header__meta__time" datetime="2015-09-07T12:05:05.000Z">
+                    2015-09-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/25/gulp-imagemin.html">gulp-imagemin</a>
+            <a href="/2015/09/07/Grid.html">Grid</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>gulp-imageminで画像の最適化を突き詰める。</p>
-<p><a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="noopener">sindresorhus/gulp-imagemin</a></p>
-<h2 id="標準API"><a href="#標準API" class="headerlink" title="標準API"></a>標準API</h2><ul>
-<li>gifsicle</li>
-<li>jpegtran</li>
-<li>optipng</li>
-<li>svgo</li>
+	    <p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
+<ul>
+<li><a href="http://photoshopvip.net/archives/81206" target="_blank" rel="noopener">最新Webトレンド「カード型デザイン」を取り入れるべき、効果的な4つの理由 - PhotoshopVIP</a></li>
 </ul>
-<p>gif、jpeg、png、svgと主要なフォーマットは標準搭載されているので、導入後すぐに試すことができる。</p>
-<h2 id="拡張モジュール"><a href="#拡張モジュール" class="headerlink" title="拡張モジュール"></a>拡張モジュール</h2><ul>
-<li><a href="https://github.com/imagemin/imagemin-webp" target="_blank" rel="noopener">webp</a></li>
-<li><a href="https://github.com/imagemin/imagemin-advpng" target="_blank" rel="noopener">advpng</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">pngquant</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngout" target="_blank" rel="noopener">pngout</a></li>
-<li><a href="https://github.com/imagemin/imagemin-pngcrush" target="_blank" rel="noopener">pngcrush</a></li>
-<li><a href="https://github.com/imagemin/imagemin-mozjpeg" target="_blank" rel="noopener">mozjpeg</a></li>
-<li><a href="https://github.com/imagemin/imagemin-jpegoptim" target="_blank" rel="noopener">jpegoptim</a></li>
+<p>ポイントは</p>
+<ul>
+<li>IAの作成</li>
+<li>UXの工場</li>
+<li>普遍性</li>
 </ul>
-<p>拡張モジュールを用いることも可能。<br>webpなども最適化することができる。<br>全てを試してはいないが、pngquantやmozjpegは標準搭載のそれよりも圧縮効率がいい。</p>
-<p>ただ、モジュールがでかくてインストールに時間がかかる。<br>各プロジェクトにこれを導入していくと、なぜか申し訳ない気持ちになってくる。</p>
+<p>の3点。</p>
+<p>この手のデザインは割とまえからある気がするが、スマホデバイスとの親和性と相まって地位を確立した感じであろうか。</p>
+<h2 id="CSS-Grid-Layouts"><a href="#CSS-Grid-Layouts" class="headerlink" title="CSS Grid Layouts"></a>CSS Grid Layouts</h2><p>今後がっつりとしたグリッドデザインをマークアップするのであれば、<code>display: grid</code>を使用したい。</p>
+<ul>
+<li><a href="https://medium.com/@patrickbrosset/css-grid-layout-6c9cba6e8a5a" target="_blank" rel="noopener">The future of layout with CSS: Grid Layouts — Medium</a></li>
+</ul>
+<p>CSSグリッドを使用した実装。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; <span class="attribute">display</span>: grid; &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-grid" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>各ブラウザベンダーの対応はまだまだこれから。IEも先行実装したものの使用が変わっていき、互換性が怪しいらしい。<br>とりあえずDemoを作ってみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/css-grid-layout/" target="_blank" rel="noopener">CSS Grid Layout - Playground</a></li>
+</ul>
+<p>ie11とEdgeで動作を確認。<br>他のブラウザではDivの羅列となったので導入するのであればPolyfillは必須のよう。</p>
+<ul>
+<li><a href="https://github.com/FremyCompany/css-grid-polyfill" target="_blank" rel="noopener">FremyCompany/css-grid-polyfill</a></li>
+</ul>
+<p>Polyfillはコレ。Demoもあるし</p>
+<p>かなり容易に複雑なグリッドレイアウトを作れるし、レスポンシブ化も簡潔に書けそう。<br>早く使いたいので各ベンダの今後の動向を見たい。現時点では未対応環境が多すぎるし、上記Polyfill内でもプロダクションへの導入は慎重にと言及されている。<br>でもFirefoxが対応したらPolyfillかましてどこかで使うかも。</p>
 
 	    
 	</div>
@@ -290,26 +273,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-21T11:24:23.000Z">
-                    2015-05-21
+                <time class="article__header__meta__time" datetime="2015-09-07T11:03:17.000Z">
+                    2015-09-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/21/Style-Guide-Boilerplate.html">Style Guide Boilerplate</a>
+            <a href="/2015/09/07/Prefitch.html">Prefitch</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Style Guide Boilerplateがいい感じ。</p>
+	    <p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
+<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" rel="noopener">HTML5 Prefetch — Medium</a></p>
+<p>対応ブラウザやテスト方法など、かなり詳しく解説している記事。</p>
+<p>種類は主に以下の四つがあるよう。</p>
 <ul>
-<li><a href="http://bjankord.github.io/Style-Guide-Boilerplate/" target="_blank" rel="noopener">bjankord/Style-Guide-Boilerplate</a></li>
+<li>dns-prefetch – ドメインの名前解決</li>
+<li>subresource – 現在のページで使用するファイルをキャッシュ</li>
+<li>prefetch – 後続のページで使用するファイルをキャッシュ</li>
+<li>prerender – バックグラウンドでレンダリングまで行う</li>
 </ul>
-<p>DoccoとかKSSとか、ジェネレーターを使った運用を目指していたが、生成するドキュメントがいまいちシンプルさに欠け、結局自前で書いていたが、こーゆーのが今回はマッチしそう。</p>
+<p>今回は<code>prefetch</code>を試してみた。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">”prefetch”</span> <span class="attr">href</span>=<span class="string">”/js/example.js”</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>効果のほどは今後検証していく。</p>
 
 	    
 	</div>

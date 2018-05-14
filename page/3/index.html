@@ -77,41 +77,23 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-17T10:32:19.000Z">
-                    2016-02-17
+                <time class="article__header__meta__time" datetime="2017-03-04T10:51:54.000Z">
+                    2017-03-04
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/17/LetsEncryptとhttp2とNodeと.html">LetsEncryptとhttp2とNodeと</a>
+            <a href="/2017/03/04/Wordpressとlazysizes.html">Wordpressとlazysizes</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>CloudFlare を利用してTLS化していたサイトを、Let’s Encrypt へ移行した。</p>
-<p>参考にした記事ではWebroot プラグインを使用し、サーバーを停止せずに行う手法が多数でしたが、僕の環境（Node.js）だと少しハマったのでStandalone で取得を行った。</p>
-<p>まずはCloudFlare を停止し、Aレコードを直接サーバーへ設定。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitで取得</span></span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/letsencrypt/letsencrypt /opt/letsencrypt</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を停止</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 80番ポートが塞がれていないかチャック</span></span><br><span class="line">$ netstat -na | grep <span class="string">':80.*LISTEN'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Let<span class="string">' sencrypt フォルダへ移動</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /opt/letsencrypt</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Stndalone プラグインを実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./letsencrypt-auto certonly --standalone</span></span><br></pre></td></tr></table></figure>
-<p>情報を入力し規約に同意して完了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ls /etc/letsencrypt/live/your_domain_nam</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
-<p>導入のさいに参考となった文献は以下など。</p>
-<ul>
-<li><a href="http://qiita.com/sak_2/items/ff835b669c0a7e110b09" target="_blank" rel="noopener">光の速さのWEBサーバー(nginx)をlet’s encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita</a></li>
-<li><a href="http://inside.pixiv.net/entry/2015/12/10/153114" target="_blank" rel="noopener">Let’s EncryptとnginxでHTTP/2サーバを立てる - pixiv inside</a></li>
-<li><a href="http://aeas44.tumblr.com/post/138777257395/centos-7-%E3%81%AE-nginx-%E3%81%B8%E3%81%AE-lets-encrypt-%E3%81%AE%E5%B0%8E%E5%85%A5" target="_blank" rel="noopener">aeas44 — CentOS 7 の Nginx への Let’s Encrypt の導入</a></li>
-<li><a href="https://blog.ymyzk.com/2016/02/nginx-config-for-lets-encrypt/" target="_blank" rel="noopener">Let’s Encrypt で証明書を発行して運用するための nginx の設定 - 意識低い開発者のBlog</a></li>
-<li><a href="http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/" target="_blank" rel="noopener">Hardening node.js for production part 2: using nginx to avoid node.js load | Arg! Team Blog</a></li>
-<li><a href="https://gist.github.com/vodolaz095/8373960" target="_blank" rel="noopener">NGINX Config for nodejs application with nginx serving assets and socket.io support</a></li>
-</ul>
-<p>また、証明書の更新は以下の手順で行う。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nginxを停止(80番ポートを開ける)</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">$ ./letsencrypt-auto renew</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginxを起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+	    <p>Wordpressの記事内の画像読み込みを遅延化したい。<br>少し調べてみたところ、以下の記事が参考になった。<br>方法はいくつかあるようなので…少し吟味が必要である。</p>
+<p><a href="http://codingmemos.hatenablog.com/entry/2016/09/28/100651" target="_blank" rel="noopener">wordpressにおけるレスポンシブイメージに対するlazyload対策 - Coding Memos</a><br><a href="https://github.com/aFarkas/wp-lazysizes" target="_blank" rel="noopener">aFarkas/wp-lazysizes: Brings lazySizes.js to WordPress</a></p>
 
 	    
 	</div>
@@ -128,38 +110,28 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-14T10:30:40.000Z">
-                    2016-02-14
+                <time class="article__header__meta__time" datetime="2016-12-19T10:48:27.000Z">
+                    2016-12-19
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/14/NAS.html">NAS</a>
+            <a href="/2016/12/19/ConohaVPS(CentOS7)へWordpressを導入.html">Conoha VPS(CentOS7)へ Wordpressを導入</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>メディアサーバーとして使用しているNASのハードディスクを交換した。</p>
+	    <p>Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。</p>
 <ul>
-<li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | データ復旧のパソコンサポートやまもと</a></li>
+<li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li>
+<li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li>
+<li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li>
 </ul>
-<p>交換用HDは上記にてオススメされているものを購入した。</p>
-<p>なんか交換&amp;再構築中も本体のライトがピカピカ光る。とりあえず心配になったら下記にてエラーコードを解読するもののなす術はなく、時間がたったら解決した。</p>
-<ul>
-<li><a href="http://faq.buffalo.jp/app/answers/detail/a_id/15199" target="_blank" rel="noopener">エラーコード、インフォメーションコードの意味がわかりません(LS-WXBL/R1) - アンサー詳細 | BUFFALO バッファロー</a></li>
-</ul>
-<ol>
-<li>ハードディスクを交換</li>
-<li>NAS再起動</li>
-<li>PCのネットワーク上にきちんと認識されるまで待つ（ネットサーフィンでもしといた方がいい）</li>
-<li>認識されたらWeb設定画面からエラーが出ているハードディスクを選択し、アレイを再構築</li>
-<li>再構築が開始されるので、5時間ぐらい待つ（寝た方がいい）</li>
-</ol>
-<p>今回はこのような流れであった。<br>時間は待ち時間がかかるので、次回は家で何か作業を行う日に午前ぐらいから並行して行いたい。</p>
+<p>用意されているテンプレートを活用できれば手軽で早そうである。</p>
 
 	    
 	</div>
@@ -176,23 +148,117 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-14T10:26:20.000Z">
-                    2016-02-14
+                <time class="article__header__meta__time" datetime="2016-03-25T10:44:47.000Z">
+                    2016-03-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/14/imagemin.html">imagemin</a>
+            <a href="/2016/03/25/Subversion.html">Subversion</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>画像圧縮のgulpタスクをプロジェクトごとに組み込むのは難儀なので、コマンドラインからさくっと行えるようにしたい。</p>
-<p>それを最終目標として、とりあえずgulpを使わない画像圧縮専用のプロジェクトを作り、それを共同で利用ししばらく運用してみたい。<br>現時点でイメージしているのは、<a href="https://github.com/imagemin/imagemin" target="_blank" rel="noopener">imagemin</a>を直接叩く方法である。<br>これを後々はCLIから操作できるようにすれば…と考えている。</p>
+	    <p>最近、Subversionを採用しているプロジェクトに携わっている。<br>今までGit しか使ったことがないにわかなので、とりあえずGit との文化や考え方の違いを色々感じている。</p>
+<ul>
+<li><a href="http://tracpath.com/bootcamp/learning_subversion.html" target="_blank" rel="noopener">Subversion の基礎勉強 ~ Subversion によるバージョン管理 ~ — バージョン管理システム入門(初心者向け)</a></li>
+<li><a href="https://osdn.jp/svn/" target="_blank" rel="noopener">Subversion（svn）によるソフトウェア開発を始めよう - OSDN</a></li>
+<li><a href="http://qiita.com/mountcedar/items/e756bb9136e3b1722bb2" target="_blank" rel="noopener">今更聞けないSubversionの使い方 - Qiita</a></li>
+</ul>
+<p>今のところは、ちょっと難儀じゃのう…という印象である。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-03-17T10:41:57.000Z">
+                    2016-03-17
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/03/17/oghliner.html">oghliner</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。</p>
+<ul>
+<li><a href="https://mozilla.github.io/oghliner/" target="_blank" rel="noopener">Oghliner</a></li>
+</ul>
+<p>まずはモジュールをインストール。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install oghliner -g</span><br></pre></td></tr></table></figure>
+<p>もしくはプロジェクトごとにインストールも可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ oghliner bootstrap</span><br></pre></td></tr></table></figure>
+<p>実行するとconfigurationを聞かれる。<br>後からでも変更できるのでとりあえず初期値で実行。</p>
+<p>これにより、さくっとオフライン対応のGithubPageを作成できる。<br>類似ツールと比較して、利点などを確認していきたい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-28T10:40:43.000Z">
+                    2016-02-28
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/28/cssfont-display-font-face.html">css font-display @font-face</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Firfox の開発版で css font-display がフラグ付きで有効になったようなので試してみた。</p>
+<ul>
+<li><a href="https://tabatkins.github.io/specs/css-font-display/" target="_blank" rel="noopener">CSS Font Rendering Controls Module Level 1</a></li>
+</ul>
+<p>まずはフラグを有効にする。</p>
+<p>FIrefox のアドレス欄へ<code>about:config</code>と入力し、設定画面を開く。<br>そこで<code>layout.css.font-display.enabled</code>を検索し、値を<code>true</code>へ。これで機能が有効となる。</p>
+<p>Chrome の開発版ではすでに導入されているらしく、下記記事が非常に参考になった。</p>
+<ul>
+<li><a href="https://blog.srytk.com/aquei/50.html" target="_blank" rel="noopener">@font-face(CSS)のfont-displayプロパティがChrome Canaryに来た – 阿Q論</a></li>
+</ul>
+<p>やはりFOUTをネイティブの機能で解決することが期待されるよう。<br>今までは主に Web Font Loader を導入したり、 あと Adobe Blank なんてのもあった気が…。<br>とにかく涙ぐむしい努力をしてきたので人類にとって、これは待望の機能かなと。</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157064" target="_blank" rel="noopener">1157064 – experimental implementation of font-display CSS @font-face descriptor</a></li>
+</ul>
+<p>現時点での実装はスペックの推奨通りでクロームと同様のよう。<br>設定値は<code>fallback</code>がベストで、妥協して<code>block</code>といった感じだろうか。パフォーマンスとユーザビリティの両方にバランスよく配慮できそうである。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Waiting for the Sunrise'</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: fallback;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">local</span>(<span class="string">'Waiting for the Sunrise'</span>), <span class="built_in">local</span>(<span class="string">'WaitingfortheSunrise'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>その他の値も少しの違いながら明確に用途がわかれそうなので、なかなかよくできている感じ。<br><code>will-change</code>のように必要そうな部分へは先行導入しておき、ブラウザの対応を待ってもいいかと。</p>
 
 	    
 	</div>
@@ -201,95 +267,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-13T10:23:37.000Z">
-                    2016-02-13
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2016/02/13/APIBlueprint.html">API Blueprint</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>APIドキュメントを作成したい。</p>
-<p>こーゆーのは作りっぱなしじゃなくて、内容を常時最新に保つことで意味を持つのでやはりツールを使いたい。<br>そこで軽く調査してみたところ、API Blueprintというツールがよく目に入った。</p>
-<ul>
-<li><a href="https://apiblueprint.org/" target="_blank" rel="noopener">API Blueprint | API Blueprint</a></li>
-<li><a href="http://qiita.com/taizo/items/0181f5ea641e2f91d0a5" target="_blank" rel="noopener">APIドキュメントを生成するためのMarkdown拡張API BluePrintとその周辺のライブラリ - Qiita</a></li>
-<li><a href="http://imamotty.hatenablog.jp/entry/2015/01/18/033222" target="_blank" rel="noopener">API Blueprintとgulp-aglioでいい感じのAPIドキュメントページを作成 - Front-end beginner’s luck</a></li>
-<li><a href="http://blog.hde.co.jp/entry/2015/01/16/152729" target="_blank" rel="noopener">APIの仕様をMarkdownで定義する - HDE BLOG</a></li>
-</ul>
-<p>この記事も面白い。</p>
-<ul>
-<li><a href="http://www.infoq.com/jp/news/2015/06/api-blueprint-progress" target="_blank" rel="noopener">API Blueprint創始者が語るAPIの進歩</a></li>
-</ul>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-06T10:22:23.000Z">
-                    2016-02-06
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2016/02/06/assets-webpack-plugin.html">assets-webpack-plugin</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Webpackでビルドした成果物のキャッシュバストを自動化したいので、assets-webpack-plugin を導入した。</p>
-<ul>
-<li><a href="https://github.com/sporto/assets-webpack-plugin" target="_blank" rel="noopener">sporto/assets-webpack-plugin: Webpack plugin that emits a json file with assets paths</a></li>
-</ul>
-<p>サンプル通り行うと<code>[name]-bundle-[hash].js</code> というネーミングでファイルが生成される。<br>これでももちろん問題はないのだが、なんとなく今までの慣例でファイル名の後ろにパラメータを付与した方法をとりたい。</p>
-<p>そこでoutput の設定を以下のようにした。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js?[hash]'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].chunk.js?[hash]'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>これで成果物のファイル名は通常のままで、同時に排出される assets.json へクエリを付与したフルパスが記述される。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/CSS/">#CSS</a>
 	
 </div>
 

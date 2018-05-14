@@ -77,33 +77,168 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T15:20:15.000Z">
-                    2015-09-19
+                <time class="article__header__meta__time" datetime="2015-10-03T12:25:37.000Z">
+                    2015-10-03
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/19/知っておくといいNode-jsの７つの事.html">知っておくといいNode.jsの７つの事</a>
+            <a href="/2015/10/03/wysiwyg.html">wysiwyg</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>読んだ。</p>
-<p><a href="https://medium.com/@c2c/my-7-node-js-mantras-edd6c148e8dc" target="_blank" rel="noopener">My 7 Node.js mantras — Medium</a></p>
-<ol>
-<li>Promise使え！</li>
-<li>ES6、いいよ！</li>
-<li>セマンティックバージョンには気を付けろ！</li>
-<li>使っているモジュールを読み解け！</li>
-<li>ユニットテスト書こう！</li>
-<li>俺たちはV8と共に生きている！</li>
-<li>ESLint使おうぜ！</li>
-</ol>
-<p>ってことでしょうか。</p>
+	    <p>Webアプリ内にてwysiwygを導入したい。</p>
+<ul>
+<li><a href="https://github.com/cheeaun/mooeditable/wiki/Javascript-WYSIWYG-editors" target="_blank" rel="noopener">Javascript WYSIWYG editors · cheeaun/mooeditable Wiki</a></li>
+</ul>
+<p>上記リストがよくまとまっており、大いに参考なった。<br>今回jQuery先生は極力使いたくないので、最初である程度候補は絞られる。  </p>
+<p>とりあえずその中から<a href="http://wysiwygjs.github.io/" target="_blank" rel="noopener">wysiwyg.js</a>を試してみる方針。<br>オンラインデモを触っている分にはいい感じで、ドキュメントもそこそこ整理されていて扱いやすそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-30T11:23:07.000Z">
+                    2015-09-30
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/30/SoyCMSをConohaへ.html">SoyCMSをConohaへ</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>壊滅状態のNAUTILUSのサイトをそろそろ復活させるべく、重い腰を上げた。  </p>
+<p>当時ロリポップで運用していたのだが、インフラにこだわりはじめサーバー引っ越しを繰り返す中でいつしかトップページ以外開かないといった状態へと変貌を遂げた。<br>というのもXserverへの引っ越しはスムーズに行ったものの、その後のVPSへの移行はハマリどことが多く、面倒になってしまったのだ。  </p>
+<p>今回復活にあたって参考になったペーシ一覧。</p>
+<ul>
+<li><a href="http://www.soycms.net/" target="_blank" rel="noopener">SOY CMS 公式サイト</a></li>
+<li><a href="http://support.kagoya.jp/manual/soy/site.html" target="_blank" rel="noopener">SOY CMS インストール - KAGOYA Internet Routing</a></li>
+<li><a href="http://www.soycms.org/viewtopic.php?f=6&amp;t=639" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - ミニム　レンタルサーバー動作検証しました</a></li>
+<li><a href="http://www.soycms.org/viewtopic.php?f=7&amp;t=412" target="_blank" rel="noopener">SOY CMS フォーラム • トピックの表示 - 他サイトラベルブロックについて</a></li>
+</ul>
+<p>パーミッションの設定と、一部のPHPモジュールのインストールで現状問題なく動作している様子。  </p>
+<p>そもそもこのサイトのためだけにApacheとPHPインストールするのもな～と思い、いっそ内部をNodeで書き換えようかとも思ったが、改めて見てみると記事の量も結構多いからそれはそれで遠回りになりそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Conoha/">#Conoha</a>
+	
+	<a href="/tags/SoyCMS/">#SoyCMS</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-28T11:20:49.000Z">
+                    2015-09-28
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/28/MongoDB-unset.html">MongoDB $unset</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>MongoDBで特定のドキュメントの特定のフィールドを削除するには<code>$unset</code>を使えばスマートらしい。</p>
+<ul>
+<li><a href="http://docs.mongodb.org/manual/reference/operator/update/unset/" target="_blank" rel="noopener">$unset — MongoDB Manual 3.0</a></li>
+</ul>
+<p>これはMongoDB2からの機能で、それ以前は<code>undefined</code>や<code>null</code>を入れて対応していたらしい。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">field</span>: <span class="literal">undefined</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>昔はこうだったのが…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.collection.update(&#123;<span class="attr">_id</span>: user._id&#125;, &#123;<span class="attr">$unset</span>: &#123;<span class="attr">field</span>: <span class="number">1</span> &#125;&#125;);</span><br></pre></td></tr></table></figure>
+<p>こうらしい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/MongoDB/">#MongoDB</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-26T16:16:32.000Z">
+                    2015-09-27
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/27/Nunjucks.html">Nunjucks</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>愛用していたテンプレートエンジンである<a href="http://paularmstrong.github.io/swig/" target="_blank" rel="noopener">Swig</a>が残念ながら開発終了となっていたので、Nunjucksへ引っ越しをした。</p>
+<ul>
+<li><a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noopener">Nunjucks</a></li>
+</ul>
+<p>これはSwigの作者が代替として<a href="https://github.com/paularmstrong/swig/issues/628" target="_blank" rel="noopener">推薦</a>しているMozillaのプロジェクトで、構文が類似しており乗り換えも用意であった。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends "base.html" %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block header %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#123;% for name, item in items %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; name &#125;&#125;: &#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>Swigと比較してドキュメントも見やすく、機能も充実、パフォーマンスも良好である。Swigはif条件式を埋め込む際に何故かelseをサポートしておらず、やや冗長な記述を強いられていたが、Nunjucksは当然対応しており見渡しが良くなった。</p>
+<p><a href="http://jinja.pocoo.org/" target="_blank" rel="noopener">Jijja2</a>というPythonのテンプレートエンジンの影響を受けているらしく、ドキュメントもちょくちょくJinja2のドキュメントに飛ばされたり、issueを眺めていてもJinja2の機能を基準に実装を決めている節があり、謎のJinja愛がほほえましかった。</p>
 
 	    
 	</div>
@@ -126,36 +261,27 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T12:39:58.000Z">
-                    2015-09-18
+                <time class="article__header__meta__time" datetime="2015-09-24T15:59:32.000Z">
+                    2015-09-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/18/Yamlを学ぶ.html">Yamlを学ぶ</a>
+            <a href="/2015/09/25/Koaでファイルアップローダー.html">Koaでファイルアップローダー</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>AnsibleのPlaybookはYamlで書かなければならない。<br>見よう見まねで動くコードは結構書けるが、インフラにかかわる技術なのできちんと学んだほうがよいだろう。</p>
+	    <p>Koaアプリケーションにファイルアップローダーを実装した。</p>
 <ul>
-<li><a href="http://yaml.org/" target="_blank" rel="noopener">The Official YAML Web Site</a></li>
-<li><a href="https://ja.wikipedia.org/wiki/YAML" target="_blank" rel="noopener">YAML - Wikipedia</a></li>
+<li><a href="https://github.com/cojs/busboy" target="_blank" rel="noopener">cojs/busboy</a></li>
 </ul>
-<p>こういうときにWikipediaで概要をさくっと理解するのは効率がいいと思った。</p>
-<ul>
-<li><a href="http://blog.n-z.jp/blog/2014-06-21-ansible-yaml.html" target="_blank" rel="noopener">ansible使いのためのYAML入門 - @znz blog</a></li>
-</ul>
-<p>とりあえずAnsible用途限定で学ぶならここで</p>
-<ul>
-<li><a href="http://magazine.rubyist.net/?0009-YAML" target="_blank" rel="noopener">Rubyist Magazine - プログラマーのための YAML 入門 (初級編)</a></li>
-</ul>
-<p>本格的にアプリケーションへ導入したいのであればここかと。  </p>
-<p>少し触ってみた感触ではXMLよりは簡潔に書けて、JSONよりは設定ファイルに向いていそう。コメントも書ける。</p>
+<p>モジュールは例によって<a href="https://github.com/mscdex/busboy" target="_blank" rel="noopener">busboy</a>をcoでラップしたco-busboyを使用。  </p>
+<p>アップローダーはなかなか奥が深くて面白そうなので、機会があったら他のモジュールも試してみたい。去年のNode学園祭でGuillermoが紹介していたPartyは何処へいったんだろう…。</p>
 
 	    
 	</div>
@@ -164,200 +290,12 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Ansible/">#Ansible</a>
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/Koa/">#Koa</a>
 	
 </div>
 
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-18T11:35:34.000Z">
-                    2015-09-18
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/18/Ansible.html">Ansible</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Vagrant上への開発環境の構築をAnsibleを利用したい。</p>
-<ul>
-<li><a href="http://www.ansible.com/" target="_blank" rel="noopener">Ansible is Simple IT Automation</a></li>
-<li><a href="http://docs.ansible.com/" target="_blank" rel="noopener">Ansible Documentation</a></li>
-</ul>
-<p>公式とドキュメント。</p>
-<ul>
-<li><a href="http://qiita.com/ArimaRyunosuke/items/1f9d840311584d8160bc" target="_blank" rel="noopener">Ansible 入門 - Qiita</a></li>
-<li><a href="http://knowledge.sakura.ad.jp/tech/3124/" target="_blank" rel="noopener">エージェントレスでシンプルな構成管理ツール「Ansible」入門 - さくらのナレッジ</a></li>
-</ul>
-<p>このへんに目を通せばだいたい使えそう。<br>ドットインストールの<a href="http://dotinstall.com/lessons/basic_ansible" target="_blank" rel="noopener">Ansible入門</a>は有料化しちゃったのね…。</p>
-<p>冪等性は英語でidempotenceということを学んだ。</p>
-<ul>
-<li><a href="http://www.moyashi-koubou.com/blog/vagrant_ansible_windows/" target="_blank" rel="noopener">WindowsでVagrantとAnsibleを使ってみた話 | もやし工房</a></li>
-<li><a href="http://qiita.com/kanagi/items/8b55c7c3b43777590993" target="_blank" rel="noopener">ansibleでnvmを管理する - Qiita</a></li>
-<li><a href="https://github.com/leonidas/ansible-nvm" target="_blank" rel="noopener">leonidas/ansible-nvm</a></li>
-<li><a href="https://gist.github.com/yu0819ki/731c92b62e603504fdb7" target="_blank" rel="noopener">Vagrant+Ansible+git-hooks+foreverでNodejsの開発環境作った話</a></li>
-<li><a href="http://d.hatena.ne.jp/akishin999/20130815/1376520672" target="_blank" rel="noopener">Ansible の Playbook を使ってみる - akishin999の日記</a></li>
-</ul>
-<p>この辺を参考にするとWindowsやNode.jsをからめたAnsile導入はだいたいできそうかと。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Vagrant/">#Vagrant</a>
-	
-	<a href="/tags/Ansible/">#Ansible</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-17T15:20:56.000Z">
-                    2015-09-18
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/18/位置情報の文字列化.html">位置情報の文字列化</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>取得した位置情報を文字列化し、URLやデータベースで利用したい。  </p>
-<p>主な選択肢は下記３つ</p>
-<ul>
-<li><a href="http://geohash.org/" target="_blank" rel="noopener">GeoHash</a></li>
-<li><a href="http://geogames.net/labs/geohex" target="_blank" rel="noopener">GeoHex</a></li>
-<li><a href="https://plus.codes/" target="_blank" rel="noopener">plus+codes</a></li>
-</ul>
-<p>現時点で十分に枯れていそうなのはGeoHashかなと。<br>GeoHexはかっこいいが、今回の利用用とではビジュアルは無関係なので。<br>plus+codesはGoogle公式というわけでもないようなので、今後の展開は未知数。</p>
-<p><a href="http://aligach.net/diary/20100821.html" target="_blank" rel="noopener">あーありがち - GeohashのグリッドをGoogle Maps上に再現するツール書いた</a></p>
-<p>古い記事だがやろうとしていることはほぼコレ。</p>
-<h2 id="URI設計の問題"><a href="#URI設計の問題" class="headerlink" title="URI設計の問題"></a>URI設計の問題</h2><p>クエリで渡すか、ハッシュで渡すか、階層へ盛り込むのもアリっちゃアリ。</p>
-<ul>
-<li><code>http://example.com?geo=xn3pvxy</code></li>
-<li><code>http://example.com#xn3pvxy</code></li>
-<li><code>http://example.com/xn3pvxy</code></li>
-</ul>
-<h2 id="ライブラリの選定"><a href="#ライブラリの選定" class="headerlink" title="ライブラリの選定"></a>ライブラリの選定</h2><p>経緯度とジオハッシュの相互変換にはライブラリを使用する。<br>下記の二つが候補として見つかった。</p>
-<ul>
-<li><a href="https://github.com/davetroy/geohash-js" target="_blank" rel="noopener">davetroy/geohash-js</a></li>
-<li><a href="https://github.com/chrisveness/latlon-geohash" target="_blank" rel="noopener">chrisveness/latlon-geohash</a></li>
-</ul>
-<p>開発が最近行われており、オプションにより制度の調整も行える<code>latlon-geohash</code>を採用した。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> latLon = Geohash.decode(geoHash);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`現在地の経度は<span class="subst">$&#123;latLon.lat&#125;</span>、緯度は<span class="subst">$&#123;latLon.lon&#125;</span>です。`</span>);</span><br></pre></td></tr></table></figure>
-<p>このように簡単にジオハッシュを経緯度へ変換できる。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> geoHash = Geohash.encode(latLon.lat, latLon.lon, <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
-<p>経緯度をジオハッシュ化する際に、3番目の引数で桁数（精度）を指定できる。<br>未指定でも経緯度から自動判別を行う。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Geohash/">#Geohash</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-13T15:38:44.000Z">
-                    2015-09-14
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/14/Webp-導入思案.html">Webp 導入思案</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Webpをさくっと導入できないか思案。</p>
-<ul>
-<li><a href="http://caniuse.com/#search=webp" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>取りあえず対応しているのはBlinkブラウザのみだが、モバイル対応へ重きを置くならば価値はありそう。</p>
-<ul>
-<li><a href="https://1000ch.net/posts/2015/introduction-to-webp.html" target="_blank" rel="noopener">【翻訳】Introduction to WebP - 1000ch.net</a></li>
-</ul>
-<p>Webpの概要と導入の際の未サポートブラウザへのフォールバック方法を解説。<br>記事内でも言及があるサーバーサイドでの実装が一番よさそうではある。</p>
-<ul>
-<li><a href="https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/" target="_blank" rel="noopener">Deploying WebP via Accept Content Negotiation - igvita.com</a></li>
-</ul>
-<p>しかしサクっとはできなさそうなので、フロントで実装したい。<br>とりあえず上記を参考に<code>&lt;picture&gt;</code>で試してみた。</p>
-<ul>
-<li><a href="http://ground.playr.jp/webp/" target="_blank" rel="noopener">Webp - Playground</a></li>
-</ul>
-<p>これは容易でとてもいい方法だと感じた。<br>しかし今回は<code>background-image</code>へのwebp導入を考えているので残念ながらこの方法は不可である。</p>
-<p>色々調べると‘@supports‘を利用した方法を発見。</p>
-<ul>
-<li><a href="https://andywalpole.me/#!/blog/142790/using-webp-image-format" target="_blank" rel="noopener">Using the WebP image format / blog unblock</a></li>
-</ul>
-<p><code>@supports</code>で機能が利用できるか確認し、分岐する手法が紹介されている。<br>筆者は最終的にModernizrを使用したようだが(そりゃそうだよな…)、今回このためにModernizr入れるのは本末転倒である。<br><code>@supports</code>面白そうだしカジュアルなのでコレを採用。</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@supports" target="_blank" rel="noopener">@supports - CSS | MDN</a></li>
-<li><a href="http://caniuse.com/#feat=css-featurequeries" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url("../img/bg.png");</span><br><span class="line">@<span class="keyword">supports</span> (background-image: -webkit-image-set(url(<span class="string">"../img/bg.webp"</span>) <span class="number">1</span>x)) &#123;</span><br><span class="line">  background-image: -webkit-image-set(url("../img/bg.webp") 1x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="http://caniuse.com/#feat=css-image-set" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>CSS4で提案されているimage-listはかなりよさそうである。</p>
-<ul>
-<li><a href="http://www.w3.org/TR/css4-images/" target="_blank" rel="noopener">CSS Image Values and Replaced Content Module Level 4</a></li>
-<li><a href="http://www.brucelawson.co.uk/2013/save-bandwidth-webp-with-fallback/" target="_blank" rel="noopener">Bruce Lawson’s personal site  : Save bandwidth with webP – soon with fallback!</a></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: images("../img/bg.webp", "../img/bg.png");</span><br></pre></td></tr></table></figure>
-<p>ただ現時点では対応しているブラウザはない様子。<br>現時点ではimage-setが一番よさそう。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
 	</footer>
     
 

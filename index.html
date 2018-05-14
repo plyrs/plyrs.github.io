@@ -77,34 +77,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2017-03-30T10:55:48.000Z">
-                    2017-03-30
+                <time class="article__header__meta__time" datetime="2018-04-24T16:24:47.000Z">
+                    2018-04-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2017/03/30/InstagramAPI.html">Instagram　API</a>
+            <a href="/2018/04/25/GithubPagesで独自ドメインを利用したサイトをHTTPS化.html">Github Pagesで独自ドメインを利用したサイトをHTTPS化</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Instagram APIを使用したフィード表示を実装してみた。</p>
-<p>参考文献は以下、情報は多々見つかった。</p>
-<ul>
-<li><a href="http://qiita.com/NoriakiOshita/items/71800502fca62d9ec685" target="_blank" rel="noopener">Instagram APIの利用方法 - Qiita</a></li>
-<li><a href="http://thisisstandarz.com/instagram%E3%81%AEuser-id%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">instagramのuser idを取得する方法</a></li>
-<li><a href="https://medium.com/@bkwebster/how-to-get-instagram-api-access-token-and-fix-your-broken-feed-c8ad470e3f02" target="_blank" rel="noopener">How to get Instagram API access token and fix your broken feed</a></li>
-<li><a href="http://qiita.com/takashings/items/f03eb9e2ba343878d287" target="_blank" rel="noopener">【保存版】Instagramの審査の流れ、手順、必要なものまとめ - Qiita</a></li>
-<li><a href="https://capotast.co.jp/article/detail/21/" target="_blank" rel="noopener">Instagram APIを使ってWEBサイトに写真を表示させてみよう｜株式会社カポタスト</a></li>
-<li><a href="http://qiita.com/uda0922/items/0c111d3e312b1dc5d6e8" target="_blank" rel="noopener">Instagram APIをPHPでさくっと使う - Qiita</a></li>
-</ul>
-<p>今回はPHPを開始実装を行った。<br>コードは代替、このような感じである。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$myAccessToken = <span class="string">'00000000000000000000'</span>;</span><br><span class="line">$user_id = <span class="string">'0000000000'</span>;</span><br><span class="line"></span><br><span class="line">$json = file_get_contents(<span class="string">'https://api.instagram.com/v1/users/'</span>.$user_id.<span class="string">'/media/recent/?access_token='</span>.$myAccessToken);</span><br><span class="line"></span><br><span class="line">$obj = json_decode($json);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($obj-&gt;data <span class="keyword">as</span> $data)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;img src="'</span>.$data-&gt;images-&gt;low_resolution-&gt;url.<span class="string">'" alt=""&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>自アカウントの情報を載せる分にはそれほどハードルは高くなさそうであるが、<br>それ以上を行うとなると手続きはかなり面倒そうである。</p>
+	    <p>このブログは Github pages 上で独自ドメインを利用して構築されている。<br>今回ここの HTTPS化を実施した。</p>
+<p>参考：<br><a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/" target="_blank" rel="noopener">Securing your GitHub Pages site with HTTPS - User Documentation</a></p>
+<p>いつのまにか独自ドメインのを利用したページも Let’s Encrypt を使用したSSL発行が行われていたようで、HTTPS化を強制することで完了した。<br>詳しい方法は上記リンクを参照したが、特に混在コンテンツの問題もなくスムーズに移行できた。</p>
+<p>独自ドメインの Github Pages のHTTPS化は、少し前までは CloudFlare を利用するのが常套句であったが、今回Github内のみで解決できハードルが相当下がった印象だ。</p>
+<p>CloudFlare を挟むくらいなら自前のサーバーに上げSSL化した方がいいと感じていたが、今後は逆に、積極的にGithub上へ移行させたくなった。</p>
 
 	    
 	</div>
@@ -121,23 +113,27 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2017-03-04T10:51:54.000Z">
-                    2017-03-04
+                <time class="article__header__meta__time" datetime="2017-12-08T16:21:58.000Z">
+                    2017-12-09
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2017/03/04/Wordpressとlazysizes.html">Wordpressとlazysizes</a>
+            <a href="/2017/12/09/Opensslを更新.html">OpenSSLを更新</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Wordpressの記事内の画像読み込みを遅延化したい。<br>少し調べてみたところ、以下の記事が参考になった。<br>方法はいくつかあるようなので…少し吟味が必要である。</p>
-<p><a href="http://codingmemos.hatenablog.com/entry/2016/09/28/100651" target="_blank" rel="noopener">wordpressにおけるレスポンシブイメージに対するlazyload対策 - Coding Memos</a><br><a href="https://github.com/aFarkas/wp-lazysizes" target="_blank" rel="noopener">aFarkas/wp-lazysizes: Brings lazySizes.js to WordPress</a></p>
+	    <p>WordPressを管理画面からアップデートしようと思ったら、以下の様なエラーにより失敗した。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wordpress</span>  更新 ダウンロードに失敗しました。: cURL <span class="literal">error</span> <span class="number">77</span>:</span><br></pre></td></tr></table></figure>
+<p>調べてみると、セキュリティ通信で失敗しており OpenSSL の更新が必要なよう。</p>
+<p>そこで以下の手順で更新を実行した。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> OpenSSLのバージョンを確認</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rpm -qa | grep openssl</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> キャッシュを削除</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum clean all</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> OpenSSLを更新</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum update openssl openssl-devel</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Webサーバーを再起動（ここではNginx）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl restart nginx.service</span></span><br></pre></td></tr></table></figure>
+<p>完了後、無事WordPressの更新を確認した。</p>
 
 	    
 	</div>
@@ -154,28 +150,81 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-12-19T10:48:27.000Z">
-                    2016-12-19
+                <time class="article__header__meta__time" datetime="2017-10-16T16:19:41.000Z">
+                    2017-10-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/12/19/ConohaVPS(CentOS7)へWordpressを導入.html">Conoha VPS(CentOS7)へ Wordpressを導入</a>
+            <a href="/2017/10/17/Firefox57とOpenwith.html">Firefox57とOpenwith</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。</p>
+	    <p>今普段使いしている Firefox Developer Edition は、バージョンが57となったため、拡張機能がWebExtention限定となり、多数が使用不能となった。</p>
+<p>いくつかは一旦仕様を諦めるか代替品へ移行したが、Open WithはWebExtention版がベータ版がテスト中とのことで、それを使用した。</p>
 <ul>
-<li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li>
-<li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li>
-<li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li>
+<li><a href="https://github.com/darktrojan/openwith/issues/132" target="_blank" rel="noopener">Open With WebExtension beta available · Issue #132 · darktrojan/openwith</a></li>
 </ul>
-<p>用意されているテンプレートを活用できれば手軽で早そうである。</p>
+<p>その際の手順は以下の通り。</p>
+<ol>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/open-with/versions/beta" target="_blank" rel="noopener">ここ</a>から最新版をインストールする。</li>
+<li>もしインストールされていなかったら、<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python</a>をPCへインストールする。（2系、3系のどちらでもOKらしい）</li>
+<li>FirefoxでOpen withを立ち上げ、そのウィンドウ内にある<code>Click here to download</code>をクリックし、<code>open_with_windows.py</code> というファイルをダウンロードする。</li>
+<li>コマンドプロンプトを立ち上げ、<code>open_with_windows.py install</code> のようにインストールを実行する。</li>
+<li>ウィンドウ内の <code>Test Installation</code>を実行し、グリーンのチェックマークが表示されると成功。</li>
+</ol>
+<p>これによりOpen With がFirefox 57 移行でも使用できる。<br>使いかって、表示は若干差異があるが、ほぼ問題はない。</p>
+<p>この調子で順調に著名拡張機能が移行したらいいのだが…そうはなかなかいかんだろうなぁ…。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Firefox/">#Firefox</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2017-10-01T16:07:47.000Z">
+                    2017-10-02
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2017/10/02/GoogleAppsScriptのローカル開発.html">GoogleAppsScriptのローカルで開発</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>業務上の定期的な通知に、GoogleAppsScriptを使用してChat Work APIを叩くというのを利用している。</p>
+<p>しかし、GoogleAppsScriptのコード管理は原則ブラウザ上で行う形となるので、なかなかバージョン管理も難儀で不都合も生じる。<br>よって、ローカルで開発・修正し、アップロードし実行という環境を構築するべく、<code>node-google-apps-script</code>を導入した。<br>その際の参考は以下の記事。</p>
+<ul>
+<li><a href="https://github.com/danthareja/node-google-apps-script" target="_blank" rel="noopener">danthareja/node-google-apps-script: The easiest way to develop Google Apps Script projects</a></li>
+<li><a href="https://qiita.com/ttyokoyama/items/a4edfdcfcad56d664522" target="_blank" rel="noopener">Google Apps Scriptをローカルで開発する - Qiita</a></li>
+<li><a href="http://kakakakakku.hatenablog.com/entry/2017/02/26/034115" target="_blank" rel="noopener">gapps を使って Google Apps Script を継続的にデプロイする - kakakakakku blog</a></li>
+</ul>
+<p>結果コードの編集と <code>gapps upload</code> コマンドを繰り返すだけで反映が可能となった。<br>GoogleAppScriptはアイデア次第でかなり有用なので、容易に導入できるよう開発環境も整備して行きたい。</p>
 
 	    
 	</div>
@@ -192,75 +241,42 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-03-25T10:44:47.000Z">
-                    2016-03-25
+                <time class="article__header__meta__time" datetime="2017-09-07T15:36:51.000Z">
+                    2017-09-08
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/03/25/Subversion.html">Subversion</a>
+            <a href="/2017/09/08/WHATWGHTMLのLint.html">WHATWGHTMLのLint</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>最近、Subversionを採用しているプロジェクトに携わっている。<br>今までGit しか使ったことがないにわかなので、とりあえずGit との文化や考え方の違いを色々感じている。</p>
+	    <p><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3CのHTML文法チェッカー</a>比較的よく知られ僕もは何度か使ったことがあるが、WHATWG版があるか気になり調べてみたら、やはり存在した。</p>
 <ul>
-<li><a href="http://tracpath.com/bootcamp/learning_subversion.html" target="_blank" rel="noopener">Subversion の基礎勉強 ~ Subversion によるバージョン管理 ~ — バージョン管理システム入門(初心者向け)</a></li>
-<li><a href="https://osdn.jp/svn/" target="_blank" rel="noopener">Subversion（svn）によるソフトウェア開発を始めよう - OSDN</a></li>
-<li><a href="http://qiita.com/mountcedar/items/e756bb9136e3b1722bb2" target="_blank" rel="noopener">今更聞けないSubversionの使い方 - Qiita</a></li>
+<li><a href="https://whatwg.org/validator/" target="_blank" rel="noopener">Web Hypertext Application Technology Working Group HTML Conformance Checkers</a></li>
 </ul>
-<p>今のところは、ちょっと難儀じゃのう…という印象である。</p>
+<p>各ブラウザベンダーはHTMLに関してはWHATWGの仕様を見ているので、構文チェックもこちらで行うのがよさそう。<br>ただ、昔と比較しそれほど神経質になる必要もなくなってきているような気がするが…。（なぜそう感じているのかは、うまく言葉では言えないが）</p>
+<ul>
+<li><a href="http://mtrootyy.web5.jp/htmllint/html5memo/0diff.html" target="_blank" rel="noopener">WHATWG版とW3C版の主な差異：HTML5.3各要素別メモ</a></li>
+</ul>
+<p>また関連して、上記ページもなかなか参考になる。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-	</footer>
-    
+<div class="tags">
+	
+	<a href="/tags/HTML/">#HTML</a>
+	
+</div>
 
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-03-17T10:41:57.000Z">
-                    2016-03-17
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2016/03/17/oghliner.html">oghliner</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。</p>
-<ul>
-<li><a href="https://mozilla.github.io/oghliner/" target="_blank" rel="noopener">Oghliner</a></li>
-</ul>
-<p>まずはモジュールをインストール。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install oghliner -g</span><br></pre></td></tr></table></figure>
-<p>もしくはプロジェクトごとにインストールも可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ oghliner bootstrap</span><br></pre></td></tr></table></figure>
-<p>実行するとconfigurationを聞かれる。<br>後からでも変更できるのでとりあえず初期値で実行。</p>
-<p>これにより、さくっとオフライン対応のGithubPageを作成できる。<br>類似ツールと比較して、利点などを確認していきたい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
 	</footer>
     
 

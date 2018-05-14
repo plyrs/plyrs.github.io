@@ -77,208 +77,24 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-07T09:39:09.000Z">
-                    2015-12-07
+                <time class="article__header__meta__time" datetime="2016-01-10T10:04:59.000Z">
+                    2016-01-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/07/Capistrano.html">Capistrano</a>
+            <a href="/2016/01/10/GrantからPassportへ.html">GrantからPassportへ</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>自動デプロイを実現するべく、Capistranoを試している。<br>参考記事は以下など。</p>
-<ul>
-<li><a href="http://capistranorb.com/" target="_blank" rel="noopener">A remote server automation and deployment tool written in Ruby.</a></li>
-<li><a href="http://labs.gree.jp/blog/2013/12/10084/" target="_blank" rel="noopener">入門 Capistrano 3 ~ 全ての手作業を生まれる前に消し去りたい | GREE Engineers’ Blog</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cap</span> install</span><br></pre></td></tr></table></figure>
-<p>npm用の拡張も容易されているので、こちらも合わせて確認していく。</p>
-<ul>
-<li><a href="https://github.com/capistrano/npm/" target="_blank" rel="noopener">capistrano/npm</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano-npm</span><br></pre></td></tr></table></figure>
-<p>これがうまくいけば、デプロイ時の負荷が大幅に削減される。<br>がんがん開発していくためにも、カジュアルにデプロイできる環境を作っていきたい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-06T07:56:25.000Z">
-                    2015-12-06
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/06/Windows10×Bitbucket×Jenkins.html">Bitbucket × Jenkins</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p>
-<p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p>
-<ul>
-<li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li>
-</ul>
-<p>公式。</p>
-<ul>
-<li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li>
-<li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li>
-</ul>
-<p>インストールからHelloWorldまでは上記が参考になった。</p>
-<ul>
-<li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li>
-</ul>
-<p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p>
-<ul>
-<li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li>
-</ul>
-<p>ユーザー認証。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Jenkins/">#Jenkins</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-04T07:36:04.000Z">
-                    2015-12-04
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/04/Default-CSS.html">Default CSS</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p>
-<h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul>
-<li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li>
-</ul>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul>
-<li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li>
-<li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li>
-</ul>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul>
-<li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li>
-</ul>
-<h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul>
-<li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li>
-</ul>
-<p>Edgeは見つけきれなかったなぁ。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/CSS/">#CSS</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-02T07:33:25.000Z">
-                    2015-12-02
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/02/多言語化.html">多言語化</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Webアプリを日本語の他に英語にも対応させることにした。</p>
-<p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p>
-<ul>
-<li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li>
-</ul>
-<p>フロントエンドではi18n APIに期待したが、Safariが…。</p>
-<ul>
-<li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li>
-<li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p>
-<ul>
-<li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li>
-<li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li>
-</ul>
-<p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p>
-<ul>
-<li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li>
-<li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li>
-</ul>
-<p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p>
-<ul>
-<li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li>
-<li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li>
-</ul>
-<h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p>
-<ul>
-<li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li>
-</ul>
-<p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p>
-<ul>
-<li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li>
-</ul>
+	    <p>Oauth認証に<a href="https://github.com/simov/grant" target="_blank" rel="noopener">Grant</a>を使用していた。<br>採用していた理由はどちらでも必要要件を満たせるし、ならばちょっと違ったものをという理由であった。</p>
+<p>しかしKoa2.0へのアップデートを機にベタに<a href="http://www.passportjs.org/" target="_blank" rel="noopener">Passport</a>をラップした<a href="https://github.com/rkusa/koa-passport" target="_blank" rel="noopener">koa-passport</a>へ入れ替えることにした。<br>現状のGrantではKoa2.0へ対応させることができず、プルリクを出してもいいのだがkoa-passportの2.0への対応が非常に迅速であり、やはり広くコミュニティに受け入れられているモジュールを使用するほうが長い目で見ても良さそうだと感じたので。</p>
+<p>また、Grantは単体で様々なサービスに対応しているが、Passportは個別で追加が必要となる。やはりこのほうが現代的なアプローチでメンテもしやすいであろう。</p>
 
 	    
 	</div>
@@ -303,27 +119,29 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-01T07:31:39.000Z">
-                    2015-12-01
+                <time class="article__header__meta__time" datetime="2016-01-07T10:03:20.000Z">
+                    2016-01-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/01/SourceTree-1-6-24.html">SourceTree-1.6.24</a>
+            <a href="/2016/01/07/Error-Thelibsassbindingwasnotfound.html">Error: The `libsass` binding was not found</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p>
-<p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p>
+	    <p>GulpでSassのコンパイル実行時にエラーが出た。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: The libsass binding was not found <span class="keyword">in</span> /node_modules\node-sass\vendor\win32-x64-47\binding.node</span><br></pre></td></tr></table></figure>
+<p>node-sass内を除いてみるとvendorフォルダが存在しない。<br>解決策は下記issueで見つけた。</p>
 <ul>
-<li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li>
+<li><a href="https://github.com/sass/node-sass/issues/1162" target="_blank" rel="noopener">node 4.0.0 - Error: The libsass binding was not found in /node_modules/gulp-sass/node_modules/node-sass/vendor/darwin-x64-14/binding.node · Issue #1162 · sass/node-sass</a></li>
 </ul>
-<p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>
+<p>‘npm rebuild node-sass` を実行するとモジュールが再構築され、vendorが配置された。</p>
+<p>node-sassはちょくちょく問題を起こす。</p>
 
 	    
 	</div>
@@ -332,7 +150,160 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/SourceTree/">#SourceTree</a>
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-01-05T09:58:54.000Z">
+                    2016-01-05
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/01/05/JavaScriptESDecorators.html">JavaScript ES Decorators</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>ちょっと最近よく見る、Decoratorsの仕様を確認中。</p>
+<ul>
+<li><a href="http://azu.github.io/slide/typescript-sushi/decorators.html" target="_blank" rel="noopener">Decorators進捗</a></li>
+<li><a href="http://qiita.com/Quramy/items/e3a43bb1734b8a7331e8" target="_blank" rel="noopener">TypeScriptのDecoratorメモ - Qiita</a></li>
+</ul>
+<p>上手に使えば、関数合成の可読性が高くなりそうだが、はてさて…。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-29T09:55:42.000Z">
+                    2015-12-29
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/29/Vagrant1-8.html">Vagrant1.8</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>スナップショットに惹かれてVagrantを1.8へアップデートした。</p>
+<ul>
+<li><a href="https://hashicorp.com/blog/vagrant-1-8.html" target="_blank" rel="noopener">Vagrant 1.8 - HashiCorp</a></li>
+<li><a href="http://dev.classmethod.jp/tool/vagrant-linked-clone/" target="_blank" rel="noopener">Vagrant 1.8の新機能 Linked CloneとSnapshotを試してみた ｜ Developers.IO</a></li>
+</ul>
+<p>環境はWindows 10。普通に最新のインストーラーを落とし実行し、滞りなく完了。</p>
+<p>と思ったら、<code>vagrant up</code>してもフォルダ同期が正常に機能しない…。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vagrant assumes that this means the <span class="built_in">command</span> failed!</span><br><span class="line"></span><br><span class="line">chown `id -u vagrant`:`id -g vagrant` /vagrant</span><br><span class="line"></span><br><span class="line">Stdout from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Stderr from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line">chown: changing ownership of ‘/vagrant’: Not a directory</span><br></pre></td></tr></table></figure>
+<p>同じことが昔あったような…。<br>とりあえずISSUトラックを見てみるとすでに同様の問題は報告されており、VisualeBoxのバージョンを最新にしなさいとのこと。</p>
+<ul>
+<li><a href="https://github.com/mitchellh/vagrant/issues/6732" target="_blank" rel="noopener">Can not use share folders in Vagrant 1.8.0 and 1.8.1 · Issue #6732 · mitchellh/vagrant</a></li>
+</ul>
+<p>確認すると<code>5.0.8</code>と少し古かったので、現時点で最新の<code>5.0.12</code>へ更新。<br>すると今度こそ問題なく起動した。</p>
+<p>現時点ではシンプルに開発環境として利用しているので、Linked Cloneの出番はないかもしれないが、スナップショットがデフォルトで組み込まれたのは有り難い。チャレンジングな実装を試しやすくなったと感じる。</p>
+<ul>
+<li><a href="https://docs.vagrantup.com/v2/cli/snapshot.html" target="_blank" rel="noopener">vagrant snapshot - Command-Line Interface - Vagrant Documentation</a></li>
+</ul>
+<p>1個しか使用しない場合は…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot push</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot pop</span><br></pre></td></tr></table></figure>
+<p>複数記録したい場合は…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot save &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot restore &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショットの一覧</span></span><br><span class="line">$ vagrant snapshot list</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット削除</span></span><br><span class="line">$ vagrant snapshot delete &lt;スナップショット名&gt;</span><br></pre></td></tr></table></figure>
+<p>ottoもそのうち試してみたいが、Node環境だと海外記事でもあまり数を見かけないのでまだ様子見中。<br>もうしばらくはVagrantさんのお世話になりそうである。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Vagrant/">#Vagrant</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-28T09:51:07.000Z">
+                    2015-12-28
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/28/fluxible.html">fluxible</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>fluxフレームワークは本当に色々ある…。<br>色々あるが、その中でも開発の活気や完成度、情報量などで比較し米Yahooが開発しているfluxibleを導入した。</p>
+<p>調査の際の参考文献は以下など。</p>
+<ul>
+<li><a href="http://fluxible.io/" target="_blank" rel="noopener">Fluxible | A Pluggable Container for Isomorphic Flux Applications</a></li>
+<li><a href="https://github.com/yahoo/fluxible" target="_blank" rel="noopener">yahoo/fluxible</a></li>
+<li><a href="https://github.com/srd7/fluxible-minimal-sample/tree/master/src" target="_blank" rel="noopener">fluxible-minimal-sample/src at master · srd7/fluxible-minimal-sample</a></li>
+<li><a href="http://qiita.com/srd7/items/85e89f16b1b390170579" target="_blank" rel="noopener">reactjs - Fluxible + React の概要をまとめた - Qiita</a></li>
+<li><a href="https://github.com/srd7/fluxible-minimal-sample" target="_blank" rel="noopener">srd7/fluxible-minimal-sample</a></li>
+<li><a href="http://qiita.com/kamijin_fanta/items/c82b234ed79666b64f57" target="_blank" rel="noopener">yahoo/fluxible関連 - Qiita</a></li>
+<li><a href="https://gist.github.com/fand/b465ca6785c502478384" target="_blank" rel="noopener">Flux戦争の歴史</a></li>
+<li><a href="https://havelog.ayumusato.com/develop/javascript/e675-spa_and_server_rendering_with_fluxible.html" target="_blank" rel="noopener">yahoo/fluxible による SPA + Server Rendering の概観 ::ハブろぐ</a></li>
+<li><a href="https://havelog.ayumusato.com/develop/javascript/e682-universal_architecture_tips.html" target="_blank" rel="noopener">Isomorphic Architecture を実装してるときの細かいアレコレ ::ハブろぐ</a></li>
+</ul>
+<p>国内でも比較的大規模な案件でも使用されており、情報もそこそこ見つかる。<br>この先なにがあるかはわからないが…、現時点では手堅い選択だと思う。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
 	
 </div>
 

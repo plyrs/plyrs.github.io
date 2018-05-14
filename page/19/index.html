@@ -77,33 +77,96 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-17T11:07:18.000Z">
-                    2015-05-17
+                <time class="article__header__meta__time" datetime="2015-09-02T14:45:58.000Z">
+                    2015-09-02
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/17/node-redis入門.html">node-redis入門</a>
+            <a href="/2015/09/02/Web-Manifest.html">Web Manifest</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Redisの修行を進めている。<br>Nodeアプリ内で使う分には下記を参考に学習を進めていけばいい様子。</p>
+	    <h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
 <ul>
-<li><a href="http://redis.io/" target="_blank" rel="noopener">http://redis.io/</a></li>
-<li><a href="https://github.com/mranney/node_redis" target="_blank" rel="noopener">mranney/node_redis</a></li>
-<li><a href="http://nodejs.osser.jp/node/node-redis/" target="_blank" rel="noopener">node-redis - node.js redisクライアント</a></li>
-<li><a href="http://yutapon.hatenablog.com/entry/2013/07/07/011645" target="_blank" rel="noopener">node.jsでRedisを使ってみる【準備編】</a></li>
+<li><a href="https://w3c.github.io/manifest/" target="_blank" rel="noopener">Manifest for a web application</a></li>
+<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Manifest" target="_blank" rel="noopener">App manifest - App Center | MDN</a></li>
 </ul>
-<p>やはりセッション管理などはRedisで行いたい。<br>Koaでは<a href="https://github.com/koajs/koa-redis" target="_blank" rel="noopener">koa-redis</a>を使えば容易に実装できた。</p>
-<p>よりRedisをよりアプリケーションの広範囲で活用する際は下記で理解を深めるとよさそう。</p>
+<p>MDNにも記事があるし、普段使いのFirefoxでもしっかり動くのだろうか。</p>
 <ul>
-<li><a href="http://redis-documentasion-japanese.readthedocs.org/ja/latest/topics/data-types-intro.html" target="_blank" rel="noopener">入門 : Redis のデータ構造と概念 — Redis Documentation (Japanese Translation)</a></li>
+<li><a href="http://googledevjp.blogspot.jp/2015/04/service-worker-google-developers-summit.html" target="_blank" rel="noopener">Service Worker で作る 最新モバイル ウェブ エクスペリエンス - Google Developers Summit まとめ </a></li>
 </ul>
+<p>上記はモバイルフレンドリーの目線でWebアプリ化に幅広く言及している記事。</p>
+<ul>
+<li><a href="http://moonglows76.tumblr.com/post/102930578463/web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A3%E3%81%BD%E3%81%8F%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8Bwebapp-manifest" target="_blank" rel="noopener">Webアプリをネイティブアプリっぽく起動するWebApp Manifest - Coding Design’s Tumblr</a></li>
+</ul>
+<p>この記事はさっと読めて、参考になる。</p>
+<p>manifest.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>これが最低限必要な項目らしい。</p>
+<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>あとはヘッドで読み込めばオケ。</p>
+<h2 id="インストールバナー"><a href="#インストールバナー" class="headerlink" title="インストールバナー"></a>インストールバナー</h2><ul>
+<li><a href="http://qiita.com/tmtysk/items/2c5da83feec45b4ee36f" target="_blank" rel="noopener">manifest.json でWebアプリを「ホーム画面に追加」自動バナー表示に対応させる</a></li>
+</ul>
+<p>これはService Workerを使用した「ホームへ追加」バナーの表示の記事。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'/sw.js'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これもインストールバナーについて詳しく解説している記事。</p>
+<p><a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android" target="_blank" rel="noopener">Increasing engagement with Web App install banners — Google Web Updates</a></p>
+<p>そしてそのサンプル。</p>
+<p><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/app-install-banner" target="_blank" rel="noopener">samples/app-install-banner at gh-pages · GoogleChrome/samples</a></p>
+<p>Choromeでは問題なく動作し、インストールバナーも表示された。<br>ただ一度インストールをしないを選択すると、次回再表示はなさそうなのであまり強力な効果は期待できないかも。</p>
+<h2 id="テーマカラー"><a href="#テーマカラー" class="headerlink" title="テーマカラー"></a>テーマカラー</h2><p>theme-colorの設定がmanifest.json内に記述できるようになったよう。</p>
+<ul>
+<li><a href="https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color" target="_blank" rel="noopener">Using the web app manifest to specify a site wide theme colour</a></li>
+</ul>
+<p>従来のmetaタグだとこう。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#2196F3"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>manifest.jsonだとこう。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"theme_color": "#2196F3"</span><br></pre></td></tr></table></figure>
+<p>しかしmanifest.jsonのみの記述だとホームへ追加しないと効力を発揮しないようなので、現時点では両方記述したほうがいいかもしれない。</p>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><p>FirefoxでもServiceWorkerをテストする。</p>
+<p><code>about:config</code>で<code>dom.serviceWorkers</code>を検索し、フラグを<code>true</code>へ変更する。</p>
+<p>ServiceWorkerは問題なく作動したが、アプリ化の効果は現時点では無さそう。今後に期待したい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-02T09:45:30.000Z">
+                    2015-09-02
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/02/フォントコンバーター.html">フォントコンバーター</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>サイトへWebフォントを導入する際の手順。</p>
+<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" rel="noopener">Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" rel="noopener">woff to woff2 converter</a>で行える。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'webfont'</span>;</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot'</span>);</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>IE8以下の対応はもういいかなとも思う。</p>
 
 	    
 	</div>
@@ -112,11 +175,9 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/css/">#css</a>
 	
-	<a href="/tags/Redis/">#Redis</a>
-	
-	<a href="/tags/Koa/">#Koa</a>
+	<a href="/tags/webfont/">#webfont</a>
 	
 </div>
 
@@ -130,33 +191,28 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-17T11:00:15.000Z">
-                    2015-05-17
+                <time class="article__header__meta__time" datetime="2015-08-17T11:36:38.000Z">
+                    2015-08-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/17/http-proxyでNode-jsの複数アプリを管理.html">http-proxyでNode.jsの複数アプリを管理</a>
+            <a href="/2015/08/17/Firefox-64bit.html">Firefox 64bit</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>一つのドメインで複数のnodeアプリを起動させたい。</p>
-<p>http-proxy使えばできそうである。</p>
-<blockquote>
-<p><a href="https://github.com/nodejitsu/node-http-proxy" target="_blank" rel="noopener">nodejitsu/node-http-proxy</a></p>
-</blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a href="http://nerdpress.org/2012/04/20/hosting-multiple-express-node-js-apps-on-port-80/" target="_blank" rel="noopener">Hosting multiple Express (node.js) apps on port 80</a><br><a href="http://d.hatena.ne.jp/sasaplus1/20130124/1358992547" target="_blank" rel="noopener">http-proxyでプロキシAdd Star</a></p>
-</blockquote>
-<p>別モジュールを利用しているが、PM2のくだりが参考になりそう。</p>
-<blockquote>
-<p><a href="http://qiita.com/59naga/items/d3082516c2a365b47985" target="_blank" rel="noopener">bouncyを使ったNodejsのみのバーチャルホスト</a></p>
-</blockquote>
+	    <p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+<ul>
+<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" rel="noopener">Firefox Beta</a></li>
+<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" rel="noopener">Firefox Developer Edition</a></li>
+</ul>
+<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
+<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
 
 	    
 	</div>
@@ -165,7 +221,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/Firefox/">#Firefox</a>
 	
 </div>
 
@@ -179,46 +235,33 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-05-16T11:58:17.000Z">
-                    2015-05-16
+                <time class="article__header__meta__time" datetime="2015-08-12T08:26:21.000Z">
+                    2015-08-12
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/05/16/Redis環境を構築-Windows7.html">Redis環境を構築(Windows7)</a>
+            <a href="/2015/08/12/Source-Han-Code-JP.html">Source Han Code JP</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>PCへRedisをインストールした。</p>
-<p><a href="http://redis.io/" target="_blank" rel="noopener">Redis.io</a>のダウンロードページ下、Other versionsからWindows版を配布しているリポジトリへ。</p>
-<blockquote>
-<p><a href="https://github.com/MSOpenTech/redis" target="_blank" rel="noopener">MSOpenTech/redis</a></p>
-</blockquote>
-<p>バージョンは2.8.19.1。<br>ダウンロードしてインストーラーを起動、あとは普通に完了したっぽい。</p>
-<hr>
-<p>上記方法ではどうやら失敗したもよう・・・。</p>
-<blockquote>
-<p><a href="http://kakakikikeke.blogspot.jp/2014/07/windows7redis.html" target="_blank" rel="noopener">Windows7にredisをインストールしてみた </a></p>
-</blockquote>
-<p>↑の記事を参考にしこんどこそ成功。</p>
-<p>原因は、まぁ気にせずいこう・・・。</p>
+	    <p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
+<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a>  </p>
+<p><a href="http://blog.quusookagaku.com/19595" target="_blank" rel="noopener">この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
+<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
+<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Redis/">#Redis</a>
-	
-</div>
-
 	</footer>
     
 
@@ -229,86 +272,44 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-04-12T11:09:16.000Z">
-                    2015-04-12
+                <time class="article__header__meta__time" datetime="2015-08-10T11:03:31.000Z">
+                    2015-08-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/04/12/npmのたまに使うコマンド.html">npmのたまに使うコマンド</a>
+            <a href="/2015/08/10/Windows10へVagrantを導入.html">Windows10へVagrantを導入</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>よく使うコマンドは覚えてるんだけど、たまに使うコマンドは忘れちゃって毎回ググってる気がするのでメモ。</p>
-<p>バージョン確認</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> -v</span><br></pre></td></tr></table></figure>
-<p>npm自身のアップデート</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i -g <span class="built_in">npm</span></span><br></pre></td></tr></table></figure>
-<p>パッケージをアインインストール</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">uninstall</span> &lt;<span class="keyword">package</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>パッケージの更新情報を確認</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> outdated</span><br></pre></td></tr></table></figure>
-<p>dependenciesだけインストール</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="selector-tag">i</span> --production</span><br></pre></td></tr></table></figure>
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/npm/">#npm</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-01-15T14:09:16.000Z">
-                    2015-01-15
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/01/15/iojsをインストールしてみた.html">iojsをインストールしてみた</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p><amp-img src="/2015/01/15/iojsをインストールしてみた/1.png" width="400" height="229"></amp-img></p>
-<p>昨日ついにnode.jsのファークであるio.jsがリリースされましたね。</p>
-<p><a href="https://iojs.org/" target="_blank" rel="noopener">io.js - JavaScript I/O:</a></p>
-<p>Koaで色々やろうと考えている僕としてはある程度動向を知っておく必要があるため、早速ローカル環境へインストールし、既存のコードが動作するかまで確認を行いました。</p>
-<h2 id="io-jsのインストール"><a href="#io-jsのインストール" class="headerlink" title="io.jsのインストール"></a>io.jsのインストール</h2><p>普通にインストーラーから…</p>
-<p><amp-img src="/2015/01/15/iojsをインストールしてみた/2.png" width="400" height="229"></amp-img></p>
-<p>おお～、普通にインストールできた。なにか新鮮である！</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iojs -v</span><br></pre></td></tr></table></figure>
-<p>でインストールを確認。<code>v1.0.1</code>が返ってきました！</p>
-<h2 id="モジュールを確認"><a href="#モジュールを確認" class="headerlink" title="モジュールを確認"></a>モジュールを確認</h2><p>現時点ではほぼ問題ないと思いますが、常用モジュールは動向を確認しておきたいですよね。</p>
-<h3 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iojs app.js</span><br></pre></td></tr></table></figure>
-<p><code>--harmony</code> オプションなしでKoaが動く！</p>
-<p>もちろんKoaチームもiojs対応の方向へ進んでいるっぽい。</p>
-<h3 id="nodemon"><a href="#nodemon" class="headerlink" title="nodemon"></a>nodemon</h3><p><a href="http://nodemon.io/" target="_blank" rel="noopener">nodemon</a> は <code>nodemon.json</code> を配置し <code>execMap</code> を記述すれば問題なく動作するようです。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"execMap"</span>: &#123;</span><br><span class="line">    <span class="string">"js"</span>: <span class="string">"iojs"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>随時チェックしていきたいです！</p>
+	    <p>Wordpressなどの開発はXamppで十分だが、Nodeを本格的にWindows上で行うのはきつい。<br>というか本番環境がWindowsならまだいいかもしれないが、現実はほとんどそうではないので仮想環境上で開発すべきであろう。<br>Windows10へアップグレードしたのを機会に、前々から検討していたVagrantでの開発環境導入を試みる。 </p>
+<h2 id="事前作業"><a href="#事前作業" class="headerlink" title="事前作業"></a>事前作業</h2><h3 id="Virtualization-Technologyを有効にする"><a href="#Virtualization-Technologyを有効にする" class="headerlink" title="Virtualization Technologyを有効にする"></a>Virtualization Technologyを有効にする</h3><p>Vagrantは仮想環境を使用するため、Virtualization Technologyを有効にする必要がある。<br>PCのBIOSに入り、<code>Virtualization Technology</code> を <code>Enabled</code> へ  </p>
+<h3 id="Vagrant、VirtualBoxをインストール"><a href="#Vagrant、VirtualBoxをインストール" class="headerlink" title="Vagrant、VirtualBoxをインストール"></a>Vagrant、VirtualBoxをインストール</h3><p>各公式サイトから最新版をダウンロードし、インスコ。</p>
+<p>Vagrant 公式サイト<br><a href="http://www.vagrantup.com/" target="_blank" rel="noopener">http://www.vagrantup.com/</a>  </p>
+<p>VirtualBox<br><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a>  </p>
+<h3 id="BOXを取得"><a href="#BOXを取得" class="headerlink" title="BOXを取得"></a>BOXを取得</h3><p>配布サイトから必要なBoxを吟味。<br>今回はCentOS v6.6 64bit。  </p>
+<p>Vagrantbox.es<br><a href="http://www.vagrantbox.es/" target="_blank" rel="noopener">http://www.vagrantbox.es/</a>  </p>
+<h3 id="CentOS-6-6-64bit-を追加"><a href="#CentOS-6-6-64bit-を追加" class="headerlink" title="CentOS 6.6 64bit を追加"></a>CentOS 6.6 64bit を追加</h3><p>ここからコマンドプロンプト</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add centos6.6 http://sourceforge.net/projects/nrel-vagrant-boxes/files/CentOS-6.6-x86_64-v20150426.box</span><br></pre></td></tr></table></figure>
+<h3 id="追加したBoxを確認"><a href="#追加したBoxを確認" class="headerlink" title="追加したBoxを確認"></a>追加したBoxを確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box list</span><br></pre></td></tr></table></figure>
+<h2 id="Vagrant-初期化"><a href="#Vagrant-初期化" class="headerlink" title="Vagrant 初期化"></a>Vagrant 初期化</h2><p>ここからコマンドプロンプト on 作業フォルダ</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init centos6.6</span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンの操作"><a href="#仮想マシンの操作" class="headerlink" title="仮想マシンの操作"></a>仮想マシンの操作</h2><h3 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+<h3 id="状態確認"><a href="#状態確認" class="headerlink" title="状態確認"></a>状態確認</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant status</span><br></pre></td></tr></table></figure>
+<h3 id="終了"><a href="#終了" class="headerlink" title="終了"></a>終了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
+<h3 id="再起動"><a href="#再起動" class="headerlink" title="再起動"></a>再起動</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant reload</span><br></pre></td></tr></table></figure>
+<h3 id="破棄"><a href="#破棄" class="headerlink" title="破棄"></a>破棄</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
+<h2 id="仮想マシンへ接続"><a href="#仮想マシンへ接続" class="headerlink" title="仮想マシンへ接続"></a>仮想マシンへ接続</h2><p>TeraTermで接続した。</p>
+<h3 id="git-インストール"><a href="#git-インストール" class="headerlink" title="git インストール"></a>git インストール</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum -y install git</span></span><br></pre></td></tr></table></figure>
+<h3 id="Node-js-インストール"><a href="#Node-js-インストール" class="headerlink" title="Node.js インストール"></a>Node.js インストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/creationix/nvm.git ~/.nvm</span><br><span class="line">$ <span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line">$ nvm install 0.12</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --no-bin-links</span><br></pre></td></tr></table></figure>
+<h3 id="ファイアーウォールを停止"><a href="#ファイアーウォールを停止" class="headerlink" title="ファイアーウォールを停止"></a>ファイアーウォールを停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service iptables stop</span><br><span class="line">$ sudo chkconfig iptables off</span><br></pre></td></tr></table></figure>
+<h3 id="雑感"><a href="#雑感" class="headerlink" title="雑感"></a>雑感</h3><p>Windows10でも今回は問題はなかったが、環境やVirtualBoxのバージョンによっては不具合も報告されているようなのでもうちょっと待ったほうが安全かもしれない。<br>Vagrantを開発環境として本格運用していくならイメージの保存や構成管理ツールも合わせるのが楽っぽいので、順次導入していきたい。</p>
 
 	    
 	</div>
@@ -317,9 +318,9 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/Windows/">#Windows</a>
 	
-	<a href="/tags/io-js/">#io.js</a>
+	<a href="/tags/Vagrant/">#Vagrant</a>
 	
 </div>
 

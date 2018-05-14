@@ -77,35 +77,38 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-28T09:51:07.000Z">
-                    2015-12-28
+                <time class="article__header__meta__time" datetime="2016-02-03T10:16:22.000Z">
+                    2016-02-03
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/28/fluxible.html">fluxible</a>
+            <a href="/2016/02/03/React-routerとScrollPosition.html">React-router と Scroll Position</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>fluxフレームワークは本当に色々ある…。<br>色々あるが、その中でも開発の活気や完成度、情報量などで比較し米Yahooが開発しているfluxibleを導入した。</p>
-<p>調査の際の参考文献は以下など。</p>
+	    <p>react-router と ReactCSSTransitionGroup を組み合わせてページ遷移時のアニメーションを実装したメモ。<br>サンプルを参考に進めれば容易であった。</p>
 <ul>
-<li><a href="http://fluxible.io/" target="_blank" rel="noopener">Fluxible | A Pluggable Container for Isomorphic Flux Applications</a></li>
-<li><a href="https://github.com/yahoo/fluxible" target="_blank" rel="noopener">yahoo/fluxible</a></li>
-<li><a href="https://github.com/srd7/fluxible-minimal-sample/tree/master/src" target="_blank" rel="noopener">fluxible-minimal-sample/src at master · srd7/fluxible-minimal-sample</a></li>
-<li><a href="http://qiita.com/srd7/items/85e89f16b1b390170579" target="_blank" rel="noopener">reactjs - Fluxible + React の概要をまとめた - Qiita</a></li>
-<li><a href="https://github.com/srd7/fluxible-minimal-sample" target="_blank" rel="noopener">srd7/fluxible-minimal-sample</a></li>
-<li><a href="http://qiita.com/kamijin_fanta/items/c82b234ed79666b64f57" target="_blank" rel="noopener">yahoo/fluxible関連 - Qiita</a></li>
-<li><a href="https://gist.github.com/fand/b465ca6785c502478384" target="_blank" rel="noopener">Flux戦争の歴史</a></li>
-<li><a href="https://havelog.ayumusato.com/develop/javascript/e675-spa_and_server_rendering_with_fluxible.html" target="_blank" rel="noopener">yahoo/fluxible による SPA + Server Rendering の概観 ::ハブろぐ</a></li>
-<li><a href="https://havelog.ayumusato.com/develop/javascript/e682-universal_architecture_tips.html" target="_blank" rel="noopener">Isomorphic Architecture を実装してるときの細かいアレコレ ::ハブろぐ</a></li>
+<li><a href="https://github.com/rackt/react-router/tree/master/examples/animations" target="_blank" rel="noopener">react-router/examples/animations at master · rackt/react-router</a></li>
 </ul>
-<p>国内でも比較的大規模な案件でも使用されており、情報もそこそこ見つかる。<br>この先なにがあるかはわからないが…、現時点では手堅い選択だと思う。</p>
+<p>しかし細かい挙動に凝り始めると、提供されているハイレベルなAPIでは難しくなってくる。<br>今回はページ遷移時にスクロールポジションが維持されてしまう問題の修正に少しハマった。</p>
+<p>結果的に react-router 側を微調整して完了となった。</p>
+<ul>
+<li><a href="https://github.com/rackt/react-router/issues/2019" target="_blank" rel="noopener">Scroll to top on route change? · Issue #2019 · rackt/react-router</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router onUpdate=&#123;() =&gt; <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)&#125; history=&#123;createBrowserHistory()&#125;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
+<p>これでページ遷移時に強制的にスクロールポジションをトップへ固定することができる。<br>ただこの方法だとブラウザバックの際にも <code>window.scrollTo(0, 0)</code> が発動してしまいユーザビリティが損なわれる。<br>結果的に下記の方法を採用した。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createBrowserHistory();</span><br><span class="line"></span><br><span class="line">history.listen(<span class="function"><span class="params">location</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (location.action === <span class="string">'POP'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = (</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/rackt/react-router/issues/2144#issuecomment-150939358" target="_blank" rel="noopener">Scroll position in RC1 · Issue #2144 · rackt/react-router</a></li>
+</ul>
+<p>これでブラウザバック時は前回のスクロールポジションを維持することができる。<br>ちなみに下記のようなものもあるらしい。</p>
+<p><a href="https://github.com/rackt/scroll-behavior" target="_blank" rel="noopener">rackt/scroll-behavior - JavaScript</a></p>
 
 	    
 	</div>
@@ -114,7 +117,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/JavaScript/">#JavaScript</a>
+	<a href="/tags/React/">#React</a>
 	
 </div>
 
@@ -128,29 +131,138 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-12T09:48:07.000Z">
-                    2015-12-12
+                <time class="article__header__meta__time" datetime="2016-01-30T10:12:55.000Z">
+                    2016-01-30
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/12/NewRelic.html">New Relic</a>
+            <a href="/2016/01/30/ReactとGoogleAnalytics.html">ReactとGoogleAnalytics</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>サーバーの監視やパフォーマンスチェックのため、New Relicの導入を開始した。</p>
-<p>参考は以下の記事など。</p>
+	    <p>Reactベースで構築されたSPAの場合、Google Analyticsを用いたアクセス解析には一工夫が必要となる。</p>
 <ul>
-<li><a href="http://dev.classmethod.jp/tool/newrelic/" target="_blank" rel="noopener">New Relicでアプリケーションのパフォーマンス測定 ｜ Developers.IO</a></li>
-<li><a href="http://qiita.com/kumatronik/items/e2e09bd3708b00442d9b" target="_blank" rel="noopener">newrelic - New Relic の各製品紹介: New Relic ってアプリケーションパフォーマンス監視ツールじゃないの？ - Qiita</a></li>
-<li><a href="http://www.atmarkit.co.jp/ait/articles/1410/06/news145_3.html" target="_blank" rel="noopener">連載：アプリケーションの運用監視：第1回　アプリの運用監視サービスとは？ New Relic vs. Application Insights (3/6) - ＠IT</a></li>
+<li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications" target="_blank" rel="noopener">単一ページ アプリケーションのトラッキング  |  ウェブ向けアナリティクス（analytics.js）  |  Google Developers</a></li>
 </ul>
-<p>個人で使用する分には無料でも十分だと感じた。<br>また、Android向けアプリも提供されており、使い勝手も問題ない感じだ。</p>
+<p>単純にアナリティクスのコードを読み込むだけではなく、ルーティングへのフックを設置しなければならない。<br>今回はreact-routerを採用しているので、それを基準にライブラリを探すと、以下が見つかった。</p>
+<ul>
+<li><a href="https://github.com/mozilla/react-ga" target="_blank" rel="noopener">mozilla/react-ga - JavaScript</a></li>
+<li><a href="https://github.com/seeden/react-g-analytics" target="_blank" rel="noopener">seeden/react-g-analytics: React google analytics with support for react-router</a></li>
+<li><a href="https://github.com/tcoopman/ga-react-router" target="_blank" rel="noopener">tcoopman/ga-react-router: Google analytics component for react-router</a></li>
+</ul>
+<p>react-gaはapiが豊富で、Mozilla内でドッグフーディングされているようで信頼もできる。コード量は一番多いかな。<br>3.73 KB</p>
+<p>react-g-analyticsは機能をpageviewの送信にしぼっている分、シンプルな作り。</p>
+<p>ga-react-routerはとにかくシンプル。Webpack前提の作りだが、かなり軽量だ。</p>
+<p>一番サクっと導入できそうなのはreact-g-analyticsだが、その前にreact-routerのアップグレードからしたほうがよさそうだ。</p>
+<p>最終的には react-ga を採用し、以下を参考に実装を行った。</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/34836500/how-to-set-up-google-analytics-for-react-router" target="_blank" rel="noopener">reactjs - How to set up Google Analytics for React-Router? - Stack Overflow</a></li>
+</ul>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/React/">#React</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-01-26T10:11:15.000Z">
+                    2016-01-26
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/01/26/ReactとクリティカルパスCSS.html">ReactとクリティカルパスCSS</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Reactを用いたUniversal(Isomorphic)なサイトのクリティカルパスCSSを自動化したい。</p>
+<p>以前Nunjucksを使用したパターンはうまく機能したので、同様の手法でReactの実装を考えた。<br>すなわち、Cssの更新にフックしGulp経由で静的なHTMLを生成し、それに対してCriticalを実行させクリティカルパスの部分を別のHTMLとして抽出し、インポートするという手法であった。</p>
+<p>しかし、Critical 0.7.0がリリースされPenthouseのようにURL指定にて実行が可能になった。<br>というよりPenthouseを内蔵した様子。</p>
+<ul>
+<li><a href="https://github.com/addyosmani/critical/releases/tag/v0.7.0" target="_blank" rel="noopener">Release Critical 0.7.0 · addyosmani/critical</a></li>
+</ul>
+<p>ともかくこれによりCriticalと変わらぬ実行結果をURL指定で取得できそうなので、ぜひこの機能を利用したい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/React/">#React</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-01-20T10:10:07.000Z">
+                    2016-01-20
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/01/20/オフラインファースト.html">オフラインファースト</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>オフラインファーストで実装を試みるべく、ServiceWorkerを導入した。</p>
+<ul>
+<li><a href="http://offlinefirst.org/" target="_blank" rel="noopener">Offline First!</a></li>
+</ul>
+<p>このワードが唱えられたころ、実現するための技術としてはAppCacheやWebStrageが紹介されていたが、現在は当然ServiceWorkerへとスライドしている。<br>コードの記述量は多くなってるが、低レベルのAPI群を提供することで遥かに柔軟になっており、実質ES6で書けるのでストレスもほとんどない。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API/Using_Service_Workers" target="_blank" rel="noopener">Service Workerの利用について - Web API インターフェイス | MDN</a></li>
+</ul>
+<p>導入にあたって現時点での仕様とサンプルを調べたが、GoogleやMozillaなどブラウザベンダが提供してるものが質と信頼性が高いと思われるので、ここのみに視野を絞り参考にした。</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker" target="_blank" rel="noopener">samples/service-worker at gh-pages · GoogleChrome/samples</a></li>
+<li><a href="https://serviceworke.rs/" target="_blank" rel="noopener">ServiceWorker Cookbook</a></li>
+</ul>
+<p>また下記記事も実践的な考え方の参考になった。</p>
+<ul>
+<li><a href="http://www.html5rocks.com/ja/tutorials/service-worker/introduction/" target="_blank" rel="noopener">Service Worker の紹介: Service Worker の使い方 - HTML5 Rocks</a></li>
+</ul>
+<p>レスポンシブイメージは低解像度のpngとwebpをキャッシュさせれば十分であろう。</p>
 
 	    
 	</div>
@@ -167,44 +279,33 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-11T09:47:02.000Z">
-                    2015-12-11
+                <time class="article__header__meta__time" datetime="2016-01-17T10:08:56.000Z">
+                    2016-01-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/12/11/n.html">n</a>
+            <a href="/2016/01/17/Webpack.html">Webpack</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>プロダクション環境Node.jsのバージョン管理をnvmからnへ切り替えた。</p>
+	    <p>SPAを構築する際にはやはりWebpackの豊富な機能が生きる。</p>
+<p>今作成しているWebアプリはUniversalでFluxでi18nなWebアプリとなっており、無計画にファイルを結合し続けると初期リロードの問題が出てくる。</p>
+<p>3度の法則にしたがって開発過程でも適切なモジュール分割を容易に行うことができるのはWebpackの大きな強みだと感じた。</p>
 <ul>
-<li><a href="https://github.com/tj/n" target="_blank" rel="noopener">tj/n</a></li>
+<li><a href="https://webpack.github.io/docs/code-splitting.html" target="_blank" rel="noopener">code splitting</a></li>
+<li><a href="https://christianalfoni.github.io/react-webpack-cookbook/Lazy-loaded-entry-points.html" target="_blank" rel="noopener">Lazy loaded entry points | React Webpack cookbook</a></li>
+<li><a href="http://qiita.com/RyotaSugawara/items/0effa7ce42adfcb66a35" target="_blank" rel="noopener">webpackのrequire.ensureでDynamic Loadingをして大規模アプリケーションを作る - Qiita</a></li>
 </ul>
-<p>個人開発による実験の場でもあり、また頻繁なバージョンアップへもカジュアルに対応したいのであまりよくないだろうなぁと思いつつもnvm経由で管理を行っていた。</p>
-<p>しかしCapistranoによる自動デプロイを実装するにあたってnvmを用いたNodeの操作は非常に面倒であったため、いい機会なのでnへ引っ越すことにした。</p>
-<h2 id="nvmの削除"><a href="#nvmの削除" class="headerlink" title="nvmの削除"></a>nvmの削除</h2><p>nvm の削除は普通に<code>bash_profile</code>から環境変数を削除し、ユーザーディレクトリから本体を丸ごと削除するだけである。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 環境変数の削除</span></span><br><span class="line">$ vi ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm本体の削除</span></span><br><span class="line">$ rm -rf ~/.nvm</span><br></pre></td></tr></table></figure>
+<p>CSSや画像はちょっと考えがあり、ローダーを使用していない。</p>
 <ul>
-<li><a href="https://github.com/creationix/nvm/issues/298" target="_blank" rel="noopener">How to uninstall nvm? · Issue #298 · creationix/nvm</a><h2 id="nのインストール"><a href="#nのインストール" class="headerlink" title="nのインストール"></a>nのインストール</h2></li>
-</ul>
-<p>まずNode本体をyum経由でインストールする。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install nodejs npm --enablerepo=epel</span><br></pre></td></tr></table></figure>
-<p>これでNodeとnpmは入った。<br>node は0.10.36、npm は1.3.6と、どちらもかなり古いバージョンなので、とりあえずnpmは先に最新にアップデートを行った。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install npm -g</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br><span class="line">3.3.12</span><br></pre></td></tr></table></figure>
-<p>別にそのままのバージョンでも問題はないかもしれないが、3系は大幅に改良がおこなわれているので上げれるときに上げておいた。<br>次にnと、最新のNodeをインストールする。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install n -g </span><br><span class="line">$ n latest</span><br><span class="line"></span><br><span class="line">$ node -v</span><br><span class="line">v5.2.0</span><br></pre></td></tr></table></figure>
-<p>これでv5.2のNodeがインストールされた。<br>今後は開発ではnvm、本番ではnと使い分けていこうと思う。</p>
-<p>参考文献</p>
-<ul>
-<li><a href="http://moro-archive.hatenablog.com/entry/2015/07/27/225747" target="_blank" rel="noopener">結局のところ node.js をサーバーにインストールするにはどうやればいいのか？ - もろず blog</a></li>
-<li><a href="http://parashuto.com/rriver/tools/updating-node-js-and-npm" target="_blank" rel="noopener">Node.jsとnpmをアップデートする方法 – Rriver</a></li>
-<li><a href="http://dekokun.github.io/posts/2014-01-01.html" target="_blank" rel="noopener">Nodeの複数バージョン管理のお供にnをどうぞ</a></li>
+<li><a href="http://ameblo.jp/ca-1pixel/entry-11884453208.html" target="_blank" rel="noopener">RequireJS等はもう古い。WebPackとは？｜1 pixel｜サイバーエージェント公式クリエイターズブログ</a></li>
+<li><a href="http://liginc.co.jp/web/js/other-js/148813" target="_blank" rel="noopener">WebPackを使ってJavaScriptを効率的に書くチュートリアル【入門編】 | 株式会社LIG</a></li>
 </ul>
 
 	    
@@ -218,92 +319,6 @@
 	
 </div>
 
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-10T09:45:57.000Z">
-                    2015-12-10
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/10/SourceHanCodeJP2-0.html">Source Han Code JP 2.0</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Source Han Code JPの2.0がリリースされていたので入れ替えた。</p>
-<ul>
-<li><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a></li>
-</ul>
-<p>僕の環境では相変わらずフォントの指定に癖があり、ウェイトの指定がMediumだと <code>Source Han Code jp Medium</code> 、Normalだと <code>源ノ角ゴシック Code JP N</code> と入力しないと反映されない。この部分が修正されている期待をしたが、イシューも上がってないので気づいてないかも。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-08T09:44:06.000Z">
-                    2015-12-08
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/08/RubyOnCentOS7.html">Ruby on CentOS 7</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>開発環境のCentOS7へRubyをインストールした。バージョンも管理したいのでrbenvを経由し、方法はいくつかあるようだが一番シンプルそうなルートを選択した。</p>
-<ul>
-<li><a href="https://github.com/rbenv/rbenv" target="_blank" rel="noopener">rbenv/rbenv</a></li>
-</ul>
-<p>事前に必要なモジュールをインストールする。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y install git libffi libffi-dev gcc openssl-devel readline-devel zlib-devel</span><br></pre></td></tr></table></figure>
-<p>rbenv、rbenv-buildのリポジトリをクローン。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/rbenv.git ~/.rbenv</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br></pre></td></tr></table></figure>
-<p>rbenvのパスを通す。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">exec</span> <span class="variable">$SHELL</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>インストールできるRubyのバージョン一覧を取得。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -list</span><br></pre></td></tr></table></figure>
-<p>今回は最新安定板の<code>2.2.3</code>をインストール。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -v 2.2.3</span><br></pre></td></tr></table></figure>
-<p>rvenvを再読み込みしグローバルで使用するバージョンへ指定。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv <span class="built_in">rehash</span></span><br><span class="line">$ rbenv global 2.2.3</span><br></pre></td></tr></table></figure>
-<p><code>ruby -v</code>でバージョンが表示されれば完了。</p>
-<p>また、併せてbundlerも入れておく。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem install bundler</span><br><span class="line">$ bundle -v</span><br></pre></td></tr></table></figure>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
 	</footer>
     
 

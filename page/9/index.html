@@ -77,42 +77,52 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-18T09:33:49.000Z">
-                    2015-11-18
+                <time class="article__header__meta__time" datetime="2015-12-06T07:56:25.000Z">
+                    2015-12-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/18/Metalsmith.html">Metalsmith</a>
+            <a href="/2015/12/06/Windows10×Bitbucket×Jenkins.html">Bitbucket × Jenkins</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ブログではない、静的なサイトをビルドするにあたって、Metalsmithがよさげなので使ってみた。</p>
+	    <p>個人開発用にローカルWindowsへJenkinsをインストールし、Bitbucketのプライベーソリポジトリへプッシュした内容を自動的にClで回してデプロイまでもっていきたい。</p>
+<p>Clツールのためにサーバーを用意するほどではなく、課金してCircleCiするほどでもない案件。<br>規模が大きくなるとどっかに移行したほうが楽かも。</p>
 <ul>
-<li><a href="http://www.metalsmith.io/" target="_blank" rel="noopener">Metalsmith</a></li>
+<li><a href="http://jenkins-ci.org/" target="_blank" rel="noopener">Welcome to Jenkins CI! | Jenkins CI</a></li>
 </ul>
-<p>公式は上記。<br>最近は勢いが乏しいらしく、現時点では非推奨のモジュールが公式のサンプルにで使われている。<br>が、メンテは継続されているようだしエコシステムもほぼ仕上がっているようなので、通常導入する分には問題はなさそう。</p>
+<p>公式。</p>
 <ul>
-<li><a href="http://qiita.com/maruloop/items/4c9ab4135ff1f3689d2a" target="_blank" rel="noopener">static_site_generator - Metalsmith(静的サイトジェネレーター)の導入 - Qiita</a></li>
+<li><a href="https://ics.media/entry/2410" target="_blank" rel="noopener">JenkinsでCI環境構築チュートリアル (Windows編) - ICS MEDIA</a></li>
+<li><a href="http://thinkami.hatenablog.com/entry/20121125/1353795880" target="_blank" rel="noopener">Windows7に、一人で使うためのJenkinsを入れてみた - メモ的な思考的な</a></li>
 </ul>
-<p>上記記事を参考にとりあえずビルドまでもっていく。<code>metalsmith-templates</code>は非推奨となり、<a href="https://github.com/superwolff/metalsmith-layouts" target="_blank" rel="noopener">metalsmith-layouts</a>と<a href="https://github.com/superwolff/metalsmith-in-place" target="_blank" rel="noopener">metalsmith-in-place</a>へ分離したらしいが、今回は気にせず使用していく。テンプレートエンジンはNunjucksへ変えた。</p>
-<p>また、<code>metalsmith.json</code>に設定を書いていくやりかたは個人的にあまり気持ちのいい方法ではないので、jsでビルドする方法を選択した。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Metalsmith = <span class="built_in">require</span>(<span class="string">'metalsmith'</span>);</span><br><span class="line"><span class="keyword">const</span> collections = <span class="built_in">require</span>(<span class="string">'metalsmith-collections'</span>);</span><br><span class="line"><span class="keyword">const</span> markdown = <span class="built_in">require</span>(<span class="string">'metalsmith-markdown'</span>);</span><br><span class="line"><span class="keyword">const</span> permalinks = <span class="built_in">require</span>(<span class="string">'metalsmith-permalinks'</span>);</span><br><span class="line"><span class="keyword">const</span> templates = <span class="built_in">require</span>(<span class="string">'metalsmith-templates'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> metalsmith = <span class="keyword">new</span> Metalsmith(__dirname)</span><br><span class="line">    .use(collections(&#123;<span class="attr">posts</span>: &#123;<span class="attr">pattern</span>: <span class="string">"posts/*.md"</span>&#125;&#125;))</span><br><span class="line">    .use(markdown())</span><br><span class="line">    .use(permalinks(&#123;<span class="attr">pattern</span>: <span class="string">':title'</span>&#125;))</span><br><span class="line">    .use(templates(<span class="string">'nunjucks'</span>))</span><br><span class="line">    .build(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これだけで今回ほしい部分は大体動く。<br>柔軟性が高いようなので、ブログでなければMetalsmithのほうが楽に作れると感じた。</p>
+<p>インストールからHelloWorldまでは上記が参考になった。</p>
 <ul>
-<li><a href="http://www.petermorlion.com/creating-static-sites-with-metalsmith/" target="_blank" rel="noopener">Creating static sites with Metalsmith</a></li>
+<li><a href="http://qiita.com/n_rooms/items/2e1adefcc26d51b4e866" target="_blank" rel="noopener">ユーザ作成を含む最低限のセキュリティ設定(Jenkins) - Qiita</a></li>
 </ul>
+<p>基本的なセキュリティは、ちょっと古いようだが上記の流れで問題ない様子。</p>
+<ul>
+<li><a href="http://hookturn.tumblr.com/post/101929615252/windows%E3%81%AEjenkins%E3%81%ABssh%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6git%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" target="_blank" rel="noopener">HOOK TURN • WindowsのJenkinsにssh証明書を設定してgitを利用する</a></li>
+</ul>
+<p>ユーザー認証。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/Jenkins/">#Jenkins</a>
+	
+</div>
+
 	</footer>
     
 
@@ -123,43 +133,48 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-15T09:32:06.000Z">
-                    2015-11-15
+                <time class="article__header__meta__time" datetime="2015-12-04T07:36:04.000Z">
+                    2015-12-04
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/15/Hexo3.html">Hexo3</a>
+            <a href="/2015/12/04/Default-CSS.html">Default CSS</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>このブログのリニューアルに伴い、Hexoのバージョンも3系へ上げた。</p>
-<p>アップデートのやりかたは下記をこれを参考に。</p>
-<ul>
-<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/#How_to_Update?" target="_blank" rel="noopener">Hexo 3.0 How_to_Update?</a></li>
+	    <p>なんとなく気になって主要ブラウザのデフォルトCSSを調べてみた。</p>
+<h2 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h2><ul>
+<li><a href="http://www.iecss.com/" target="_blank" rel="noopener">Internet Explorer UA Style Sheets</a></li>
 </ul>
-<p>公式のアナウンスはこれ。</p>
-<ul>
-<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/" target="_blank" rel="noopener">Hexo 3.0 Released | Hexo</a></li>
-<li><a href="https://github.com/hexojs/hexo/wiki/Breaking-Changes-in-Hexo-3.0#render-pipeline-changed" target="_blank" rel="noopener">Breaking Changes in Hexo 3.0 · hexojs/hexo Wiki</a></li>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ul>
+<li><a href="http://mxr.mozilla.org/mozilla-central/source/layout/style/html.css" target="_blank" rel="noopener">mozilla-central mozilla/layout/style/html.css</a></li>
+<li><a href="http://hg.mozilla.org/mozilla-central/file/tip/layout/style/html.css" target="_blank" rel="noopener">mozilla-central: layout/style/html.css@85cf2e720a84</a></li>
 </ul>
-<p>詳しくは上記に載っているが、常用していたコアモジュールが外れたりコマンド周りが便利になったりと使用面でも幾分かの変化があった。</p>
-<p>このブログはGithub Page上へ配置されておりデプロイでgitを利用するため、<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>を用いるが、今回これもコアモジュールから外れたため別途インストールする必要があった。<br>静的サイトジェネレーターを同様の手法で運用している人は多いと思うので、この点は変更は注意が必要かと思われる。</p>
-<p>あとはコマンドの省略形が簡単に利用できるようになった。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ジェネレーター</span></span><br><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 変更を監視</span></span><br><span class="line">$ hexo g --watch</span><br><span class="line"></span><br><span class="line"><span class="comment"># ローカルサーバー起動</span></span><br><span class="line">$ hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># デプロイ</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>記事を書く以外に労力を使いたくないので、これは地味ながら便利である。</p>
-<p>ブログ周りはライブドアから始まって、アメーバ、てぃーだ、Wordpressと色々渡ってきたが、Hexoでとりあえず落ち着いている。なのでこのまま順調な発展を願うものである。</p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><ul>
+<li><a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css" target="_blank" rel="noopener">Source/core/css/html.css - chromium/blink - Git at Google</a></li>
+</ul>
+<h2 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h2><ul>
+<li><a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css" target="_blank" rel="noopener">trunk/Source/WebCore/css の html.css – WebKit</a></li>
+</ul>
+<p>Edgeは見つけきれなかったなぁ。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/CSS/">#CSS</a>
+	
+</div>
+
 	</footer>
     
 
@@ -170,43 +185,71 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-14T09:30:29.000Z">
-                    2015-11-14
+                <time class="article__header__meta__time" datetime="2015-12-02T07:33:25.000Z">
+                    2015-12-02
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/14/NotoSansCJK.html">Noto Sans CJK</a>
+            <a href="/2015/12/02/多言語化.html">多言語化</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>今作成しているHEXOテーマにNoto Sans CJKの導入を試みている。</p>
+	    <p>Webアプリを日本語の他に英語にも対応させることにした。</p>
+<p>WEB+DB PRESS の78号でフロントエンド向けではあるが特集が組まれていたおり大いに参考になった。</p>
 <ul>
-<li><a href="https://www.google.com/get/noto/help/cjk/" target="_blank" rel="noopener">Noto Sans CJK – Google Noto Fonts</a></li>
+<li><a href="http://teppeis.hatenablog.com/entry/2013/12/webdb-press-javascript-i18n" target="_blank" rel="noopener">WEB+DB PRESS Vol.78に「フロントエンドの国際化」について書いた！ - teppeis blog</a></li>
 </ul>
-<p>日本語など漢字を含む書体は容量の問題があるので、常用漢字にしぼったサブセット化を行ったほうがよさそう。</p>
+<p>フロントエンドではi18n APIに期待したが、Safariが…。</p>
 <ul>
-<li><a href="http://qiita.com/taka4sato/items/dba258d17d68500081f5" target="_blank" rel="noopener">Noto SansをWeb font化しようとした時にハマった話 - Qiita</a></li>
-<li><a href="http://qiita.com/nowri/items/1c69b9b25f2958bd9f97" target="_blank" rel="noopener">font - Noto Sans CJK JP フォントをダウンロードしてサイトに適用する手順 - Qiita</a></li>
+<li><a href="http://wiki.ecmascript.org/doku.php?id=globalization:specification_drafts" target="_blank" rel="noopener">globalization:specification_drafts [ES Wiki]</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank" rel="noopener">Intl - JavaScript | MDN</a></li>
+<li><a href="http://caniuse.com/#feat=internationalization" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
 </ul>
-<p>上記記事にて丁寧に方法を解説しており、有り難いことにサブセット化したフォントデータを公開していたりもする。<br>しかしサブセットの対象外としているJIS第2水準漢字をざっと眺めてみると、「おや、これも第2なの！？」と思う漢字も含まれている。(丼・罠・囮など、結構あった)</p>
+<p>ライブラリ群では定番のMoment.jsも紹介されており、その後より広範囲なFormatJSが登場したりしているので、よく吟味したい。</p>
 <ul>
-<li><a href="http://kanjitisiki.com/jis2/" target="_blank" rel="noopener">JIS第2水準の漢字一覧表</a></li>
+<li><a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js | Home</a></li>
+<li><a href="http://formatjs.io/" target="_blank" rel="noopener">FormatJS</a></li>
 </ul>
-<p>しかし第2水準漢字は3000字弱定義されており、これをすべて含めるとそこそこの容量になってしまう。</p>
-<p>どうしたものかと考えていたら、<a href="http://www.sip.co.jp/" target="_blank" rel="noopener">システムズ・インテリジェンス・プロダクツ</a>という業務用スキャンシステムなどを取り扱う企業の取り扱い商品の<a href="http://www.sip.co.jp/PSSkatsuji.pdf" target="_blank" rel="noopener">仕様書</a>を見つけたので、こちらを参考にさせていただくことにした。</p>
-<p>こちらは第一水準へ第二水準から選定した551字をを加えた3516字を対応漢字として定義している。<br>僕一人があれやこれやと加えるより遥かに客観性があるであろう。</p>
+<p>URLの設計をどうするかは未だ検討中だが、言語ごとに検索結果の最適化を行いたい場合はドメインを利用した手法がオススメなようだ。</p>
+<ul>
+<li><a href="http://webmasters.stackexchange.com/questions/403/how-should-i-structure-my-urls-for-both-seo-and-localization" target="_blank" rel="noopener">How should I structure my URLs for both SEO and localization? - Webmasters Stack Exchange</a></li>
+<li><a href="https://support.google.com/webmasters/answer/182192?hl=ja" target="_blank" rel="noopener">多地域、多言語のサイト - Search Console ヘルプ</a></li>
+</ul>
+<p>Nodeではi18n向けライブラリが存在し、Koaでラップしたものも有志により作れれているので、この辺を使えば容易に行けそう。</p>
+<ul>
+<li><a href="https://github.com/mashpie/i18n-node" target="_blank" rel="noopener">mashpie/i18n-node</a></li>
+<li><a href="https://github.com/koa-modules/i18n" target="_blank" rel="noopener">koa-modules/i18n</a></li>
+</ul>
+<h2 id="そして実装へ"><a href="#そして実装へ" class="headerlink" title="そして実装へ"></a>そして実装へ</h2><p>サブドメインを使用したi18n化を実装した。</p>
+<ul>
+<li><a href="https://support.google.com/webmasters/answer/189077?hl=ja" target="_blank" rel="noopener">言語や地域の URL に hreflang を使用する - Search Console ヘルプ</a></li>
+</ul>
+<p>とりあえず検索エンジン向けにhreflangを記述した。HTTPヘッダーやサイトマップへ記す方法もあるようだが、今回はお手軽にhtmlへ直接書いた。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"en"</span> <span class="attr">href</span>=<span class="string">"https://dewy.me/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternate"</span> <span class="attr">hreflang</span>=<span class="string">"ja"</span> <span class="attr">href</span>=<span class="string">"https://jp.dewy.me/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>片方ずつ置けばいいのかと思いきや、両方のページに両方置かなければならないらしい。<br>今回は2言語なのでごちゃごちゃすることはないが、増えるようだったらサイトマップを試してみたい。</p>
+<ul>
+<li><a href="http://shakezoomer.com/?p=83" target="_blank" rel="noopener">【node.js &amp; express】国際化対応(i18n) « zoomAroid</a></li>
+</ul>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/Koa/">#Koa</a>
+	
+</div>
+
 	</footer>
     
 
@@ -217,41 +260,39 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-11T09:28:26.000Z">
-                    2015-11-11
+                <time class="article__header__meta__time" datetime="2015-12-01T07:31:39.000Z">
+                    2015-12-01
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/11/AMPHTML.html">AMP HTML</a>
+            <a href="/2015/12/01/SourceTree-1-6-24.html">SourceTree-1.6.24</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>AMP HTML、自分にはあまり関係ないやと思っていたのですが、ちょっと気が変わって触ってみた。</p>
+	    <p>SourceTree 1.6.24でBitbucketアカウントへのログインができない。</p>
+<p>調べてみたらすでにヘルプへ上がっているので、そのうち修正されると思われる。どうやらWindows全般で起こっているようだ。</p>
 <ul>
-<li><a href="https://www.ampproject.org/" target="_blank" rel="noopener">Accelerated Mobile Pages Project</a></li>
-<li><a href="https://github.com/ampproject/amphtml" target="_blank" rel="noopener">ampproject/amphtml</a></li>
+<li><a href="https://answers.atlassian.com/questions/164023/password-not-working-on-sourcetree" target="_blank" rel="noopener">Password not working on SourceTree - Atlassian Answers</a></li>
 </ul>
-<p>公式はこの辺。</p>
-<ul>
-<li><a href="http://masup.net/2015/10/fits-amp-html.shtml" target="_blank" rel="noopener">AMP(Accelerated Mobile Pages) HTMLしてみたという話 | masuP.net</a></li>
-<li><a href="http://blog.ku-suke.jp/entry/2015/10/08/%E7%88%86%E9%80%9F%E3%83%A2%E3%83%90%E3%82%A4%E3%83%ABWeb%E3%80%81AMP%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF%E6%8A%84%E8%A8%B3" target="_blank" rel="noopener">爆速モバイルWeb、AMPの仕組み抄訳 - ku-sukeのブログ</a></li>
-</ul>
-<p>日本語での参考記事はこの辺。</p>
-<p>ただかなりのスピードで開発が進められているので、ネット上の記事は参考にしつつも一次情報をしっかり確認したほうがよさげである。</p>
-<p>恐らく最新の一次情報の発信地は<a href="https://github.com/ampproject/amphtml" target="_blank" rel="noopener">Githubリポジトリ</a>であろうが、よく整理されており変更を追いやすく、それほど苦しくなかった。</p>
-<p>エクステンション周りもどんどん増えており、個人的にかなり可能性を感じている。<br>AutomatticはすでにWordpressがプラグインを<a href="https://github.com/Automattic/amp-wp/" target="_blank" rel="noopener">開発</a>し、<a href="https://wordpress.org/plugins/amp/" target="_blank" rel="noopener">公開</a>しているし、モバイル対応の選択肢としてAMP HTMLの配信は一般化して行くのではないだろうか。</p>
+<p>現時点での解決策は<a href="http://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.6.23.exe" target="_blank" rel="noopener">1.6.23</a>へのダウングレードのようだが、一度アンインストールが必要でやや面倒なので様子を見ることにした。明日修正版が出なかったら実行することにする。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/SourceTree/">#SourceTree</a>
+	
+</div>
+
 	</footer>
     
 
@@ -262,39 +303,51 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-09T09:24:19.000Z">
-                    2015-11-09
+                <time class="article__header__meta__time" datetime="2015-11-29T12:30:15.000Z">
+                    2015-11-29
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/09/NAS.html">NAS</a>
+            <a href="/2015/11/29/Marker-Clusterer.html">Marker-Clusterer</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>メディアサーバーとして利用していたLS-WVLがネットワーク上から消えた。</p>
+	    <p>Google mapsへMarker Clustererを導入した。</p>
 <ul>
-<li><a href="http://gadget.biyori.net/archives/1932" target="_blank" rel="noopener">BUFFALO製のNASが動かなくなったのでPC経由でファームウェアを再インストールした</a></li>
+<li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li>
 </ul>
-<p>とりあえず上記記事を参考にフォームウェアの更新を行うと表示は戻ったが、どうやらHDDの一つが故障したもよう。RAID1で運用していたのでデータはもう一つのHDDで生きているが、そちらも止まったら終わりなので早急に交換を行うべく行動を開始した。</p>
-<p>交換用のHDDはメカー純正品がベターだとは思うが、Amazonで評判のいい<a href="http://www.amazon.co.jp/%E5%86%85%E8%94%B5%E3%83%8F%E3%83%BC%E3%83%89%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF-3-5%E3%82%A4%E3%83%B3%E3%83%81-WD10EFRX-IntelliPower-SATA3-0/dp/B008P56QAU" target="_blank" rel="noopener">WD10EFRX</a>を試してみようと思う。価格は半分以下だ。</p>
+<p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p>
 <ul>
-<li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | ネットワーク型HDD（NAS）のデータ復旧 | データ復旧のパソコンサポートやまもと</a></li>
+<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li>
+<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li>
 </ul>
-<p>ここを参考に行えば上手くいくだろう。</p>
-<p>今後は合わせてUSB接続を利用し定期的な自動バックアップを行おうと思う。音楽データや写真が結構膨大な数になるので、可能なリスク回避は行うべきかなと。</p>
-<p>NASを導入した5年がたつが近年は色々と群雄割拠宇なようなので、そのうち他のメーカーのものも試してみたいと思う。</p>
+<p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p>
+<p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p>
+<ul>
+<li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li>
+<li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li>
+<li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li>
+</ul>
+<p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p>
+<p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+</div>
+
 	</footer>
     
 

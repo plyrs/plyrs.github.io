@@ -77,39 +77,84 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-29T12:30:15.000Z">
-                    2015-11-29
+                <time class="article__header__meta__time" datetime="2015-12-12T09:48:07.000Z">
+                    2015-12-12
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/29/Marker-Clusterer.html">Marker-Clusterer</a>
+            <a href="/2015/12/12/NewRelic.html">New Relic</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Google mapsへMarker Clustererを導入した。</p>
+	    <p>サーバーの監視やパフォーマンスチェックのため、New Relicの導入を開始した。</p>
+<p>参考は以下の記事など。</p>
 <ul>
-<li><a href="https://github.com/googlemaps/js-marker-clusterer" target="_blank" rel="noopener">googlemaps/js-marker-clusterer</a></li>
+<li><a href="http://dev.classmethod.jp/tool/newrelic/" target="_blank" rel="noopener">New Relicでアプリケーションのパフォーマンス測定 ｜ Developers.IO</a></li>
+<li><a href="http://qiita.com/kumatronik/items/e2e09bd3708b00442d9b" target="_blank" rel="noopener">newrelic - New Relic の各製品紹介: New Relic ってアプリケーションパフォーマンス監視ツールじゃないの？ - Qiita</a></li>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1410/06/news145_3.html" target="_blank" rel="noopener">連載：アプリケーションの運用監視：第1回　アプリの運用監視サービスとは？ New Relic vs. Application Insights (3/6) - ＠IT</a></li>
 </ul>
-<p>ライブラリを追加し、下記ドキュメントとデモを見たら大体の仕様は分かった。</p>
+<p>個人で使用する分には無料でも十分だと感じた。<br>また、Android向けアプリも提供されており、使い勝手も問題ない感じだ。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-11T09:47:02.000Z">
+                    2015-12-11
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/11/n.html">n</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>プロダクション環境Node.jsのバージョン管理をnvmからnへ切り替えた。</p>
 <ul>
-<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/reference.html" target="_blank" rel="noopener">MarkerClusterer for Google Maps v3 version 1.0 Reference</a></li>
-<li><a href="https://googlemaps.github.io/js-marker-clusterer/docs/examples.html" target="_blank" rel="noopener">MarkerCluster for v3 Documentation: Examples</a></li>
+<li><a href="https://github.com/tj/n" target="_blank" rel="noopener">tj/n</a></li>
 </ul>
-<p>基本的にはGoogleMapオブジェクトとマーカーの配列を<code>new MarkerClusterer()</code>へ突っ込めば作動する。</p>
-<p>オプションを渡してクラスター化のタイミングなどを制御できるようだが、ドキュメントを探すのにちょっと苦労した。<br>おそらく<a href="http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/1.0/docs/reference.html" target="_blank" rel="noopener">Ver.1</a>と同様のようなので、ここを参照した。</p>
+<p>個人開発による実験の場でもあり、また頻繁なバージョンアップへもカジュアルに対応したいのであまりよくないだろうなぁと思いつつもnvm経由で管理を行っていた。</p>
+<p>しかしCapistranoによる自動デプロイを実装するにあたってnvmを用いたNodeの操作は非常に面倒であったため、いい機会なのでnへ引っ越すことにした。</p>
+<h2 id="nvmの削除"><a href="#nvmの削除" class="headerlink" title="nvmの削除"></a>nvmの削除</h2><p>nvm の削除は普通に<code>bash_profile</code>から環境変数を削除し、ユーザーディレクトリから本体を丸ごと削除するだけである。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 環境変数の削除</span></span><br><span class="line">$ vi ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm本体の削除</span></span><br><span class="line">$ rm -rf ~/.nvm</span><br></pre></td></tr></table></figure>
 <ul>
-<li>gridSize - クラスター範囲のサイズ。デフォルトは60で、小さくすると精度が上がり、大きくするとパフォーマンスが上がる。</li>
-<li>maxZoom - クラスター監視に限度を設定できる。設定以下だとクラスター対象のマーカー群を無視する。</li>
-<li>styles - クラスターのスタイルを設定できる。配列で大サイズから小への順番で。</li>
+<li><a href="https://github.com/creationix/nvm/issues/298" target="_blank" rel="noopener">How to uninstall nvm? · Issue #298 · creationix/nvm</a><h2 id="nのインストール"><a href="#nのインストール" class="headerlink" title="nのインストール"></a>nのインストール</h2></li>
 </ul>
-<p>大量のマーカーを配置するならユーザビリティ的に恩恵は大きいと思う。<br>スマートフォンでもパフォーマンス上の問題は無さそう。</p>
-<p>しかしマーカーが比較的密集していると、ズームレベル15では単独表示だったが、16へズームするとクラスター化されてしまうという不自然な挙動が見られた。恐らくクラスター化のグリッド計算アルゴリズムの仕様なのでしょうがないかも。</p>
+<p>まずNode本体をyum経由でインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install nodejs npm --enablerepo=epel</span><br></pre></td></tr></table></figure>
+<p>これでNodeとnpmは入った。<br>node は0.10.36、npm は1.3.6と、どちらもかなり古いバージョンなので、とりあえずnpmは先に最新にアップデートを行った。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install npm -g</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br><span class="line">3.3.12</span><br></pre></td></tr></table></figure>
+<p>別にそのままのバージョンでも問題はないかもしれないが、3系は大幅に改良がおこなわれているので上げれるときに上げておいた。<br>次にnと、最新のNodeをインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install n -g </span><br><span class="line">$ n latest</span><br><span class="line"></span><br><span class="line">$ node -v</span><br><span class="line">v5.2.0</span><br></pre></td></tr></table></figure>
+<p>これでv5.2のNodeがインストールされた。<br>今後は開発ではnvm、本番ではnと使い分けていこうと思う。</p>
+<p>参考文献</p>
+<ul>
+<li><a href="http://moro-archive.hatenablog.com/entry/2015/07/27/225747" target="_blank" rel="noopener">結局のところ node.js をサーバーにインストールするにはどうやればいいのか？ - もろず blog</a></li>
+<li><a href="http://parashuto.com/rriver/tools/updating-node-js-and-npm" target="_blank" rel="noopener">Node.jsとnpmをアップデートする方法 – Rriver</a></li>
+<li><a href="http://dekokun.github.io/posts/2014-01-01.html" target="_blank" rel="noopener">Nodeの複数バージョン管理のお供にnをどうぞ</a></li>
+</ul>
 
 	    
 	</div>
@@ -118,7 +163,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/JavaScript/">#JavaScript</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -132,130 +177,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-27T11:25:48.000Z">
-                    2015-11-27
+                <time class="article__header__meta__time" datetime="2015-12-10T09:45:57.000Z">
+                    2015-12-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/27/Icon.html">Icon</a>
+            <a href="/2015/12/10/SourceHanCodeJP2-0.html">Source Han Code JP 2.0</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ちょっとIconのデザインを考えてた。<br>やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。</p>
+	    <p>Source Han Code JPの2.0がリリースされていたので入れ替えた。</p>
 <ul>
-<li><a href="https://www.google.com/design/spec/style/icons.html" target="_blank" rel="noopener">Icons - Style - Google design guidelines</a></li>
-<li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html" target="_blank" rel="noopener">iOS Human Interface Guidelines: Icons and Graphics</a></li>
+<li><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a></li>
 </ul>
-<p>ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。</p>
-<ul>
-<li><a href="https://www.google.com/design/icons/" target="_blank" rel="noopener">https://www.google.com/design/icons/</a></li>
-</ul>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Design/">#Design</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-26T07:19:33.000Z">
-                    2015-11-26
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/11/26/Splash-Screens.html">Splash-Screens</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。<br>もちろん、現段階で対応しているブラウザは無い。<br>しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="string">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="string">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"splash_screens"</span>: [&#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/lowres"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"320x240"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_small"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1334x750"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_hi"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1920x1080"</span>,</span><br><span class="line">    <span class="string">"density"</span>: <span class="number">3</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。</p>
-<ul>
-<li><a href="https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/" target="_blank" rel="noopener">Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)</a></li>
-</ul>
-<p>Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。</p>
-<p>Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/Apps/Manifest" target="_blank" rel="noopener">アプリマニフェスト - アプリセンター | MDN</a></li>
-</ul>
-<p>manifest.webappの詳細</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards" target="_blank" rel="noopener">Open Web Apps と Web 標準 | MDN</a></li>
-<li><a href="https://developer.mozilla.org/ja/Apps/App_templates" target="_blank" rel="noopener">アプリテンプレートの使用 - アプリセンター | MDN</a></li>
-</ul>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/WebApp/">#WebApp</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-25T09:37:21.000Z">
-                    2015-11-25
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/11/25/CriticalPathCSS-2.html">Critical Path CSS#2</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p><a href="https://dewy.me/" target="_blank" rel="noopener">Dewy</a> へクリティカルCSSの最適化を実装した。</p>
-<p>色々と下調べを行っていたが、運用コストを図るには運用してみるのが一番だと感じとりあえず小さく始めてみることにした。</p>
-<p>サイトはレンダリングにテンプレートエンジンを使用しているため、当初は<a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">penthouse</a>を使用しようと考えた。<br>これはWebページをPhantomJSを用いて解析するもので、手元でレンダリングを実行する必要がなく導入が容易でサイコーだと感じた。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">penthouse(&#123;</span><br><span class="line">    url : <span class="string">'https://dewy.me/'</span>,</span><br><span class="line">    css : path.join(__dirname + <span class="string">'/public/css/main.css'</span>),</span><br><span class="line">    width : <span class="number">320</span>,</span><br><span class="line">    height : <span class="number">480</span>,</span><br><span class="line">    timeout: <span class="number">30000</span></span><br><span class="line">&#125;, (err, criticalCss) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err);</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(criticalCss);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これでクリティカルCSSが記述されたhtmlが生成され、これをhead内でインポートしフルCSSは非同期で読み込む。PhantomJSが重いのか少し実行に時間はかかるが、問題なく作動した。<br>しかし、内部モジュールのCSSパースの精度がよくないのか正確なクリティカルCSSを吐き出せておらず、ベタに<a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">critical</a>を使うこととなった。</p>
-<p>とりえず一度静的なhtmlへレンダリングを行い、それを解析。それ以外は上記と同じ流れとなる。</p>
-<p>criticalの部分は…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">critical.generate(&#123;</span><br><span class="line">    base: <span class="string">'public/'</span>,</span><br><span class="line">    src: <span class="string">'index.html'</span>,</span><br><span class="line">    css: [<span class="string">'public/css/normalize.css'</span>, <span class="string">'public/css/evil-icons.min.css'</span>, <span class="string">'public/css/main.css'</span>],</span><br><span class="line">    width: <span class="number">320</span>,</span><br><span class="line">    height: <span class="number">480</span>    </span><br><span class="line">&#125;).then(<span class="function"><span class="params">output</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(output);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style type="text/css"&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>); </span><br><span class="line">&#125;).error(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>こんな感じ。Promiseで書けるので多少複雑になっていっても視認性はよさそうだ。</p>
-<p>PageSpeed Insightsの点は結構上がって気持ちがいいので、しばらくこれで運用して改善点と課題を洗い出したいと思う。</p>
+<p>僕の環境では相変わらずフォントの指定に癖があり、ウェイトの指定がMediumだと <code>Source Han Code jp Medium</code> 、Normalだと <code>源ノ角ゴシック Code JP N</code> と入力しないと反映されない。この部分が修正されている期待をしたが、イシューも上がってないので気づいてないかも。</p>
 
 	    
 	</div>
@@ -272,24 +213,83 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-21T09:35:14.000Z">
-                    2015-11-21
+                <time class="article__header__meta__time" datetime="2015-12-08T09:44:06.000Z">
+                    2015-12-08
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/21/VisualStudioCodeへ引っ越し.html">Visual Studio Codeへ引っ越し</a>
+            <a href="/2015/12/08/RubyOnCentOS7.html">Ruby on CentOS 7</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>今現在、開発にはBracketsを使っている。</p>
-<p>前々からVisuale Studio Codeも触っていて、バージョンアップを繰り返すごとに目に見えて良くなっており魅力を感じていたものの、Editorconfigの未対応などがちょっと痛くて導入はできずにいた。</p>
-<p>しかし今回のオープンソース化にあたって、早速Editorconfig拡張も有志により追加されたので引っ越しの準備を始めている。</p>
+	    <p>開発環境のCentOS7へRubyをインストールした。バージョンも管理したいのでrbenvを経由し、方法はいくつかあるようだが一番シンプルそうなルートを選択した。</p>
+<ul>
+<li><a href="https://github.com/rbenv/rbenv" target="_blank" rel="noopener">rbenv/rbenv</a></li>
+</ul>
+<p>事前に必要なモジュールをインストールする。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum -y install git libffi libffi-dev gcc openssl-devel readline-devel zlib-devel</span><br></pre></td></tr></table></figure>
+<p>rbenv、rbenv-buildのリポジトリをクローン。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/rbenv.git ~/.rbenv</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br></pre></td></tr></table></figure>
+<p>rbenvのパスを通す。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">exec</span> <span class="variable">$SHELL</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>インストールできるRubyのバージョン一覧を取得。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -list</span><br></pre></td></tr></table></figure>
+<p>今回は最新安定板の<code>2.2.3</code>をインストール。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install -v 2.2.3</span><br></pre></td></tr></table></figure>
+<p>rvenvを再読み込みしグローバルで使用するバージョンへ指定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv <span class="built_in">rehash</span></span><br><span class="line">$ rbenv global 2.2.3</span><br></pre></td></tr></table></figure>
+<p><code>ruby -v</code>でバージョンが表示されれば完了。</p>
+<p>また、併せてbundlerも入れておく。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gem install bundler</span><br><span class="line">$ bundle -v</span><br></pre></td></tr></table></figure>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-12-07T09:39:09.000Z">
+                    2015-12-07
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/12/07/Capistrano.html">Capistrano</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>自動デプロイを実現するべく、Capistranoを試している。<br>参考記事は以下など。</p>
+<ul>
+<li><a href="http://capistranorb.com/" target="_blank" rel="noopener">A remote server automation and deployment tool written in Ruby.</a></li>
+<li><a href="http://labs.gree.jp/blog/2013/12/10084/" target="_blank" rel="noopener">入門 Capistrano 3 ~ 全ての手作業を生まれる前に消し去りたい | GREE Engineers’ Blog</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cap</span> install</span><br></pre></td></tr></table></figure>
+<p>npm用の拡張も容易されているので、こちらも合わせて確認していく。</p>
+<ul>
+<li><a href="https://github.com/capistrano/npm/" target="_blank" rel="noopener">capistrano/npm</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install capistrano-npm</span><br></pre></td></tr></table></figure>
+<p>これがうまくいけば、デプロイ時の負荷が大幅に削減される。<br>がんがん開発していくためにも、カジュアルにデプロイできる環境を作っていきたい。</p>
 
 	    
 	</div>

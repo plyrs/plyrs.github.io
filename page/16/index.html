@@ -77,67 +77,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-13T15:20:11.000Z">
-                    2015-09-14
+                <time class="article__header__meta__time" datetime="2015-09-23T15:53:06.000Z">
+                    2015-09-24
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/14/Conohaクラウドへ引っ越し.html">Conohaクラウドへ引っ越し</a>
+            <a href="/2015/09/24/Firefoxリモートデバッグを導入.html">Firefox リモートデバッグを導入</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>旧Conohaで運用していたサイトをクラウド番へ引っ越しした。  </p>
-<p>正直今までのConohaは結構な頻度で止まっており、あまり信頼できるものではなく他社へ乗り換えを検討していた。しかし最近は極力楽をしたい欲求が強くなっており、その面でConohaクラウドに魅力を感じ、色々葛藤はあったものの改善の期待をこめて引っ越しを決心した。  </p>
-<p>さて、このConohaクラウド、サーバー追加の際にテンプレを選ぶことができ、LAMPやRails、Wordpressはもちろんのこと、MongoDBやJenkins、DockerやMEANなんてのもあって興味深い。<br>機会があればそのへんも触ってみようと思う。  </p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Conoha/">#Conoha</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-11T15:20:11.000Z">
-                    2015-09-12
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/12/Nodeサイトの多言語化.html">Nodeサイトの多言語化</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>Node.jsで構築したサイトを多言語化したいので、ちょっとだけググってみた。</p>
+	    <p>スマホサイトのデバッグ環境を本格的に整備しようと思い、とりあえず愛用のFirefoxによるリモートデバッグを導入。</p>
 <ul>
-<li><a href="http://qiita.com/sassy_watson/items/25b6364d428c7e7ee708" target="_blank" rel="noopener">JavaScript - HTMLでの国際化(i18nextとl10n.js) - Qiita</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE" target="_blank" rel="noopener">WebIDE による Android 版 Firefox のデバッグ - 開発ツール | MDN</a></li>
 </ul>
-<p>多言語対応のjsライブラリを紹介している記事。<br><a href="http://i18next.com/" target="_blank" rel="noopener">i18next</a>と<a href="https://github.com/eligrey/l10n.js/" target="_blank" rel="noopener">l10n.js</a>という二つを紹介しながら、主にフロントの実装について書いてある。</p>
-<p>今のアプリに実装するならばサーバーサイドで行うと思われるが、大体の手法は同一であろう。<br>本格的に作る際にもっと詳しく調べていく予定。</p>
+<p>今回はUSBで接続したAndroid版Firefoxでデバッグを試した。<br>ここまでは容易に完了できたが、Wifi経由でやろうとすると色々面倒くさそうかな。</p>
 
 	    
 	</div>
@@ -146,7 +105,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/i18n/">#i18n</a>
+	<a href="/tags/Firefox/">#Firefox</a>
 	
 </div>
 
@@ -160,33 +119,36 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-10T15:32:31.000Z">
-                    2015-09-11
+                <time class="article__header__meta__time" datetime="2015-09-22T15:50:12.000Z">
+                    2015-09-23
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/11/MongoDBのバックアップ思案.html">MongoDBのバックアップ思案</a>
+            <a href="/2015/09/23/npmローカルモジュール問題.html">npm ローカルモジュール問題</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>MongoDBをバックアップし、リストアまで行いたい。</p>
-<p><a href="http://gihyo.jp/dev/serial/01/mongodb/0011" target="_blank" rel="noopener">第11回　MongoDBのバックアップ：MongoDBでゆるふわDB体験｜gihyo.jp … 技術評論社</a></p>
-<h2 id="バックアップ"><a href="#バックアップ" class="headerlink" title="バックアップ"></a>バックアップ</h2><p>起動中のMongoのバックアップには<code>mongodump</code>が一般的のよう。<br>小規模ならこれで十分か。</p>
-<p><a href="http://docs.mongodb.org/manual/reference/program/mongodump/" target="_blank" rel="noopener">mongodump — MongoDB Manual 3.0</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongodump --out /opt/backup/mongodump_20150911</span><br></pre></td></tr></table></figure>
-<p><code>out</code>オプションで保存先を指定できる。指定しなかったらカレントディレクトへ。<br>そのなかにデータベースごとのダンプファイルを作成してくれる。</p>
-<h2 id="リストア"><a href="#リストア" class="headerlink" title="リストア"></a>リストア</h2><p>リストアは<code>mongorestore</code>で。</p>
-<p><a href="http://docs.mongodb.org/manual/reference/program/mongorestore/" target="_blank" rel="noopener">mongorestore — MongoDB Manual 3.0</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongorestore /tmp/path</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mongorestore /tmp/path -d name</span></span><br></pre></td></tr></table></figure>
-<p>でデータベースを指定</p>
-<p>とりあえず上の方法で手動でのバックアップ&amp;リストアは問題なく、軽快にできた。<br>今後は自動化していきたい。</p>
+	    <h2 id="これまでの手法"><a href="#これまでの手法" class="headerlink" title="これまでの手法"></a>これまでの手法</h2><p>その時何を思ってこの方法を採用したのかは忘れてしまったが、今まではグローバル変数を用いて解決していた。</p>
+<ul>
+<li><a href="https://gist.github.com/branneman/8048520" target="_blank" rel="noopener">Better local require() paths for Node.js</a></li>
+</ul>
+<p>上記のGistでのパターン2である。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Article = <span class="built_in">require</span>(__base + <span class="string">'app/models/article'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="再考"><a href="#再考" class="headerlink" title="再考"></a>再考</h2><p>そーいえばnpmにこの問題を解決する機能が導入されてたっけ、と思い試してみる。</p>
+<ul>
+<li><a href="http://efcl.info/2014/10/04/npm2-local-module/" target="_blank" rel="noopener">npm 2.0.0でローカルモジュールを使ってrequire(‘../../../‘)を回避する | Web Scratch</a></li>
+</ul>
+<p>しかしこの方法、ちょろっとした機能を追加するには大げさすぎて難儀に感じる。<br>僕の使い方ではデメリットのほうが勝る気が…。  </p>
+<p>他の手法を調べてみてもなかなかしっくりこない。<br>改めて難しい問題だと感じる。</p>
+<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p>これまでの方法をテンプレートリテラルで書き直して使い続ける結論に至った。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article = <span class="built_in">require</span>(<span class="string">`<span class="subst">$&#123;__base&#125;</span>app/models/article`</span>);</span><br></pre></td></tr></table></figure>
+<p>いつの日か光あれ！</p>
 
 	    
 	</div>
@@ -195,7 +157,9 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/MongoDB/">#MongoDB</a>
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/npm/">#npm</a>
 	
 </div>
 
@@ -209,26 +173,29 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-09T13:29:39.000Z">
-                    2015-09-09
+                <time class="article__header__meta__time" datetime="2015-09-22T15:47:37.000Z">
+                    2015-09-23
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/09/Node-js-4-0.html">Node.js 4.0</a>
+            <a href="/2015/09/23/nl2br.html">nl2br</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Node.jsの4.0がリリースされたようなので、順次アプリケーションを移行中。</p>
-<p><a href="https://nodejs.org/en/blog/release/v4.0.0/" target="_blank" rel="noopener">Node v4.0.0 (Stable) | Node.js</a></p>
-<p>問題なく<code>nvm install 4.0</code>でインスコできるよう。</p>
-<p>Arrow Functionが解禁になったので、これも少しずつ書き換えていきたい。</p>
-<p>あとはletとconstの使い分け。基本constでいこうと思うけど、どうだろう。</p>
+	    <p>PHPのnl2brのような関数がほしい。</p>
+<p>こーゆー機能はテンプレートエンジンに搭載されていてそうだけど、愛用しているSwigにはないみたい。</p>
+<ul>
+<li><a href="https://github.com/paularmstrong/swig-extras" target="_blank" rel="noopener">paularmstrong/swig-extras</a></li>
+</ul>
+<p>拡張はみつかった。</p>
+<p><a href="http://phpjs.org/functions/nl2br/" target="_blank" rel="noopener">JavaScript nl2br function - php.js</a></p>
+<p>改行コードの返還だけが目的ならここを参考にちっちゃいライブラリを作ったほうがよさそう。</p>
 
 	    
 	</div>
@@ -251,58 +218,88 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-07T12:05:05.000Z">
-                    2015-09-07
+                <time class="article__header__meta__time" datetime="2015-09-20T15:44:44.000Z">
+                    2015-09-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/07/Grid.html">Grid</a>
+            <a href="/2015/09/21/NPM3導入してみた.html">NPM3 導入してみた</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>グリッドデザインの流れにある「カード型デザイン」の記事を読んだ。</p>
-<ul>
-<li><a href="http://photoshopvip.net/archives/81206" target="_blank" rel="noopener">最新Webトレンド「カード型デザイン」を取り入れるべき、効果的な4つの理由 - PhotoshopVIP</a></li>
-</ul>
-<p>ポイントは</p>
-<ul>
-<li>IAの作成</li>
-<li>UXの工場</li>
-<li>普遍性</li>
-</ul>
-<p>の3点。</p>
-<p>この手のデザインは割とまえからある気がするが、スマホデバイスとの親和性と相まって地位を確立した感じであろうか。</p>
-<h2 id="CSS-Grid-Layouts"><a href="#CSS-Grid-Layouts" class="headerlink" title="CSS Grid Layouts"></a>CSS Grid Layouts</h2><p>今後がっつりとしたグリッドデザインをマークアップするのであれば、<code>display: grid</code>を使用したい。</p>
-<ul>
-<li><a href="https://medium.com/@patrickbrosset/css-grid-layout-6c9cba6e8a5a" target="_blank" rel="noopener">The future of layout with CSS: Grid Layouts — Medium</a></li>
-</ul>
-<p>CSSグリッドを使用した実装。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; <span class="attribute">display</span>: grid; &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="http://caniuse.com/#feat=css-grid" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
-</ul>
-<p>各ブラウザベンダーの対応はまだまだこれから。IEも先行実装したものの使用が変わっていき、互換性が怪しいらしい。<br>とりあえずDemoを作ってみた。</p>
-<ul>
-<li><a href="http://ground.playr.jp/css-grid-layout/" target="_blank" rel="noopener">CSS Grid Layout - Playground</a></li>
-</ul>
-<p>ie11とEdgeで動作を確認。<br>他のブラウザではDivの羅列となったので導入するのであればPolyfillは必須のよう。</p>
-<ul>
-<li><a href="https://github.com/FremyCompany/css-grid-polyfill" target="_blank" rel="noopener">FremyCompany/css-grid-polyfill</a></li>
-</ul>
-<p>Polyfillはコレ。Demoもあるし</p>
-<p>かなり容易に複雑なグリッドレイアウトを作れるし、レスポンシブ化も簡潔に書けそう。<br>早く使いたいので各ベンダの今後の動向を見たい。現時点では未対応環境が多すぎるし、上記Polyfill内でもプロダクションへの導入は慎重にと言及されている。<br>でもFirefoxが対応したらPolyfillかましてどこかで使うかも。</p>
+	    <p>メジャーリリースされたとのことで、NPMをv3へアップデート。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g npm</span><br></pre></td></tr></table></figure>
+<p>とりあえずモジュールのインストールを再実行してみた。  </p>
+<p>フラット化の結果25のモジュールインストールに対して300個がnode_modules内に召還された。<br>時間もなんか長かったな…。この辺は徐々に高速化されていくのだろうか。<br>間違ってもpackege.json管轄外でインスコしないように気を付けなければ、不幸な孤児が生まれそうである。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/npm/">#npm</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-18T15:20:15.000Z">
+                    2015-09-19
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/19/知っておくといいNode-jsの７つの事.html">知っておくといいNode.jsの７つの事</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>読んだ。</p>
+<p><a href="https://medium.com/@c2c/my-7-node-js-mantras-edd6c148e8dc" target="_blank" rel="noopener">My 7 Node.js mantras — Medium</a></p>
+<ol>
+<li>Promise使え！</li>
+<li>ES6、いいよ！</li>
+<li>セマンティックバージョンには気を付けろ！</li>
+<li>使っているモジュールを読み解け！</li>
+<li>ユニットテスト書こう！</li>
+<li>俺たちはV8と共に生きている！</li>
+<li>ESLint使おうぜ！</li>
+</ol>
+<p>ってことでしょうか。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+</div>
+
 	</footer>
     
 

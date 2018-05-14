@@ -77,27 +77,43 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-24T15:59:32.000Z">
-                    2015-09-25
+                <time class="article__header__meta__time" datetime="2015-10-14T10:54:30.000Z">
+                    2015-10-14
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/25/Koaでファイルアップローダー.html">Koaでファイルアップローダー</a>
+            <a href="/2015/10/14/microdata.html">Microdata</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Koaアプリケーションにファイルアップローダーを実装した。</p>
+	    <p>Webアクセシビリティは他の要素と比べて後回しにされがちである。<br>しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。</p>
+<p>Webサイトをマークアップを通じて構造化する手法として、以下のものがある。</p>
 <ul>
-<li><a href="https://github.com/cojs/busboy" target="_blank" rel="noopener">cojs/busboy</a></li>
+<li>Microformats</li>
+<li>Microdata</li>
+<li>RDFa</li>
+<li>Microdata</li>
 </ul>
-<p>モジュールは例によって<a href="https://github.com/mscdex/busboy" target="_blank" rel="noopener">busboy</a>をcoでラップしたco-busboyを使用。  </p>
-<p>アップローダーはなかなか奥が深くて面白そうなので、機会があったら他のモジュールも試してみたい。去年のNode学園祭でGuillermoが紹介していたPartyは何処へいったんだろう…。</p>
+<p>サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。<br>一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。</p>
+<ul>
+<li><a href="https://schema.org/" target="_blank" rel="noopener">Home - schema.org</a></li>
+</ul>
+<p>Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。<br>概要や導入方法、ドキュメントがまとめられている。</p>
+<ul>
+<li><a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="noopener">構造化データ マークアップ支援ツール</a></li>
+<li><a href="https://developers.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">Structured Data Testing Tool  |  Google Developers</a></li>
+</ul>
+<p>Googleは既に検索結果へスキーマを反映している。<br>いくつか導入支援ツールも公開されているので、活用したい。</p>
+<ul>
+<li><a href="http://kojika17.com/2014/05/about-structured-data-markup.html" target="_blank" rel="noopener">Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17</a></li>
+</ul>
+<p>上記記事は概要や実践例をわかりやすくまとめており、参考になった。</p>
 
 	    
 	</div>
@@ -106,9 +122,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/Koa/">#Koa</a>
+	<a href="/tags/Microdata/">#Microdata</a>
 	
 </div>
 
@@ -122,26 +136,30 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-23T15:53:06.000Z">
-                    2015-09-24
+                <time class="article__header__meta__time" datetime="2015-10-10T12:42:26.000Z">
+                    2015-10-10
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/24/Firefoxリモートデバッグを導入.html">Firefox リモートデバッグを導入</a>
+            <a href="/2015/10/10/Firefox-Add-on.html">Firefox Add-on</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>スマホサイトのデバッグ環境を本格的に整備しようと思い、とりあえず愛用のFirefoxによるリモートデバッグを導入。</p>
+	    <p>ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。</p>
 <ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE" target="_blank" rel="noopener">WebIDE による Android 版 Firefox のデバッグ - 開発ツール | MDN</a></li>
+<li><a href="http://oxynotes.com/?p=9070" target="_blank" rel="noopener">初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES</a></li>
+<li><a href="https://github.com/mozilla-jetpack/jpm" target="_blank" rel="noopener">mozilla-jetpack/jpm</a></li>
 </ul>
-<p>今回はUSBで接続したAndroid版Firefoxでデバッグを試した。<br>ここまでは容易に完了できたが、Wifi経由でやろうとすると色々面倒くさそうかな。</p>
+<p>現時点でのモダンな書き方なら上記を参考に行えばよさそう。<br>しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。</p>
+<ul>
+<li><a href="https://github.com/mdn/webextensions-examples" target="_blank" rel="noopener">mdn/webextensions-examples</a></li>
+</ul>
 
 	    
 	</div>
@@ -164,36 +182,127 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-22T15:50:12.000Z">
-                    2015-09-23
+                <time class="article__header__meta__time" datetime="2015-10-07T11:40:14.000Z">
+                    2015-10-07
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/23/npmローカルモジュール問題.html">npm ローカルモジュール問題</a>
+            <a href="/2015/10/07/sitemap-xml.html">sitemap.xml</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <h2 id="これまでの手法"><a href="#これまでの手法" class="headerlink" title="これまでの手法"></a>これまでの手法</h2><p>その時何を思ってこの方法を採用したのかは忘れてしまったが、今まではグローバル変数を用いて解決していた。</p>
+	    <p>グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。<br>清く正しくsitemap.xmlを理解するなら以下を参照。</p>
 <ul>
-<li><a href="https://gist.github.com/branneman/8048520" target="_blank" rel="noopener">Better local require() paths for Node.js</a></li>
+<li><a href="http://www.sitemaps.org/ja/" target="_blank" rel="noopener">sitemaps.org - ホーム</a></li>
+<li><a href="https://support.google.com/webmasters/answer/156184?hl=ja&amp;ref_topic=4581190" target="_blank" rel="noopener">サイトマップについて - Search Console ヘルプ</a></li>
 </ul>
-<p>上記のGistでのパターン2である。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Article = <span class="built_in">require</span>(__base + <span class="string">'app/models/article'</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="再考"><a href="#再考" class="headerlink" title="再考"></a>再考</h2><p>そーいえばnpmにこの問題を解決する機能が導入されてたっけ、と思い試してみる。</p>
+<p>普段は以下のオンラインジェネレーターを利用し配備していた。</p>
 <ul>
-<li><a href="http://efcl.info/2014/10/04/npm2-local-module/" target="_blank" rel="noopener">npm 2.0.0でローカルモジュールを使ってrequire(‘../../../‘)を回避する | Web Scratch</a></li>
+<li><a href="https://www.xml-sitemaps.com/" target="_blank" rel="noopener">Create your Google Sitemap Online - XML Sitemaps Generator</a></li>
 </ul>
-<p>しかしこの方法、ちょろっとした機能を追加するには大げさすぎて難儀に感じる。<br>僕の使い方ではデメリットのほうが勝る気が…。  </p>
-<p>他の手法を調べてみてもなかなかしっくりこない。<br>改めて難しい問題だと感じる。</p>
-<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p>これまでの方法をテンプレートリテラルで書き直して使い続ける結論に至った。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global.__base = __dirname + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article = <span class="built_in">require</span>(<span class="string">`<span class="subst">$&#123;__base&#125;</span>app/models/article`</span>);</span><br></pre></td></tr></table></figure>
-<p>いつの日か光あれ！</p>
+<p>これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。<br>そこで<a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">sitemap.js</a>を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。</p>
+<ul>
+<li><a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">ekalinin/sitemap.js</a></li>
+</ul>
+<p>ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。<br>Promiseでラップし、Yiedableにすればほぼ完了である。  </p>
+<p>あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-06T11:34:51.000Z">
+                    2015-10-06
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/06/Update-font-face.html">Update @font-face</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>cssの@font-faceのフォーマットをアップデートした。  </p>
+<p>これまでは<a href="http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/" target="_blank" rel="noopener">Fontspring @Font-Face Syntax</a>に従い以下のように記述していた。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.svg#svgFontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>対応ブラウザは以下とされている。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IE</th>
+<th style="text-align:center">Firefox</th>
+<th style="text-align:center">Chrome</th>
+<th style="text-align:center">Safari</th>
+<th style="text-align:center">Opera</th>
+<th style="text-align:center">iOS</th>
+<th style="text-align:center">Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">6+</td>
+<td style="text-align:center">3.5+</td>
+<td style="text-align:center">3.5+</td>
+<td style="text-align:center">3+</td>
+<td style="text-align:center">11+</td>
+<td style="text-align:center">3.2+</td>
+<td style="text-align:center">2.2+</td>
+</tr>
+</tbody>
+</table>
+<p>この書式はは2011年に提唱されたもので、2015年ゲイン材のブラウザ情勢からみるとやや冗長に感じる。  </p>
+<p>よって下記を参考に今回アップデートを図った。  </p>
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/using-font-face/" target="_blank" rel="noopener">Using @font-face | CSS-Tricks</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eotとsvgを削除した。この変更後の対応ブラウザは以下である。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IE</th>
+<th style="text-align:center">Firefox</th>
+<th style="text-align:center">Chrome</th>
+<th style="text-align:center">Safari</th>
+<th style="text-align:center">Opera</th>
+<th style="text-align:center">iOS</th>
+<th style="text-align:center">Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">9+</td>
+<td style="text-align:center">3.5+</td>
+<td style="text-align:center">3.5+</td>
+<td style="text-align:center">3+</td>
+<td style="text-align:center">10.1+</td>
+<td style="text-align:center">4.3+</td>
+<td style="text-align:center">2.2+</td>
+</tr>
+</tbody>
+</table>
+<p>IE9からはWoffに対応しているので、もう少し時間がたてばTTFも消せるのでは。<br>Woff2の普及は<a href="http://caniuse.com/#feat=woff2" target="_blank" rel="noopener">まだまだこれから</a>といったところだ。</p>
 
 	    
 	</div>
@@ -202,9 +311,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/npm/">#npm</a>
+	<a href="/tags/CSS/">#CSS</a>
 	
 </div>
 
@@ -218,29 +325,31 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-22T15:47:37.000Z">
-                    2015-09-23
+                <time class="article__header__meta__time" datetime="2015-10-05T16:38:22.000Z">
+                    2015-10-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/23/nl2br.html">nl2br</a>
+            <a href="/2015/10/06/CSS-font-familyをアップデート.html">CSS font-familyをアップデート</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>PHPのnl2brのような関数がほしい。</p>
-<p>こーゆー機能はテンプレートエンジンに搭載されていてそうだけど、愛用しているSwigにはないみたい。</p>
+	    <p>CSS font-familyの記述をアップデートした。  </p>
+<p>これまでは以下のように指定していた。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Verdana, Arial, <span class="string">"ヒラギノ角ゴ ProN"</span>, <span class="string">"Hiragino Kaku Gothic ProN"</span>, <span class="string">"メイリオ"</span>, Meiryo, <span class="string">"ＭＳ Ｐゴシック"</span>, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>昔どこかで見た記事やソースを参考にたどり着いたと記憶しているが、Windows10へ移行したこともありフォント回りも同様に更新していこうと思う。</p>
 <ul>
-<li><a href="https://github.com/paularmstrong/swig-extras" target="_blank" rel="noopener">paularmstrong/swig-extras</a></li>
+<li><a href="http://sole-color-blog.com/blog/design/246/" target="_blank" rel="noopener">Font−familyのベストな書き方 2015年版 | それからデザイン スタッフブログ</a></li>
 </ul>
-<p>拡張はみつかった。</p>
-<p><a href="http://phpjs.org/functions/nl2br/" target="_blank" rel="noopener">JavaScript nl2br function - php.js</a></p>
-<p>改行コードの返還だけが目的ならここを参考にちっちゃいライブラリを作ったほうがよさそう。</p>
+<p>上記記事は非常によく考察されており信頼たる内容だと感じたので、これをベースに以下のように設定した。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: Avenir, <span class="string">"Open Sans"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, Arial, Verdana, Roboto, <span class="string">"游ゴシック"</span>, <span class="string">"Yu Gothic"</span>, <span class="string">"游ゴシック体"</span>, <span class="string">"YuGothic"</span>, <span class="string">"ヒラギノ角ゴ Pro W3"</span>, <span class="string">"Hiragino Kaku Gothic Pro"</span>, <span class="string">"Meiryo UI"</span>, <span class="string">"メイリオ"</span>, Meiryo, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MSPゴシックだけはさすがに不要だと思い外させていただいた。<br>とりあえずこれで様子を見ていこうと思う。</p>
 
 	    
 	</div>
@@ -249,50 +358,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-20T15:44:44.000Z">
-                    2015-09-21
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/21/NPM3導入してみた.html">NPM3 導入してみた</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>メジャーリリースされたとのことで、NPMをv3へアップデート。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g npm</span><br></pre></td></tr></table></figure>
-<p>とりあえずモジュールのインストールを再実行してみた。  </p>
-<p>フラット化の結果25のモジュールインストールに対して300個がnode_modules内に召還された。<br>時間もなんか長かったな…。この辺は徐々に高速化されていくのだろうか。<br>間違ってもpackege.json管轄外でインスコしないように気を付けなければ、不幸な孤児が生まれそうである。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/npm/">#npm</a>
+	<a href="/tags/CSS/">#CSS</a>
 	
 </div>
 

@@ -77,38 +77,78 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-28T10:40:43.000Z">
-                    2016-02-28
+                <time class="article__header__meta__time" datetime="2017-07-04T15:34:00.000Z">
+                    2017-07-05
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/28/cssfont-display-font-face.html">css font-display @font-face</a>
+            <a href="/2017/07/05/Xhamppでバーチャルホスト.html">Xhamppでバーチャルホスト</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Firfox の開発版で css font-display がフラグ付きで有効になったようなので試してみた。</p>
+	    <p>PC内のXhamppにバーチャルホストを設定し、複数サイトの開発環境を構築したい。</p>
+<h2 id="httpd-confの設定"><a href="#httpd-confの設定" class="headerlink" title="httpd.confの設定"></a>httpd.confの設定</h2><p><code>/xampp/apache/conf/httpd.conf</code> を編集。<br><code>Listen 80</code> の下へ必要な分のポートを追記。</p>
+<p>例：<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8080</span><br><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8081</span><br><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8082</span><br></pre></td></tr></table></figure></p>
+<h2 id="バーチャルホスト（httpd-vhosts-conf）の設定"><a href="#バーチャルホスト（httpd-vhosts-conf）の設定" class="headerlink" title="バーチャルホスト（httpd-vhosts.conf）の設定"></a>バーチャルホスト（httpd-vhosts.conf）の設定</h2><p><code>/xampp/apache/conf/extra/httpd-vhosts.conf</code> を編集。</p>
+<p>例：<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *:80&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"C:/xampp/htdocs"</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">ServerName</span></span> localhost</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="section">&lt;VirtualHost *:8080&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"C:/xampp/htdocs/【ディレクトリ名】"</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">ServerName</span></span> localhost</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>以下の記事が参考になった。</p>
 <ul>
-<li><a href="https://tabatkins.github.io/specs/css-font-display/" target="_blank" rel="noopener">CSS Font Rendering Controls Module Level 1</a></li>
+<li><a href="http://creator.aainc.co.jp/archives/6388" target="_blank" rel="noopener">xamppでローカル作業環境構築 | アライドアーキテクツのクリエイターブログ</a></li>
 </ul>
-<p>まずはフラグを有効にする。</p>
-<p>FIrefox のアドレス欄へ<code>about:config</code>と入力し、設定画面を開く。<br>そこで<code>layout.css.font-display.enabled</code>を検索し、値を<code>true</code>へ。これで機能が有効となる。</p>
-<p>Chrome の開発版ではすでに導入されているらしく、下記記事が非常に参考になった。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2017-05-28T15:25:06.000Z">
+                    2017-05-29
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2017/05/29/Windows環境でnode-jsモジュールのインストールエラー解消.html">Windows環境でnode.jsモジュールのインストールエラー解消</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Windows環境で node.jsのモジュールインストール時にエラーが発生する。</p>
+<p>どうやら原因はC++のコンパイルが動作しないことのようで、これを解消していく。</p>
 <ul>
-<li><a href="https://blog.srytk.com/aquei/50.html" target="_blank" rel="noopener">@font-face(CSS)のfont-displayプロパティがChrome Canaryに来た – 阿Q論</a></li>
+<li><a href="http://overmorrow.hatenablog.com/entry/2015/11/27/235935" target="_blank" rel="noopener">Windowsでnpm installの赤いエラーに悩まされているアナタへ - Mainly Devel Notes</a></li>
+<li><a href="https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md" target="_blank" rel="noopener">nodejs-guidelines/windows-environment.md at master · Microsoft/nodejs-guidelines</a></li>
 </ul>
-<p>やはりFOUTをネイティブの機能で解決することが期待されるよう。<br>今までは主に Web Font Loader を導入したり、 あと Adobe Blank なんてのもあった気が…。<br>とにかく涙ぐむしい努力をしてきたので人類にとって、これは待望の機能かなと。</p>
+<p>Microsoftが管理しているNode.jsガイドラインを主に参考に進める。情報の鮮度が大本が管理しているだけに高そう。<br>まずは Visual C++ Build Tools をインストールする。<br>カスタムインストールから “Windows 8.1 SDK”と”Windows 10 SDK” を選択。<br>容量が大体7GBほど使用するらしいが、しょうがない。</p>
+<p>また、<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python 2.7</a>もインストールする。</p>
+<p>しかし今度は下記ののエラーが発生。</p>
+<p><code>ERROR in Cannot find module &#39;node-sass&#39;</code></p>
+<p>これはいつも通り、node-sass の再インストールで解消。<br>これで通常運転に移った。<br>そこまでやってその存在に気付いたが、下記ののツールを用いるととても簡単そうである。</p>
 <ul>
-<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157064" target="_blank" rel="noopener">1157064 – experimental implementation of font-display CSS @font-face descriptor</a></li>
+<li><a href="https://github.com/felixrieseberg/windows-build-tools" target="_blank" rel="noopener">felixrieseberg/windows-build-tools: Install C++ Build Tools for Windows using npm</a></li>
 </ul>
-<p>現時点での実装はスペックの推奨通りでクロームと同様のよう。<br>設定値は<code>fallback</code>がベストで、妥協して<code>block</code>といった感じだろうか。パフォーマンスとユーザビリティの両方にバランスよく配慮できそうである。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Waiting for the Sunrise'</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: fallback;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">local</span>(<span class="string">'Waiting for the Sunrise'</span>), <span class="built_in">local</span>(<span class="string">'WaitingfortheSunrise'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>その他の値も少しの違いながら明確に用途がわかれそうなので、なかなかよくできている感じ。<br><code>will-change</code>のように必要そうな部分へは先行導入しておき、ブラウザの対応を待ってもいいかと。</p>
+<p>普通に以下のようにグローバルインストールするだけで、もろもろセッティングを行ってくれるようだ。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g windows-build-tools</span><br></pre></td></tr></table></figure>
+<p>近年はMicrosoftもNode.jsへ色々と投資をしているので、少しずつ改善はしているが…もう一歩という印象は残る。</p>
 
 	    
 	</div>
@@ -117,7 +157,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/CSS/">#CSS</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -131,35 +171,26 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-21T10:39:23.000Z">
-                    2016-02-21
+                <time class="article__header__meta__time" datetime="2017-05-26T15:23:25.000Z">
+                    2017-05-27
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/21/MongoDB地理空間インデックス.html">MongoDB 地理空間インデックス</a>
+            <a href="/2017/05/27/Firefoxのマルチプロセス-e10s-を強制有効化.html">Firefoxのマルチプロセス-e10s-を強制有効化</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>MongoDB にて地理空間のインデックスを作成したい。</p>
+	    <p>e10s未対応のレガシーなアドオンがインストールされている環境でも強制的に有効にする。</p>
+<p><code>about:config</code> をいじる必要があり。<br><code>extensions.e10sBlocksEnabling</code> と <code>extensions.e10sBlockedByAddons</code> を <code>false</code> へ。<br>その後Firefoxを再起動すると有効化された。</p>
+<p>これによってFirefoxが不安定になるかは様子見。</p>
 <ul>
-<li><a href="https://docs.mongodb.org/manual/applications/geospatial-indexes/" target="_blank" rel="noopener">Geospatial Indexes and Queries — MongoDB Manual 3.2</a></li>
-</ul>
-<p>インデックスの作成は通常の方法で行えるよう。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初期状態のインデックスを確認</span></span><br><span class="line">$ db.places.stats()</span><br><span class="line"></span><br><span class="line"><span class="comment"># インデックスを作成</span></span><br><span class="line">$ db.places.createIndex(&#123;Bar: <span class="string">"2dsphere"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作成したインデックスを確認</span></span><br><span class="line">$ db.places.getIndexes()</span><br></pre></td></tr></table></figure>
-<p>これでplacesのインデックスがBarのフィールド内に昇順で作成される。<br>平面空間なら<code>2d</code>、球面空間なら<code>2dsphere</code>を使用するらしい。<br>今回は地球という球面空間の経緯度を記録する用途で使用するので、<code>2dsphere</code>となる。<br>ちなみに以前よく使用されていた <code>ensureIndex()</code> は3.0からは非推奨となったよう。今後は基本的に<code>createIndex()</code> を使うらしい。</p>
-<p>ただGeoJsonのデータと通常のインデックスの違いとしてフォーマットが正しくなければ作成できないようなので、下記Linterなどを使用して事前にコレクションがGeoJsonの仕様に準拠しているか確認したほうがよさそう。</p>
-<ul>
-<li><a href="http://geojsonlint.com/" target="_blank" rel="noopener">GeoJSONLint - Validate your GeoJSON</a></li>
-<li><a href="http://qiita.com/fetaro/items/7f110f18c6dd9ccd0c90" target="_blank" rel="noopener">MongoDBの地理空間インデックス・クエリ整理 - Qiita</a></li>
-<li><a href="http://kozy4324.github.io/blog/2012/06/19/mongodb-index/" target="_blank" rel="noopener">MongoDB Index基本 - /var/log/kozy4324</a></li>
-<li><a href="https://docs.mongodb.org/manual/core/geospatial-indexes/" target="_blank" rel="noopener">2d Index Internals — MongoDB Manual 3.2</a></li>
-<li><a href="http://stackoverflow.com/questions/25968592/difference-between-createindex-and-ensureindex-in-java-using-mongodb" target="_blank" rel="noopener">Difference between createIndex() and ensureIndex() in java using mongodb - Stack Overflow</a></li>
+<li><a href="https://blog.halpas.com/archives/10990" target="_blank" rel="noopener">【Firefox】アドオンにより無効となったe10sを強制的に有効とする方法 | ハルパス</a></li>
 </ul>
 
 	    
@@ -167,6 +198,12 @@
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/Firefox/">#Firefox</a>
+	
+</div>
+
 	</footer>
     
 
@@ -177,38 +214,48 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-21T10:38:08.000Z">
-                    2016-02-21
+                <time class="article__header__meta__time" datetime="2017-05-12T15:18:01.000Z">
+                    2017-05-13
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/21/MogoDB3-0-3-2.html">MogoDB 3.0 => 3.2</a>
+            <a href="/2017/05/13/ReactDate-picker.html">React Date-picker</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>開発環境のMongoDB（3.0）を3.2へアップデートした。<br>MogoDBを使ている以上はストレージエンジンをWiredTiger へ移行したいが、どうやら3.2 では<a href="https://docs.mongodb.org/manual/release-notes/3.2-compatibility/#default-storage-engine-change" target="_blank" rel="noopener">デフォルトで有効</a>となる模様。</p>
+	    <p>Date-picker機能を実装するにあたり、Reactコンポーネントを含め調査を行った。</p>
 <ul>
-<li><a href="https://docs.mongodb.org/manual/release-notes/3.2-upgrade/" target="_blank" rel="noopener">Upgrade MongoDB to 3.2 — MongoDB Manual 3.2</a></li>
+<li><a href="http://qiita.com/193/items/61b81ea718d70b6197e1" target="_blank" rel="noopener">reactのdate-pickerを選ぶ - Qiita</a></li>
+<li><a href="https://github.com/Hacker0x01/react-datepicker" target="_blank" rel="noopener">Hacker0x01/react-datepicker: A simple and reusable datepicker component for React</a>（採用）</li>
+<li><a href="https://github.com/Rudeg/react-input-calendar" target="_blank" rel="noopener">Rudeg/react-input-calendar</a>（すんなり使えなかった）</li>
 </ul>
-<p>これは好都合なので、3.2での動作検証をしっかりと行っていく方向で準備を進めることにした。</p>
-<h2 id="yum-リポジトリを作成"><a href="#yum-リポジトリを作成" class="headerlink" title="yum リポジトリを作成"></a>yum リポジトリを作成</h2><p>MongoDB は既に3.0で運用していたので、今回は直接3.2 へ上げられる。<br>もし2.6以前を使用しているなら一度3.0へと上げなければならない模様。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.0 を 3.2 へ書き換え</span></span><br><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
-<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># もし起動しているならMongoを停止</span></span><br><span class="line">$ sudo systemctl stop mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line">$ yum check-update</span><br><span class="line"></span><br><span class="line">mongodb-org.x86_64                   3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-mongos.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-server.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-shell.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-tools.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 実行</span></span><br><span class="line">$ sudo yum update</span><br></pre></td></tr></table></figure>
-<p>これで最新のMongoDB3.2 系が入った。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mongo を起動</span></span><br><span class="line">$ sudo systemctl start mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># バージョンを確認</span></span><br><span class="line">$ mongo --version</span><br><span class="line"></span><br><span class="line">MongoDB shell version: 3.2.3</span><br></pre></td></tr></table></figure>
-<p>早速Webアプリを起動しなおした感じでは、今のところ問題は発生してない。<br>色々な記事やデータを見る限り性能が上がるのは間違いなさそうなので、テスト結果をしっかりと確認・整備して作業を進めたい。</p>
+<p>HTML標準のinput要素のtype属性「date」のPolyfillもいくつか見つかった。</p>
+<ul>
+<li><a href="https://wet-boew.github.io/wet-boew/demos/datepicker/datepicker-en.html" target="_blank" rel="noopener">Input type=”date” polyfill (date picker) - Working examples - Web Experience Toolkit</a></li>
+<li><a href="https://github.com/jcgertig/date-input-polyfill" target="_blank" rel="noopener">jcgertig/date-input-polyfill: Automatically adds datepickers to input[type=date] on IE, Firefox, and OS X Safari.</a></li>
+<li><a href="https://github.com/chemerisuk/better-dateinput-polyfill" target="_blank" rel="noopener">chemerisuk/better-dateinput-polyfill: input[type=date] polyfill for better-dom</a></li>
+</ul>
+<p>Firefoxは次期バージョンでChromeライクなDate-pickerが利用できるが、現時点ではまだ未対応。<br>これらのポリフィルを採用してもよかったが…統一したUIの提供を優先し、今回はReactコンポーネントを利用した。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
+	
+	<a href="/tags/React/">#React</a>
+	
+</div>
+
 	</footer>
     
 
@@ -219,78 +266,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-20T10:36:50.000Z">
-                    2016-02-20
+                <time class="article__header__meta__time" datetime="2017-03-30T10:55:48.000Z">
+                    2017-03-30
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/20/WebP.html">WebP</a>
+            <a href="/2017/03/30/InstagramAPI.html">Instagram　API</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>WebP を導入するべく簡易Modenizr もどきを使用してフォールバックを行った。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebpSupport</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">    "use strict"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> html = <span class="built_in">document</span>.documentElement,</span><br><span class="line">          WebP = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">    WebP.onload = WebP.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> isSupported = (WebP.width &gt; <span class="number">0</span> &amp;&amp; WebP.height &gt; <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isSupported) &#123;</span><br><span class="line">            <span class="keyword">if</span> (html.className.indexOf(<span class="string">'no-webp'</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                html.className = html.className.replace(<span class="regexp">/\bno-webp\b/</span>, <span class="string">'webp'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                html.className += <span class="string">' webp'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fn(isSupported);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    WebP.src = <span class="string">'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>これをロード時に読み込ますことでhtml に付与されたクラスを切り替える。</p>
+	    <p>Instagram APIを使用したフィード表示を実装してみた。</p>
+<p>参考文献は以下、情報は多々見つかった。</p>
 <ul>
-<li><a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener">Frequently Asked Questions  |  WebP  |  Google Developers</a></li>
-<li><a href="https://gist.github.com/ymatuhin/a9601bd608b8de4e4dcc" target="_blank" rel="noopener">Check WebP Support in browser</a></li>
+<li><a href="http://qiita.com/NoriakiOshita/items/71800502fca62d9ec685" target="_blank" rel="noopener">Instagram APIの利用方法 - Qiita</a></li>
+<li><a href="http://thisisstandarz.com/instagram%E3%81%AEuser-id%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">instagramのuser idを取得する方法</a></li>
+<li><a href="https://medium.com/@bkwebster/how-to-get-instagram-api-access-token-and-fix-your-broken-feed-c8ad470e3f02" target="_blank" rel="noopener">How to get Instagram API access token and fix your broken feed</a></li>
+<li><a href="http://qiita.com/takashings/items/f03eb9e2ba343878d287" target="_blank" rel="noopener">【保存版】Instagramの審査の流れ、手順、必要なものまとめ - Qiita</a></li>
+<li><a href="https://capotast.co.jp/article/detail/21/" target="_blank" rel="noopener">Instagram APIを使ってWEBサイトに写真を表示させてみよう｜株式会社カポタスト</a></li>
+<li><a href="http://qiita.com/uda0922/items/0c111d3e312b1dc5d6e8" target="_blank" rel="noopener">Instagram APIをPHPでさくっと使う - Qiita</a></li>
 </ul>
-<p>他にNginx によるフォールバックの実装例も見つけた。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> = /logo &#123;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_accept</span> <span class="regexp">~* "webp")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary Accept;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_user_agent</span> <span class="regexp">~* "(Chrome|Opera|Android|Android.*Chrome)")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary User-Agent;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.png <span class="literal">last</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://gist.github.com/mosson/e0c25513cf65963807ee" target="_blank" rel="noopener">webp compatible on nginx</a></li>
-</ul>
-<p>これは単純にUAを判別し、拡張しを書き換える手法のよう。</p>
-<p>CSSのimage-setもHTMLの様にフォーマットによる切り替えができれば、こんな回りくどいことしなくていいのだが…。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-17T10:35:52.000Z">
-                    2016-02-17
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2016/02/17/cssnano.html">cssnano</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>cssの圧縮でgulp-minify-cssを利用していたのだが、どうやら開発止めてgulp-cssnanoへと移行を促いしている様子。</p>
-<p>なので早速入れ替えてみた。</p>
-<ul>
-<li><a href="http://cssnano.co/" target="_blank" rel="noopener">cssnano: A modular minifier based on the PostCSS ecosystem</a></li>
-</ul>
-<p>機能盛りだくさんと言いたいところだけど、minify-cssも結構色々やってくれてたので、実際使ってみないと何ともいえなさそう。とりあえずAutoprefixer は内包されているようだ。</p>
-<ul>
-<li><a href="http://cssnano.co/optimisations/" target="_blank" rel="noopener">cssnano: Optimisations</a></li>
-</ul>
-<p>使ってみた感じでは確かに少しサイズも縮小された。結構calcを多用しているので、単純な計算を事前にするのはいい感じ。</p>
-<p>ただ一方でunsafe な機能はしっかり把握して使用しないと危険な匂いが…。<br>特にz-indexの再配置は環境によってはよからぬ影響が出そう。</p>
-<p>効能と副作用をしっかり把握して使用していきたい。</p>
+<p>今回はPHPを開始実装を行った。<br>コードは代替、このような感じである。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$myAccessToken = <span class="string">'00000000000000000000'</span>;</span><br><span class="line">$user_id = <span class="string">'0000000000'</span>;</span><br><span class="line"></span><br><span class="line">$json = file_get_contents(<span class="string">'https://api.instagram.com/v1/users/'</span>.$user_id.<span class="string">'/media/recent/?access_token='</span>.$myAccessToken);</span><br><span class="line"></span><br><span class="line">$obj = json_decode($json);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($obj-&gt;data <span class="keyword">as</span> $data)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;img src="'</span>.$data-&gt;images-&gt;low_resolution-&gt;url.<span class="string">'" alt=""&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>自アカウントの情報を載せる分にはそれほどハードルは高くなさそうであるが、<br>それ以上を行うとなると手続きはかなり面倒そうである。</p>
 
 	    
 	</div>

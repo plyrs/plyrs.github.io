@@ -77,30 +77,36 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-06T10:18:24.000Z">
-                    2016-02-06
+                <time class="article__header__meta__time" datetime="2016-02-21T10:39:23.000Z">
+                    2016-02-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/06/Monorepo.html">Monorepo</a>
+            <a href="/2016/02/21/MongoDB地理空間インデックス.html">MongoDB 地理空間インデックス</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>最近よく聞く、Monorepoについて調査してみた。<br>参考になったのは以下の記事。</p>
+	    <p>MongoDB にて地理空間のインデックスを作成したい。</p>
 <ul>
-<li><a href="http://qiita.com/kimamula/items/0b4dff363933bfe74506" target="_blank" rel="noopener">Lerna を使って、 Babel や React が採用している monorepo を試してみる - Qiita</a></li>
-<li><a href="http://japan.blogs.atlassian.com/2015/10/monorepos-in-git/" target="_blank" rel="noopener">Git で monorepo を扱う際の課題とヒント - Atlassian Japan</a></li>
-<li><a href="http://shokai.org/blog/archives/10574" target="_blank" rel="noopener">橋本商会 » lernaでmonorepoした</a></li>
-<li><a href="http://yukidarake.hateblo.jp/entry/2016/01/06/200800" target="_blank" rel="noopener">単一リポジトリで複数package|projectを管理することをmonorepoというそう - なっく日報</a></li>
-<li><a href="https://github.com/kittens/lerna" target="_blank" rel="noopener">kittens/lerna: A tool for managing JavaScript projects with multiple packages.</a></li>
+<li><a href="https://docs.mongodb.org/manual/applications/geospatial-indexes/" target="_blank" rel="noopener">Geospatial Indexes and Queries — MongoDB Manual 3.2</a></li>
 </ul>
-<p>大きなプロジェクトでモジュールはそれぞれ分けて開発したいが、イシューなどは一元管理したい…という際に有用であると感じた。<br>よって現時点では、僕とは無縁なようだ。</p>
+<p>インデックスの作成は通常の方法で行えるよう。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初期状態のインデックスを確認</span></span><br><span class="line">$ db.places.stats()</span><br><span class="line"></span><br><span class="line"><span class="comment"># インデックスを作成</span></span><br><span class="line">$ db.places.createIndex(&#123;Bar: <span class="string">"2dsphere"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作成したインデックスを確認</span></span><br><span class="line">$ db.places.getIndexes()</span><br></pre></td></tr></table></figure>
+<p>これでplacesのインデックスがBarのフィールド内に昇順で作成される。<br>平面空間なら<code>2d</code>、球面空間なら<code>2dsphere</code>を使用するらしい。<br>今回は地球という球面空間の経緯度を記録する用途で使用するので、<code>2dsphere</code>となる。<br>ちなみに以前よく使用されていた <code>ensureIndex()</code> は3.0からは非推奨となったよう。今後は基本的に<code>createIndex()</code> を使うらしい。</p>
+<p>ただGeoJsonのデータと通常のインデックスの違いとしてフォーマットが正しくなければ作成できないようなので、下記Linterなどを使用して事前にコレクションがGeoJsonの仕様に準拠しているか確認したほうがよさそう。</p>
+<ul>
+<li><a href="http://geojsonlint.com/" target="_blank" rel="noopener">GeoJSONLint - Validate your GeoJSON</a></li>
+<li><a href="http://qiita.com/fetaro/items/7f110f18c6dd9ccd0c90" target="_blank" rel="noopener">MongoDBの地理空間インデックス・クエリ整理 - Qiita</a></li>
+<li><a href="http://kozy4324.github.io/blog/2012/06/19/mongodb-index/" target="_blank" rel="noopener">MongoDB Index基本 - /var/log/kozy4324</a></li>
+<li><a href="https://docs.mongodb.org/manual/core/geospatial-indexes/" target="_blank" rel="noopener">2d Index Internals — MongoDB Manual 3.2</a></li>
+<li><a href="http://stackoverflow.com/questions/25968592/difference-between-createindex-and-ensureindex-in-java-using-mongodb" target="_blank" rel="noopener">Difference between createIndex() and ensureIndex() in java using mongodb - Stack Overflow</a></li>
+</ul>
 
 	    
 	</div>
@@ -117,50 +123,38 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-02-03T10:16:22.000Z">
-                    2016-02-03
+                <time class="article__header__meta__time" datetime="2016-02-21T10:38:08.000Z">
+                    2016-02-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/02/03/React-routerとScrollPosition.html">React-router と Scroll Position</a>
+            <a href="/2016/02/21/MogoDB3-0-3-2.html">MogoDB 3.0 => 3.2</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>react-router と ReactCSSTransitionGroup を組み合わせてページ遷移時のアニメーションを実装したメモ。<br>サンプルを参考に進めれば容易であった。</p>
+	    <p>開発環境のMongoDB（3.0）を3.2へアップデートした。<br>MogoDBを使ている以上はストレージエンジンをWiredTiger へ移行したいが、どうやら3.2 では<a href="https://docs.mongodb.org/manual/release-notes/3.2-compatibility/#default-storage-engine-change" target="_blank" rel="noopener">デフォルトで有効</a>となる模様。</p>
 <ul>
-<li><a href="https://github.com/rackt/react-router/tree/master/examples/animations" target="_blank" rel="noopener">react-router/examples/animations at master · rackt/react-router</a></li>
+<li><a href="https://docs.mongodb.org/manual/release-notes/3.2-upgrade/" target="_blank" rel="noopener">Upgrade MongoDB to 3.2 — MongoDB Manual 3.2</a></li>
 </ul>
-<p>しかし細かい挙動に凝り始めると、提供されているハイレベルなAPIでは難しくなってくる。<br>今回はページ遷移時にスクロールポジションが維持されてしまう問題の修正に少しハマった。</p>
-<p>結果的に react-router 側を微調整して完了となった。</p>
-<ul>
-<li><a href="https://github.com/rackt/react-router/issues/2019" target="_blank" rel="noopener">Scroll to top on route change? · Issue #2019 · rackt/react-router</a></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router onUpdate=&#123;() =&gt; <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)&#125; history=&#123;createBrowserHistory()&#125;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
-<p>これでページ遷移時に強制的にスクロールポジションをトップへ固定することができる。<br>ただこの方法だとブラウザバックの際にも <code>window.scrollTo(0, 0)</code> が発動してしまいユーザビリティが損なわれる。<br>結果的に下記の方法を採用した。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createBrowserHistory();</span><br><span class="line"></span><br><span class="line">history.listen(<span class="function"><span class="params">location</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (location.action === <span class="string">'POP'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = (</span><br><span class="line">  &lt;Router history=&#123;history&#125;&gt;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://github.com/rackt/react-router/issues/2144#issuecomment-150939358" target="_blank" rel="noopener">Scroll position in RC1 · Issue #2144 · rackt/react-router</a></li>
-</ul>
-<p>これでブラウザバック時は前回のスクロールポジションを維持することができる。<br>ちなみに下記のようなものもあるらしい。</p>
-<p><a href="https://github.com/rackt/scroll-behavior" target="_blank" rel="noopener">rackt/scroll-behavior - JavaScript</a></p>
+<p>これは好都合なので、3.2での動作検証をしっかりと行っていく方向で準備を進めることにした。</p>
+<h2 id="yum-リポジトリを作成"><a href="#yum-リポジトリを作成" class="headerlink" title="yum リポジトリを作成"></a>yum リポジトリを作成</h2><p>MongoDB は既に3.0で運用していたので、今回は直接3.2 へ上げられる。<br>もし2.6以前を使用しているなら一度3.0へと上げなければならない模様。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.0 を 3.2 へ書き換え</span></span><br><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># もし起動しているならMongoを停止</span></span><br><span class="line">$ sudo systemctl stop mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line">$ yum check-update</span><br><span class="line"></span><br><span class="line">mongodb-org.x86_64                   3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-mongos.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-server.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-shell.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-tools.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 実行</span></span><br><span class="line">$ sudo yum update</span><br></pre></td></tr></table></figure>
+<p>これで最新のMongoDB3.2 系が入った。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mongo を起動</span></span><br><span class="line">$ sudo systemctl start mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># バージョンを確認</span></span><br><span class="line">$ mongo --version</span><br><span class="line"></span><br><span class="line">MongoDB shell version: 3.2.3</span><br></pre></td></tr></table></figure>
+<p>早速Webアプリを起動しなおした感じでは、今のところ問題は発生してない。<br>色々な記事やデータを見る限り性能が上がるのは間違いなさそうなので、テスト結果をしっかりと確認・整備して作業を進めたい。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/React/">#React</a>
-	
-</div>
-
 	</footer>
     
 
@@ -171,51 +165,41 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-30T10:12:55.000Z">
-                    2016-01-30
+                <time class="article__header__meta__time" datetime="2016-02-20T10:36:50.000Z">
+                    2016-02-20
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/30/ReactとGoogleAnalytics.html">ReactとGoogleAnalytics</a>
+            <a href="/2016/02/20/WebP.html">WebP</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Reactベースで構築されたSPAの場合、Google Analyticsを用いたアクセス解析には一工夫が必要となる。</p>
+	    <p>WebP を導入するべく簡易Modenizr もどきを使用してフォールバックを行った。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebpSupport</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">    "use strict"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> html = <span class="built_in">document</span>.documentElement,</span><br><span class="line">          WebP = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">    WebP.onload = WebP.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> isSupported = (WebP.width &gt; <span class="number">0</span> &amp;&amp; WebP.height &gt; <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isSupported) &#123;</span><br><span class="line">            <span class="keyword">if</span> (html.className.indexOf(<span class="string">'no-webp'</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                html.className = html.className.replace(<span class="regexp">/\bno-webp\b/</span>, <span class="string">'webp'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                html.className += <span class="string">' webp'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fn(isSupported);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    WebP.src = <span class="string">'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>これをロード時に読み込ますことでhtml に付与されたクラスを切り替える。</p>
 <ul>
-<li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications" target="_blank" rel="noopener">単一ページ アプリケーションのトラッキング  |  ウェブ向けアナリティクス（analytics.js）  |  Google Developers</a></li>
+<li><a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener">Frequently Asked Questions  |  WebP  |  Google Developers</a></li>
+<li><a href="https://gist.github.com/ymatuhin/a9601bd608b8de4e4dcc" target="_blank" rel="noopener">Check WebP Support in browser</a></li>
 </ul>
-<p>単純にアナリティクスのコードを読み込むだけではなく、ルーティングへのフックを設置しなければならない。<br>今回はreact-routerを採用しているので、それを基準にライブラリを探すと、以下が見つかった。</p>
+<p>他にNginx によるフォールバックの実装例も見つけた。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> = /logo &#123;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_accept</span> <span class="regexp">~* "webp")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary Accept;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$http_user_agent</span> <span class="regexp">~* "(Chrome|Opera|Android|Android.*Chrome)")</span> &#123;</span><br><span class="line">        <span class="attribute">add_header</span> Vary User-Agent;</span><br><span class="line">        <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.webp <span class="literal">last</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">rewrite</span> (.*) <span class="variable">$1</span>.png <span class="literal">last</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://github.com/mozilla/react-ga" target="_blank" rel="noopener">mozilla/react-ga - JavaScript</a></li>
-<li><a href="https://github.com/seeden/react-g-analytics" target="_blank" rel="noopener">seeden/react-g-analytics: React google analytics with support for react-router</a></li>
-<li><a href="https://github.com/tcoopman/ga-react-router" target="_blank" rel="noopener">tcoopman/ga-react-router: Google analytics component for react-router</a></li>
+<li><a href="https://gist.github.com/mosson/e0c25513cf65963807ee" target="_blank" rel="noopener">webp compatible on nginx</a></li>
 </ul>
-<p>react-gaはapiが豊富で、Mozilla内でドッグフーディングされているようで信頼もできる。コード量は一番多いかな。<br>3.73 KB</p>
-<p>react-g-analyticsは機能をpageviewの送信にしぼっている分、シンプルな作り。</p>
-<p>ga-react-routerはとにかくシンプル。Webpack前提の作りだが、かなり軽量だ。</p>
-<p>一番サクっと導入できそうなのはreact-g-analyticsだが、その前にreact-routerのアップグレードからしたほうがよさそうだ。</p>
-<p>最終的には react-ga を採用し、以下を参考に実装を行った。</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/34836500/how-to-set-up-google-analytics-for-react-router" target="_blank" rel="noopener">reactjs - How to set up Google Analytics for React-Router? - Stack Overflow</a></li>
-</ul>
+<p>これは単純にUAを判別し、拡張しを書き換える手法のよう。</p>
+<p>CSSのimage-setもHTMLの様にフォーマットによる切り替えができれば、こんな回りくどいことしなくていいのだが…。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/React/">#React</a>
-	
-</div>
-
 	</footer>
     
 
@@ -226,40 +210,39 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-26T10:11:15.000Z">
-                    2016-01-26
+                <time class="article__header__meta__time" datetime="2016-02-17T10:35:52.000Z">
+                    2016-02-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/26/ReactとクリティカルパスCSS.html">ReactとクリティカルパスCSS</a>
+            <a href="/2016/02/17/cssnano.html">cssnano</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Reactを用いたUniversal(Isomorphic)なサイトのクリティカルパスCSSを自動化したい。</p>
-<p>以前Nunjucksを使用したパターンはうまく機能したので、同様の手法でReactの実装を考えた。<br>すなわち、Cssの更新にフックしGulp経由で静的なHTMLを生成し、それに対してCriticalを実行させクリティカルパスの部分を別のHTMLとして抽出し、インポートするという手法であった。</p>
-<p>しかし、Critical 0.7.0がリリースされPenthouseのようにURL指定にて実行が可能になった。<br>というよりPenthouseを内蔵した様子。</p>
+	    <p>cssの圧縮でgulp-minify-cssを利用していたのだが、どうやら開発止めてgulp-cssnanoへと移行を促いしている様子。</p>
+<p>なので早速入れ替えてみた。</p>
 <ul>
-<li><a href="https://github.com/addyosmani/critical/releases/tag/v0.7.0" target="_blank" rel="noopener">Release Critical 0.7.0 · addyosmani/critical</a></li>
+<li><a href="http://cssnano.co/" target="_blank" rel="noopener">cssnano: A modular minifier based on the PostCSS ecosystem</a></li>
 </ul>
-<p>ともかくこれによりCriticalと変わらぬ実行結果をURL指定で取得できそうなので、ぜひこの機能を利用したい。</p>
+<p>機能盛りだくさんと言いたいところだけど、minify-cssも結構色々やってくれてたので、実際使ってみないと何ともいえなさそう。とりあえずAutoprefixer は内包されているようだ。</p>
+<ul>
+<li><a href="http://cssnano.co/optimisations/" target="_blank" rel="noopener">cssnano: Optimisations</a></li>
+</ul>
+<p>使ってみた感じでは確かに少しサイズも縮小された。結構calcを多用しているので、単純な計算を事前にするのはいい感じ。</p>
+<p>ただ一方でunsafe な機能はしっかり把握して使用しないと危険な匂いが…。<br>特にz-indexの再配置は環境によってはよからぬ影響が出そう。</p>
+<p>効能と副作用をしっかり把握して使用していきたい。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/React/">#React</a>
-	
-</div>
-
 	</footer>
     
 
@@ -270,39 +253,41 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-20T10:10:07.000Z">
-                    2016-01-20
+                <time class="article__header__meta__time" datetime="2016-02-17T10:32:19.000Z">
+                    2016-02-17
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/20/オフラインファースト.html">オフラインファースト</a>
+            <a href="/2016/02/17/LetsEncryptとhttp2とNodeと.html">LetsEncryptとhttp2とNodeと</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>オフラインファーストで実装を試みるべく、ServiceWorkerを導入した。</p>
+	    <p>CloudFlare を利用してTLS化していたサイトを、Let’s Encrypt へ移行した。</p>
+<p>参考にした記事ではWebroot プラグインを使用し、サーバーを停止せずに行う手法が多数でしたが、僕の環境（Node.js）だと少しハマったのでStandalone で取得を行った。</p>
+<p>まずはCloudFlare を停止し、Aレコードを直接サーバーへ設定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitで取得</span></span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/letsencrypt/letsencrypt /opt/letsencrypt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を停止</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 80番ポートが塞がれていないかチャック</span></span><br><span class="line">$ netstat -na | grep <span class="string">':80.*LISTEN'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Let<span class="string">' sencrypt フォルダへ移動</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /opt/letsencrypt</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Stndalone プラグインを実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./letsencrypt-auto certonly --standalone</span></span><br></pre></td></tr></table></figure>
+<p>情報を入力し規約に同意して完了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ls /etc/letsencrypt/live/your_domain_nam</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx を起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+<p>導入のさいに参考となった文献は以下など。</p>
 <ul>
-<li><a href="http://offlinefirst.org/" target="_blank" rel="noopener">Offline First!</a></li>
+<li><a href="http://qiita.com/sak_2/items/ff835b669c0a7e110b09" target="_blank" rel="noopener">光の速さのWEBサーバー(nginx)をlet’s encryptでSSL化及びHTTP/2化。ついでにセキュリティ評価をA＋にする。 - Qiita</a></li>
+<li><a href="http://inside.pixiv.net/entry/2015/12/10/153114" target="_blank" rel="noopener">Let’s EncryptとnginxでHTTP/2サーバを立てる - pixiv inside</a></li>
+<li><a href="http://aeas44.tumblr.com/post/138777257395/centos-7-%E3%81%AE-nginx-%E3%81%B8%E3%81%AE-lets-encrypt-%E3%81%AE%E5%B0%8E%E5%85%A5" target="_blank" rel="noopener">aeas44 — CentOS 7 の Nginx への Let’s Encrypt の導入</a></li>
+<li><a href="https://blog.ymyzk.com/2016/02/nginx-config-for-lets-encrypt/" target="_blank" rel="noopener">Let’s Encrypt で証明書を発行して運用するための nginx の設定 - 意識低い開発者のBlog</a></li>
+<li><a href="http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/" target="_blank" rel="noopener">Hardening node.js for production part 2: using nginx to avoid node.js load | Arg! Team Blog</a></li>
+<li><a href="https://gist.github.com/vodolaz095/8373960" target="_blank" rel="noopener">NGINX Config for nodejs application with nginx serving assets and socket.io support</a></li>
 </ul>
-<p>このワードが唱えられたころ、実現するための技術としてはAppCacheやWebStrageが紹介されていたが、現在は当然ServiceWorkerへとスライドしている。<br>コードの記述量は多くなってるが、低レベルのAPI群を提供することで遥かに柔軟になっており、実質ES6で書けるのでストレスもほとんどない。</p>
-<ul>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API/Using_Service_Workers" target="_blank" rel="noopener">Service Workerの利用について - Web API インターフェイス | MDN</a></li>
-</ul>
-<p>導入にあたって現時点での仕様とサンプルを調べたが、GoogleやMozillaなどブラウザベンダが提供してるものが質と信頼性が高いと思われるので、ここのみに視野を絞り参考にした。</p>
-<ul>
-<li><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker" target="_blank" rel="noopener">samples/service-worker at gh-pages · GoogleChrome/samples</a></li>
-<li><a href="https://serviceworke.rs/" target="_blank" rel="noopener">ServiceWorker Cookbook</a></li>
-</ul>
-<p>また下記記事も実践的な考え方の参考になった。</p>
-<ul>
-<li><a href="http://www.html5rocks.com/ja/tutorials/service-worker/introduction/" target="_blank" rel="noopener">Service Worker の紹介: Service Worker の使い方 - HTML5 Rocks</a></li>
-</ul>
-<p>レスポンシブイメージは低解像度のpngとwebpをキャッシュさせれば十分であろう。</p>
+<p>また、証明書の更新は以下の手順で行う。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nginxを停止(80番ポートを開ける)</span></span><br><span class="line">$ sudo systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">$ ./letsencrypt-auto renew</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginxを起動</span></span><br><span class="line">$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
 
 	    
 	</div>

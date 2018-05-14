@@ -77,140 +77,36 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-07T11:03:17.000Z">
-                    2015-09-07
+                <time class="article__header__meta__time" datetime="2015-09-18T12:39:58.000Z">
+                    2015-09-18
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/09/07/Prefitch.html">Prefitch</a>
+            <a href="/2015/09/18/Yamlを学ぶ.html">Yamlを学ぶ</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>来訪者が高い可能性で次に読み込むファイルを先読みさせたい。</p>
-<p><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" rel="noopener">HTML5 Prefetch — Medium</a></p>
-<p>対応ブラウザやテスト方法など、かなり詳しく解説している記事。</p>
-<p>種類は主に以下の四つがあるよう。</p>
+	    <p>AnsibleのPlaybookはYamlで書かなければならない。<br>見よう見まねで動くコードは結構書けるが、インフラにかかわる技術なのできちんと学んだほうがよいだろう。</p>
 <ul>
-<li>dns-prefetch – ドメインの名前解決</li>
-<li>subresource – 現在のページで使用するファイルをキャッシュ</li>
-<li>prefetch – 後続のページで使用するファイルをキャッシュ</li>
-<li>prerender – バックグラウンドでレンダリングまで行う</li>
+<li><a href="http://yaml.org/" target="_blank" rel="noopener">The Official YAML Web Site</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/YAML" target="_blank" rel="noopener">YAML - Wikipedia</a></li>
 </ul>
-<p>今回は<code>prefetch</code>を試してみた。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">”prefetch”</span> <span class="attr">href</span>=<span class="string">”/js/example.js”</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>効果のほどは今後検証していく。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-02T14:45:58.000Z">
-                    2015-09-02
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/02/Web-Manifest.html">Web Manifest</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p>サイトのWebアプリ化を押し進めるためmanifest.jsonを設置。</p>
+<p>こういうときにWikipediaで概要をさくっと理解するのは効率がいいと思った。</p>
 <ul>
-<li><a href="https://w3c.github.io/manifest/" target="_blank" rel="noopener">Manifest for a web application</a></li>
-<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Manifest" target="_blank" rel="noopener">App manifest - App Center | MDN</a></li>
+<li><a href="http://blog.n-z.jp/blog/2014-06-21-ansible-yaml.html" target="_blank" rel="noopener">ansible使いのためのYAML入門 - @znz blog</a></li>
 </ul>
-<p>MDNにも記事があるし、普段使いのFirefoxでもしっかり動くのだろうか。</p>
+<p>とりあえずAnsible用途限定で学ぶならここで</p>
 <ul>
-<li><a href="http://googledevjp.blogspot.jp/2015/04/service-worker-google-developers-summit.html" target="_blank" rel="noopener">Service Worker で作る 最新モバイル ウェブ エクスペリエンス - Google Developers Summit まとめ </a></li>
+<li><a href="http://magazine.rubyist.net/?0009-YAML" target="_blank" rel="noopener">Rubyist Magazine - プログラマーのための YAML 入門 (初級編)</a></li>
 </ul>
-<p>上記はモバイルフレンドリーの目線でWebアプリ化に幅広く言及している記事。</p>
-<ul>
-<li><a href="http://moonglows76.tumblr.com/post/102930578463/web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A3%E3%81%BD%E3%81%8F%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8Bwebapp-manifest" target="_blank" rel="noopener">Webアプリをネイティブアプリっぽく起動するWebApp Manifest - Coding Design’s Tumblr</a></li>
-</ul>
-<p>この記事はさっと読めて、参考になる。</p>
-<p>manifest.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>これが最低限必要な項目らしい。</p>
-<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>あとはヘッドで読み込めばオケ。</p>
-<h2 id="インストールバナー"><a href="#インストールバナー" class="headerlink" title="インストールバナー"></a>インストールバナー</h2><ul>
-<li><a href="http://qiita.com/tmtysk/items/2c5da83feec45b4ee36f" target="_blank" rel="noopener">manifest.json でWebアプリを「ホーム画面に追加」自動バナー表示に対応させる</a></li>
-</ul>
-<p>これはService Workerを使用した「ホームへ追加」バナーの表示の記事。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'/sw.js'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これもインストールバナーについて詳しく解説している記事。</p>
-<p><a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android" target="_blank" rel="noopener">Increasing engagement with Web App install banners — Google Web Updates</a></p>
-<p>そしてそのサンプル。</p>
-<p><a href="https://github.com/GoogleChrome/samples/tree/gh-pages/app-install-banner" target="_blank" rel="noopener">samples/app-install-banner at gh-pages · GoogleChrome/samples</a></p>
-<p>Choromeでは問題なく動作し、インストールバナーも表示された。<br>ただ一度インストールをしないを選択すると、次回再表示はなさそうなのであまり強力な効果は期待できないかも。</p>
-<h2 id="テーマカラー"><a href="#テーマカラー" class="headerlink" title="テーマカラー"></a>テーマカラー</h2><p>theme-colorの設定がmanifest.json内に記述できるようになったよう。</p>
-<ul>
-<li><a href="https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color" target="_blank" rel="noopener">Using the web app manifest to specify a site wide theme colour</a></li>
-</ul>
-<p>従来のmetaタグだとこう。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#2196F3"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>manifest.jsonだとこう。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"theme_color": "#2196F3"</span><br></pre></td></tr></table></figure>
-<p>しかしmanifest.jsonのみの記述だとホームへ追加しないと効力を発揮しないようなので、現時点では両方記述したほうがいいかもしれない。</p>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><p>FirefoxでもServiceWorkerをテストする。</p>
-<p><code>about:config</code>で<code>dom.serviceWorkers</code>を検索し、フラグを<code>true</code>へ変更する。</p>
-<p>ServiceWorkerは問題なく作動したが、アプリ化の効果は現時点では無さそう。今後に期待したい。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-09-02T09:45:30.000Z">
-                    2015-09-02
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/09/02/フォントコンバーター.html">フォントコンバーター</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>サイトへWebフォントを導入する際の手順。</p>
-<p>フォントの変換は<a href="http://www.fontconverter.org/en.html" target="_blank" rel="noopener">Font Converter</a>で、Woff2へは<a href="https://everythingfonts.com/woff-to-woff2" target="_blank" rel="noopener">woff to woff2 converter</a>で行える。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'webfont'</span>;</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot'</span>);</span><br><span class="line">  <span class="attribute">src</span>:<span class="built_in">url</span>(<span class="string">'font/webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>)</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">      <span class="built_in">url</span>(<span class="string">'font/webfont.svg#icomoon'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>IE8以下の対応はもういいかなとも思う。</p>
+<p>本格的にアプリケーションへ導入したいのであればここかと。  </p>
+<p>少し触ってみた感触ではXMLよりは簡潔に書けて、JSONよりは設定ファイルに向いていそう。コメントも書ける。</p>
 
 	    
 	</div>
@@ -219,9 +115,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/css/">#css</a>
-	
-	<a href="/tags/webfont/">#webfont</a>
+	<a href="/tags/Ansible/">#Ansible</a>
 	
 </div>
 
@@ -235,28 +129,41 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-17T11:36:38.000Z">
-                    2015-08-17
+                <time class="article__header__meta__time" datetime="2015-09-18T11:35:34.000Z">
+                    2015-09-18
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/17/Firefox-64bit.html">Firefox 64bit</a>
+            <a href="/2015/09/18/Ansible.html">Ansible</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>BetaとDeveloper Edition(Aurora)では64bit版が使えるようなので、導入してみた。</p>
+	    <p>Vagrant上への開発環境の構築をAnsibleを利用したい。</p>
 <ul>
-<li><a href="https://www.mozilla.org/ja/firefox/beta/all/" target="_blank" rel="noopener">Firefox Beta</a></li>
-<li><a href="https://www.mozilla.org/ja/firefox/developer/all/" target="_blank" rel="noopener">Firefox Developer Edition</a></li>
+<li><a href="http://www.ansible.com/" target="_blank" rel="noopener">Ansible is Simple IT Automation</a></li>
+<li><a href="http://docs.ansible.com/" target="_blank" rel="noopener">Ansible Documentation</a></li>
 </ul>
-<p>Developer Editionはたまにしか使わないのでよくわからないが、常用しているBetaはいい感じ。　　<br>思ったより快適でメモリもまだ余裕があるので、マシンスペックによっては幸せになれるかと。</p>
-<p>ついでにChromeも64bitへ上げたが、これこそ僕は検証でしか使用しないので違いは分からず。<br>でも、きっとよくなってると思う。</p>
+<p>公式とドキュメント。</p>
+<ul>
+<li><a href="http://qiita.com/ArimaRyunosuke/items/1f9d840311584d8160bc" target="_blank" rel="noopener">Ansible 入門 - Qiita</a></li>
+<li><a href="http://knowledge.sakura.ad.jp/tech/3124/" target="_blank" rel="noopener">エージェントレスでシンプルな構成管理ツール「Ansible」入門 - さくらのナレッジ</a></li>
+</ul>
+<p>このへんに目を通せばだいたい使えそう。<br>ドットインストールの<a href="http://dotinstall.com/lessons/basic_ansible" target="_blank" rel="noopener">Ansible入門</a>は有料化しちゃったのね…。</p>
+<p>冪等性は英語でidempotenceということを学んだ。</p>
+<ul>
+<li><a href="http://www.moyashi-koubou.com/blog/vagrant_ansible_windows/" target="_blank" rel="noopener">WindowsでVagrantとAnsibleを使ってみた話 | もやし工房</a></li>
+<li><a href="http://qiita.com/kanagi/items/8b55c7c3b43777590993" target="_blank" rel="noopener">ansibleでnvmを管理する - Qiita</a></li>
+<li><a href="https://github.com/leonidas/ansible-nvm" target="_blank" rel="noopener">leonidas/ansible-nvm</a></li>
+<li><a href="https://gist.github.com/yu0819ki/731c92b62e603504fdb7" target="_blank" rel="noopener">Vagrant+Ansible+git-hooks+foreverでNodejsの開発環境作った話</a></li>
+<li><a href="http://d.hatena.ne.jp/akishin999/20130815/1376520672" target="_blank" rel="noopener">Ansible の Playbook を使ってみる - akishin999の日記</a></li>
+</ul>
+<p>この辺を参考にするとWindowsやNode.jsをからめたAnsile導入はだいたいできそうかと。</p>
 
 	    
 	</div>
@@ -265,7 +172,9 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Firefox/">#Firefox</a>
+	<a href="/tags/Vagrant/">#Vagrant</a>
+	
+	<a href="/tags/Ansible/">#Ansible</a>
 	
 </div>
 
@@ -279,33 +188,167 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-08-12T08:26:21.000Z">
-                    2015-08-12
+                <time class="article__header__meta__time" datetime="2015-09-17T15:20:56.000Z">
+                    2015-09-18
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/08/12/Source-Han-Code-JP.html">Source Han Code JP</a>
+            <a href="/2015/09/18/位置情報の文字列化.html">位置情報の文字列化</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>最近はずっとSource Code Proを使っていたんだけど、ものは試しとSource Han Code JPを味見してみた。  </p>
-<p><a href="https://github.com/adobe-fonts/source-han-code-jp" target="_blank" rel="noopener">adobe-fonts/source-han-code-jp</a>  </p>
-<p><a href="http://blog.quusookagaku.com/19595" target="_blank" rel="noopener">この記事</a>を参考にBracketsへ導入。<br>(やっぱりすんなりとはいかなかった…)  </p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'Source Han Code jp Medium', ＭＳ ゴシック, '<span class="keyword">MS</span> <span class="title">Gothic</span>', monospace</span><br></pre></td></tr></table></figure>
-<p>僕の環境では上記の用に記述すると動いた。<br>ウェイトをもっと細くしたいが、Medium以外は認識しない…。</p>
-<p>最初は結構違和感を感じてフォントサイズなどの微調整は必要だったけど、結果としてはなかなか、いい塩梅。<br>日本語が入り乱れてるファイルの作業では効力を発揮しそうなので、今後はこれメインでいってみようかと。<br>フロント向きだと感じた。</p>
+	    <p>取得した位置情報を文字列化し、URLやデータベースで利用したい。  </p>
+<p>主な選択肢は下記３つ</p>
+<ul>
+<li><a href="http://geohash.org/" target="_blank" rel="noopener">GeoHash</a></li>
+<li><a href="http://geogames.net/labs/geohex" target="_blank" rel="noopener">GeoHex</a></li>
+<li><a href="https://plus.codes/" target="_blank" rel="noopener">plus+codes</a></li>
+</ul>
+<p>現時点で十分に枯れていそうなのはGeoHashかなと。<br>GeoHexはかっこいいが、今回の利用用とではビジュアルは無関係なので。<br>plus+codesはGoogle公式というわけでもないようなので、今後の展開は未知数。</p>
+<p><a href="http://aligach.net/diary/20100821.html" target="_blank" rel="noopener">あーありがち - GeohashのグリッドをGoogle Maps上に再現するツール書いた</a></p>
+<p>古い記事だがやろうとしていることはほぼコレ。</p>
+<h2 id="URI設計の問題"><a href="#URI設計の問題" class="headerlink" title="URI設計の問題"></a>URI設計の問題</h2><p>クエリで渡すか、ハッシュで渡すか、階層へ盛り込むのもアリっちゃアリ。</p>
+<ul>
+<li><code>http://example.com?geo=xn3pvxy</code></li>
+<li><code>http://example.com#xn3pvxy</code></li>
+<li><code>http://example.com/xn3pvxy</code></li>
+</ul>
+<h2 id="ライブラリの選定"><a href="#ライブラリの選定" class="headerlink" title="ライブラリの選定"></a>ライブラリの選定</h2><p>経緯度とジオハッシュの相互変換にはライブラリを使用する。<br>下記の二つが候補として見つかった。</p>
+<ul>
+<li><a href="https://github.com/davetroy/geohash-js" target="_blank" rel="noopener">davetroy/geohash-js</a></li>
+<li><a href="https://github.com/chrisveness/latlon-geohash" target="_blank" rel="noopener">chrisveness/latlon-geohash</a></li>
+</ul>
+<p>開発が最近行われており、オプションにより制度の調整も行える<code>latlon-geohash</code>を採用した。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> latLon = Geohash.decode(geoHash);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`現在地の経度は<span class="subst">$&#123;latLon.lat&#125;</span>、緯度は<span class="subst">$&#123;latLon.lon&#125;</span>です。`</span>);</span><br></pre></td></tr></table></figure>
+<p>このように簡単にジオハッシュを経緯度へ変換できる。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> geoHash = Geohash.encode(latLon.lat, latLon.lon, <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<p>経緯度をジオハッシュ化する際に、3番目の引数で桁数（精度）を指定できる。<br>未指定でも経緯度から自動判別を行う。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/Geohash/">#Geohash</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-13T15:38:44.000Z">
+                    2015-09-14
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/14/Webp-導入思案.html">Webp 導入思案</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Webpをさくっと導入できないか思案。</p>
+<ul>
+<li><a href="http://caniuse.com/#search=webp" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>取りあえず対応しているのはBlinkブラウザのみだが、モバイル対応へ重きを置くならば価値はありそう。</p>
+<ul>
+<li><a href="https://1000ch.net/posts/2015/introduction-to-webp.html" target="_blank" rel="noopener">【翻訳】Introduction to WebP - 1000ch.net</a></li>
+</ul>
+<p>Webpの概要と導入の際の未サポートブラウザへのフォールバック方法を解説。<br>記事内でも言及があるサーバーサイドでの実装が一番よさそうではある。</p>
+<ul>
+<li><a href="https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/" target="_blank" rel="noopener">Deploying WebP via Accept Content Negotiation - igvita.com</a></li>
+</ul>
+<p>しかしサクっとはできなさそうなので、フロントで実装したい。<br>とりあえず上記を参考に<code>&lt;picture&gt;</code>で試してみた。</p>
+<ul>
+<li><a href="http://ground.playr.jp/webp/" target="_blank" rel="noopener">Webp - Playground</a></li>
+</ul>
+<p>これは容易でとてもいい方法だと感じた。<br>しかし今回は<code>background-image</code>へのwebp導入を考えているので残念ながらこの方法は不可である。</p>
+<p>色々調べると‘@supports‘を利用した方法を発見。</p>
+<ul>
+<li><a href="https://andywalpole.me/#!/blog/142790/using-webp-image-format" target="_blank" rel="noopener">Using the WebP image format / blog unblock</a></li>
+</ul>
+<p><code>@supports</code>で機能が利用できるか確認し、分岐する手法が紹介されている。<br>筆者は最終的にModernizrを使用したようだが(そりゃそうだよな…)、今回このためにModernizr入れるのは本末転倒である。<br><code>@supports</code>面白そうだしカジュアルなのでコレを採用。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@supports" target="_blank" rel="noopener">@supports - CSS | MDN</a></li>
+<li><a href="http://caniuse.com/#feat=css-featurequeries" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background-image: url("../img/bg.png");</span><br><span class="line">@<span class="keyword">supports</span> (background-image: -webkit-image-set(url(<span class="string">"../img/bg.webp"</span>) <span class="number">1</span>x)) &#123;</span><br><span class="line">  background-image: -webkit-image-set(url("../img/bg.webp") 1x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://caniuse.com/#feat=css-image-set" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+</ul>
+<p>CSS4で提案されているimage-listはかなりよさそうである。</p>
+<ul>
+<li><a href="http://www.w3.org/TR/css4-images/" target="_blank" rel="noopener">CSS Image Values and Replaced Content Module Level 4</a></li>
+<li><a href="http://www.brucelawson.co.uk/2013/save-bandwidth-webp-with-fallback/" target="_blank" rel="noopener">Bruce Lawson’s personal site  : Save bandwidth with webP – soon with fallback!</a></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: images("../img/bg.webp", "../img/bg.png");</span><br></pre></td></tr></table></figure>
+<p>ただ現時点では対応しているブラウザはない様子。<br>現時点ではimage-setが一番よさそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-09-13T15:20:11.000Z">
+                    2015-09-14
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/09/14/Conohaクラウドへ引っ越し.html">Conohaクラウドへ引っ越し</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>旧Conohaで運用していたサイトをクラウド番へ引っ越しした。  </p>
+<p>正直今までのConohaは結構な頻度で止まっており、あまり信頼できるものではなく他社へ乗り換えを検討していた。しかし最近は極力楽をしたい欲求が強くなっており、その面でConohaクラウドに魅力を感じ、色々葛藤はあったものの改善の期待をこめて引っ越しを決心した。  </p>
+<p>さて、このConohaクラウド、サーバー追加の際にテンプレを選ぶことができ、LAMPやRails、Wordpressはもちろんのこと、MongoDBやJenkins、DockerやMEANなんてのもあって興味深い。<br>機会があればそのへんも触ってみようと思う。  </p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/Conoha/">#Conoha</a>
+	
+</div>
+
 	</footer>
     
 

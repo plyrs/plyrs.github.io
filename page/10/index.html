@@ -77,26 +77,30 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-06T13:39:20.000Z">
-                    2015-11-06
+                <time class="article__header__meta__time" datetime="2015-11-27T11:25:48.000Z">
+                    2015-11-27
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/06/Google-OAuth.html">Google OAuth</a>
+            <a href="/2015/11/27/Icon.html">Icon</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p><a href="https://jp.dewy.me/" target="_blank" rel="noopener">Dewy</a>へGoogleアカウントによるログイン機能を実装した。<br>これまで通り<a href="https://github.com/simov/grant" target="_blank" rel="noopener">simov/grant</a>を利用したので、基本的に流れはFacebookやTwitterのときと同じであった。</p>
+	    <p>ちょっとIconのデザインを考えてた。<br>やはりガイドラインを参考にしたら、理詰めでいい感じできたりする。</p>
 <ul>
-<li><a href="http://d.hatena.ne.jp/komiyak/20141103/1415016929" target="_blank" rel="noopener">Google OAuth 2.0 を使い、Web アプリケーションに認証機能を追加する - komiyakの通り道</a></li>
+<li><a href="https://www.google.com/design/spec/style/icons.html" target="_blank" rel="noopener">Icons - Style - Google design guidelines</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Iconography.html" target="_blank" rel="noopener">iOS Human Interface Guidelines: Icons and Graphics</a></li>
 </ul>
-<p>アクセストークンの取得などには上記記事が参考になった。記事が少し古く、現在のUIとやや違う部分はあったが、問題はなかった。<br>また、Twitterと比べ項目が多く、Facebookと違ってしっかり日本語で表示れてるので色々見ていて楽しい。今回はGoogle+のAPIを触るのみでありが、機会があれば他にも試してみたくなる。</p>
+<p>ちょっと違うが、GoogleはUI向けマテリアルデザイン用のアイコン群を公開しているようで、Androidに特化する場合はここから使ってもよさそう。</p>
+<ul>
+<li><a href="https://www.google.com/design/icons/" target="_blank" rel="noopener">https://www.google.com/design/icons/</a></li>
+</ul>
 
 	    
 	</div>
@@ -105,7 +109,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Node-js/">#Node.js</a>
+	<a href="/tags/Design/">#Design</a>
 	
 </div>
 
@@ -119,37 +123,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-06T08:32:20.000Z">
-                    2015-11-06
+                <time class="article__header__meta__time" datetime="2015-11-26T07:19:33.000Z">
+                    2015-11-26
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/06/dialog-element.html">dialog-element</a>
+            <a href="/2015/11/26/Splash-Screens.html">Splash-Screens</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。</p>
+	    <p>仕様を見ているとスプラッシュイメージの項目があったので、manifest.jsonをアップデートしてみた。<br>もちろん、現段階で対応しているブラウザは無い。<br>しかし、Android版 Google Chromeはアイコンをスプラッシュイメージ的に出すようになっているので、今後この機能も有効化されるであろう。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Kinlan's Amazing Application ++"</span>,</span><br><span class="line">  <span class="string">"short_name"</span>: <span class="string">"Kinlan's Amaze App"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"src"</span>: <span class="string">"launcher-icon-3x.png"</span>,</span><br><span class="line">      <span class="string">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"splash_screens"</span>: [&#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/lowres"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"320x240"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_small"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1334x750"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="string">"src"</span>: <span class="string">"splash/hd_hi"</span>,</span><br><span class="line">    <span class="string">"sizes"</span>: <span class="string">"1920x1080"</span>,</span><br><span class="line">    <span class="string">"density"</span>: <span class="number">3</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="string">"start_url"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"display"</span>: <span class="string">"standalone"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。</p>
 <ul>
-<li><a href="http://caniuse.com/#feat=dialog" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://dev.mozilla.jp/2013/03/getting-started-with-open-web-apps-why-and-how/" target="_blank" rel="noopener">Open Web Apps を始めよう – なぜ、そしてどのように | Mozilla Developer Street (modest)</a></li>
 </ul>
-<p>相変わらずblink系のみの対応である。</p>
+<p>Application Cacheなど、現在では非推奨となっている手法の紹介も含まれているが、Open Web Appへの誘いとして分かりやすい記事。</p>
+<p>Open Web Appをホスト型とパッケージ型の2つへ分類し、それぞれのメリデメリを紹介。</p>
 <ul>
-<li><a href="https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml" target="_blank" rel="noopener">Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH</a></li>
-<li><a href="http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;utm_medium=web&amp;utm_source=Front_End_Dev_Weekly_77" target="_blank" rel="noopener">the new code – Native Modal Windows in HTML5: Using the dialog Element</a></li>
-<li><a href="http://demo.agektmr.com/dialog/" target="_blank" rel="noopener">dialog element demo</a></li>
+<li><a href="https://developer.mozilla.org/ja/Apps/Manifest" target="_blank" rel="noopener">アプリマニフェスト - アプリセンター | MDN</a></li>
 </ul>
-<p>具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。</p>
+<p>manifest.webappの詳細</p>
 <ul>
-<li><a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank" rel="noopener">GoogleChrome/dialog-polyfill: Polyfill for the dialog element</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Open_Web_apps_and_Web_standards" target="_blank" rel="noopener">Open Web Apps と Web 標準 | MDN</a></li>
+<li><a href="https://developer.mozilla.org/ja/Apps/App_templates" target="_blank" rel="noopener">アプリテンプレートの使用 - アプリセンター | MDN</a></li>
 </ul>
-<p>ポリフィルもChromeチーム自ら提供している。</p>
-<p>が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。<br>現時点での実践投入はまだ早いかと。</p>
 
 	    
 	</div>
@@ -158,7 +162,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/HTML/">#HTML</a>
+	<a href="/tags/WebApp/">#WebApp</a>
 	
 </div>
 
@@ -172,43 +176,37 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-02T12:27:39.000Z">
-                    2015-11-02
+                <time class="article__header__meta__time" datetime="2015-11-25T09:37:21.000Z">
+                    2015-11-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/11/02/Push通知.html">Push通知</a>
+            <a href="/2015/11/25/CriticalPathCSS-2.html">Critical Path CSS#2</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>最近ブラウザにもPush通知の足音が聞こえ始めている。<br>なので基礎学習は始めておきたい。</p>
-<ul>
-<li><a href="https://1000ch.net/posts/2015/service-worker-push-notification.html" target="_blank" rel="noopener">Service WorkerでブラウザにPush通知をする - 1000ch.net</a></li>
-<li><a href="http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d" target="_blank" rel="noopener">ChromeでW3C Push APIを使ってみた - Qiita</a></li>
-</ul>
-<p>エッジな方々は既に検証を開始している様子。<br>ここはやはりFirefoxでも試したい。</p>
-<ul>
-<li><a href="http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb" target="_blank" rel="noopener">HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita</a></li>
-</ul>
-<p>Firefoxの実装もかなり進んでいるようで、期待大。<br>問題はモバイルFirefoxの普及だろう。</p>
+	    <p><a href="https://dewy.me/" target="_blank" rel="noopener">Dewy</a> へクリティカルCSSの最適化を実装した。</p>
+<p>色々と下調べを行っていたが、運用コストを図るには運用してみるのが一番だと感じとりあえず小さく始めてみることにした。</p>
+<p>サイトはレンダリングにテンプレートエンジンを使用しているため、当初は<a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">penthouse</a>を使用しようと考えた。<br>これはWebページをPhantomJSを用いて解析するもので、手元でレンダリングを実行する必要がなく導入が容易でサイコーだと感じた。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">penthouse(&#123;</span><br><span class="line">    url : <span class="string">'https://dewy.me/'</span>,</span><br><span class="line">    css : path.join(__dirname + <span class="string">'/public/css/main.css'</span>),</span><br><span class="line">    width : <span class="number">320</span>,</span><br><span class="line">    height : <span class="number">480</span>,</span><br><span class="line">    timeout: <span class="number">30000</span></span><br><span class="line">&#125;, (err, criticalCss) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err);</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(criticalCss);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これでクリティカルCSSが記述されたhtmlが生成され、これをhead内でインポートしフルCSSは非同期で読み込む。PhantomJSが重いのか少し実行に時間はかかるが、問題なく作動した。<br>しかし、内部モジュールのCSSパースの精度がよくないのか正確なクリティカルCSSを吐き出せておらず、ベタに<a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">critical</a>を使うこととなった。</p>
+<p>とりえず一度静的なhtmlへレンダリングを行い、それを解析。それ以外は上記と同じ流れとなる。</p>
+<p>criticalの部分は…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">critical.generate(&#123;</span><br><span class="line">    base: <span class="string">'public/'</span>,</span><br><span class="line">    src: <span class="string">'index.html'</span>,</span><br><span class="line">    css: [<span class="string">'public/css/normalize.css'</span>, <span class="string">'public/css/evil-icons.min.css'</span>, <span class="string">'public/css/main.css'</span>],</span><br><span class="line">    width: <span class="number">320</span>,</span><br><span class="line">    height: <span class="number">480</span>    </span><br><span class="line">&#125;).then(<span class="function"><span class="params">output</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> clean = <span class="keyword">new</span> cleanCSS().minify(output);</span><br><span class="line">    fs.writeFile(<span class="string">'views/inline/index.html'</span>, <span class="string">`&lt;style type="text/css"&gt;<span class="subst">$&#123;clean.styles&#125;</span>&lt;/style&gt;`</span>); </span><br><span class="line">&#125;).error(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>こんな感じ。Promiseで書けるので多少複雑になっていっても視認性はよさそうだ。</p>
+<p>PageSpeed Insightsの点は結構上がって気持ちがいいので、しばらくこれで運用して改善点と課題を洗い出したいと思う。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/JavaScript/">#JavaScript</a>
-	
-</div>
-
 	</footer>
     
 
@@ -219,46 +217,30 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
-                    2015-10-31
+                <time class="article__header__meta__time" datetime="2015-11-21T09:35:14.000Z">
+                    2015-11-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/31/gulp-progeny.html">gulp-progeny</a>
+            <a href="/2015/11/21/VisualStudioCodeへ引っ越し.html">Visual Studio Codeへ引っ越し</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
-<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
-<ul>
-<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
-</ul>
-<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
-<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
-<ul>
-<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li>
-</ul>
-<p>まさに依存関係を解決してくれるよう。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
+	    <p>今現在、開発にはBracketsを使っている。</p>
+<p>前々からVisuale Studio Codeも触っていて、バージョンアップを繰り返すごとに目に見えて良くなっており魅力を感じていたものの、Editorconfigの未対応などがちょっと痛くて導入はできずにいた。</p>
+<p>しかし今回のオープンソース化にあたって、早速Editorconfig拡張も有志により追加されたので引っ越しの準備を始めている。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
 	</footer>
     
 
@@ -269,41 +251,35 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
-                    2015-10-31
+                <time class="article__header__meta__time" datetime="2015-11-18T09:33:49.000Z">
+                    2015-11-18
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/31/Critical-Path-CSS.html">Critical-Path-CSS</a>
+            <a href="/2015/11/18/Metalsmith.html">Metalsmith</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p>
+	    <p>ブログではない、静的なサイトをビルドするにあたって、Metalsmithがよさげなので使ってみた。</p>
 <ul>
-<li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li>
-<li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li>
-<li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li>
+<li><a href="http://www.metalsmith.io/" target="_blank" rel="noopener">Metalsmith</a></li>
 </ul>
-<p>記事は詳しく解説したものが見つかり、大変参考になった。</p>
-<p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p>
+<p>公式は上記。<br>最近は勢いが乏しいらしく、現時点では非推奨のモジュールが公式のサンプルにで使われている。<br>が、メンテは継続されているようだしエコシステムもほぼ仕上がっているようなので、通常導入する分には問題はなさそう。</p>
 <ul>
-<li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li>
-<li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li>
+<li><a href="http://qiita.com/maruloop/items/4c9ab4135ff1f3689d2a" target="_blank" rel="noopener">static_site_generator - Metalsmith(静的サイトジェネレーター)の導入 - Qiita</a></li>
 </ul>
-<p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p>
+<p>上記記事を参考にとりあえずビルドまでもっていく。<code>metalsmith-templates</code>は非推奨となり、<a href="https://github.com/superwolff/metalsmith-layouts" target="_blank" rel="noopener">metalsmith-layouts</a>と<a href="https://github.com/superwolff/metalsmith-in-place" target="_blank" rel="noopener">metalsmith-in-place</a>へ分離したらしいが、今回は気にせず使用していく。テンプレートエンジンはNunjucksへ変えた。</p>
+<p>また、<code>metalsmith.json</code>に設定を書いていくやりかたは個人的にあまり気持ちのいい方法ではないので、jsでビルドする方法を選択した。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Metalsmith = <span class="built_in">require</span>(<span class="string">'metalsmith'</span>);</span><br><span class="line"><span class="keyword">const</span> collections = <span class="built_in">require</span>(<span class="string">'metalsmith-collections'</span>);</span><br><span class="line"><span class="keyword">const</span> markdown = <span class="built_in">require</span>(<span class="string">'metalsmith-markdown'</span>);</span><br><span class="line"><span class="keyword">const</span> permalinks = <span class="built_in">require</span>(<span class="string">'metalsmith-permalinks'</span>);</span><br><span class="line"><span class="keyword">const</span> templates = <span class="built_in">require</span>(<span class="string">'metalsmith-templates'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> metalsmith = <span class="keyword">new</span> Metalsmith(__dirname)</span><br><span class="line">    .use(collections(&#123;<span class="attr">posts</span>: &#123;<span class="attr">pattern</span>: <span class="string">"posts/*.md"</span>&#125;&#125;))</span><br><span class="line">    .use(markdown())</span><br><span class="line">    .use(permalinks(&#123;<span class="attr">pattern</span>: <span class="string">':title'</span>&#125;))</span><br><span class="line">    .use(templates(<span class="string">'nunjucks'</span>))</span><br><span class="line">    .build(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これだけで今回ほしい部分は大体動く。<br>柔軟性が高いようなので、ブログでなければMetalsmithのほうが楽に作れると感じた。</p>
 <ul>
-<li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li>
-<li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li>
-</ul>
-<p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p>
-<ul>
-<li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li>
+<li><a href="http://www.petermorlion.com/creating-static-sites-with-metalsmith/" target="_blank" rel="noopener">Creating static sites with Metalsmith</a></li>
 </ul>
 
 	    
@@ -311,14 +287,6 @@
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-	<a href="/tags/CSS/">#CSS</a>
-	
-</div>
-
 	</footer>
     
 

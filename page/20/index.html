@@ -77,79 +77,38 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-01-03T13:33:56.000Z">
-                    2015-01-03
+                <time class="article__header__meta__time" datetime="2015-08-05T11:37:01.000Z">
+                    2015-08-05
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/01/03/ブログをHEXOへ引越し.html">ブログをHEXOへ引越し</a>
+            <a href="/2015/08/05/CSS-wii-change.html">CSS wii-change</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>新年だしでブログを<a href="http://hexo.io/" target="_blank" rel="noopener">HEXO</a>へ引越ししました。  </p>
-<p>てぃーだブログで転がしていたブログの蘇生計画のひとつです.</p>
-<h2 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h2><p>読みはヘクソ。<br>いわゆる静的サイトジェネレーターの一つ。  </p>
-<p>JekyllやOctopressのnode版といった感じ。</p>
-<p>おもな特徴は…  </p>
+	    <p>CSS will-changeプロパティについての記事を読んだので早速試験中。</p>
 <ul>
-<li>ビルド、デプロイはコマンドからでオケ</li>
-<li>マークダウンをサポートしているのでプログラマライク</li>
-<li>豊富なプラグイン</li>
-<li>豊富なテーマ</li>
+<li><a href="https://dev.opera.com/articles/ja/css-will-change-property/" target="_blank" rel="noopener">CSS will-changeプロパティについて知っておくべきこと</a></li>
 </ul>
-<p>といったところ。<br>テーマの自作も標準でEJSを採用しているので、シンプルに書ける。<br>制作者が台湾の方でユーザーにも中国圏の方が多いのか、プラグインやテーマに中国語がちょくちょく。基本的にゃ問題なく使えます。</p>
-<h3 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h3><p>インストールはnpmから</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo -g</span><br></pre></td></tr></table></figure>
-<p>ジェネレーターでベースを一発生成。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;フォルダ&gt;</span><br></pre></td></tr></table></figure>
-<p>生成されたプロジェクトに移動して <code>npm install</code>  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;フォルダ&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>あとは<code>hexo server</code>でローカルサーバーが立ち上がり、<code>http://localhost:4000</code>にブログが立ち上がります。  </p>
-<h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><p>今回はGithub Pages上に導入したので、<code>_config.yml</code>の<code>deplpy:</code>部分を修正。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: github</span><br><span class="line">  repo: https://github.com/<span class="tag">&lt;<span class="name">プロジェクト</span>&gt;</span>/<span class="tag">&lt;<span class="name">プロジェクト</span>&gt;</span>.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>generateコマンドでアップロードする性的サイトを生成して、  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>deployコマンドでデプロイ。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>generateコマンドは-gオプションとしてデプロイと同時に行うことも可能。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure>
-<p>こっちの方が使うとこが多いかと。</p>
-<h3 id="記事投稿"><a href="#記事投稿" class="headerlink" title="記事投稿"></a>記事投稿</h3><p>newコマンドでひな形を生成。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &lt;記事タイトル&gt;</span><br></pre></td></tr></table></figure>
-<p><code>source/_posts/</code>内に生成されたひな形へマークダウンで内容を記述。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 記事タイトル</span><br><span class="line">date: 2015-01-01 00:00:00</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">以下内容を書き込む</span><br></pre></td></tr></table></figure>
-<p>そしてデプロイ  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy -g</span><br></pre></td></tr></table></figure>
-<h3 id="プラグイン"><a href="#プラグイン" class="headerlink" title="プラグイン"></a>プラグイン</h3><p><a href="https://github.com/hexojs/hexo/wiki/Plugins" target="_blank" rel="noopener">プラグイン一覧</a>  </p>
-<p>プラグインもnpm からインストール。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &lt;プラグイン名&gt; --save</span><br></pre></td></tr></table></figure>
-<p>以下導入したプラグイン</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">will-change</span>: <span class="selector-tag">transform</span>;</span><br></pre></td></tr></table></figure>
+<p>簡単に言えば<code>translate3ds</code>などのハックでGPUアクセレーションを有効化していたけど、それ以外の適切な手法でブラウザさんに最適化していただこうというものらしい。</p>
+<p>ちょっと試してみてもあまり違いはわからなかったが、重い描画や低スペックマシンだと違いがでてくるのかも。<br>何より最適化の意図を明確にすることができるので、設計に盛り込みやすい。</p>
 <ul>
-<li><a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a> 公式。Atomを生成  </li>
-<li><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener">hexo-generator-sitemap</a> 公式。サイトマップを生成  </li>
-<li><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap" target="_blank" rel="noopener">hexo-generator-baidu-sitemap</a> Baidu用サイトマップを生成。こーゆーのは面白そうなので導入</li>
-<li><a href="https://github.com/flerro/hexo-generator-minify" target="_blank" rel="noopener">hexo-generator-minify</a> <code>hexo gm</code>コマンドでCSSとJsをMinifyして生成。速度厨なので導入</li>
+<li><a href="http://caniuse.com/#feat=will-change" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
 </ul>
-<h3 id="テーマ"><a href="#テーマ" class="headerlink" title="テーマ"></a>テーマ</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">テーマ一覧</a>  </p>
-<p>テーマはgitからインストール。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> &lt;リポジトリ&gt; themes/&lt;テーマ名&gt;</span><br></pre></td></tr></table></figure>
-<p>公式テーマはデフォルトのLandscapeを含めて三つ容易されています。  </p>
+<p>しかし現時点でSafariの実装はまだまだなので、しばらくは従来通り<code>translate3ds</code>を使うか、併用していくのがよさそう。</p>
+<p>その他参考記事</p>
 <ul>
-<li><a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="noopener">Landscape</a> - <a href="http://hexo.io/hexo-theme-landscape/" target="_blank" rel="noopener">デモ</a></li>
-<li><a href="https://github.com/hexojs/hexo-theme-phase" target="_blank" rel="noopener">Phase</a> - <a href="http://hexo.io/hexo-theme-phase/" target="_blank" rel="noopener">デモ</a></li>
-<li><a href="https://github.com/hexojs/hexo-theme-light" target="_blank" rel="noopener">Light</a> - <a href="http://hexo.io/hexo-theme-light/" target="_blank" rel="noopener">デモ</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/will-change" target="_blank" rel="noopener">will-change - CSS | MDN</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/w/will-change/" target="_blank" rel="noopener">will-change | CSS-Tricks</a></li>
+<li><a href="http://www.hcn.zaq.ne.jp/___/WEB/css-will-change-ja.html" target="_blank" rel="noopener">CSS Will Change Module Level 1 日本語訳</a></li>
 </ul>
-<p>今回は日本製のApolloを採用。</p>
-<ul>
-<li><a href="https://github.com/joyceim/hexo-theme-apollo" target="_blank" rel="noopener">Apollo</a> - <a href="http://xxxxxly.in/hexo-theme-apollo/" target="_blank" rel="noopener">デモ</a></li>
-</ul>
-<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>かなり容易にブログ環境を構築できました。<br>マークダウンでGistにためたネタを投稿しやすいのでウハウハ。</p>
 
 	    
 	</div>
@@ -158,7 +117,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/hexo/">#hexo</a>
+	<a href="/tags/CSS/">#CSS</a>
 	
 </div>
 
@@ -172,61 +131,87 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2013-04-07T08:50:55.000Z">
-                    2013-04-07
+                <time class="article__header__meta__time" datetime="2015-06-11T11:36:08.000Z">
+                    2015-06-11
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2013/04/07/CloudFlare導入してみる.html">CloudFlare導入してみる</a>
+            <a href="/2015/06/11/npm-check-updates.html">npm-check-updates</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>サイトに<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>導入してみたが、コレどうなんさろう…。<br>メインビジュアルが結構デカイから恩恵があるのかとおもってたけど、よくわかんないッス。  </p>
-<p>とりあえず様子見だなー。</p>
+	    <p><a href="https://github.com/tjunnone/npm-check-updates" target="_blank" rel="noopener">npm-check-updates</a>が便利という発見。</p>
+<p>モジュールのリリース情報を確認して、必要ならば更新というくだりは難儀。<br><code>npm outdated</code>してpackage.jsonを書き換えて<code>npm install</code>を行うのが通常の流れであるが、回数を重ねるとこれを行うのがおっくうになってくる。</p>
+<p>npm-check-updatesはこのへんの手間を省いてくれる。</p>
+<p>今回はコマンドが短くてよりよさげな開発版をインストール。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates@unstable</span><br></pre></td></tr></table></figure>
+<p>これで更新確認から実行まで3ステップで行える。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新を確認</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> package.jsonを更新</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ncu -u</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新を実行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
+<p>フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。</p>
+<p>マイナーバージョンアップであればあまり後先考えずガンガン上げていきたい性分なので、その作業の簡略化ができ素晴らしい。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
+<div class="tags">
+	
+	<a href="/tags/npm/">#npm</a>
+	
+</div>
+
 	</footer>
     
 
 </article>
 
 
-<article class="article アイコンフォント">
+<article class="article post">
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2013-04-05T08:42:38.000Z">
-                    2013-04-05
+                <time class="article__header__meta__time" datetime="2015-05-25T11:28:08.000Z">
+                    2015-05-25
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2013/04/05/Fontelloを導入.html">Fontelloを導入</a>
+            <a href="/2015/05/25/gulp-imagemin.html">gulp-imagemin</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p><a href="http://nautilus-jp.com/" target="_blank" rel="noopener">NAUTILUSサイト</a>の外部リンクをアイコンで分かりやすくしたいなーと思い、今日改造に着手。<br>どうせならアイコンフォントで導入しよー、ということで調査した結果、下記の手法で改造を開始。<br>今回は<a href="http://fontello.com/" target="_blank" rel="noopener">fontello</a>を使用。<br>普通のフォントアイコンをつかうと無駄にサイズが大きくなるので、こーゆーピンポイントでチョイスできるサービスは大変便利。  </p>
-<p>この四つをアイコンフォントとして、導入するる。  </p>
-<p><amp-img src="/2013/04/05/Fontelloを導入/1.png" width="400" height="229"></amp-img></p>
-<p>ついでに_blankを記入したときに、自動でアイコンを追加してくれるようJSで追加！<a href="http://hiroyukiterada.com/jquery/246/" target="_blank" rel="noopener">この記事</a>を参考に。   </p>
-<p><amp-img src="/2013/04/05/Fontelloを導入/2.jpg" width="400" height="300"></amp-img></p>
-<p>と思ったら、同様のことをCSSだけでできるのね。<br>この辺でセレクタとかの知識不足が露呈しますな。ホームのアイコンは手動で入力。  </p>
-<p>わりとシンプルなコードでできますな。ん～今日はこんなもんかと。</p>
+	    <p>gulp-imageminで画像の最適化を突き詰める。</p>
+<p><a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="noopener">sindresorhus/gulp-imagemin</a></p>
+<h2 id="標準API"><a href="#標準API" class="headerlink" title="標準API"></a>標準API</h2><ul>
+<li>gifsicle</li>
+<li>jpegtran</li>
+<li>optipng</li>
+<li>svgo</li>
+</ul>
+<p>gif、jpeg、png、svgと主要なフォーマットは標準搭載されているので、導入後すぐに試すことができる。</p>
+<h2 id="拡張モジュール"><a href="#拡張モジュール" class="headerlink" title="拡張モジュール"></a>拡張モジュール</h2><ul>
+<li><a href="https://github.com/imagemin/imagemin-webp" target="_blank" rel="noopener">webp</a></li>
+<li><a href="https://github.com/imagemin/imagemin-advpng" target="_blank" rel="noopener">advpng</a></li>
+<li><a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">pngquant</a></li>
+<li><a href="https://github.com/imagemin/imagemin-pngout" target="_blank" rel="noopener">pngout</a></li>
+<li><a href="https://github.com/imagemin/imagemin-pngcrush" target="_blank" rel="noopener">pngcrush</a></li>
+<li><a href="https://github.com/imagemin/imagemin-mozjpeg" target="_blank" rel="noopener">mozjpeg</a></li>
+<li><a href="https://github.com/imagemin/imagemin-jpegoptim" target="_blank" rel="noopener">jpegoptim</a></li>
+</ul>
+<p>拡張モジュールを用いることも可能。<br>webpなども最適化することができる。<br>全てを試してはいないが、pngquantやmozjpegは標準搭載のそれよりも圧縮効率がいい。</p>
+<p>ただ、モジュールがでかくてインストールに時間がかかる。<br>各プロジェクトにこれを導入していくと、なぜか申し訳ない気持ちになってくる。</p>
 
 	    
 	</div>
@@ -243,24 +228,69 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2013-03-07T08:35:38.000Z">
-                    2013-03-07
+                <time class="article__header__meta__time" datetime="2015-05-21T11:24:23.000Z">
+                    2015-05-21
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2013/03/07/CMSを導入.html">SOY CMSを導入</a>
+            <a href="/2015/05/21/Style-Guide-Boilerplate.html">Style Guide Boilerplate</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>サイトに以前から検討していたCMSを導入。<br><a href="http://www.adedit.net/" target="_blank" rel="noopener">AD-EDIT</a>をいじってたが、デザイン弄りにくくて頓挫。<br>Perlほとんど読めないからなぁ。沖縄産だから使いたかったが…。  </p>
-<p>ってことで行き着いた<a href="http://www.soycms.net/" target="_blank" rel="noopener">SOY</a>でなんとか完成。<br>ああ、SOYいいね、ソイ。いいっす、ボクには扱いやすす。PHPはギリギリいけるな。  </p>
-<p>ということで、とりあえずトップとInfoページは全面SOY化。<br>メディアとリクエストもそのうちSOY化したら長い目で見ていいかも。<br>メールフォームやフォトはまだまだ検討ですな。いまでも事足りてるし。 </p>
+	    <p>Style Guide Boilerplateがいい感じ。</p>
+<ul>
+<li><a href="http://bjankord.github.io/Style-Guide-Boilerplate/" target="_blank" rel="noopener">bjankord/Style-Guide-Boilerplate</a></li>
+</ul>
+<p>DoccoとかKSSとか、ジェネレーターを使った運用を目指していたが、生成するドキュメントがいまいちシンプルさに欠け、結局自前で書いていたが、こーゆーのが今回はマッチしそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-05-17T11:07:18.000Z">
+                    2015-05-17
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/05/17/node-redis入門.html">node-redis入門</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Redisの修行を進めている。<br>Nodeアプリ内で使う分には下記を参考に学習を進めていけばいい様子。</p>
+<ul>
+<li><a href="http://redis.io/" target="_blank" rel="noopener">http://redis.io/</a></li>
+<li><a href="https://github.com/mranney/node_redis" target="_blank" rel="noopener">mranney/node_redis</a></li>
+<li><a href="http://nodejs.osser.jp/node/node-redis/" target="_blank" rel="noopener">node-redis - node.js redisクライアント</a></li>
+<li><a href="http://yutapon.hatenablog.com/entry/2013/07/07/011645" target="_blank" rel="noopener">node.jsでRedisを使ってみる【準備編】</a></li>
+</ul>
+<p>やはりセッション管理などはRedisで行いたい。<br>Koaでは<a href="https://github.com/koajs/koa-redis" target="_blank" rel="noopener">koa-redis</a>を使えば容易に実装できた。</p>
+<p>よりRedisをよりアプリケーションの広範囲で活用する際は下記で理解を深めるとよさそう。</p>
+<ul>
+<li><a href="http://redis-documentasion-japanese.readthedocs.org/ja/latest/topics/data-types-intro.html" target="_blank" rel="noopener">入門 : Redis のデータ構造と概念 — Redis Documentation (Japanese Translation)</a></li>
+</ul>
 
 	    
 	</div>
@@ -269,7 +299,11 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/SOYCMS/">#SOYCMS</a>
+	<a href="/tags/Node-js/">#Node.js</a>
+	
+	<a href="/tags/Redis/">#Redis</a>
+	
+	<a href="/tags/Koa/">#Koa</a>
 	
 </div>
 
@@ -283,6 +317,8 @@
 	
     <a href="/page/19/" class="pagination__prev">前へ</a>
 	
+	
+    <a href="/page/21/" class="pagination__next">次へ</a>
 	
 </nav>
 

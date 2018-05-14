@@ -77,25 +77,84 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-14T11:54:51.000Z">
-                    2015-10-14
+                <time class="article__header__meta__time" datetime="2015-11-06T08:32:20.000Z">
+                    2015-11-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/脱-jQuery.html">脱 jQuery</a>
+            <a href="/2015/11/06/dialog-element.html">dialog-element</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <ul>
-<li><a href="http://postd.cc/jquery-considered-harmful/" target="_blank" rel="noopener">jQueryは有害なのか | プログラミング | POSTD</a></li>
+	    <p>ダイアログを作っているので、今Dialogエレメントってどうなっているのか調べてみた。</p>
+<ul>
+<li><a href="http://caniuse.com/#feat=dialog" target="_blank" rel="noopener">Can I use… Support tables for HTML5, CSS3, etc</a></li>
 </ul>
-<p>上記記事を読んだ。<br>最近は僕もjQueryをほとんど使っていなくて、共感できる部分は多かった。<br>しかしそれは個人開発の場の話で、チームでの開発で複数人でJavaScriptを触る場合は、ｊQueryを採用することである程度、秩序ができる利点はあると思う。<br>完全なる脱jQueryのためには、完璧なる規約とリンターの整備が必要かも。</p>
+<p>相変わらずblink系のみの対応である。</p>
+<ul>
+<li><a href="https://hyper-text.org/archives/2013/09/chrome_dialog_element_support.shtml" target="_blank" rel="noopener">Chrome Canary が dialog 要素に対応、ダイアログボックスの表示が簡単に | WWW WATCH</a></li>
+<li><a href="http://thenewcode.com/957/Native-Modal-Windows-in-HTML5-Using-the-dialog-Element?utm_campaign=Front%2BEnd%2BDev%2BWeekly&amp;utm_medium=web&amp;utm_source=Front_End_Dev_Weekly_77" target="_blank" rel="noopener">the new code – Native Modal Windows in HTML5: Using the dialog Element</a></li>
+<li><a href="http://demo.agektmr.com/dialog/" target="_blank" rel="noopener">dialog element demo</a></li>
+</ul>
+<p>具体的な実装方法は上記記事などが参考になり、その利便性もよくわかる。</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank" rel="noopener">GoogleChrome/dialog-polyfill: Polyfill for the dialog element</a></li>
+</ul>
+<p>ポリフィルもChromeチーム自ら提供している。</p>
+<p>が、やはりせめてもう一つぐらい対応ブラウザが増えないと一生ポリフィルを抜け出せない不安が残る。<br>現時点での実践投入はまだ早いかと。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/HTML/">#HTML</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-11-02T12:27:39.000Z">
+                    2015-11-02
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/11/02/Push通知.html">Push通知</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>最近ブラウザにもPush通知の足音が聞こえ始めている。<br>なので基礎学習は始めておきたい。</p>
+<ul>
+<li><a href="https://1000ch.net/posts/2015/service-worker-push-notification.html" target="_blank" rel="noopener">Service WorkerでブラウザにPush通知をする - 1000ch.net</a></li>
+<li><a href="http://qiita.com/tomoyukilabs/items/8fffb4280c1914b6aa3d" target="_blank" rel="noopener">ChromeでW3C Push APIを使ってみた - Qiita</a></li>
+</ul>
+<p>エッジな方々は既に検証を開始している様子。<br>ここはやはりFirefoxでも試したい。</p>
+<ul>
+<li><a href="http://qiita.com/tomoyukilabs/items/c7268aa29447a1d0a3fb" target="_blank" rel="noopener">HTML5 - Firefox (Developer Edition)でW3C Push APIを使ってみる - Qiita</a></li>
+</ul>
+<p>Firefoxの実装もかなり進んでいるようで、期待大。<br>問題はモバイルFirefoxの普及だろう。</p>
 
 	    
 	</div>
@@ -118,43 +177,34 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-14T10:54:30.000Z">
-                    2015-10-14
+                <time class="article__header__meta__time" datetime="2015-10-31T12:17:26.000Z">
+                    2015-10-31
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/14/microdata.html">Microdata</a>
+            <a href="/2015/10/31/gulp-progeny.html">gulp-progeny</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Webアクセシビリティは他の要素と比べて後回しにされがちである。<br>しかし、マルチデバイス化が進みつづける中ではとても重要な機能だろう。</p>
-<p>Webサイトをマークアップを通じて構造化する手法として、以下のものがある。</p>
+	    <p>SassをGulp経由でWathする際に、差分ビルドを有効にするためgulp-cachedをかますのだが、そうすると@importなどで読み込んでいるファイルを更新しても読み込み元のビルドは動作しない。</p>
+<p>これを上手く解決する方法はないかと調べたら以下の記事を見つけた。</p>
 <ul>
-<li>Microformats</li>
-<li>Microdata</li>
-<li>RDFa</li>
-<li>Microdata</li>
+<li><a href="http://qiita.com/joe-re/items/542b3f6fdc577cf50509" target="_blank" rel="noopener">gulpを使ってsassの@importを解決しつつ差分ビルドをする - Qiita</a></li>
 </ul>
-<p>サーチエンジンの導入状況や仕様を鑑みると、現時点ではMircodataを導入するのがよさそうだ。<br>一方、JSON-LDは将来有望な大型新人なので、段階的な移行は考慮したい。</p>
+<p>なるほど！依存元を辿り解決を図ればいいとのこと。</p>
+<p>これに特化したgulpモジュールがあると楽チンやんーと再調査を行うと、gulp-progenyなるものを発見。</p>
 <ul>
-<li><a href="https://schema.org/" target="_blank" rel="noopener">Home - schema.org</a></li>
+<li><a href="https://github.com/HerringtonDarkholme/gulp-progeny" target="_blank" rel="noopener">HerringtonDarkholme/gulp-progeny</a></li>
 </ul>
-<p>Microdata、RDFs、Microdataを促進するschema.orgの公式サイトはこちら。<br>概要や導入方法、ドキュメントがまとめられている。</p>
-<ul>
-<li><a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="noopener">構造化データ マークアップ支援ツール</a></li>
-<li><a href="https://developers.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">Structured Data Testing Tool  |  Google Developers</a></li>
-</ul>
-<p>Googleは既に検索結果へスキーマを反映している。<br>いくつか導入支援ツールも公開されているので、活用したい。</p>
-<ul>
-<li><a href="http://kojika17.com/2014/05/about-structured-data-markup.html" target="_blank" rel="noopener">Microdataなどの構造化データ マークアップについて｜Web Design KOJIKA17</a></li>
-</ul>
-<p>上記記事は概要や実践例をわかりやすくまとめており、参考になった。</p>
+<p>まさに依存関係を解決してくれるよう。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cached'</span>);</span><br><span class="line"><span class="keyword">const</span> progeny = <span class="built_in">require</span>(<span class="string">'gulp-progeny'</span>);</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'*.scss'</span>)</span><br><span class="line">    .pipe(cache(<span class="string">'style'</span>))</span><br><span class="line">    .pipe(progeny())</span><br><span class="line">    .pipe(sass())</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。</p>
 
 	    
 	</div>
@@ -163,7 +213,7 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Microdata/">#Microdata</a>
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 </div>
 
@@ -177,29 +227,41 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-10T12:42:26.000Z">
-                    2015-10-10
+                <time class="article__header__meta__time" datetime="2015-10-31T07:12:22.000Z">
+                    2015-10-31
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2015/10/10/Firefox-Add-on.html">Firefox Add-on</a>
+            <a href="/2015/10/31/Critical-Path-CSS.html">Critical-Path-CSS</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>ちょっとFirefox拡張書く欲が出てきているので、ちょっとだけ資料を集めた。</p>
+	    <p>ちらほらと名前を聞くようになってきたので、基礎学習を始めた。</p>
 <ul>
-<li><a href="http://oxynotes.com/?p=9070" target="_blank" rel="noopener">初めてでも理解できるようになる「Firefox機能拡張の開発」 | OXY NOTES</a></li>
-<li><a href="https://github.com/mozilla-jetpack/jpm" target="_blank" rel="noopener">mozilla-jetpack/jpm</a></li>
+<li><a href="http://blog.yuhiisk.com/archive/2015/06/22/about-critical-css.html" target="_blank" rel="noopener">そろそろクリティカルCSSについて説明しておこうか | Yuhiisk</a></li>
+<li><a href="http://t32k.me/mol/log/style-class-conference/" target="_blank" rel="noopener">Smashing Magazineのパフォーマンス改善ケースが凄まじい件 - MOL</a></li>
+<li><a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/" target="_blank" rel="noopener">Understanding Critical CSS – Smashing Magazine</a></li>
 </ul>
-<p>現時点でのモダンな書き方なら上記を参考に行えばよさそう。<br>しかし近未来のうちにWebExtensionsへの移行が計画されているので、いざ書くとなると下記リポジトリやクローム周りの情報を漁っていくことになりそう。</p>
+<p>記事は詳しく解説したものが見つかり、大変参考になった。</p>
+<p>ツールでは有名なものでaddyosmaniが作ったcriticalが定番っぽい。</p>
 <ul>
-<li><a href="https://github.com/mdn/webextensions-examples" target="_blank" rel="noopener">mdn/webextensions-examples</a></li>
+<li><a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener">addyosmani/critical</a></li>
+<li><a href="https://github.com/addyosmani/critical-path-css-demo" target="_blank" rel="noopener">addyosmani/critical-path-css-demo</a></li>
+</ul>
+<p>penthouseはオンラインデモもあり、ちょっと試すにはいいかも。</p>
+<ul>
+<li><a href="https://github.com/pocketjoso/penthouse" target="_blank" rel="noopener">pocketjoso/penthouse: Critical Path CSS Generator</a></li>
+<li><a href="https://jonassebastianohlsson.com/criticalpathcssgenerator/" target="_blank" rel="noopener">Critical Path CSS Generator - by Jonas Ohlsson</a></li>
+</ul>
+<p>またちょっと古いがワザノバさんの下記記事はパフォーマンスツールを網羅的に紹介しており、見てて面白い。</p>
+<ul>
+<li><a href="http://wazanova.jp/items/1588" target="_blank" rel="noopener">CSSパフォーマンスツールを使いこなす - ワザノバ | wazanova</a></li>
 </ul>
 
 	    
@@ -209,150 +271,53 @@
 	    
 <div class="tags">
 	
-	<a href="/tags/Firefox/">#Firefox</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-07T11:40:14.000Z">
-                    2015-10-07
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/07/sitemap-xml.html">sitemap.xml</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>グーグルに正しくインデックスしてもらうため、作成したNodeアプリケーションへsitemap.xmlを追加したい。<br>清く正しくsitemap.xmlを理解するなら以下を参照。</p>
-<ul>
-<li><a href="http://www.sitemaps.org/ja/" target="_blank" rel="noopener">sitemaps.org - ホーム</a></li>
-<li><a href="https://support.google.com/webmasters/answer/156184?hl=ja&amp;ref_topic=4581190" target="_blank" rel="noopener">サイトマップについて - Search Console ヘルプ</a></li>
-</ul>
-<p>普段は以下のオンラインジェネレーターを利用し配備していた。</p>
-<ul>
-<li><a href="https://www.xml-sitemaps.com/" target="_blank" rel="noopener">Create your Google Sitemap Online - XML Sitemaps Generator</a></li>
-</ul>
-<p>これを利用すれば静的コンテンツは自動的にクロールをし追加してくれるが、動的に追加されるコンテンツはそのたびに作成しなおさなければならないため難儀である。<br>そこで<a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">sitemap.js</a>を利用しアプリ内でリクエストがあったさいに動的にxmlを作成し発行する仕組みを作った。</p>
-<ul>
-<li><a href="https://github.com/ekalinin/sitemap.js" target="_blank" rel="noopener">ekalinin/sitemap.js</a></li>
-</ul>
-<p>ExapmpeにExpressでの使用例が書かれており、Koaでもほぼそのまま流用できた。<br>Promiseでラップし、Yiedableにすればほぼ完了である。  </p>
-<p>あとはDBへアクセスしヒットしたコンテンツをsitemap.xmlへ追加すれば完了である。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-10-06T11:34:51.000Z">
-                    2015-10-06
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/10/06/Update-font-face.html">Update @font-face</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>cssの@font-faceのフォーマットをアップデートした。  </p>
-<p>これまでは<a href="http://blog.fontspring.com/2011/02/the-new-bulletproof-font-face-syntax/" target="_blank" rel="noopener">Fontspring @Font-Face Syntax</a>に従い以下のように記述していた。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.svg#svgFontName'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>対応ブラウザは以下とされている。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">IE</th>
-<th style="text-align:center">Firefox</th>
-<th style="text-align:center">Chrome</th>
-<th style="text-align:center">Safari</th>
-<th style="text-align:center">Opera</th>
-<th style="text-align:center">iOS</th>
-<th style="text-align:center">Android</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">6+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3+</td>
-<td style="text-align:center">11+</td>
-<td style="text-align:center">3.2+</td>
-<td style="text-align:center">2.2+</td>
-</tr>
-</tbody>
-</table>
-<p>この書式はは2011年に提唱されたもので、2015年ゲイン材のブラウザ情勢からみるとやや冗長に感じる。  </p>
-<p>よって下記を参考に今回アップデートを図った。  </p>
-<ul>
-<li><a href="https://css-tricks.com/snippets/css/using-font-face/" target="_blank" rel="noopener">Using @font-face | CSS-Tricks</a></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'MyFontFamily'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), </span><br><span class="line">       <span class="built_in">url</span>(<span class="string">'myfont-webfont.ttf'</span>)  <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>eotとsvgを削除した。この変更後の対応ブラウザは以下である。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">IE</th>
-<th style="text-align:center">Firefox</th>
-<th style="text-align:center">Chrome</th>
-<th style="text-align:center">Safari</th>
-<th style="text-align:center">Opera</th>
-<th style="text-align:center">iOS</th>
-<th style="text-align:center">Android</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">9+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3.5+</td>
-<td style="text-align:center">3+</td>
-<td style="text-align:center">10.1+</td>
-<td style="text-align:center">4.3+</td>
-<td style="text-align:center">2.2+</td>
-</tr>
-</tbody>
-</table>
-<p>IE9からはWoffに対応しているので、もう少し時間がたてばTTFも消せるのでは。<br>Woff2の普及は<a href="http://caniuse.com/#feat=woff2" target="_blank" rel="noopener">まだまだこれから</a>といったところだ。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
+	<a href="/tags/Node-js/">#Node.js</a>
 	
 	<a href="/tags/CSS/">#CSS</a>
+	
+</div>
+
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2015-10-30T07:08:49.000Z">
+                    2015-10-30
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2015/10/30/VanillaなDropdown.html">VanillaなDropdown</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>バニラなドロップダウンメニューを作成中。<br>まぁ単純にクラスの追加・削除を制御すればいいのだが、一応参考資料を探す。<br>がやはり、jQueryを用いたものは多数見つかるのに対し、バニラは希少である。</p>
+<p>今回参考になったのは以下の二つ。</p>
+<ul>
+<li><a href="http://siongui.github.io/2015/02/13/javascript-dropdown-menu/" target="_blank" rel="noopener">Javascript Drop Down Menu</a></li>
+<li><a href="http://s.codepen.io/brenden/debug/mJyEBg" target="_blank" rel="noopener">CodePen - A Pen by Brenden Palmer</a></li>
+</ul>
+<p>表示の制御はCSSで行い、アクティブ時のオーバービューエフェクトは無し。メニュー外のクリックの際に閉じるよう<code>document</code>にもイベントを追加。<br>あとは最適なアニメーションを考慮すればよさそう。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+<div class="tags">
+	
+	<a href="/tags/JavaScript/">#JavaScript</a>
 	
 </div>
 

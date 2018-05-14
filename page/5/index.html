@@ -77,34 +77,71 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-17T10:08:56.000Z">
-                    2016-01-17
+                <time class="article__header__meta__time" datetime="2016-02-14T10:30:40.000Z">
+                    2016-02-14
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/17/Webpack.html">Webpack</a>
+            <a href="/2016/02/14/NAS.html">NAS</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>SPAを構築する際にはやはりWebpackの豊富な機能が生きる。</p>
-<p>今作成しているWebアプリはUniversalでFluxでi18nなWebアプリとなっており、無計画にファイルを結合し続けると初期リロードの問題が出てくる。</p>
-<p>3度の法則にしたがって開発過程でも適切なモジュール分割を容易に行うことができるのはWebpackの大きな強みだと感じた。</p>
+	    <p>メディアサーバーとして使用しているNASのハードディスクを交換した。</p>
 <ul>
-<li><a href="https://webpack.github.io/docs/code-splitting.html" target="_blank" rel="noopener">code splitting</a></li>
-<li><a href="https://christianalfoni.github.io/react-webpack-cookbook/Lazy-loaded-entry-points.html" target="_blank" rel="noopener">Lazy loaded entry points | React Webpack cookbook</a></li>
-<li><a href="http://qiita.com/RyotaSugawara/items/0effa7ce42adfcb66a35" target="_blank" rel="noopener">webpackのrequire.ensureでDynamic Loadingをして大規模アプリケーションを作る - Qiita</a></li>
+<li><a href="http://datarescue.yamafd.com/exchange_linkstation_hdd2/" target="_blank" rel="noopener">デグレードモードI12のLinkStationのHDDを交換 – 2.RAIDの再構成 | データ復旧のパソコンサポートやまもと</a></li>
 </ul>
-<p>CSSや画像はちょっと考えがあり、ローダーを使用していない。</p>
+<p>交換用HDは上記にてオススメされているものを購入した。</p>
+<p>なんか交換&amp;再構築中も本体のライトがピカピカ光る。とりあえず心配になったら下記にてエラーコードを解読するもののなす術はなく、時間がたったら解決した。</p>
 <ul>
-<li><a href="http://ameblo.jp/ca-1pixel/entry-11884453208.html" target="_blank" rel="noopener">RequireJS等はもう古い。WebPackとは？｜1 pixel｜サイバーエージェント公式クリエイターズブログ</a></li>
-<li><a href="http://liginc.co.jp/web/js/other-js/148813" target="_blank" rel="noopener">WebPackを使ってJavaScriptを効率的に書くチュートリアル【入門編】 | 株式会社LIG</a></li>
+<li><a href="http://faq.buffalo.jp/app/answers/detail/a_id/15199" target="_blank" rel="noopener">エラーコード、インフォメーションコードの意味がわかりません(LS-WXBL/R1) - アンサー詳細 | BUFFALO バッファロー</a></li>
 </ul>
+<ol>
+<li>ハードディスクを交換</li>
+<li>NAS再起動</li>
+<li>PCのネットワーク上にきちんと認識されるまで待つ（ネットサーフィンでもしといた方がいい）</li>
+<li>認識されたらWeb設定画面からエラーが出ているハードディスクを選択し、アレイを再構築</li>
+<li>再構築が開始されるので、5時間ぐらい待つ（寝た方がいい）</li>
+</ol>
+<p>今回はこのような流れであった。<br>時間は待ち時間がかかるので、次回は家で何か作業を行う日に午前ぐらいから並行して行いたい。</p>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-14T10:26:20.000Z">
+                    2016-02-14
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/14/imagemin.html">imagemin</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>画像圧縮のgulpタスクをプロジェクトごとに組み込むのは難儀なので、コマンドラインからさくっと行えるようにしたい。</p>
+<p>それを最終目標として、とりあえずgulpを使わない画像圧縮専用のプロジェクトを作り、それを共同で利用ししばらく運用してみたい。<br>現時点でイメージしているのは、<a href="https://github.com/imagemin/imagemin" target="_blank" rel="noopener">imagemin</a>を直接叩く方法である。<br>これを後々はCLIから操作できるようにすれば…と考えている。</p>
 
 	    
 	</div>
@@ -127,24 +164,72 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-10T10:04:59.000Z">
-                    2016-01-10
+                <time class="article__header__meta__time" datetime="2016-02-13T10:23:37.000Z">
+                    2016-02-13
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/10/GrantからPassportへ.html">GrantからPassportへ</a>
+            <a href="/2016/02/13/APIBlueprint.html">API Blueprint</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>Oauth認証に<a href="https://github.com/simov/grant" target="_blank" rel="noopener">Grant</a>を使用していた。<br>採用していた理由はどちらでも必要要件を満たせるし、ならばちょっと違ったものをという理由であった。</p>
-<p>しかしKoa2.0へのアップデートを機にベタに<a href="http://www.passportjs.org/" target="_blank" rel="noopener">Passport</a>をラップした<a href="https://github.com/rkusa/koa-passport" target="_blank" rel="noopener">koa-passport</a>へ入れ替えることにした。<br>現状のGrantではKoa2.0へ対応させることができず、プルリクを出してもいいのだがkoa-passportの2.0への対応が非常に迅速であり、やはり広くコミュニティに受け入れられているモジュールを使用するほうが長い目で見ても良さそうだと感じたので。</p>
-<p>また、Grantは単体で様々なサービスに対応しているが、Passportは個別で追加が必要となる。やはりこのほうが現代的なアプローチでメンテもしやすいであろう。</p>
+	    <p>APIドキュメントを作成したい。</p>
+<p>こーゆーのは作りっぱなしじゃなくて、内容を常時最新に保つことで意味を持つのでやはりツールを使いたい。<br>そこで軽く調査してみたところ、API Blueprintというツールがよく目に入った。</p>
+<ul>
+<li><a href="https://apiblueprint.org/" target="_blank" rel="noopener">API Blueprint | API Blueprint</a></li>
+<li><a href="http://qiita.com/taizo/items/0181f5ea641e2f91d0a5" target="_blank" rel="noopener">APIドキュメントを生成するためのMarkdown拡張API BluePrintとその周辺のライブラリ - Qiita</a></li>
+<li><a href="http://imamotty.hatenablog.jp/entry/2015/01/18/033222" target="_blank" rel="noopener">API Blueprintとgulp-aglioでいい感じのAPIドキュメントページを作成 - Front-end beginner’s luck</a></li>
+<li><a href="http://blog.hde.co.jp/entry/2015/01/16/152729" target="_blank" rel="noopener">APIの仕様をMarkdownで定義する - HDE BLOG</a></li>
+</ul>
+<p>この記事も面白い。</p>
+<ul>
+<li><a href="http://www.infoq.com/jp/news/2015/06/api-blueprint-progress" target="_blank" rel="noopener">API Blueprint創始者が語るAPIの進歩</a></li>
+</ul>
+
+	    
+	</div>
+    <footer class="article__footer">
+	    
+	    
+	</footer>
+    
+
+</article>
+
+
+<article class="article post">
+	<header>
+	    
+            <div class="article__header__meta">
+                <time class="article__header__meta__time" datetime="2016-02-06T10:22:23.000Z">
+                    2016-02-06
+                </time>
+	        </div>
+	    
+	    
+    
+        <h1 class="article__header__title">
+            <a href="/2016/02/06/assets-webpack-plugin.html">assets-webpack-plugin</a>
+        </h1>
+    
+
+	</header>
+    <div class="article__entry">
+	    
+	    <p>Webpackでビルドした成果物のキャッシュバストを自動化したいので、assets-webpack-plugin を導入した。</p>
+<ul>
+<li><a href="https://github.com/sporto/assets-webpack-plugin" target="_blank" rel="noopener">sporto/assets-webpack-plugin: Webpack plugin that emits a json file with assets paths</a></li>
+</ul>
+<p>サンプル通り行うと<code>[name]-bundle-[hash].js</code> というネーミングでファイルが生成される。<br>これでももちろん問題はないのだが、なんとなく今までの慣例でファイル名の後ろにパラメータを付与した方法をとりたい。</p>
+<p>そこでoutput の設定を以下のようにした。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js?[hash]'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].chunk.js?[hash]'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>これで成果物のファイル名は通常のままで、同時に排出される assets.json へクエリを付与したフルパスが記述される。</p>
 
 	    
 	</div>
@@ -155,8 +240,6 @@
 	
 	<a href="/tags/Node-js/">#Node.js</a>
 	
-	<a href="/tags/Koa/">#Koa</a>
-	
 </div>
 
 	</footer>
@@ -169,143 +252,36 @@
 	<header>
 	    
             <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-07T10:03:20.000Z">
-                    2016-01-07
+                <time class="article__header__meta__time" datetime="2016-02-06T10:18:24.000Z">
+                    2016-02-06
                 </time>
 	        </div>
 	    
 	    
     
         <h1 class="article__header__title">
-            <a href="/2016/01/07/Error-Thelibsassbindingwasnotfound.html">Error: The `libsass` binding was not found</a>
+            <a href="/2016/02/06/Monorepo.html">Monorepo</a>
         </h1>
     
 
 	</header>
     <div class="article__entry">
 	    
-	    <p>GulpでSassのコンパイル実行時にエラーが出た。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: The libsass binding was not found <span class="keyword">in</span> /node_modules\node-sass\vendor\win32-x64-47\binding.node</span><br></pre></td></tr></table></figure>
-<p>node-sass内を除いてみるとvendorフォルダが存在しない。<br>解決策は下記issueで見つけた。</p>
+	    <p>最近よく聞く、Monorepoについて調査してみた。<br>参考になったのは以下の記事。</p>
 <ul>
-<li><a href="https://github.com/sass/node-sass/issues/1162" target="_blank" rel="noopener">node 4.0.0 - Error: The libsass binding was not found in /node_modules/gulp-sass/node_modules/node-sass/vendor/darwin-x64-14/binding.node · Issue #1162 · sass/node-sass</a></li>
+<li><a href="http://qiita.com/kimamula/items/0b4dff363933bfe74506" target="_blank" rel="noopener">Lerna を使って、 Babel や React が採用している monorepo を試してみる - Qiita</a></li>
+<li><a href="http://japan.blogs.atlassian.com/2015/10/monorepos-in-git/" target="_blank" rel="noopener">Git で monorepo を扱う際の課題とヒント - Atlassian Japan</a></li>
+<li><a href="http://shokai.org/blog/archives/10574" target="_blank" rel="noopener">橋本商会 » lernaでmonorepoした</a></li>
+<li><a href="http://yukidarake.hateblo.jp/entry/2016/01/06/200800" target="_blank" rel="noopener">単一リポジトリで複数package|projectを管理することをmonorepoというそう - なっく日報</a></li>
+<li><a href="https://github.com/kittens/lerna" target="_blank" rel="noopener">kittens/lerna: A tool for managing JavaScript projects with multiple packages.</a></li>
 </ul>
-<p>‘npm rebuild node-sass` を実行するとモジュールが再構築され、vendorが配置された。</p>
-<p>node-sassはちょくちょく問題を起こす。</p>
+<p>大きなプロジェクトでモジュールはそれぞれ分けて開発したいが、イシューなどは一元管理したい…という際に有用であると感じた。<br>よって現時点では、僕とは無縁なようだ。</p>
 
 	    
 	</div>
     <footer class="article__footer">
 	    
 	    
-<div class="tags">
-	
-	<a href="/tags/Node-js/">#Node.js</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2016-01-05T09:58:54.000Z">
-                    2016-01-05
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2016/01/05/JavaScriptESDecorators.html">JavaScript ES Decorators</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>ちょっと最近よく見る、Decoratorsの仕様を確認中。</p>
-<ul>
-<li><a href="http://azu.github.io/slide/typescript-sushi/decorators.html" target="_blank" rel="noopener">Decorators進捗</a></li>
-<li><a href="http://qiita.com/Quramy/items/e3a43bb1734b8a7331e8" target="_blank" rel="noopener">TypeScriptのDecoratorメモ - Qiita</a></li>
-</ul>
-<p>上手に使えば、関数合成の可読性が高くなりそうだが、はてさて…。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/JavaScript/">#JavaScript</a>
-	
-</div>
-
-	</footer>
-    
-
-</article>
-
-
-<article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-12-29T09:55:42.000Z">
-                    2015-12-29
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            <a href="/2015/12/29/Vagrant1-8.html">Vagrant1.8</a>
-        </h1>
-    
-
-	</header>
-    <div class="article__entry">
-	    
-	    <p>スナップショットに惹かれてVagrantを1.8へアップデートした。</p>
-<ul>
-<li><a href="https://hashicorp.com/blog/vagrant-1-8.html" target="_blank" rel="noopener">Vagrant 1.8 - HashiCorp</a></li>
-<li><a href="http://dev.classmethod.jp/tool/vagrant-linked-clone/" target="_blank" rel="noopener">Vagrant 1.8の新機能 Linked CloneとSnapshotを試してみた ｜ Developers.IO</a></li>
-</ul>
-<p>環境はWindows 10。普通に最新のインストーラーを落とし実行し、滞りなく完了。</p>
-<p>と思ったら、<code>vagrant up</code>してもフォルダ同期が正常に機能しない…。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vagrant assumes that this means the <span class="built_in">command</span> failed!</span><br><span class="line"></span><br><span class="line">chown `id -u vagrant`:`id -g vagrant` /vagrant</span><br><span class="line"></span><br><span class="line">Stdout from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Stderr from the <span class="built_in">command</span>:</span><br><span class="line"></span><br><span class="line">chown: changing ownership of ‘/vagrant’: Not a directory</span><br></pre></td></tr></table></figure>
-<p>同じことが昔あったような…。<br>とりあえずISSUトラックを見てみるとすでに同様の問題は報告されており、VisualeBoxのバージョンを最新にしなさいとのこと。</p>
-<ul>
-<li><a href="https://github.com/mitchellh/vagrant/issues/6732" target="_blank" rel="noopener">Can not use share folders in Vagrant 1.8.0 and 1.8.1 · Issue #6732 · mitchellh/vagrant</a></li>
-</ul>
-<p>確認すると<code>5.0.8</code>と少し古かったので、現時点で最新の<code>5.0.12</code>へ更新。<br>すると今度こそ問題なく起動した。</p>
-<p>現時点ではシンプルに開発環境として利用しているので、Linked Cloneの出番はないかもしれないが、スナップショットがデフォルトで組み込まれたのは有り難い。チャレンジングな実装を試しやすくなったと感じる。</p>
-<ul>
-<li><a href="https://docs.vagrantup.com/v2/cli/snapshot.html" target="_blank" rel="noopener">vagrant snapshot - Command-Line Interface - Vagrant Documentation</a></li>
-</ul>
-<p>1個しか使用しない場合は…</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot push</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot pop</span><br></pre></td></tr></table></figure>
-<p>複数記録したい場合は…</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># スナップショット作成</span></span><br><span class="line">$ vagrant snapshot save &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット復元</span></span><br><span class="line">$ vagrant snapshot restore &lt;スナップショット名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショットの一覧</span></span><br><span class="line">$ vagrant snapshot list</span><br><span class="line"></span><br><span class="line"><span class="comment"># スナップショット削除</span></span><br><span class="line">$ vagrant snapshot delete &lt;スナップショット名&gt;</span><br></pre></td></tr></table></figure>
-<p>ottoもそのうち試してみたいが、Node環境だと海外記事でもあまり数を見かけないのでまだ様子見中。<br>もうしばらくはVagrantさんのお世話になりそうである。</p>
-
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
-	
-	<a href="/tags/Vagrant/">#Vagrant</a>
-	
-</div>
-
 	</footer>
     
 
