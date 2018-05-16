@@ -210,7 +210,7 @@
     <link href="https://log.playr.jp/2017/05/13/ReactDate-picker.html"/>
     <id>https://log.playr.jp/2017/05/13/ReactDate-picker.html</id>
     <published>2017-05-12T15:18:01.000Z</published>
-    <updated>2018-05-16T16:47:20.416Z</updated>
+    <updated>2018-05-16T16:55:29.760Z</updated>
     
     <content type="html"><![CDATA[<p>Date-picker機能を実装するにあたり、Reactコンポーネントを含め調査を行った。</p><ul><li><a href="http://qiita.com/193/items/61b81ea718d70b6197e1" target="_blank" rel="noopener">reactのdate-pickerを選ぶ - Qiita</a></li><li><a href="https://github.com/Hacker0x01/react-datepicker" target="_blank" rel="noopener">Hacker0x01/react-datepicker: A simple and reusable datepicker component for React</a>（採用）</li><li><a href="https://github.com/Rudeg/react-input-calendar" target="_blank" rel="noopener">Rudeg/react-input-calendar</a>（すんなり使えなかった）</li></ul><p>HTML標準のinput要素のtype属性「date」のPolyfillもいくつか見つかった。</p><ul><li><a href="https://wet-boew.github.io/wet-boew/demos/datepicker/datepicker-en.html" target="_blank" rel="noopener">Input type=”date” polyfill (date picker) - Working examples - Web Experience Toolkit</a></li><li><a href="https://github.com/jcgertig/date-input-polyfill" target="_blank" rel="noopener">jcgertig/date-input-polyfill: Automatically adds datepickers to input[type=date] on IE, Firefox, and OS X Safari.</a></li><li><a href="https://github.com/chemerisuk/better-dateinput-polyfill" target="_blank" rel="noopener">chemerisuk/better-dateinput-polyfill: input[type=date] polyfill for better-dom</a></li></ul><p>Firefoxは次期バージョンでChromeライクなDate-pickerが利用できるが、現時点ではまだ未対応。<br>これらのポリフィルを採用してもよかったが…統一したUIの提供を優先し、今回はReactコンポーネントを利用した。</p>]]></content>
     
@@ -226,7 +226,7 @@
     </summary>
     
     
-      <category term="JS" scheme="https://log.playr.jp/tags/JS/"/>
+      <category term="JavaScript" scheme="https://log.playr.jp/tags/JavaScript/"/>
     
       <category term="React" scheme="https://log.playr.jp/tags/React/"/>
     
@@ -358,7 +358,7 @@
     <link href="https://log.playr.jp/2016/02/28/cssfont-display-font-face.html"/>
     <id>https://log.playr.jp/2016/02/28/cssfont-display-font-face.html</id>
     <published>2016-02-28T10:40:43.000Z</published>
-    <updated>2018-05-16T16:47:49.400Z</updated>
+    <updated>2018-05-16T16:54:32.361Z</updated>
     
     <content type="html"><![CDATA[<p>Firfox の開発版で css font-display がフラグ付きで有効になったようなので試してみた。</p><ul><li><a href="https://tabatkins.github.io/specs/css-font-display/" target="_blank" rel="noopener">CSS Font Rendering Controls Module Level 1</a></li></ul><p>まずはフラグを有効にする。</p><p>FIrefox のアドレス欄へ<code>about:config</code>と入力し、設定画面を開く。<br>そこで<code>layout.css.font-display.enabled</code>を検索し、値を<code>true</code>へ。これで機能が有効となる。</p><p>Chrome の開発版ではすでに導入されているらしく、下記記事が非常に参考になった。</p><ul><li><a href="https://blog.srytk.com/aquei/50.html" target="_blank" rel="noopener">@font-face(CSS)のfont-displayプロパティがChrome Canaryに来た – 阿Q論</a></li></ul><p>やはりFOUTをネイティブの機能で解決することが期待されるよう。<br>今までは主に Web Font Loader を導入したり、 あと Adobe Blank なんてのもあった気が…。<br>とにかく涙ぐむしい努力をしてきたので人類にとって、これは待望の機能かなと。</p><ul><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157064" target="_blank" rel="noopener">1157064 – experimental implementation of font-display CSS @font-face descriptor</a></li></ul><p>現時点での実装はスペックの推奨通りでクロームと同様のよう。<br>設定値は<code>fallback</code>がベストで、妥協して<code>block</code>といった感じだろうか。パフォーマンスとユーザビリティの両方にバランスよく配慮できそうである。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Waiting for the Sunrise'</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: fallback;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">local</span>(<span class="string">'Waiting for the Sunrise'</span>), <span class="built_in">local</span>(<span class="string">'WaitingfortheSunrise'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../fonts/waiting-for-the-sunrise-v7-latin-regular.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>その他の値も少しの違いながら明確に用途がわかれそうなので、なかなかよくできている感じ。<br><code>will-change</code>のように必要そうな部分へは先行導入しておき、ブラウザの対応を待ってもいいかと。</p>]]></content>
     
@@ -374,7 +374,7 @@
     </summary>
     
     
-      <category term="CSSS" scheme="https://log.playr.jp/tags/CSSS/"/>
+      <category term="CSS" scheme="https://log.playr.jp/tags/CSS/"/>
     
   </entry>
   
