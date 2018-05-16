@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://log.playr.jp/"/>
-  <updated>2018-05-14T16:27:04.654Z</updated>
+  <updated>2018-05-16T16:28:43.556Z</updated>
   <id>https://log.playr.jp/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://log.playr.jp/2018/04/25/GithubPages%E3%81%A7%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92HTTPS%E5%8C%96.html"/>
     <id>https://log.playr.jp/2018/04/25/GithubPagesで独自ドメインを利用したサイトをHTTPS化.html</id>
     <published>2018-04-24T16:24:47.000Z</published>
-    <updated>2018-05-14T16:27:04.654Z</updated>
+    <updated>2018-05-16T16:28:43.556Z</updated>
     
     <content type="html"><![CDATA[<p>このブログは Github pages 上で独自ドメインを利用して構築されている。<br>今回ここの HTTPS化を実施した。</p><p>参考：<br><a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/" target="_blank" rel="noopener">Securing your GitHub Pages site with HTTPS - User Documentation</a></p><p>いつのまにか独自ドメインのを利用したページも Let’s Encrypt を使用したSSL発行が行われていたようで、HTTPS化を強制することで完了した。<br>詳しい方法は上記リンクを参照したが、特に混在コンテンツの問題もなくスムーズに移行できた。</p><p>独自ドメインの Github Pages のHTTPS化は、少し前までは CloudFlare を利用するのが常套句であったが、今回Github内のみで解決できハードルが相当下がった印象だ。</p><p>CloudFlare を挟むくらいなら自前のサーバーに上げSSL化した方がいいと感じていたが、今後は逆に、積極的にGithub上へ移行させたくなった。</p>]]></content>
     
@@ -35,6 +35,8 @@
     
     </summary>
     
+    
+      <category term="Github" scheme="https://log.playr.jp/tags/Github/"/>
     
   </entry>
   
@@ -107,11 +109,11 @@
   </entry>
   
   <entry>
-    <title>WHATWGHTMLのLint</title>
+    <title>WHATWG HTMLのLint</title>
     <link href="https://log.playr.jp/2017/09/08/WHATWGHTML%E3%81%AELint.html"/>
     <id>https://log.playr.jp/2017/09/08/WHATWGHTMLのLint.html</id>
     <published>2017-09-07T15:36:51.000Z</published>
-    <updated>2018-05-14T16:07:02.593Z</updated>
+    <updated>2018-05-15T13:36:02.099Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3CのHTML文法チェッカー</a>比較的よく知られ僕もは何度か使ったことがあるが、WHATWG版があるか気になり調べてみたら、やはり存在した。</p><ul><li><a href="https://whatwg.org/validator/" target="_blank" rel="noopener">Web Hypertext Application Technology Working Group HTML Conformance Checkers</a></li></ul><p>各ブラウザベンダーはHTMLに関してはWHATWGの仕様を見ているので、構文チェックもこちらで行うのがよさそう。<br>ただ、昔と比較しそれほど神経質になる必要もなくなってきているような気がするが…。（なぜそう感じているのかは、うまく言葉では言えないが）</p><ul><li><a href="http://mtrootyy.web5.jp/htmllint/html5memo/0diff.html" target="_blank" rel="noopener">WHATWG版とW3C版の主な差異：HTML5.3各要素別メモ</a></li></ul><p>また関連して、上記ページもなかなか参考になる。</p>]]></content>
     
@@ -134,7 +136,7 @@
     <link href="https://log.playr.jp/2017/07/05/Xhampp%E3%81%A7%E3%83%90%E3%83%BC%E3%83%81%E3%83%A3%E3%83%AB%E3%83%9B%E3%82%B9%E3%83%88.html"/>
     <id>https://log.playr.jp/2017/07/05/Xhamppでバーチャルホスト.html</id>
     <published>2017-07-04T15:34:00.000Z</published>
-    <updated>2018-05-14T15:36:23.896Z</updated>
+    <updated>2018-05-16T16:35:56.680Z</updated>
     
     <content type="html"><![CDATA[<p>PC内のXhamppにバーチャルホストを設定し、複数サイトの開発環境を構築したい。</p><h2 id="httpd-confの設定"><a href="#httpd-confの設定" class="headerlink" title="httpd.confの設定"></a>httpd.confの設定</h2><p><code>/xampp/apache/conf/httpd.conf</code> を編集。<br><code>Listen 80</code> の下へ必要な分のポートを追記。</p><p>例：<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8080</span><br><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8081</span><br><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 8082</span><br></pre></td></tr></table></figure></p><h2 id="バーチャルホスト（httpd-vhosts-conf）の設定"><a href="#バーチャルホスト（httpd-vhosts-conf）の設定" class="headerlink" title="バーチャルホスト（httpd-vhosts.conf）の設定"></a>バーチャルホスト（httpd-vhosts.conf）の設定</h2><p><code>/xampp/apache/conf/extra/httpd-vhosts.conf</code> を編集。</p><p>例：<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *:80&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"C:/xampp/htdocs"</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">ServerName</span></span> localhost</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="section">&lt;VirtualHost *:8080&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> <span class="string">"C:/xampp/htdocs/【ディレクトリ名】"</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">ServerName</span></span> localhost</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure></p><p>以下の記事が参考になった。</p><ul><li><a href="http://creator.aainc.co.jp/archives/6388" target="_blank" rel="noopener">xamppでローカル作業環境構築 | アライドアーキテクツのクリエイターブログ</a></li></ul>]]></content>
     
@@ -148,6 +150,8 @@
     
     </summary>
     
+    
+      <category term="XAMPP" scheme="https://log.playr.jp/tags/XAMPP/"/>
     
   </entry>
   
@@ -253,11 +257,11 @@
   </entry>
   
   <entry>
-    <title>Wordpressとlazysizes</title>
+    <title>WordPressとlazysizes</title>
     <link href="https://log.playr.jp/2017/03/04/Wordpress%E3%81%A8lazysizes.html"/>
     <id>https://log.playr.jp/2017/03/04/Wordpressとlazysizes.html</id>
     <published>2017-03-04T10:51:54.000Z</published>
-    <updated>2018-05-13T10:54:47.575Z</updated>
+    <updated>2018-05-16T16:30:08.374Z</updated>
     
     <content type="html"><![CDATA[<p>Wordpressの記事内の画像読み込みを遅延化したい。<br>少し調べてみたところ、以下の記事が参考になった。<br>方法はいくつかあるようなので…少し吟味が必要である。</p><p><a href="http://codingmemos.hatenablog.com/entry/2016/09/28/100651" target="_blank" rel="noopener">wordpressにおけるレスポンシブイメージに対するlazyload対策 - Coding Memos</a><br><a href="https://github.com/aFarkas/wp-lazysizes" target="_blank" rel="noopener">aFarkas/wp-lazysizes: Brings lazySizes.js to WordPress</a></p>]]></content>
     
@@ -272,28 +276,32 @@
     </summary>
     
     
+      <category term="WordPress" scheme="https://log.playr.jp/tags/WordPress/"/>
+    
   </entry>
   
   <entry>
-    <title>Conoha VPS(CentOS7)へ Wordpressを導入</title>
+    <title>Conoha VPS(CentOS7)へ WordPressを導入</title>
     <link href="https://log.playr.jp/2016/12/19/ConohaVPS(CentOS7)%E3%81%B8Wordpress%E3%82%92%E5%B0%8E%E5%85%A5.html"/>
     <id>https://log.playr.jp/2016/12/19/ConohaVPS(CentOS7)へWordpressを導入.html</id>
     <published>2016-12-19T10:48:27.000Z</published>
-    <updated>2018-05-13T10:51:05.757Z</updated>
+    <updated>2018-05-16T16:30:36.064Z</updated>
     
-    <content type="html"><![CDATA[<p>Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。</p><ul><li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li><li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li><li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li></ul><p>用意されているテンプレートを活用できれば手軽で早そうである。</p>]]></content>
+    <content type="html"><![CDATA[<p>Conoha VPS上のCentOS 7へWordPressを導入する機会があったのでメモ。</p><ul><li><a href="https://hack-le.com/conohawp/" target="_blank" rel="noopener">ConoHaのVPS上で CentOS 7 + nginx + WordPress 構築まで – 或る阿呆の記</a></li><li><a href="https://www.conoha.jp/guide/wordpress.php" target="_blank" rel="noopener">WordPressをインストールしてブログを作る｜VPSならConoHa</a></li><li><a href="https://maruhoi.com/server/how-to-create-blog/" target="_blank" rel="noopener">VPSのConohaにWordPressを導入して公開するまでの方法</a></li></ul><p>用意されているテンプレートを活用できれば手軽で早そうである。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Conoha VPS上のCentOS 7へWordpressを導入する機会があったのでメモ。&lt;/p&gt;
+        &lt;p&gt;Conoha VPS上のCentOS 7へWordPressを導入する機会があったのでメモ。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://hack-le.com/conohawp/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ConoHa
       
     
     </summary>
     
+    
+      <category term="WordPress" scheme="https://log.playr.jp/tags/WordPress/"/>
     
   </entry>
   
@@ -325,7 +333,7 @@
     <link href="https://log.playr.jp/2016/03/17/oghliner.html"/>
     <id>https://log.playr.jp/2016/03/17/oghliner.html</id>
     <published>2016-03-17T10:41:57.000Z</published>
-    <updated>2018-05-13T10:44:24.363Z</updated>
+    <updated>2018-05-16T16:30:46.315Z</updated>
     
     <content type="html"><![CDATA[<p>GithuPagesを作成する際に、Mozillaが開発しているoghlinerを利用してみた。</p><ul><li><a href="https://mozilla.github.io/oghliner/" target="_blank" rel="noopener">Oghliner</a></li></ul><p>まずはモジュールをインストール。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install oghliner -g</span><br></pre></td></tr></table></figure><p>もしくはプロジェクトごとにインストールも可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ oghliner bootstrap</span><br></pre></td></tr></table></figure><p>実行するとconfigurationを聞かれる。<br>後からでも変更できるのでとりあえず初期値で実行。</p><p>これにより、さくっとオフライン対応のGithubPageを作成できる。<br>類似ツールと比較して、利点などを確認していきたい。</p>]]></content>
     
@@ -340,6 +348,8 @@
     
     </summary>
     
+    
+      <category term="Github" scheme="https://log.playr.jp/tags/Github/"/>
     
   </entry>
   
@@ -373,7 +383,7 @@
     <link href="https://log.playr.jp/2016/02/21/MongoDB%E5%9C%B0%E7%90%86%E7%A9%BA%E9%96%93%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9.html"/>
     <id>https://log.playr.jp/2016/02/21/MongoDB地理空間インデックス.html</id>
     <published>2016-02-21T10:39:23.000Z</published>
-    <updated>2018-05-13T10:40:04.123Z</updated>
+    <updated>2018-05-16T16:36:02.082Z</updated>
     
     <content type="html"><![CDATA[<p>MongoDB にて地理空間のインデックスを作成したい。</p><ul><li><a href="https://docs.mongodb.org/manual/applications/geospatial-indexes/" target="_blank" rel="noopener">Geospatial Indexes and Queries — MongoDB Manual 3.2</a></li></ul><p>インデックスの作成は通常の方法で行えるよう。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初期状態のインデックスを確認</span></span><br><span class="line">$ db.places.stats()</span><br><span class="line"></span><br><span class="line"><span class="comment"># インデックスを作成</span></span><br><span class="line">$ db.places.createIndex(&#123;Bar: <span class="string">"2dsphere"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作成したインデックスを確認</span></span><br><span class="line">$ db.places.getIndexes()</span><br></pre></td></tr></table></figure><p>これでplacesのインデックスがBarのフィールド内に昇順で作成される。<br>平面空間なら<code>2d</code>、球面空間なら<code>2dsphere</code>を使用するらしい。<br>今回は地球という球面空間の経緯度を記録する用途で使用するので、<code>2dsphere</code>となる。<br>ちなみに以前よく使用されていた <code>ensureIndex()</code> は3.0からは非推奨となったよう。今後は基本的に<code>createIndex()</code> を使うらしい。</p><p>ただGeoJsonのデータと通常のインデックスの違いとしてフォーマットが正しくなければ作成できないようなので、下記Linterなどを使用して事前にコレクションがGeoJsonの仕様に準拠しているか確認したほうがよさそう。</p><ul><li><a href="http://geojsonlint.com/" target="_blank" rel="noopener">GeoJSONLint - Validate your GeoJSON</a></li><li><a href="http://qiita.com/fetaro/items/7f110f18c6dd9ccd0c90" target="_blank" rel="noopener">MongoDBの地理空間インデックス・クエリ整理 - Qiita</a></li><li><a href="http://kozy4324.github.io/blog/2012/06/19/mongodb-index/" target="_blank" rel="noopener">MongoDB Index基本 - /var/log/kozy4324</a></li><li><a href="https://docs.mongodb.org/manual/core/geospatial-indexes/" target="_blank" rel="noopener">2d Index Internals — MongoDB Manual 3.2</a></li><li><a href="http://stackoverflow.com/questions/25968592/difference-between-createindex-and-ensureindex-in-java-using-mongodb" target="_blank" rel="noopener">Difference between createIndex() and ensureIndex() in java using mongodb - Stack Overflow</a></li></ul>]]></content>
     
@@ -389,6 +399,8 @@
     </summary>
     
     
+      <category term="MongoDB" scheme="https://log.playr.jp/tags/MongoDB/"/>
+    
   </entry>
   
   <entry>
@@ -396,7 +408,7 @@
     <link href="https://log.playr.jp/2016/02/21/MogoDB3-0-3-2.html"/>
     <id>https://log.playr.jp/2016/02/21/MogoDB3-0-3-2.html</id>
     <published>2016-02-21T10:38:08.000Z</published>
-    <updated>2018-05-13T10:39:04.086Z</updated>
+    <updated>2018-05-16T16:31:05.805Z</updated>
     
     <content type="html"><![CDATA[<p>開発環境のMongoDB（3.0）を3.2へアップデートした。<br>MogoDBを使ている以上はストレージエンジンをWiredTiger へ移行したいが、どうやら3.2 では<a href="https://docs.mongodb.org/manual/release-notes/3.2-compatibility/#default-storage-engine-change" target="_blank" rel="noopener">デフォルトで有効</a>となる模様。</p><ul><li><a href="https://docs.mongodb.org/manual/release-notes/3.2-upgrade/" target="_blank" rel="noopener">Upgrade MongoDB to 3.2 — MongoDB Manual 3.2</a></li></ul><p>これは好都合なので、3.2での動作検証をしっかりと行っていく方向で準備を進めることにした。</p><h2 id="yum-リポジトリを作成"><a href="#yum-リポジトリを作成" class="headerlink" title="yum リポジトリを作成"></a>yum リポジトリを作成</h2><p>MongoDB は既に3.0で運用していたので、今回は直接3.2 へ上げられる。<br>もし2.6以前を使用しているなら一度3.0へと上げなければならない模様。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.0 を 3.2 へ書き換え</span></span><br><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure><h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># もし起動しているならMongoを停止</span></span><br><span class="line">$ sudo systemctl stop mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新を確認</span></span><br><span class="line">$ yum check-update</span><br><span class="line"></span><br><span class="line">mongodb-org.x86_64                   3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-mongos.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-server.x86_64            3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-shell.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line">mongodb-org-tools.x86_64             3.2.3-1.el7                 Mongodb-org-3.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 実行</span></span><br><span class="line">$ sudo yum update</span><br></pre></td></tr></table></figure><p>これで最新のMongoDB3.2 系が入った。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mongo を起動</span></span><br><span class="line">$ sudo systemctl start mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># バージョンを確認</span></span><br><span class="line">$ mongo --version</span><br><span class="line"></span><br><span class="line">MongoDB shell version: 3.2.3</span><br></pre></td></tr></table></figure><p>早速Webアプリを起動しなおした感じでは、今のところ問題は発生してない。<br>色々な記事やデータを見る限り性能が上がるのは間違いなさそうなので、テスト結果をしっかりと確認・整備して作業を進めたい。</p>]]></content>
     
@@ -409,6 +421,8 @@
     
     </summary>
     
+    
+      <category term="MongoDB" scheme="https://log.playr.jp/tags/MongoDB/"/>
     
   </entry>
   

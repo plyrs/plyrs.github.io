@@ -8,21 +8,16 @@
     
     
     
-    <title>Hexo 3 - Playlog</title>
+    
+    
+    <title>Tag: AMP - Playlog</title>
 
+    
+    <meta name="robots" content="noindex">
     
 
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
 
-    
-    <meta name="description" content="このブログのリニューアルに伴い、Hexoのバージョンも3系へ上げた。 アップデートのやりかたは下記をこれを参考に。
-
-Hexo 3.0 How_to_Update?
-
-公式のアナウンスはこれ。
-
-Hexo 3.0 Released | Hexo
-Breaking Changes in Hexo 3.">
     
 
     
@@ -30,7 +25,7 @@ Breaking Changes in Hexo 3.">
     
 
     
-    <link rel="canonical" href="https://log.playr.jp/2015/11/15/Hexo3.html">
+    <link rel="canonical" href="/tags/AMP/">
     
     
     <style amp-custom>
@@ -40,42 +35,6 @@ Breaking Changes in Hexo 3.">
     
      
     
-     
-    
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "BlogPosting",
-            "mainEntityOfPage":{
-                "@type":"WebPage",
-                "@id":"https://log.playr.jp"
-            },
-            "headline": "Hexo 3",
-            "image": {
-                "@type": "ImageObject",
-                "url": "/img/700.png",
-                "width": 700,
-                "height": 700
-            },
-            "author": {
-                "@type": "Person",
-                "name": "Hirofumii"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Yourpublisher",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "/img/700.png",
-                    "width": 600,
-                    "height": 60
-                }
-            },
-            "datePublished": "2015-11-15T09:32:06.000Z",
-            "dateModified": "2018-05-16T16:34:10.303Z"
-        }
-    </script>
-
     
     
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -113,69 +72,34 @@ Breaking Changes in Hexo 3.">
     <main role="main">
         <div id="content">
             
-    
-    <article class="article post">
-	<header>
-	    
-            <div class="article__header__meta">
-                <time class="article__header__meta__time" datetime="2015-11-15T09:32:06.000Z">
-                    2015-11-15
-                </time>
-	        </div>
-	    
-	    
-    
-        <h1 class="article__header__title">
-            Hexo 3
-        </h1>
-    
 
-	</header>
-    <div class="article__entry">
-	    
-	    <p>このブログのリニューアルに伴い、Hexoのバージョンも3系へ上げた。</p>
-<p>アップデートのやりかたは下記をこれを参考に。</p>
-<ul>
-<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/#How_to_Update?" target="_blank" rel="noopener">Hexo 3.0 How_to_Update?</a></li>
-</ul>
-<p>公式のアナウンスはこれ。</p>
-<ul>
-<li><a href="https://hexo.io/news/2015/03/05/hexo-3-0-released/" target="_blank" rel="noopener">Hexo 3.0 Released | Hexo</a></li>
-<li><a href="https://github.com/hexojs/hexo/wiki/Breaking-Changes-in-Hexo-3.0#render-pipeline-changed" target="_blank" rel="noopener">Breaking Changes in Hexo 3.0 · hexojs/hexo Wiki</a></li>
-</ul>
-<p>詳しくは上記に載っているが、常用していたコアモジュールが外れたりコマンド周りが便利になったりと使用面でも幾分かの変化があった。</p>
-<p>このブログはGithub Page上へ配置されておりデプロイでgitを利用するため、<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>を用いるが、今回これもコアモジュールから外れたため別途インストールする必要があった。<br>静的サイトジェネレーターを同様の手法で運用している人は多いと思うので、この点は変更は注意が必要かと思われる。</p>
-<p>あとはコマンドの省略形が簡単に利用できるようになった。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ジェネレーター</span></span><br><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 変更を監視</span></span><br><span class="line">$ hexo g --watch</span><br><span class="line"></span><br><span class="line"><span class="comment"># ローカルサーバー起動</span></span><br><span class="line">$ hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># デプロイ</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>記事を書く以外に労力を使いたくないので、これは地味ながら便利である。</p>
-<p>ブログ周りはライブドアから始まって、アメーバ、てぃーだ、Wordpressと色々渡ってきたが、Hexoでとりあえず落ち着いている。なのでこのまま順調な発展を願うものである。</p>
 
-	    
-	</div>
-    <footer class="article__footer">
-	    
-	    
-<div class="tags">
+
+
+<div class="archive">
 	
-	<a href="/tags/Hexo/">#Hexo</a>
+		<h2 class="archive-title tag">AMP</h2>
+	
+
+	
+	<article class="post">
+		<div class="post-content">
+			<header>
+                <div class="article__header__meta">
+                    <time class="article__header__meta__time" datetime="2015-11-11T09:28:26.000Z">
+                        2015-11-11
+                    </time>
+				</div>
+				
+                <h1 class="article__header__title"><a href="/2015/11/11/AMPHTML.html">AMP HTML</a></h1>
+				
+			</header>
+		</div>
+	</article>
 	
 </div>
 
-	</footer>
-    
-    
-        <nav class="pagination">
-            
-            <a href="/2015/11/18/Metalsmith.html" class="pagination__prev">前へ</a>
-            
-            
-            <a href="/2015/11/14/NotoSansCJK.html" class="pagination__next">次へ</a>
-            
-        </nav>
-    
 
-
-</article>
 
         </div>
     </main>
